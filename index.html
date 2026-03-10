@@ -4,17 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pegasus Super App | Ionic 8 & Angular 18 Super App Architecture</title>
+    <title>Pegasus Super App | Engineering The Future of Logistics</title>
     <meta name="description"
-        content="Launch your Super App in weeks. The ultimate Ionic 8, Angular 18, and Capacitor 6 mono-repo for Taxi, Delivery, and Logistics.">
+        content="Launch your Super App in weeks. High-precision Ionic 8 & Angular 18 infrastructure.">
 
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@300;400;600;800&display=swap"
         rel="stylesheet">
 
     <script>
@@ -22,14 +19,16 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Archivo', 'sans-serif'],
+                        heading: ['Archivo Black', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            dark: '#020617', // Deep slate
-                            card: '#0f172a',
-                            blue: '#3b82f6', // Electric Blue
-                            green: '#10b981', // Emerald Green
+                        industry: {
+                            black: '#080808',
+                            dark: '#121212',
+                            yellow: '#FACC15',
+                            emerald: '#10B981',
+                            gray: '#262626',
                         }
                     }
                 }
@@ -39,417 +38,365 @@
 
     <style>
         body {
-            background-color: #020617;
-            color: #f8fafc;
+            background-color: #080808;
+            color: #E5E5E5;
+            background-image:
+                linear-gradient(#121212 1px, transparent 1px),
+                linear-gradient(90deg, #121212 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        .glass {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .brutalist-border {
+            border: 2px solid #262626;
         }
 
-        .gradient-text {
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .brutalist-card:hover {
+            border-color: #FACC15;
+            background-color: #0d0d0d;
+        }
+
+        .heavy-shadow {
+            box-shadow: 8px 8px 0px 0px #121212;
+        }
+
+        .heavy-shadow-yellow {
+            box-shadow: 8px 8px 0px 0px #FACC15;
+        }
+
+        .heavy-shadow-emerald {
+            box-shadow: 8px 8px 0px 0px #10B981;
+        }
+
+        .stencil-text {
+            -webkit-text-stroke: 1px #FACC15;
+            color: transparent;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        .accordion-item {
+            border-bottom: 2px solid #1a1a1a;
         }
 
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .accordion-content.active {
-            max-height: 200px;
-        }
-
-        .hover-lift {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-4px);
+            max-height: 300px;
+            padding-bottom: 2rem;
         }
     </style>
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans">
 
-    <!-- 1. HERO SECTION -->
-    <section class="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
-        <!-- Background Orbs -->
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-600/10 blur-[120px] rounded-full">
+    <!-- NAVIGATION OVERLAY -->
+    <nav class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center pointer-events-none">
+        <div class="bg-industry-black brutalist-border px-4 py-2 pointer-events-auto">
+            <span class="font-heading text-xl uppercase tracking-tighter">Pegasus <span
+                    class="text-industry-yellow">01</span></span>
         </div>
+        <div class="pointer-events-auto hidden md:block">
+            <a href="#pricing"
+                class="bg-industry-yellow text-black font-heading px-6 py-2 uppercase text-sm brutalist-border hover:bg-white transition-colors">Buy
+                License</a>
+        </div>
+    </nav>
 
-        <div class="relative z-10 max-w-5xl mx-auto text-center">
-            <div
-                class="inline-flex items-center px-3 py-1 mb-6 text-sm font-medium text-blue-400 rounded-full border border-blue-400/30 bg-blue-400/10 mb-8 animate-fade-in">
-                <span>Enterprise Super App Architecture</span>
+    <!-- 1. HERO SECTION (INDUSTRIAL BRUTALISM) -->
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="max-w-6xl w-full border-l-4 border-industry-yellow pl-8 md:pl-16">
+            <div class="text-xs font-bold uppercase tracking-widest text-industry-yellow mb-4 flex items-center">
+                <span class="w-12 h-px bg-industry-yellow mr-4"></span> SYSTEM VERSION 8.0.4 [STABLE]
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
-                Launch Your Super App in <span class="gradient-text">Weeks, Not Months.</span>
+            <h1 class="font-heading text-6xl md:text-9xl uppercase leading-[0.85] mb-8">
+                Build Fast.<br>
+                <span class="stencil-text">Deploy Power.</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                The complete <span class="text-slate-100 font-semibold">Ionic 8, Angular 18, and Capacitor 6</span>
-                mono-repo for Taxi, Parcel Delivery, and Logistics.
+            <p class="text-xl md:text-3xl max-w-2xl font-light text-slate-400 mb-12">
+                The high-torque <span class="text-white font-bold italic">Ionic 8 & Angular 18</span> mono-repo for
+                global logistics giants.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#pricing"
-                    class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20 active:scale-95 text-center">
-                    Buy Source Code ($50)
+            <div class="flex flex-wrap gap-6">
+                <a href="#pricing" class="group relative">
+                    <div
+                        class="absolute inset-0 bg-industry-yellow translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
+                    </div>
+                    <div
+                        class="relative bg-black brutalist-border p-6 font-heading uppercase text-lg inline-block transition-transform hover:translate-x-1 hover:translate-y-1">
+                        Dev License $50
+                    </div>
                 </a>
-                <a href="mailto:contact@pegasussuperapp.com?subject=Enterprise%20Setup%20Inquiry"
-                    class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-600/20 active:scale-95 text-center">
-                    Request Enterprise Setup
+                <a href="mailto:contact@pegasussuperapp.com" class="group relative">
+                    <div
+                        class="absolute inset-0 bg-industry-emerald translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform">
+                    </div>
+                    <div
+                        class="relative bg-black brutalist-border p-6 font-heading uppercase text-lg inline-block transition-transform hover:translate-x-1 hover:translate-y-1">
+                        Custom Quote
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- 2. SOCIAL PROOF & TECH STACK RIBBON -->
-    <div class="w-full border-y border-slate-800 bg-slate-900/30 py-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center">
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Frontend</span>
-                    <span class="text-lg font-bold">Ionic 8 & Angular 18</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Native</span>
-                    <span class="text-lg font-bold">Capacitor 6</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Backend</span>
-                    <span class="text-lg font-bold">Firebase & Node.js</span>
-                </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Database</span>
-                    <span class="text-lg font-bold">Firestore Real-time</span>
-                </div>
-            </div>
-            <div class="h-px w-full bg-slate-800/50 mb-8"></div>
-            <div class="flex flex-wrap justify-around gap-8 text-center">
-                <div>
-                    <div class="text-3xl font-black text-white">10,000+</div>
-                    <div class="text-sm text-slate-500 uppercase tracking-tighter">Demo Views</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-black text-white">150+</div>
-                    <div class="text-sm text-slate-500 uppercase tracking-tighter">Repo Clones</div>
-                </div>
-                <div>
-                    <div class="text-3xl font-black text-white">1,000+</div>
-                    <div class="text-sm text-slate-500 uppercase tracking-tighter">Beta Testers</div>
-                </div>
-            </div>
+    <!-- 2. SCROLLING MARQUEE (STACK) -->
+    <div class="w-full bg-industry-yellow text-black py-4 border-y-4 border-black marquee-container">
+        <div class="marquee-content font-heading text-2xl uppercase italic">
+            Ionic 8 • Angular 18 • Capacitor 6 • Firebase • Node.js • Firestore • Real-time Bidding • Global Routing •
+            Fleet Management • Ionic 8 • Angular 18 • Capacitor 6 • Firebase • Node.js • Firestore • Real-time Bidding •
+            Global Routing • Fleet Management •
         </div>
     </div>
 
-    <!-- 3. CORE FEATURES -->
-    <section class="py-24 px-6 bg-slate-950">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Industrial Strength Architecture</h2>
-                <p class="text-slate-400">Everything you need to launch a regional logistics giant.</p>
+    <!-- 3. CORE ARCHITECTURE (GRID SYSTEM) -->
+    <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-0 overflow-hidden brutalist-border">
+            <!-- Left Panel -->
+            <div class="md:col-span-4 p-12 bg-industry-dark md:border-r-2 brutalist-border">
+                <h2 class="font-heading text-5xl uppercase leading-none mb-8">Core<br><span
+                        class="text-industry-yellow">Engine</span></h2>
+                <div class="space-y-12">
+                    <div class="flex gap-4">
+                        <div class="font-heading text-3xl text-industry-gray">01</div>
+                        <div>
+                            <h3 class="font-bold text-xl uppercase mb-2">Bidding Logic</h3>
+                            <p class="text-slate-500">Peer-to-peer fare negotiation engine. Real-time driver-rider
+                                handshake.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="font-heading text-3xl text-industry-gray">02</div>
+                        <div>
+                            <h3 class="font-bold text-xl uppercase mb-2">Multi-Tenant</h3>
+                            <p class="text-slate-500">Instantly toggle between Taxi and Parcel Delivery service
+                                providers.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="font-heading text-3xl text-industry-gray">03</div>
+                        <div>
+                            <h3 class="font-bold text-xl uppercase mb-2">Admin Fleet</h3>
+                            <p class="text-slate-500">Live geolocation tracking with dynamic zone-based pricing control.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="glass p-8 rounded-2xl hover-lift">
-                    <div
-                        class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4">inDrive Bidding Engine</h3>
-                    <p class="text-slate-400 leading-relaxed">Revolutionary real-time fare negotiation. Allow riders to
-                        propose fares and drivers to counter-bid instantly, maximizing fleet efficiency.</p>
+            <!-- Right Panel (Stats & Visual) -->
+            <div class="md:col-span-8 p-12 flex flex-col justify-between">
+                <div class="text-slate-400 text-sm font-mono mb-12">
+                    [SYSTEM_METRICS]: ONLINE<br>
+                    [VERIFIED_CLONES]: 150+<br>
+                    [BETA_USERS]: 1,000+
                 </div>
-                <!-- Feature 2 -->
-                <div class="glass p-8 rounded-2xl hover-lift">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
                     <div
-                        class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
-                            </path>
-                        </svg>
+                        class="p-8 brutalist-border bg-industry-black hover:bg-industry-yellow hover:text-black transition-all">
+                        <div class="text-xl font-bold mb-4 uppercase">10k+ Views</div>
+                        <p class="opacity-70 text-sm">Our demo environment has been stress-tested by thousands of global
+                            founders.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Multi-Service Dispatch</h3>
-                    <p class="text-slate-400 leading-relaxed">A true "Super App" framework. Switch between
-                        high-precision Taxi routing and complex Parcel Delivery logistics with a single tap.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="glass p-8 rounded-2xl hover-lift">
-                    <div
-                        class="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                            </path>
-                        </svg>
+                    <div class="p-8 brutalist-border border-industry-yellow">
+                        <div class="text-xl font-bold mb-4 uppercase text-industry-yellow">Zero Junk</div>
+                        <p class="opacity-70 text-sm">Pure enterprise architecture. No bloated libraries. No complex
+                            setups.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Role-Based Admin</h3>
-                    <p class="text-slate-400 leading-relaxed">God-mode control for your business. Full fleet tracking,
-                        promo code management, and dynamic peak-hour pricing algorithms.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. DUAL PRICING MATRIX -->
-    <section id="pricing" class="py-24 px-6 relative">
+    <!-- 4. PRICING MATRIX (ASYMMETRICAL) -->
+    <section id="pricing" class="py-32 px-6 bg-industry-black">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Choose Your Path</h2>
-                <p class="text-slate-400 text-lg">Whether you're building it yourself or want a hands-off launch.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Developer License -->
-                <div class="relative group">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-b from-blue-600 to-transparent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
-                    </div>
-                    <div class="relative bg-slate-900 border border-slate-800 p-10 rounded-2xl h-full flex flex-col">
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-bold mb-2">Developer License</h3>
-                            <div class="text-4xl font-extrabold text-blue-500 mb-4">$50 <span
-                                    class="text-lg text-slate-500 font-normal">/one-time</span></div>
-                            <p class="text-slate-400">Perfect for indie hackers and developers.</p>
-                        </div>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Full Mono-repo Source Code
-                            </li>
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Raw SCSS & Design Tokens
-                            </li>
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Firebase Cloud Functions Logic
-                            </li>
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Full Setup Documentation
-                            </li>
+            <div class="flex flex-col md:flex-row gap-16 items-start">
+                <!-- Card 1 -->
+                <div class="w-full md:w-1/2 p-1 bg-white">
+                    <div class="bg-industry-dark brutalist-border p-12 relative overflow-hidden">
+                        <div class="font-heading text-8xl absolute -top-10 -right-10 text-white opacity-5">01</div>
+                        <div class="text-xs font-bold uppercase tracking-widest text-industry-yellow mb-8">BUILD IT
+                            YOURSELF</div>
+                        <h3 class="font-heading text-5xl uppercase mb-4">Dev License</h3>
+                        <div class="text-6xl font-heading mb-12">$50</div>
+                        <ul class="space-y-4 mb-20 text-slate-400">
+                            <li class="flex items-center"><span class="w-4 h-1 bg-industry-yellow mr-4"></span> Full
+                                Source Code</li>
+                            <li class="flex items-center"><span class="w-4 h-1 bg-industry-yellow mr-4"></span> Raw SCSS
+                                Architecture</li>
+                            <li class="flex items-center"><span class="w-4 h-1 bg-industry-yellow mr-4"></span> Firebase
+                                Configs</li>
+                            <li class="flex items-center"><span class="w-4 h-1 bg-industry-yellow mr-4"></span> Git
+                                Repository Access</li>
                         </ul>
                         <button
-                            class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">Purchase
-                            Source Code</button>
+                            class="w-full bg-industry-yellow text-black font-heading py-6 px-12 uppercase text-xl hover:bg-white transition-colors">Select
+                            Tier</button>
                     </div>
                 </div>
-
-                <!-- Enterprise Launch -->
-                <div class="relative group">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-b from-emerald-600 to-transparent rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000">
-                    </div>
-                    <div
-                        class="relative bg-slate-900 border border-emerald-900/50 p-10 rounded-2xl h-full flex flex-col">
+                <!-- Card 2 -->
+                <div class="w-full md:w-1/2 md:mt-24">
+                    <div class="bg-industry-emerald brutalist-border p-12 text-black">
                         <div
-                            class="absolute top-6 right-6 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full uppercase tracking-tighter">
-                            Full Service</div>
-                        <div class="mb-8">
-                            <h3 class="text-2xl font-bold mb-2">Enterprise Launch</h3>
-                            <div class="text-4xl font-extrabold text-emerald-500 mb-4">Custom <span
-                                    class="text-lg text-slate-500 font-normal">Setup</span></div>
-                            <p class="text-slate-400">Everything handled by our engineering team.</p>
-                        </div>
-                        <ul class="space-y-4 mb-10 flex-grow">
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Done-For-You Firebase Setup
+                            class="text-xs font-bold uppercase tracking-widest bg-black text-industry-emerald px-2 py-1 inline-block mb-8">
+                            FULL SERVICE</div>
+                        <h3 class="font-heading text-5xl uppercase mb-4 leading-none">Enterprise<br>Setup</h3>
+                        <div class="text-2xl font-bold uppercase mb-12 tracking-tighter">[ CUSTOM QUOTE ]</div>
+                        <ul class="space-y-4 mb-20 text-black/70">
+                            <li class="flex items-center"><span class="w-4 h-1 bg-black mr-4"></span> Done-for-you Setup
                             </li>
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Google Maps API Integration
+                            <li class="flex items-center"><span class="w-4 h-1 bg-black mr-4"></span> Branding
+                                Conversion</li>
+                            <li class="flex items-center"><span class="w-4 h-1 bg-black mr-4"></span> App Store Launch
                             </li>
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                White-label Branding (Logo/Colors)
-                            </li>
-                            <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                App Store & Play Store Deployment
+                            <li class="flex items-center"><span class="w-4 h-1 bg-black mr-4"></span> Maps Integration
                             </li>
                         </ul>
-                        <a href="mailto:contact@pegasussuperapp.com?subject=Enterprise%20Setup%20Quote"
-                            class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all text-center">Get
-                            a Custom Quote</a>
+                        <a href="mailto:contact@pegasussuperapp.com"
+                            class="block text-center w-full bg-black text-industry-emerald font-heading py-6 px-12 uppercase text-xl hover:bg-white hover:text-black transition-colors">Start
+                            Engagement</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. TECHNICAL DUE DILIGENCE (FAQ) -->
-    <section class="py-24 px-6 bg-slate-900/20">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+    <!-- 5. FAQ (ACORDIAN) -->
+    <section class="py-32 px-6 border-t-2 border-industry-gray">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-heading text-4xl m-16 uppercase text-center">Protocol FAQ</h2>
 
-            <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="border border-slate-800 rounded-xl overflow-hidden glass">
-                    <button
-                        class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors"
-                        onclick="toggleAccordion(1)">
-                        <span class="font-semibold">Do I get full source code and commercial rights?</span>
-                        <svg id="icon-1" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
+            <div class="space-y-0">
+                <div class="accordion-item">
+                    <button class="w-full py-10 flex justify-between items-center group" onclick="toggleAccordion(1)">
+                        <span
+                            class="font-heading text-xl uppercase group-hover:text-industry-yellow transition-colors text-left text-white">How
+                            fast is the deployment?</span>
+                        <div class="w-10 h-10 brutalist-border flex items-center justify-center font-bold text-white group-hover:text-industry-yellow group-hover:border-industry-yellow transition-all"
+                            id="plus-1">+</div>
                     </button>
                     <div id="content-1" class="accordion-content">
-                        <div class="p-6 text-slate-400 border-t border-slate-800">
-                            Yes. Upon purchase, you receive the complete source code with full white-label rights. You
-                            are free to modify, rebrand, and deploy it for your own business or commercial clients.
-                        </div>
+                        <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
+                            The source code is delivered instantly. For Enterprise setups, we move through the pipeline
+                            in 14-21 business days from kickoff to deployment.
+                        </p>
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="border border-slate-800 rounded-xl overflow-hidden glass">
-                    <button
-                        class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors"
-                        onclick="toggleAccordion(2)">
-                        <span class="font-semibold">Are there hidden plugin fees?</span>
-                        <svg id="icon-2" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
+                <div class="accordion-item">
+                    <button class="w-full py-10 flex justify-between items-center group" onclick="toggleAccordion(2)">
+                        <span
+                            class="font-heading text-xl uppercase group-hover:text-industry-yellow transition-colors text-left text-white">Is
+                            the source code white-label?</span>
+                        <div class="w-10 h-10 brutalist-border flex items-center justify-center font-bold text-white group-hover:text-industry-yellow group-hover:border-industry-yellow transition-all"
+                            id="plus-2">+</div>
                     </button>
                     <div id="content-2" class="accordion-content">
-                        <div class="p-6 text-slate-400 border-t border-slate-800">
-                            No. The architecture is built using standard Ionic/Angular libraries and Capacitor plugins.
-                            We have ensured zero dependence on paid 3rd-party plugins. Your only costs are your own
-                            infrastructure (Firebase/Google Maps) after reaching their free tiers.
-                        </div>
+                        <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
+                            100%. You own the build. You can rebrand every pixel, from the splash screen to the admin
+                            console, without any royalty fees.
+                        </p>
                     </div>
                 </div>
 
-                <!-- FAQ 3 -->
-                <div class="border border-slate-800 rounded-xl overflow-hidden glass">
-                    <button
-                        class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors"
-                        onclick="toggleAccordion(3)">
-                        <span class="font-semibold">Can I connect my own Firebase account?</span>
-                        <svg id="icon-3" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
+                <div class="accordion-item">
+                    <button class="w-full py-10 flex justify-between items-center group" onclick="toggleAccordion(3)">
+                        <span
+                            class="font-heading text-xl uppercase group-hover:text-industry-yellow transition-colors text-left text-white">What
+                            about scale?</span>
+                        <div class="w-10 h-10 brutalist-border flex items-center justify-center font-bold text-white group-hover:text-industry-yellow group-hover:border-industry-yellow transition-all"
+                            id="plus-3">+</div>
                     </button>
                     <div id="content-3" class="accordion-content">
-                        <div class="p-6 text-slate-400 border-t border-slate-800">
-                            Yes, the project is fully modular. You simply update the `environment.ts` files with your
-                            own Firebase configuration keys and run the deployment script.
-                        </div>
+                        <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
+                            Built on serverless Firebase technology. Whether you have 10 drivers or 10,000, the
+                            infrastructure scales automatically without you having to manage a single server.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. LEGAL & COMPLIANCE FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-16 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div class="col-span-1 md:col-span-2">
-                <div class="text-2xl font-black mb-6 uppercase tracking-tighter">Pegasus <span
-                        class="text-blue-500">Super App</span></div>
-                <p class="text-slate-500 max-w-sm mb-6">
-                    The elite Ionic & Angular base for global logistics startups, ride-sharing empires, and enterprise
-                    dispatch systems.
+    <!-- 6. FOOTER -->
+    <footer class="bg-industry-dark py-24 px-6 brutalist-border m-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-16">
+            <div class="max-w-sm">
+                <div class="font-heading text-4xl uppercase mb-8">Pegasus <span
+                        class="text-industry-yellow">Engine</span></div>
+                <p class="text-slate-500 mb-8 uppercase text-xs font-bold tracking-widest">Global Logistics
+                    Infrastructure Lab</p>
+                <p class="text-slate-400">Engineering the machinery that powers the next generation of logistics giants.
                 </p>
-                <div class="text-slate-600 text-sm">
-                    &copy; 2024 Pegasus Super App. All rights reserved worldwide.
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-16">
+                <div>
+                    <h4
+                        class="font-heading text-sm uppercase text-white mb-8 underline decoration-industry-yellow underline-offset-8">
+                        Fleet Tools</h4>
+                    <ul class="space-y-4 text-sm font-bold uppercase tracking-tighter">
+                        <li><a href="https://demo.pegasussuperapp.com" class="hover:text-industry-yellow">Live Build</a>
+                        </li>
+                        <li><a href="https://github.com/blinks32/pegasus-superapp-monorepo-"
+                                class="hover:text-industry-yellow">The Repo</a></li>
+                        <li><a href="https://docs.pegasussuperapp.com" class="hover:text-industry-yellow">Docs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4
+                        class="font-heading text-sm uppercase text-white mb-8 underline decoration-industry-emerald underline-offset-8">
+                        Security</h4>
+                    <ul class="space-y-4 text-sm font-bold uppercase tracking-tighter">
+                        <li><a href="privacy.html" class="hover:text-industry-emerald">Privacy</a></li>
+                        <li><a href="terms.html" class="hover:text-industry-emerald">Terms</a></li>
+                        <li><a href="refund.html" class="hover:text-industry-emerald">Refunds</a></li>
+                    </ul>
                 </div>
             </div>
-            <div>
-                <h4 class="font-bold mb-6">Resources</h4>
-                <ul class="space-y-4 text-slate-400">
-                    <li><a href="https://demo.pegasussuperapp.com" class="hover:text-blue-400 transition-colors">Live
-                            Demo</a></li>
-                    <li><a href="https://github.com/blinks32/pegasus-superapp-monorepo-"
-                            class="hover:text-blue-400 transition-colors">GitHub Repository</a></li>
-                    <li><a href="https://docs.pegasussuperapp.com"
-                            class="hover:text-blue-400 transition-colors">Documentation</a></li>
-                    <li><a href="mailto:affiliates@pegasussuperapp.com"
-                            class="hover:text-blue-400 transition-colors">Affiliate Program</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6">Legal</h4>
-                <ul class="space-y-4 text-slate-400">
-                    <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="refund.html" class="hover:text-blue-400 transition-colors">Refund & Cancellation</a>
-                    </li>
-                    <li><a href="terms.html" class="hover:text-blue-400 transition-colors">Terms of Service</a></li>
-                </ul>
-            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto mt-24 pt-8 border-t border-industry-gray text-xs font-bold font-mono opacity-30 uppercase">
+            &copy; 2024 PEGASUS SUPER APP // UNIT-32 // ALL RIGHTS RESERVED
         </div>
     </footer>
 
     <script>
         function toggleAccordion(id) {
             const content = document.getElementById(`content-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
+            const plus = document.getElementById(`plus-${id}`);
 
-            // Toggle active class
             content.classList.toggle('active');
 
-            // Rotate icon
             if (content.classList.contains('active')) {
-                icon.style.transform = 'rotate(180deg)';
-                content.style.maxHeight = content.scrollHeight + 'px';
+                plus.innerText = '-';
             } else {
-                icon.style.transform = 'rotate(0deg)';
-                content.style.maxHeight = '0';
+                plus.innerText = '+';
             }
         }
     </script>
-    <!-- Vibe Coded Deployment Hook -->
+    <!-- Pegasus Super App Deployment Hook -->
 </body>
 
 </html>
