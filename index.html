@@ -110,24 +110,75 @@
     </section>
 
     <!-- 2. SOCIAL PROOF & TECH STACK RIBBON -->
-    <div class="w-full border-y border-slate-800 bg-slate-900/30 py-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-center">
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Frontend</span>
-                    <span class="text-lg font-bold">Ionic 8 & Angular 18</span>
+    <div class="w-full border-y border-slate-800 bg-slate-900/30 py-12 relative overflow-hidden">
+        <!-- Subtle Grid Pattern Overlay -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+            style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <!-- Frontend -->
+                <div class="flex flex-col items-center group">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-6">Frontend
+                        Engine</span>
+                    <div class="flex gap-8 items-center">
+                        <div class="flex flex-col items-center gap-3">
+                            <img src="https://cdn.worldvectorlogo.com/logos/ionic-icon.svg" alt="Ionic"
+                                class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                            <span
+                                class="text-[10px] font-bold text-slate-600 group-hover:text-blue-400 transition-colors">IONIC
+                                8</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <img src="https://cdn.worldvectorlogo.com/logos/angular-icon.svg" alt="Angular"
+                                class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                            <span
+                                class="text-[10px] font-bold text-slate-600 group-hover:text-red-500 transition-colors">NG
+                                18</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Native</span>
-                    <span class="text-lg font-bold">Capacitor 6</span>
+                <!-- Native -->
+                <div class="flex flex-col items-center group">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-6">Native
+                        Bridge</span>
+                    <div class="flex flex-col items-center gap-3">
+                        <img src="https://cdn.worldvectorlogo.com/logos/capacitor.svg" alt="Capacitor"
+                            class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                        <span
+                            class="text-[10px] font-bold text-slate-600 group-hover:text-blue-500 transition-colors">CAP
+                            6</span>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Backend</span>
-                    <span class="text-lg font-bold">Firebase & Node.js</span>
+                <!-- Backend -->
+                <div class="flex flex-col items-center group">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-6">Cloud
+                        Infrastructure</span>
+                    <div class="flex gap-8 items-center">
+                        <div class="flex flex-col items-center gap-3">
+                            <img src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase"
+                                class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                            <span
+                                class="text-[10px] font-bold text-slate-600 group-hover:text-orange-500 transition-colors">FIREBASE</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js"
+                                class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                            <span
+                                class="text-[10px] font-bold text-slate-600 group-hover:text-green-500 transition-colors">NODE.JS</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center">
-                    <span class="text-sm uppercase tracking-widest text-slate-500 font-bold mb-2">Database</span>
-                    <span class="text-lg font-bold">Firestore Real-time</span>
+                <!-- Database -->
+                <div class="flex flex-col items-center group">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-6">Real-time
+                        Data</span>
+                    <div class="flex flex-col items-center gap-3">
+                        <img src="https://cdn.worldvectorlogo.com/logos/google-cloud-firestore.svg" alt="Firestore"
+                            class="w-10 h-10 grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110">
+                        <span
+                            class="text-[10px] font-bold text-slate-600 group-hover:text-orange-600 transition-colors">FIRESTORE</span>
+                    </div>
                 </div>
             </div>
             <div class="h-px w-full bg-slate-800/50 mb-8"></div>
@@ -450,6 +501,18 @@
         }
     </script>
     <!-- Vibe Coded Deployment Hook -->
+    <!-- Tawk.to Live Chat -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69aea8f364f8ec1c34a508bf/1jj947uib';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
 </body>
 
 </html>
