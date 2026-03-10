@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Coded | Ionic 8 & Angular 18 Super App Architecture</title>
-    <meta name="description" content="Launch your Super App in weeks. The ultimate Ionic 8, Angular 18, and Capacitor 6 mono-repo for Taxi, Delivery, and Logistics.">
-    
+    <title>Pegasus Super App | Ionic 8 & Angular 18 Super App Architecture</title>
+    <meta name="description"
+        content="Launch your Super App in weeks. The ultimate Ionic 8, Angular 18, and Capacitor 6 mono-repo for Taxi, Delivery, and Logistics.">
+
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -39,55 +42,67 @@
             background-color: #020617;
             color: #f8fafc;
         }
+
         .glass {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .gradient-text {
             background: linear-gradient(to right, #ffffff, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
+
         .accordion-content.active {
             max-height: 200px;
         }
+
         .hover-lift {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
         .hover-lift:hover {
             transform: translateY(-4px);
         }
     </style>
 </head>
+
 <body class="font-sans antialiased">
 
     <!-- 1. HERO SECTION -->
     <section class="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
         <!-- Background Orbs -->
         <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-600/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-600/10 blur-[120px] rounded-full">
+        </div>
 
         <div class="relative z-10 max-w-5xl mx-auto text-center">
-            <div class="inline-flex items-center px-3 py-1 mb-6 text-sm font-medium text-blue-400 rounded-full border border-blue-400/30 bg-blue-400/10 mb-8 animate-fade-in">
+            <div
+                class="inline-flex items-center px-3 py-1 mb-6 text-sm font-medium text-blue-400 rounded-full border border-blue-400/30 bg-blue-400/10 mb-8 animate-fade-in">
                 <span>Enterprise Super App Architecture</span>
             </div>
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight">
                 Launch Your Super App in <span class="gradient-text">Weeks, Not Months.</span>
             </h1>
             <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                The complete <span class="text-slate-100 font-semibold">Ionic 8, Angular 18, and Capacitor 6</span> mono-repo for Taxi, Parcel Delivery, and Logistics.
+                The complete <span class="text-slate-100 font-semibold">Ionic 8, Angular 18, and Capacitor 6</span>
+                mono-repo for Taxi, Parcel Delivery, and Logistics.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#pricing" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20 active:scale-95">
+                <a href="#pricing"
+                    class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-blue-600/20 active:scale-95 text-center">
                     Buy Source Code ($50)
                 </a>
-                <a href="#pricing" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-600/20 active:scale-95">
+                <a href="mailto:contact@pegasussuperapp.com?subject=Enterprise%20Setup%20Inquiry"
+                    class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-600/20 active:scale-95 text-center">
                     Request Enterprise Setup
                 </a>
             </div>
@@ -143,27 +158,45 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="glass p-8 rounded-2xl hover-lift">
-                    <div class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div
+                        class="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4">inDrive Bidding Engine</h3>
-                    <p class="text-slate-400 leading-relaxed">Revolutionary real-time fare negotiation. Allow riders to propose fares and drivers to counter-bid instantly, maximizing fleet efficiency.</p>
+                    <p class="text-slate-400 leading-relaxed">Revolutionary real-time fare negotiation. Allow riders to
+                        propose fares and drivers to counter-bid instantly, maximizing fleet efficiency.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="glass p-8 rounded-2xl hover-lift">
-                    <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                    <div
+                        class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7">
+                            </path>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Multi-Service Dispatch</h3>
-                    <p class="text-slate-400 leading-relaxed">A true "Super App" framework. Switch between high-precision Taxi routing and complex Parcel Delivery logistics with a single tap.</p>
+                    <p class="text-slate-400 leading-relaxed">A true "Super App" framework. Switch between
+                        high-precision Taxi routing and complex Parcel Delivery logistics with a single tap.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="glass p-8 rounded-2xl hover-lift">
-                    <div class="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                    <div
+                        class="w-12 h-12 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                        </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Role-Based Admin</h3>
-                    <p class="text-slate-400 leading-relaxed">God-mode control for your business. Full fleet tracking, promo code management, and dynamic peak-hour pricing algorithms.</p>
+                    <p class="text-slate-400 leading-relaxed">God-mode control for your business. Full fleet tracking,
+                        promo code management, and dynamic peak-hour pricing algorithms.</p>
                 </div>
             </div>
         </div>
@@ -176,68 +209,113 @@
                 <h2 class="text-4xl font-bold mb-4">Choose Your Path</h2>
                 <p class="text-slate-400 text-lg">Whether you're building it yourself or want a hands-off launch.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <!-- Developer License -->
                 <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-b from-blue-600 to-transparent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-b from-blue-600 to-transparent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
+                    </div>
                     <div class="relative bg-slate-900 border border-slate-800 p-10 rounded-2xl h-full flex flex-col">
                         <div class="mb-8">
                             <h3 class="text-2xl font-bold mb-2">Developer License</h3>
-                            <div class="text-4xl font-extrabold text-blue-500 mb-4">$50 <span class="text-lg text-slate-500 font-normal">/one-time</span></div>
+                            <div class="text-4xl font-extrabold text-blue-500 mb-4">$50 <span
+                                    class="text-lg text-slate-500 font-normal">/one-time</span></div>
                             <p class="text-slate-400">Perfect for indie hackers and developers.</p>
                         </div>
                         <ul class="space-y-4 mb-10 flex-grow">
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 Full Mono-repo Source Code
                             </li>
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 Raw SCSS & Design Tokens
                             </li>
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 Firebase Cloud Functions Logic
                             </li>
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 Full Setup Documentation
                             </li>
                         </ul>
-                        <button class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">Purchase Source Code</button>
+                        <button
+                            class="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all">Purchase
+                            Source Code</button>
                     </div>
                 </div>
 
                 <!-- Enterprise Launch -->
                 <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-b from-emerald-600 to-transparent rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-                    <div class="relative bg-slate-900 border border-emerald-900/50 p-10 rounded-2xl h-full flex flex-col">
-                        <div class="absolute top-6 right-6 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full uppercase tracking-tighter">Full Service</div>
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-b from-emerald-600 to-transparent rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000">
+                    </div>
+                    <div
+                        class="relative bg-slate-900 border border-emerald-900/50 p-10 rounded-2xl h-full flex flex-col">
+                        <div
+                            class="absolute top-6 right-6 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold rounded-full uppercase tracking-tighter">
+                            Full Service</div>
                         <div class="mb-8">
                             <h3 class="text-2xl font-bold mb-2">Enterprise Launch</h3>
-                            <div class="text-4xl font-extrabold text-emerald-500 mb-4">Custom <span class="text-lg text-slate-500 font-normal">Setup</span></div>
+                            <div class="text-4xl font-extrabold text-emerald-500 mb-4">Custom <span
+                                    class="text-lg text-slate-500 font-normal">Setup</span></div>
                             <p class="text-slate-400">Everything handled by our engineering team.</p>
                         </div>
                         <ul class="space-y-4 mb-10 flex-grow">
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 Done-For-You Firebase Setup
                             </li>
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 Google Maps API Integration
                             </li>
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 White-label Branding (Logo/Colors)
                             </li>
                             <li class="flex items-center text-slate-300">
-                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg class="w-5 h-5 text-emerald-500 mr-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
                                 App Store & Play Store Deployment
                             </li>
                         </ul>
-                        <button class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all">Get a Custom Quote</button>
+                        <a href="mailto:contact@pegasussuperapp.com?subject=Enterprise%20Setup%20Quote"
+                            class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all text-center">Get
+                            a Custom Quote</a>
                     </div>
                 </div>
             </div>
@@ -248,43 +326,65 @@
     <section class="py-24 px-6 bg-slate-900/20">
         <div class="max-w-3xl mx-auto">
             <h2 class="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-            
+
             <div class="space-y-4">
                 <!-- FAQ 1 -->
                 <div class="border border-slate-800 rounded-xl overflow-hidden glass">
-                    <button class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors" onclick="toggleAccordion(1)">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors"
+                        onclick="toggleAccordion(1)">
                         <span class="font-semibold">Do I get full source code and commercial rights?</span>
-                        <svg id="icon-1" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg id="icon-1" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
                     </button>
                     <div id="content-1" class="accordion-content">
                         <div class="p-6 text-slate-400 border-t border-slate-800">
-                            Yes. Upon purchase, you receive the complete source code with full white-label rights. You are free to modify, rebrand, and deploy it for your own business or commercial clients.
+                            Yes. Upon purchase, you receive the complete source code with full white-label rights. You
+                            are free to modify, rebrand, and deploy it for your own business or commercial clients.
                         </div>
                     </div>
                 </div>
 
                 <!-- FAQ 2 -->
                 <div class="border border-slate-800 rounded-xl overflow-hidden glass">
-                    <button class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors" onclick="toggleAccordion(2)">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors"
+                        onclick="toggleAccordion(2)">
                         <span class="font-semibold">Are there hidden plugin fees?</span>
-                        <svg id="icon-2" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg id="icon-2" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
                     </button>
                     <div id="content-2" class="accordion-content">
                         <div class="p-6 text-slate-400 border-t border-slate-800">
-                            No. The architecture is built using standard Ionic/Angular libraries and Capacitor plugins. We have ensured zero dependence on paid 3rd-party plugins. Your only costs are your own infrastructure (Firebase/Google Maps) after reaching their free tiers.
+                            No. The architecture is built using standard Ionic/Angular libraries and Capacitor plugins.
+                            We have ensured zero dependence on paid 3rd-party plugins. Your only costs are your own
+                            infrastructure (Firebase/Google Maps) after reaching their free tiers.
                         </div>
                     </div>
                 </div>
 
                 <!-- FAQ 3 -->
                 <div class="border border-slate-800 rounded-xl overflow-hidden glass">
-                    <button class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors" onclick="toggleAccordion(3)">
+                    <button
+                        class="w-full p-6 text-left flex justify-between items-center bg-slate-800/20 hover:bg-slate-800/40 transition-colors"
+                        onclick="toggleAccordion(3)">
                         <span class="font-semibold">Can I connect my own Firebase account?</span>
-                        <svg id="icon-3" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg id="icon-3" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
                     </button>
                     <div id="content-3" class="accordion-content">
                         <div class="p-6 text-slate-400 border-t border-slate-800">
-                            Yes, the project is fully modular. You simply update the `environment.ts` files with your own Firebase configuration keys and run the deployment script.
+                            Yes, the project is fully modular. You simply update the `environment.ts` files with your
+                            own Firebase configuration keys and run the deployment script.
                         </div>
                     </div>
                 </div>
@@ -296,29 +396,36 @@
     <footer class="bg-slate-950 border-t border-slate-800 py-16 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="col-span-1 md:col-span-2">
-                <div class="text-2xl font-black mb-6">VIBE <span class="text-blue-500">CODED</span></div>
+                <div class="text-2xl font-black mb-6 uppercase tracking-tighter">Pegasus <span
+                        class="text-blue-500">Super App</span></div>
                 <p class="text-slate-500 max-w-sm mb-6">
-                    A premium software engineering house focused on high-performance mobile architectures and enterprise logistics solutions.
+                    The elite Ionic & Angular base for global logistics startups, ride-sharing empires, and enterprise
+                    dispatch systems.
                 </p>
                 <div class="text-slate-600 text-sm">
-                    &copy; 2024 Vibe Coded. All rights reserved worldwide.
+                    &copy; 2024 Pegasus Super App. All rights reserved worldwide.
                 </div>
             </div>
             <div>
                 <h4 class="font-bold mb-6">Resources</h4>
                 <ul class="space-y-4 text-slate-400">
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Live Demo</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">GitHub Repository</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Documentation</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Affiliate Program</a></li>
+                    <li><a href="https://demo.pegasussuperapp.com" class="hover:text-blue-400 transition-colors">Live
+                            Demo</a></li>
+                    <li><a href="https://github.com/blinks32/pegasus-superapp-monorepo-"
+                            class="hover:text-blue-400 transition-colors">GitHub Repository</a></li>
+                    <li><a href="https://docs.pegasussuperapp.com"
+                            class="hover:text-blue-400 transition-colors">Documentation</a></li>
+                    <li><a href="mailto:affiliates@pegasussuperapp.com"
+                            class="hover:text-blue-400 transition-colors">Affiliate Program</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold mb-6">Legal</h4>
                 <ul class="space-y-4 text-slate-400">
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Refund & Cancellation</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a></li>
+                    <li><a href="privacy.html" class="hover:text-blue-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="refund.html" class="hover:text-blue-400 transition-colors">Refund & Cancellation</a>
+                    </li>
+                    <li><a href="terms.html" class="hover:text-blue-400 transition-colors">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
@@ -328,10 +435,10 @@
         function toggleAccordion(id) {
             const content = document.getElementById(`content-${id}`);
             const icon = document.getElementById(`icon-${id}`);
-            
+
             // Toggle active class
             content.classList.toggle('active');
-            
+
             // Rotate icon
             if (content.classList.contains('active')) {
                 icon.style.transform = 'rotate(180deg)';
@@ -342,6 +449,7 @@
             }
         }
     </script>
-<!-- Vibe Coded Deployment Hook -->
+    <!-- Vibe Coded Deployment Hook -->
 </body>
+
 </html>
