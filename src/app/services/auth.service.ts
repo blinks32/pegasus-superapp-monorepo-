@@ -1,70 +1,100 @@
 import { Injectable, inject, signal } from '@angular/core';
-import {
-  Auth,
-  GoogleAuthProvider,
-  User,
-  onAuthStateChanged,
-  signInAnonymously,
-  signInWithRedirect,
-  signOut,
-} from '@angular/fire/auth';
+import { Auth, authState, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
+import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
-@Injectable({ providedIn: 'root' })
+export interface UserProfile {
+  uid: string;
+  email: string | null;
+  displayName: string | null;
+  photoURL: string | null;
+  createdAt: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   private auth = inject(Auth);
+  private firestore = inject(Firestore);
   private router = inject(Router);
 
-  /** Reactive current user signal */
-  readonly currentUser = signal<User | null>(null);
-  readonly isLoggedIn = signal(false);
-  readonly isLoading = signal(true);
+  currentUser = signal<User | null>(null);
+  userProfile = signal<UserProfile | null>(null);
 
   constructor() {
-    onAuthStateChanged(this.auth, (user) => {
+    authState(this.auth).subscribe(async (user) => {
       this.currentUser.set(user);
-      this.isLoggedIn.set(!!user);
-      this.isLoading.set(false);
+      if (user) {
+        await this.syncUserProfile(user);
+      } else {
+        this.userProfile.set(null);
+      }
     });
   }
 
-  /** Sign in with Google */
-  async signInWithGoogle(): Promise<void> {
+  private async syncUserProfile(user: User) {
+    const userRef = doc(this.firestore, `users/${user.uid}`);
+    const snap = await getDoc(userRef);
+    
+    if (!snap.exists()) {
+      const profile: UserProfile = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName || 'selljustcode user',
+        photoURL: user.photoURL,
+        createdAt: new Date().toISOString()
+      };
+      await setDoc(userRef, profile);
+      this.userProfile.set(profile);
+    } else {
+      this.userProfile.set(snap.data() as UserProfile);
+    }
+  }
+
+  async loginWithGoogle() {
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithRedirect(this.auth, provider);
-      // Navigation happens automatically via effect in the login component when the page reloads
-    } catch (error) {
-      console.error('Google sign-in error:', error);
-      throw error;
+      await signInWithPopup(this.auth, provider);
+      this.router.navigate(['/']);
+    } catch (err) {
+      console.error('Google Sign In Error:', err);
+      throw err;
     }
   }
 
-  /** Sign in anonymously (Guest mode) */
-  async signInAsGuest(): Promise<void> {
+  async loginWithEmail(email: string, pass: string) {
     try {
-      await signInAnonymously(this.auth);
-    } catch (error) {
-      console.error('Anonymous sign-in error:', error);
-      throw error;
+      await signInWithEmailAndPassword(this.auth, email, pass);
+      this.router.navigate(['/']);
+    } catch (err) {
+      console.error('Email Login Error:', err);
+      throw err;
     }
   }
 
-  /** Sign out */
-  async logout(): Promise<void> {
+  async registerWithEmail(email: string, pass: string, name: string) {
+    try {
+      const cred = await createUserWithEmailAndPassword(this.auth, email, pass);
+      const userRef = doc(this.firestore, `users/${cred.user.uid}`);
+      const profile: UserProfile = {
+        uid: cred.user.uid,
+        email: cred.user.email,
+        displayName: name,
+        photoURL: null,
+        createdAt: new Date().toISOString()
+      };
+      await setDoc(userRef, profile);
+      this.userProfile.set(profile);
+      this.router.navigate(['/']);
+    } catch (err) {
+      console.error('Email Registration Error:', err);
+      throw err;
+    }
+  }
+
+  async logout() {
     await signOut(this.auth);
     this.router.navigate(['/login']);
-  }
-
-  /** Get the current user ID or null */
-  getUserId(): string | null {
-    return this.currentUser()?.uid ?? null;
-  }
-
-  /** Get display name */
-  getDisplayName(): string {
-    const user = this.currentUser();
-    if (!user) return 'Guest';
-    return user.displayName || (user.isAnonymous ? 'Guest Learner' : 'Student');
   }
 }

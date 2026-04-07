@@ -89,7 +89,7 @@ import { FormsModule } from '@angular/forms';
               <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
                 <defs><linearGradient id="fLogoGrad" x1="0" y1="0" x2="32" y2="32"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs>
                 <rect width="32" height="32" rx="8" fill="url(#fLogoGrad)"/>
-                <path d="M10 22V10h6c1.5 0 2.7.5 3.5 1.3.9.9 1.3 2 1.3 3.2 0 1.3-.4 2.4-1.3 3.2-.8.8-2 1.3-3.5 1.3H13.5V22H10z M13.5 16h2.3c.6 0 1-.2 1.4-.5.3-.4.5-.8.5-1.4s-.2-1-.5-1.4c-.4-.3-.8-.5-1.4-.5H13.5V16z" fill="white"/>
+                <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="800" text-anchor="middle" fill="white">S</text>
               </svg>
               <span>selljust<strong>code</strong></span>
             </div>
@@ -114,8 +114,7 @@ import { FormsModule } from '@angular/forms';
           <div class="footer-col">
             <h4 class="footer-heading">Marketplace</h4>
             <ul>
-              <li><a routerLink="/browse" [queryParams]="{category: 'unity-games'}">Unity Games</a></li>
-              <li><a routerLink="/browse" [queryParams]="{category: 'ionic-apps'}">Ionic Apps</a></li>
+              <li><a routerLink="/browse">All Products</a></li>
             </ul>
           </div>
 

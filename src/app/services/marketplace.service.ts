@@ -1,8 +1,11 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { Product, ProductCategory, CategoryInfo, Review, Author, CartItem, SearchFilters, AdminProject, SalesStat } from '../models/marketplace.models';
+import { Firestore, collection, collectionData, doc, setDoc, query, orderBy } from '@angular/fire/firestore';
 
 @Injectable({ providedIn: 'root' })
 export class MarketplaceService {
+
+  private firestore = inject(Firestore);
 
   /* ═══════════ State Signals ═══════════ */
   private _products = signal<Product[]>([]);
@@ -80,7 +83,12 @@ export class MarketplaceService {
   ];
 
   constructor() {
-    this._products.set([]);
+    const productsRef = collection(this.firestore, 'products');
+    const q = query(productsRef, orderBy('createdAt', 'desc'));
+    collectionData(q, { idField: 'id' }).subscribe((data: any) => {
+      this._products.set(data as Product[]);
+    });
+
     // Load cart from localStorage
     const saved = localStorage.getItem('pm_cart');
     if (saved) {
@@ -163,10 +171,11 @@ export class MarketplaceService {
 
   /* ═══════════ Admin ═══════════ */
 
-  submitProject(project: AdminProject): string {
+  async submitProject(project: AdminProject) {
     const id = 'proj_' + Date.now();
-    const newProject = { ...project, id, status: 'pending' as const, createdAt: new Date(), updatedAt: new Date() };
-    this._adminProjects.update(p => [newProject, ...p]);
+    const newProject = { ...project, id, status: 'pending' as const, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() };
+    const projectRef = doc(this.firestore, `products/${id}`);
+    await setDoc(projectRef, newProject);
     return id;
   }
 

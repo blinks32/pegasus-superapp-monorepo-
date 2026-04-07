@@ -41,23 +41,7 @@ import { MarketplaceService } from '../../services/marketplace.service';
       </div>
     </section>
 
-    <!-- ═══ CATEGORIES ═══ -->
-    <section class="pm-section categories-section">
-      <div class="pm-container">
-        <div class="categories-grid stagger-children">
-          <a *ngFor="let cat of marketplace.categories"
-             [routerLink]="['/browse']"
-             [queryParams]="{category: cat.id}"
-             class="category-card">
-            <div class="cat-icon-wrap" [style.background]="cat.gradient">
-              <span>{{ cat.icon }}</span>
-            </div>
-            <h3>{{ cat.label }}</h3>
-            <span class="cat-item-count">{{ cat.count | number }} items</span>
-          </a>
-        </div>
-      </div>
-    </section>
+
 
     <!-- ═══ ALL PRODUCTS ═══ -->
     <section class="pm-section">
@@ -167,52 +151,7 @@ import { MarketplaceService } from '../../services/marketplace.service';
     .section-header h2 { margin: 0 0 4px; }
     .section-header p { margin: 0; }
 
-    /* ═══ CATEGORIES ═══ */
-    .categories-section { padding: 30px 0; }
-    .categories-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .category-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 20px;
-      background: var(--pm-surface);
-      border-radius: var(--pm-radius-lg);
-      border: 1px solid var(--pm-border-light);
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-    }
-    .category-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--pm-shadow-md);
-      border-color: rgba(99, 102, 241, 0.2);
-    }
-    .cat-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--pm-radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-    .category-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin: 0 0 4px;
-    }
-    .cat-item-count {
-      display: block;
-      font-size: 0.8rem;
-      color: var(--pm-text-muted);
-    }
+
 
     /* ═══ PRODUCTS GRID ═══ */
     .products-grid {

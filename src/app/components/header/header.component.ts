@@ -21,38 +21,13 @@ import { MarketplaceService } from '../../services/marketplace.service';
                 </linearGradient>
               </defs>
               <rect width="32" height="32" rx="8" fill="url(#logoGrad)"/>
-              <path d="M10 22V10h6c1.5 0 2.7.5 3.5 1.3.9.9 1.3 2 1.3 3.2 0 1.3-.4 2.4-1.3 3.2-.8.8-2 1.3-3.5 1.3H13.5V22H10z M13.5 16h2.3c.6 0 1-.2 1.4-.5.3-.4.5-.8.5-1.4s-.2-1-.5-1.4c-.4-.3-.8-.5-1.4-.5H13.5V16z" fill="white"/>
+              <text x="16" y="24" font-family="Plus Jakarta Sans, sans-serif" font-size="22" font-weight="800" text-anchor="middle" fill="white">S</text>
             </svg>
           </span>
           <span class="logo-text">selljust<span class="logo-accent">code</span></span>
         </a>
 
-        <!-- Navigation -->
-        <nav class="nav-links" [class.mobile-open]="mobileMenuOpen()">
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobile()">Home</a>
-          <a routerLink="/browse" routerLinkActive="active" (click)="closeMobile()">Browse</a>
-
-          <!-- Categories Dropdown -->
-          <div class="nav-dropdown" (mouseenter)="showDropdown.set(true)" (mouseleave)="showDropdown.set(false)">
-            <button class="nav-dropdown-trigger">
-              Categories
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 4.5L6 8l3.5-3.5"/></svg>
-            </button>
-            <div class="dropdown-menu" *ngIf="showDropdown()">
-              <a *ngFor="let cat of marketplace.categories" 
-                 [routerLink]="['/browse']" 
-                 [queryParams]="{category: cat.id}"
-                 class="dropdown-item"
-                 (click)="showDropdown.set(false); closeMobile()">
-                <span class="cat-icon">{{ cat.icon }}</span>
-                <div>
-                  <span class="cat-label">{{ cat.label }}</span>
-                  <span class="cat-count">{{ cat.count | number }} items</span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </nav>
+        <!-- Navigation intentionally removed -->
 
         <!-- Right Actions -->
         <div class="header-actions">

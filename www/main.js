@@ -15,8 +15,14 @@ import {
   __objRest,
   __spreadValues,
   bootstrapApplication,
+  getAuth,
+  getFirestore,
+  initializeApp,
   inject,
   performanceMarkFeature,
+  provideAuth,
+  provideFirebaseApp,
+  provideFirestore,
   provideRouter,
   setClassMetadata,
   withPreloading,
@@ -28,7 +34,7 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-TXQPGJ2X.js";
+} from "./chunk-RFDP3TD2.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -4541,31 +4547,31 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-V7VABUF7.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-IULJ3TDE.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-KIKZHOWJ.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-3Y5T4ZO4.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-P2SPEL7X.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-QMYILGLK.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-F2OUAUG6.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-XCSXG4NE.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-XGQS6FJD.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-Q5BWEKW4.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-2CSDECTA.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-JLQPQFUM.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-VGEQGVJA.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-6JZIEL7I.js").then((m) => m.LoginComponent)
   },
   {
     path: "**",
@@ -4573,11 +4579,28 @@ var routes = [
   }
 ];
 
+// src/environments/environment.ts
+var environment = {
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDCh3xZfdbWtocmxfjLfrQ_SHUwjjOlQDY",
+    authDomain: "appy-45444.firebaseapp.com",
+    projectId: "appy-45444",
+    storageBucket: "appy-45444.firebasestorage.app",
+    messagingSenderId: "711315471580",
+    appId: "1:711315471580:web:f7586fa4c9e44d5176c819",
+    measurementId: "G-DDQH0VJ7GR"
+  }
+};
+
 // src/app/app.config.ts
 var appConfig = {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideAnimations()
+    provideAnimations(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ]
 };
 

@@ -38,9 +38,7 @@ export interface Product {
   reskinPrice?: number;
 }
 
-export type ProductCategory =
-  | 'unity-games'
-  | 'ionic-apps';
+export type ProductCategory = string;
 
 export interface CategoryInfo {
   id: ProductCategory;

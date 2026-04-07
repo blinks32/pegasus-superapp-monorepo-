@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
             </p>
 
             <div class="social-login">
-              <button class="pm-btn pm-btn-outline google-btn">
+              <button class="pm-btn pm-btn-outline google-btn" (click)="onGoogleLogin()" [disabled]="isLoading">
                 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -34,20 +35,22 @@ import { FooterComponent } from '../../components/footer/footer.component';
 
             <div class="divider"><span>OR CONTINUE WITH EMAIL</span></div>
 
-            <form class="login-form">
+            <form class="login-form" (ngSubmit)="onSubmit()">
+              <div class="error-msg" *ngIf="errorMessage">{{ errorMessage }}</div>
+
               <div class="form-group" *ngIf="isRegisterMode">
                 <label>Full Name</label>
-                <input type="text" placeholder="John Doe" name="name" [(ngModel)]="name" />
+                <input type="text" placeholder="John Doe" name="name" [(ngModel)]="name" [required]="isRegisterMode" />
               </div>
               
               <div class="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="john@example.com" name="email" [(ngModel)]="email" />
+                <input type="email" placeholder="john@example.com" name="email" [(ngModel)]="email" required />
               </div>
 
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" placeholder="••••••••" name="password" [(ngModel)]="password" />
+                <input type="password" placeholder="••••••••" name="password" [(ngModel)]="password" required />
               </div>
 
               <div class="form-options" *ngIf="!isRegisterMode">
@@ -58,8 +61,8 @@ import { FooterComponent } from '../../components/footer/footer.component';
                 <a href="#" class="forgot-pwd">Forgot password?</a>
               </div>
 
-              <button type="button" class="pm-btn pm-btn-primary pm-btn-lg w-full">
-                {{ isRegisterMode ? 'Create Account' : 'Sign In' }}
+              <button type="submit" class="pm-btn pm-btn-primary pm-btn-lg w-full" [disabled]="isLoading">
+                {{ isLoading ? 'Please wait...' : (isRegisterMode ? 'Create Account' : 'Sign In') }}
               </button>
             </form>
 
@@ -225,6 +228,16 @@ import { FooterComponent } from '../../components/footer/footer.component';
       text-decoration: underline;
     }
     
+    .error-msg {
+      background: #FEE2E2;
+      color: #991B1B;
+      padding: 12px;
+      border-radius: var(--pm-radius-sm);
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      border: 1px solid #FCA5A5;
+    }
+    
     @media (max-width: 640px) {
       .login-card { padding: 32px 24px; }
       .login-page { padding: 60px 0; }
@@ -233,19 +246,57 @@ import { FooterComponent } from '../../components/footer/footer.component';
 })
 export class LoginComponent implements OnInit {
   isRegisterMode = false;
+  isLoading = false;
+  errorMessage = '';
+
   name = '';
   email = '';
   password = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private authService: AuthService) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.isRegisterMode = params['register'] === 'true';
+      this.errorMessage = '';
     });
   }
 
   toggleMode() {
     this.isRegisterMode = !this.isRegisterMode;
+    this.errorMessage = '';
+  }
+
+  async onGoogleLogin() {
+    this.isLoading = true;
+    this.errorMessage = '';
+    try {
+      await this.authService.loginWithGoogle();
+    } catch (err: any) {
+      this.errorMessage = err.message || 'Error occurred during Google login.';
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  async onSubmit() {
+    if (!this.email || !this.password || (this.isRegisterMode && !this.name)) {
+      this.errorMessage = 'Please fill out all required fields.';
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorMessage = '';
+    try {
+      if (this.isRegisterMode) {
+        await this.authService.registerWithEmail(this.email, this.password, this.name);
+      } else {
+        await this.authService.loginWithEmail(this.email, this.password);
+      }
+    } catch (err: any) {
+      this.errorMessage = err.message || 'Authentication error. Please try again.';
+    } finally {
+      this.isLoading = false;
+    }
   }
 }
