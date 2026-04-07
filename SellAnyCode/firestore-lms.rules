@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── Topics (read-only for all authenticated users) ───
+    match /topics/{topicId} {
+      allow read: if request.auth != null;
+      allow write: if false; // Admin-only via console or Cloud Functions
+    }
+
+    // ─── Quizzes & Questions (read-only) ───
+    match /quizzes/{topicId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+
+      match /questions/{questionId} {
+        allow read: if request.auth != null;
+        allow write: if false;
+      }
+    }
+
+    // ─── Student Scores (user can only access own data) ───
+    match /user_stats/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if false;
+
+      match /scores/{scoreId} {
+        // Students can read and create their own scores
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow create: if request.auth != null
+                      && request.auth.uid == userId
+                      && request.resource.data.keys().hasAll(['topicId', 'score', 'total', 'timestamp', 'userId'])
+                      && request.resource.data.userId == request.auth.uid
+                      && request.resource.data.score is int
+                      && request.resource.data.total is int
+                      && request.resource.data.score >= 0
+                      && request.resource.data.score <= request.resource.data.total;
+        // Students cannot update or delete scores (immutable)
+        allow update, delete: if false;
+      }
+    }
+
+    // ─── Teacher Dashboard (Global Scores Read) ───
+    match /{path=**}/scores/{scoreId} {
+      allow read: if request.auth != null;
+    }
+
+    // ─── Deny all other access ───
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

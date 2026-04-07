@@ -1,0 +1,17 @@
+{
+  "appId": "io.pegasus.lms",
+  "appName": "Pegasus LMS",
+  "webDir": "www",
+  "plugins": {
+    "Keyboard": {
+      "resize": "none"
+    },
+    "App": {
+      "url": "https://pegasus-lms.app",
+      "androidScheme": "https"
+    }
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
