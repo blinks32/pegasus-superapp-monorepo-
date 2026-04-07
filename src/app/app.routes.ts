@@ -1,48 +1,42 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './guards/auth.guard';
-import { masteryGuard } from './guards/mastery.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path: 'login',
+    path: 'browse',
     loadComponent: () =>
-      import('./pages/login/login.component').then((m) => m.LoginComponent),
+      import('./pages/browse/browse.component').then((m) => m.BrowseComponent),
   },
   {
-    path: 'dashboard',
+    path: 'product/:id',
     loadComponent: () =>
-      import('./pages/dashboard/dashboard.component').then(
-        (m) => m.DashboardComponent
+      import('./pages/product-detail/product-detail.component').then(
+        (m) => m.ProductDetailComponent
       ),
-    canActivate: [authGuard],
   },
   {
-    path: 'topic/:id',
+    path: 'cart',
     loadComponent: () =>
-      import('./pages/topic-detail/topic-detail.component').then(
-        (m) => m.TopicDetailComponent
-      ),
-    canActivate: [authGuard],
+      import('./pages/cart/cart.component').then((m) => m.CartComponent),
   },
   {
-    path: 'certificate/:topicId',
+    path: 'admin',
     loadComponent: () =>
-      import('./pages/certificate/certificate.component').then(
-        (m) => m.CertificateComponent
-      ),
-    canActivate: [authGuard],
+      import('./pages/admin/admin.component').then((m) => m.AdminComponent),
   },
   {
-    path: 'teacher-dashboard',
+    path: 'admin/submit',
     loadComponent: () =>
-      import('./pages/teacher-dashboard/teacher-dashboard.component').then(
-        (m) => m.TeacherDashboardComponent
+      import('./pages/admin/submit-project/submit-project.component').then(
+        (m) => m.SubmitProjectComponent
       ),
-    canActivate: [authGuard],
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];

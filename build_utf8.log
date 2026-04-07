@@ -1,0 +1,139 @@
+﻿[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+Application bundle generation failed. [9.088 seconds]
+
+node : [1m[31m[31mX [41
+;31m[[41;97mERROR[41;31m]
+[0m [1mNG5002: Parser 
+Error: Unexpected token > 
+at column 26 in 
+[mobileMenuOpen.update(v 
+=> !v)] in C:/Users/USER/Do
+cuments/pegasus-superapp-mo
+norepo-/src/app/components/
+header/header.component.ts@
+70:49[0m [1m[35m[plugin 
+angular-compiler][0m
+At line:1 char:1
++ node ./node_modules/@angu
+lar/cli/bin/ng.js build 
+--configuration deve ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ([1  
+  m[31m[31mX...r-compi   
+ ler][0m:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+
+    src/app/components/head
+er/header.component.ts:71:4
+9:
+[37m      71 Γöé ...on 
+class="mobile-toggle" (clic
+k)="[32mmobileMenuOpen.upd
+ate(v => !v)[37m">
+         Γò╡               
+                       [32
+m~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m [1mNG5: 
+Argument of type 
+'undefined' is not 
+assignable to parameter of 
+type '(value: boolean) => 
+boolean'.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/components/head
+er/header.component.ts:71:7
+1:
+[37m      71 Γöé ...on 
+class="mobile-toggle" (clic
+k)="mobileMenuOpen.update(
+[32mv => !v[37m)">
+         Γò╡               
+                           
+                  
+[32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m [1mNG9: 
+Property 'v' does not 
+exist on type 
+'HeaderComponent'.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/components/head
+er/header.component.ts:71:7
+1:
+[37m      71 Γöé ...on 
+class="mobile-toggle" (clic
+k)="mobileMenuOpen.update(
+[32mv[37m => !v)">
+         Γò╡               
+                           
+                  
+[32m^[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG5002: Parser Error: 
+Unexpected token > at 
+column 26 in 
+[mobileMenuOpen.update(v 
+=> !v)] in C:/Users/USER/Do
+cuments/pegasus-superapp-mo
+norepo-/src/app/components/
+header/header.component.ts@
+70:49[0m [1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/components/head
+er/header.component.ts:72:1
+7:
+[37m      72 Γöé          
+   <svg [32m*ngIf="!mobile
+MenuOpen()"[37m 
+width="24" height="24" ...
+         Γò╡               
+   [32m~~~~~~~~~~~~~~~~~~~
+~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERR
+OR[41;31m][0m 
+[1mNG5002: Parser Error: 
+Unexpected token > at 
+column 26 in 
+[mobileMenuOpen.update(v 
+=> !v)] in C:/Users/USER/Do
+cuments/pegasus-superapp-mo
+norepo-/src/app/components/
+header/header.component.ts@
+70:49[0m [1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/components/head
+er/header.component.ts:73:1
+7:
+[37m      73 Γöé          
+   <svg [32m*ngIf="mobileM
+enuOpen()"[37m width="24" 
+height="24" v...
+         Γò╡               
+   [32m~~~~~~~~~~~~~~~~~~~
+~~~~~[0m
+
+[39m[22m
