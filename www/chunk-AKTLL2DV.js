@@ -61836,6 +61836,7 @@ export {
   ElementRef,
   ANIMATION_MODULE_TYPE,
   ɵɵsanitizeHtml,
+  ɵɵsanitizeUrl,
   ɵɵadvance,
   ɵɵdirectiveInject,
   RendererFactory2,
@@ -61852,6 +61853,8 @@ export {
   ɵɵelementStart,
   ɵɵelementEnd,
   ɵɵelement,
+  ɵɵelementContainerStart,
+  ɵɵelementContainerEnd,
   ɵɵgetCurrentView,
   ɵɵlistener,
   ɵɵnextContext,
@@ -61871,6 +61874,7 @@ export {
   ɵɵpipe,
   ɵɵpipeBind1,
   ɵɵpipeBind2,
+  ɵɵtemplateRefExtractor,
   ɵsetClassDebugInfo,
   Directive,
   Input,
@@ -61925,4 +61929,4 @@ export {
   query2 as query,
   setDoc2 as setDoc
 };
-//# sourceMappingURL=chunk-ZYH2QR55.js.map
+//# sourceMappingURL=chunk-AKTLL2DV.js.map

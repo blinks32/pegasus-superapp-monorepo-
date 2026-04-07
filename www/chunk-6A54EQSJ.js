@@ -1,6 +1,6 @@
 import {
   ProductCardComponent
-} from "./chunk-HYQO5I3B.js";
+} from "./chunk-B5E424NJ.js";
 import {
   DefaultValueAccessor,
   FooterComponent,
@@ -13,7 +13,7 @@ import {
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-HXJAKZL7.js";
+} from "./chunk-HPEEYXSC.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -48,7 +48,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-ZYH2QR55.js";
+} from "./chunk-AKTLL2DV.js";
 
 // src/app/pages/browse/browse.component.ts
 var _c0 = () => [4, 3, 2, 1];
@@ -381,4 +381,4 @@ var BrowseComponent = class _BrowseComponent {
 export {
   BrowseComponent
 };
-//# sourceMappingURL=chunk-KL627PSI.js.map
+//# sourceMappingURL=chunk-6A54EQSJ.js.map

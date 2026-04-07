@@ -2,7 +2,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-HXJAKZL7.js";
+} from "./chunk-HPEEYXSC.js";
 import {
   CommonModule,
   DatePipe,
@@ -37,7 +37,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2
-} from "./chunk-ZYH2QR55.js";
+} from "./chunk-AKTLL2DV.js";
 
 // src/app/pages/admin/admin.component.ts
 function AdminComponent_div_15_Template(rf, ctx) {
@@ -381,4 +381,4 @@ var AdminComponent = class _AdminComponent {
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-CUUPI3IR.js.map
+//# sourceMappingURL=chunk-D7MVOHDJ.js.map

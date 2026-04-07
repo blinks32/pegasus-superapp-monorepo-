@@ -35,7 +35,7 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-ZYH2QR55.js";
+} from "./chunk-AKTLL2DV.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -4548,35 +4548,35 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-R772J24G.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-M47RPD5I.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-KL627PSI.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-6A54EQSJ.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-FWCVQV6E.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-UGMV2PWM.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-BL2RSQSZ.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-H425NBVO.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-CUUPI3IR.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-D7MVOHDJ.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-2R5FAOWM.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-RPXKPM3G.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-THJY6DMJ.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-QOHPVYOQ.js").then((m) => m.LoginComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-CY55PDUS.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-NPQD6TOD.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "**",

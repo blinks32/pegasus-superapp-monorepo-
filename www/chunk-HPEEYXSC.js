@@ -1,10 +1,12 @@
 import {
+  Auth,
   ChangeDetectorRef,
   CommonModule,
   Directive,
   ElementRef,
   EventEmitter,
   Firestore,
+  GoogleAuthProvider,
   Host,
   Inject,
   Injectable,
@@ -17,6 +19,7 @@ import {
   Optional,
   Output,
   Renderer2,
+  Router,
   RouterLink,
   RuntimeError,
   Self,
@@ -26,15 +29,18 @@ import {
   __async,
   __spreadProps,
   __spreadValues,
+  authState,
   booleanAttribute,
   collection,
   collectionData,
   computed,
+  createUserWithEmailAndPassword,
   doc,
   forkJoin,
   forwardRef,
   from,
   getDOM,
+  getDoc,
   inject,
   isPromise,
   isSubscribable,
@@ -43,6 +49,9 @@ import {
   query,
   setClassMetadata,
   setDoc,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
   signal,
   untracked,
   ɵsetClassDebugInfo,
@@ -60,8 +69,11 @@ import {
   ɵɵdefineNgModule,
   ɵɵdirectiveInject,
   ɵɵelement,
+  ɵɵelementContainerEnd,
+  ɵɵelementContainerStart,
   ɵɵelementEnd,
   ɵɵelementStart,
+  ɵɵgetCurrentView,
   ɵɵgetInheritedFactory,
   ɵɵlistener,
   ɵɵnamespaceHTML,
@@ -69,15 +81,20 @@ import {
   ɵɵnextContext,
   ɵɵproperty,
   ɵɵpureFunction0,
+  ɵɵreference,
+  ɵɵresetView,
+  ɵɵrestoreView,
+  ɵɵsanitizeUrl,
   ɵɵstyleProp,
   ɵɵtemplate,
+  ɵɵtemplateRefExtractor,
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-ZYH2QR55.js";
+} from "./chunk-AKTLL2DV.js";
 
 // node_modules/@angular/forms/fesm2022/forms.mjs
 var BaseControlValueAccessor = class _BaseControlValueAccessor {
@@ -6352,41 +6369,242 @@ var MarketplaceService = class _MarketplaceService {
   }
 };
 
+// src/app/services/auth.service.ts
+var AuthService = class _AuthService {
+  constructor() {
+    this.auth = inject(Auth);
+    this.firestore = inject(Firestore);
+    this.router = inject(Router);
+    this.currentUser = signal(null);
+    this.userProfile = signal(null);
+    authState(this.auth).subscribe((user) => __async(this, null, function* () {
+      this.currentUser.set(user);
+      if (user) {
+        yield this.syncUserProfile(user);
+      } else {
+        this.userProfile.set(null);
+      }
+    }));
+  }
+  syncUserProfile(user) {
+    return __async(this, null, function* () {
+      const userRef = doc(this.firestore, `users/${user.uid}`);
+      const snap = yield getDoc(userRef);
+      if (!snap.exists()) {
+        const profile = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName || "selljustcode user",
+          photoURL: user.photoURL,
+          createdAt: (/* @__PURE__ */ new Date()).toISOString()
+        };
+        yield setDoc(userRef, profile);
+        this.userProfile.set(profile);
+      } else {
+        this.userProfile.set(snap.data());
+      }
+    });
+  }
+  loginWithGoogle() {
+    return __async(this, null, function* () {
+      try {
+        const provider = new GoogleAuthProvider();
+        yield signInWithPopup(this.auth, provider);
+        this.router.navigate(["/"]);
+      } catch (err) {
+        console.error("Google Sign In Error:", err);
+        throw err;
+      }
+    });
+  }
+  loginWithEmail(email, pass) {
+    return __async(this, null, function* () {
+      try {
+        yield signInWithEmailAndPassword(this.auth, email, pass);
+        this.router.navigate(["/"]);
+      } catch (err) {
+        console.error("Email Login Error:", err);
+        throw err;
+      }
+    });
+  }
+  registerWithEmail(email, pass, name) {
+    return __async(this, null, function* () {
+      try {
+        const cred = yield createUserWithEmailAndPassword(this.auth, email, pass);
+        const userRef = doc(this.firestore, `users/${cred.user.uid}`);
+        const profile = {
+          uid: cred.user.uid,
+          email: cred.user.email,
+          displayName: name,
+          photoURL: null,
+          createdAt: (/* @__PURE__ */ new Date()).toISOString()
+        };
+        yield setDoc(userRef, profile);
+        this.userProfile.set(profile);
+        this.router.navigate(["/"]);
+      } catch (err) {
+        console.error("Email Registration Error:", err);
+        throw err;
+      }
+    });
+  }
+  logout() {
+    return __async(this, null, function* () {
+      yield signOut(this.auth);
+      this.router.navigate(["/login"]);
+    });
+  }
+  static {
+    this.\u0275fac = function AuthService_Factory(__ngFactoryType__) {
+      return new (__ngFactoryType__ || _AuthService)();
+    };
+  }
+  static {
+    this.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _AuthService, factory: _AuthService.\u0275fac, providedIn: "root" });
+  }
+};
+
 // src/app/components/header/header.component.ts
 var _c0 = () => ({ register: true });
 function HeaderComponent_span_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 24);
+    \u0275\u0275elementStart(0, "span", 25);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const ctx_r0 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(ctx_r0.marketplace.cartCount());
+    \u0275\u0275textInterpolate(ctx_r1.marketplace.cartCount());
+  }
+}
+function HeaderComponent_ng_container_23_img_3_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275element(0, "img", 30);
+  }
+  if (rf & 2) {
+    let tmp_4_0;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("src", (tmp_4_0 = ctx_r1.auth.userProfile()) == null ? null : tmp_4_0.photoURL, \u0275\u0275sanitizeUrl);
+  }
+}
+function HeaderComponent_ng_container_23_ng_template_4_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 31);
+    \u0275\u0275text(1);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    let tmp_4_0;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate(((tmp_4_0 = ctx_r1.auth.userProfile()) == null ? null : tmp_4_0.displayName == null ? null : tmp_4_0.displayName.charAt(0)) || "U");
+  }
+}
+function HeaderComponent_ng_container_23_div_6_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r4 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 32)(1, "div", 33)(2, "strong");
+    \u0275\u0275text(3);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(4, "span");
+    \u0275\u0275text(5);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275element(6, "hr");
+    \u0275\u0275elementStart(7, "a", 34);
+    \u0275\u0275listener("click", function HeaderComponent_ng_container_23_div_6_Template_a_click_7_listener() {
+      \u0275\u0275restoreView(_r4);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r1.auth.logout());
+    });
+    \u0275\u0275namespaceSVG();
+    \u0275\u0275elementStart(8, "svg", 35);
+    \u0275\u0275element(9, "path", 36)(10, "polyline", 37)(11, "line", 38);
+    \u0275\u0275elementEnd();
+    \u0275\u0275namespaceHTML();
+    \u0275\u0275elementStart(12, "span");
+    \u0275\u0275text(13, "Log Out");
+    \u0275\u0275elementEnd()()();
+  }
+  if (rf & 2) {
+    let tmp_4_0;
+    let tmp_5_0;
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate((tmp_4_0 = ctx_r1.auth.userProfile()) == null ? null : tmp_4_0.displayName);
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate((tmp_5_0 = ctx_r1.auth.userProfile()) == null ? null : tmp_5_0.email);
+  }
+}
+function HeaderComponent_ng_container_23_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r3 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementContainerStart(0);
+    \u0275\u0275elementStart(1, "div", 26);
+    \u0275\u0275listener("mouseenter", function HeaderComponent_ng_container_23_Template_div_mouseenter_1_listener() {
+      \u0275\u0275restoreView(_r3);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.showProfileDropdown.set(true));
+    })("mouseleave", function HeaderComponent_ng_container_23_Template_div_mouseleave_1_listener() {
+      \u0275\u0275restoreView(_r3);
+      const ctx_r1 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r1.showProfileDropdown.set(false));
+    });
+    \u0275\u0275elementStart(2, "button", 27);
+    \u0275\u0275template(3, HeaderComponent_ng_container_23_img_3_Template, 1, 1, "img", 28)(4, HeaderComponent_ng_container_23_ng_template_4_Template, 2, 1, "ng-template", null, 1, \u0275\u0275templateRefExtractor);
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(6, HeaderComponent_ng_container_23_div_6_Template, 14, 2, "div", 29);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementContainerEnd();
+  }
+  if (rf & 2) {
+    let tmp_3_0;
+    const initials_r5 = \u0275\u0275reference(5);
+    const ctx_r1 = \u0275\u0275nextContext();
+    \u0275\u0275advance(3);
+    \u0275\u0275property("ngIf", (tmp_3_0 = ctx_r1.auth.userProfile()) == null ? null : tmp_3_0.photoURL)("ngIfElse", initials_r5);
+    \u0275\u0275advance(3);
+    \u0275\u0275property("ngIf", ctx_r1.showProfileDropdown());
+  }
+}
+function HeaderComponent_ng_template_24_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "a", 39);
+    \u0275\u0275text(1, "Login");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(2, "a", 40);
+    \u0275\u0275text(3, " Create Account ");
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    \u0275\u0275advance(2);
+    \u0275\u0275property("queryParams", \u0275\u0275pureFunction0(1, _c0));
+  }
+}
+function HeaderComponent__svg_svg_27_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275namespaceSVG();
+    \u0275\u0275elementStart(0, "svg", 41);
+    \u0275\u0275element(1, "path", 42);
+    \u0275\u0275elementEnd();
   }
 }
 function HeaderComponent__svg_svg_28_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(0, "svg", 25);
-    \u0275\u0275element(1, "path", 26);
-    \u0275\u0275elementEnd();
-  }
-}
-function HeaderComponent__svg_svg_29_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(0, "svg", 25);
-    \u0275\u0275element(1, "path", 27);
+    \u0275\u0275elementStart(0, "svg", 41);
+    \u0275\u0275element(1, "path", 43);
     \u0275\u0275elementEnd();
   }
 }
 var HeaderComponent = class _HeaderComponent {
   constructor() {
     this.marketplace = inject(MarketplaceService);
+    this.auth = inject(AuthService);
     this.isScrolled = signal(false);
     this.showDropdown = signal(false);
+    this.showProfileDropdown = signal(false);
     this.mobileMenuOpen = signal(false);
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", () => {
@@ -6406,61 +6624,59 @@ var HeaderComponent = class _HeaderComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HeaderComponent, selectors: [["app-header"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 31, vars: 7, consts: [[1, "pm-header"], [1, "pm-container", "header-inner"], ["routerLink", "/", 1, "logo"], [1, "logo-icon"], ["width", "32", "height", "32", "viewBox", "0 0 32 32", "fill", "none"], ["id", "logoGrad", "x1", "0", "y1", "0", "x2", "32", "y2", "32"], ["offset", "0%", "stop-color", "#6366F1"], ["offset", "100%", "stop-color", "#A855F7"], ["width", "32", "height", "32", "rx", "8", "fill", "url(#logoGrad)"], ["x", "16", "y", "24", "font-family", "Plus Jakarta Sans, sans-serif", "font-size", "22", "font-weight", "800", "text-anchor", "middle", "fill", "white"], [1, "logo-text"], [1, "logo-accent"], [1, "header-actions"], ["routerLink", "/cart", "title", "Shopping Cart", 1, "cart-btn"], ["width", "22", "height", "22", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["cx", "9", "cy", "21", "r", "1"], ["cx", "20", "cy", "21", "r", "1"], ["d", "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"], ["class", "cart-badge", 4, "ngIf"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", "auth-btn"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-primary", "pm-btn-sm", "auth-btn", 2, "margin-left", "8px", 3, "queryParams"], [1, "mobile-toggle", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", 4, "ngIf"], [1, "header-spacer"], [1, "cart-badge"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M3 12h18M3 6h18M3 18h18"], ["d", "M18 6L6 18M6 6l12 12"]], template: function HeaderComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HeaderComponent, selectors: [["app-header"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 30, vars: 7, consts: [["loggedOut", ""], ["initials", ""], [1, "pm-header"], [1, "pm-container", "header-inner"], ["routerLink", "/", 1, "logo"], [1, "logo-icon"], ["width", "32", "height", "32", "viewBox", "0 0 32 32", "fill", "none"], ["id", "logoGrad", "x1", "0", "y1", "0", "x2", "32", "y2", "32"], ["offset", "0%", "stop-color", "#6366F1"], ["offset", "100%", "stop-color", "#A855F7"], ["width", "32", "height", "32", "rx", "8", "fill", "url(#logoGrad)"], ["x", "16", "y", "24", "font-family", "Plus Jakarta Sans, sans-serif", "font-size", "22", "font-weight", "800", "text-anchor", "middle", "fill", "white"], [1, "logo-text"], [1, "logo-accent"], [1, "header-actions"], ["routerLink", "/cart", "title", "Shopping Cart", 1, "cart-btn"], ["width", "22", "height", "22", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["cx", "9", "cy", "21", "r", "1"], ["cx", "20", "cy", "21", "r", "1"], ["d", "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"], ["class", "cart-badge", 4, "ngIf"], [4, "ngIf", "ngIfElse"], [1, "mobile-toggle", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", 4, "ngIf"], [1, "header-spacer"], [1, "cart-badge"], [1, "user-profile", 3, "mouseenter", "mouseleave"], [1, "profile-btn"], ["class", "avatar-img", 3, "src", 4, "ngIf", "ngIfElse"], ["class", "dropdown-menu profile-dropdown", 4, "ngIf"], [1, "avatar-img", 3, "src"], [1, "avatar-initials"], [1, "dropdown-menu", "profile-dropdown"], [1, "profile-header"], [1, "dropdown-item", 3, "click"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["d", "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"], ["points", "16 17 21 12 16 7"], ["x1", "21", "y1", "12", "x2", "9", "y2", "12"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", "auth-btn"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-primary", "pm-btn-sm", "auth-btn", 2, "margin-left", "8px", 3, "queryParams"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M3 12h18M3 6h18M3 18h18"], ["d", "M18 6L6 18M6 6l12 12"]], template: function HeaderComponent_Template(rf, ctx) {
       if (rf & 1) {
-        \u0275\u0275elementStart(0, "header", 0)(1, "div", 1)(2, "a", 2)(3, "span", 3);
+        const _r1 = \u0275\u0275getCurrentView();
+        \u0275\u0275elementStart(0, "header", 2)(1, "div", 3)(2, "a", 4)(3, "span", 5);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(4, "svg", 4)(5, "defs")(6, "linearGradient", 5);
-        \u0275\u0275element(7, "stop", 6)(8, "stop", 7);
+        \u0275\u0275elementStart(4, "svg", 6)(5, "defs")(6, "linearGradient", 7);
+        \u0275\u0275element(7, "stop", 8)(8, "stop", 9);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(9, "rect", 8);
-        \u0275\u0275elementStart(10, "text", 9);
+        \u0275\u0275element(9, "rect", 10);
+        \u0275\u0275elementStart(10, "text", 11);
         \u0275\u0275text(11, "S");
         \u0275\u0275elementEnd()()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(12, "span", 10);
+        \u0275\u0275elementStart(12, "span", 12);
         \u0275\u0275text(13, "selljust");
-        \u0275\u0275elementStart(14, "span", 11);
+        \u0275\u0275elementStart(14, "span", 13);
         \u0275\u0275text(15, "code");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(16, "div", 12)(17, "a", 13);
+        \u0275\u0275elementStart(16, "div", 14)(17, "a", 15);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(18, "svg", 14);
-        \u0275\u0275element(19, "circle", 15)(20, "circle", 16)(21, "path", 17);
+        \u0275\u0275elementStart(18, "svg", 16);
+        \u0275\u0275element(19, "circle", 17)(20, "circle", 18)(21, "path", 19);
         \u0275\u0275elementEnd();
-        \u0275\u0275template(22, HeaderComponent_span_22_Template, 2, 1, "span", 18);
+        \u0275\u0275template(22, HeaderComponent_span_22_Template, 2, 1, "span", 20);
         \u0275\u0275elementEnd();
+        \u0275\u0275template(23, HeaderComponent_ng_container_23_Template, 7, 3, "ng-container", 21)(24, HeaderComponent_ng_template_24_Template, 4, 2, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(23, "a", 19);
-        \u0275\u0275text(24, "Login");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(25, "a", 20);
-        \u0275\u0275text(26, " Create Account ");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(27, "button", 21);
-        \u0275\u0275listener("click", function HeaderComponent_Template_button_click_27_listener() {
-          return ctx.toggleMobile();
+        \u0275\u0275elementStart(26, "button", 22);
+        \u0275\u0275listener("click", function HeaderComponent_Template_button_click_26_listener() {
+          \u0275\u0275restoreView(_r1);
+          return \u0275\u0275resetView(ctx.toggleMobile());
         });
-        \u0275\u0275template(28, HeaderComponent__svg_svg_28_Template, 2, 0, "svg", 22)(29, HeaderComponent__svg_svg_29_Template, 2, 0, "svg", 22);
+        \u0275\u0275template(27, HeaderComponent__svg_svg_27_Template, 2, 0, "svg", 23)(28, HeaderComponent__svg_svg_28_Template, 2, 0, "svg", 23);
         \u0275\u0275elementEnd()()()();
-        \u0275\u0275element(30, "div", 23);
+        \u0275\u0275element(29, "div", 24);
       }
       if (rf & 2) {
+        const loggedOut_r6 = \u0275\u0275reference(25);
         \u0275\u0275classProp("scrolled", ctx.isScrolled());
         \u0275\u0275advance(22);
         \u0275\u0275property("ngIf", ctx.marketplace.cartCount() > 0);
-        \u0275\u0275advance(3);
-        \u0275\u0275property("queryParams", \u0275\u0275pureFunction0(6, _c0));
-        \u0275\u0275advance(3);
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.auth.userProfile())("ngIfElse", loggedOut_r6);
+        \u0275\u0275advance(4);
         \u0275\u0275property("ngIf", !ctx.mobileMenuOpen());
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.mobileMenuOpen());
       }
-    }, dependencies: [CommonModule, NgIf, RouterLink], styles: ["\n\n.pm-header[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 1000;\n  background: rgba(255, 255, 255, 0.85);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border-bottom: 1px solid transparent;\n  transition: all var(--pm-transition-base);\n}\n.pm-header.scrolled[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.95);\n  border-bottom-color: var(--pm-border);\n  box-shadow: var(--pm-shadow-sm);\n}\n.header-inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 64px;\n  gap: 32px;\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  flex-shrink: 0;\n}\n.logo-text[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.logo-accent[_ngcontent-%COMP%] {\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n.nav-links[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%]:hover, \n.nav-links[_ngcontent-%COMP%]    > a.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.nav-dropdown[_ngcontent-%COMP%] {\n  position: relative;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  font-family: inherit;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.dropdown-menu[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  min-width: 260px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-xl);\n  padding: 8px;\n  animation: _ngcontent-%COMP%_scaleIn 0.2s ease;\n  z-index: 100;\n}\n.dropdown-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px 12px;\n  border-radius: var(--pm-radius-sm);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n}\n.cat-icon[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.cat-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n}\n.cat-count[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.header-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex-shrink: 0;\n}\n.cart-btn[_ngcontent-%COMP%] {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-sm);\n  color: var(--pm-text-secondary);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.cart-btn[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: var(--ion-color-primary);\n}\n.cart-badge[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  width: 18px;\n  height: 18px;\n  background: var(--pm-gradient-warm);\n  color: white;\n  font-size: 0.65rem;\n  font-weight: 700;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.upload-btn[_ngcontent-%COMP%] {\n  text-decoration: none;\n}\n.mobile-toggle[_ngcontent-%COMP%] {\n  display: none;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: var(--pm-text-secondary);\n}\n.header-spacer[_ngcontent-%COMP%] {\n  height: 64px;\n}\n@media (max-width: 768px) {\n  .nav-links[_ngcontent-%COMP%] {\n    display: none;\n    position: fixed;\n    top: 64px;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: var(--pm-surface);\n    flex-direction: column;\n    padding: 24px;\n    gap: 8px;\n    z-index: 999;\n  }\n  .nav-links.mobile-open[_ngcontent-%COMP%] {\n    display: flex;\n  }\n  .nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n    font-size: 1.1rem;\n    padding: 14px 16px;\n    width: 100%;\n  }\n  .nav-dropdown[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .nav-dropdown-trigger[_ngcontent-%COMP%] {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 14px 16px;\n  }\n  .dropdown-menu[_ngcontent-%COMP%] {\n    position: static;\n    box-shadow: none;\n    border: none;\n    padding-left: 20px;\n  }\n  .mobile-toggle[_ngcontent-%COMP%] {\n    display: flex;\n  }\n  .upload-btn[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n@keyframes _ngcontent-%COMP%_scaleIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95) translateY(-4px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n/*# sourceMappingURL=header.component.css.map */"] });
+    }, dependencies: [CommonModule, NgIf, RouterLink], styles: ["\n\n.pm-header[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 1000;\n  background: rgba(255, 255, 255, 0.85);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border-bottom: 1px solid transparent;\n  transition: all var(--pm-transition-base);\n}\n.pm-header.scrolled[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.95);\n  border-bottom-color: var(--pm-border);\n  box-shadow: var(--pm-shadow-sm);\n}\n.header-inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 64px;\n  gap: 32px;\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  flex-shrink: 0;\n}\n.logo-text[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.logo-accent[_ngcontent-%COMP%] {\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n.nav-links[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%]:hover, \n.nav-links[_ngcontent-%COMP%]    > a.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.nav-dropdown[_ngcontent-%COMP%] {\n  position: relative;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  font-family: inherit;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.dropdown-menu[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  min-width: 260px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-xl);\n  padding: 8px;\n  animation: _ngcontent-%COMP%_scaleIn 0.2s ease;\n  z-index: 100;\n}\n.dropdown-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px 12px;\n  border-radius: var(--pm-radius-sm);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n}\n.cat-icon[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.cat-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n}\n.cat-count[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.header-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex-shrink: 0;\n}\n.cart-btn[_ngcontent-%COMP%] {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-sm);\n  color: var(--pm-text-secondary);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.cart-btn[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: var(--ion-color-primary);\n}\n.cart-badge[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  width: 18px;\n  height: 18px;\n  background: var(--pm-gradient-warm);\n  color: white;\n  font-size: 0.65rem;\n  font-weight: 700;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.upload-btn[_ngcontent-%COMP%] {\n  text-decoration: none;\n}\n.mobile-toggle[_ngcontent-%COMP%] {\n  display: none;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: var(--pm-text-secondary);\n}\n.header-spacer[_ngcontent-%COMP%] {\n  height: 64px;\n}\n.user-profile[_ngcontent-%COMP%] {\n  position: relative;\n}\n.profile-btn[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  padding: 0;\n  margin-left: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n}\n.avatar-img[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  object-fit: cover;\n  border: 2px solid var(--pm-border-light);\n}\n.avatar-initials[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: var(--pm-gradient-primary);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.profile-dropdown[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0;\n  left: auto;\n  width: 240px;\n  padding: 8px 0;\n  top: calc(100% + 4px);\n  background: white;\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-lg);\n  border: 1px solid var(--pm-border);\n  z-index: 1001;\n}\n.profile-header[_ngcontent-%COMP%] {\n  padding: 12px 16px;\n  display: flex;\n  flex-direction: column;\n}\n.profile-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 0.95rem;\n  color: var(--pm-text-primary);\n}\n.profile-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.profile-dropdown[_ngcontent-%COMP%]   hr[_ngcontent-%COMP%] {\n  border: none;\n  border-top: 1px solid var(--pm-border-light);\n  margin: 4px 0;\n}\n.profile-dropdown[_ngcontent-%COMP%]   .dropdown-item[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.profile-dropdown[_ngcontent-%COMP%]   .dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: #EF4444;\n}\n@media (max-width: 768px) {\n  .nav-links[_ngcontent-%COMP%] {\n    display: none;\n    position: fixed;\n    top: 64px;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: var(--pm-surface);\n    flex-direction: column;\n    padding: 24px;\n    gap: 8px;\n    z-index: 999;\n  }\n  .nav-links.mobile-open[_ngcontent-%COMP%] {\n    display: flex;\n  }\n  .nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n    font-size: 1.1rem;\n    padding: 14px 16px;\n    width: 100%;\n  }\n  .nav-dropdown[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .nav-dropdown-trigger[_ngcontent-%COMP%] {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 14px 16px;\n  }\n  .dropdown-menu[_ngcontent-%COMP%] {\n    position: static;\n    box-shadow: none;\n    border: none;\n    padding-left: 20px;\n  }\n  .mobile-toggle[_ngcontent-%COMP%] {\n    display: flex;\n  }\n  .upload-btn[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n@keyframes _ngcontent-%COMP%_scaleIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95) translateY(-4px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n/*# sourceMappingURL=header.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HeaderComponent, { className: "HeaderComponent", filePath: "src\\app\\components\\header\\header.component.ts", lineNumber: 287 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HeaderComponent, { className: "HeaderComponent", filePath: "src\\app\\components\\header\\header.component.ts", lineNumber: 398 });
 })();
 
 // src/app/components/footer/footer.component.ts
@@ -6770,7 +6986,8 @@ export {
   RequiredValidator,
   FormsModule,
   MarketplaceService,
+  AuthService,
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-HXJAKZL7.js.map
+//# sourceMappingURL=chunk-HPEEYXSC.js.map

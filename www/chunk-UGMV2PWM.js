@@ -1,6 +1,6 @@
 import {
   ProductCardComponent
-} from "./chunk-HYQO5I3B.js";
+} from "./chunk-B5E424NJ.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
@@ -10,7 +10,7 @@ import {
   MarketplaceService,
   NgControlStatus,
   NgModel
-} from "./chunk-HXJAKZL7.js";
+} from "./chunk-HPEEYXSC.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -50,7 +50,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-ZYH2QR55.js";
+} from "./chunk-AKTLL2DV.js";
 
 // src/app/pages/product-detail/product-detail.component.ts
 var _c0 = (a0) => ({ category: a0 });
@@ -890,4 +890,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-FWCVQV6E.js.map
+//# sourceMappingURL=chunk-UGMV2PWM.js.map

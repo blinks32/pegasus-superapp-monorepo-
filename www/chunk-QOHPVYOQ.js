@@ -1,4 +1,5 @@
 import {
+  AuthService,
   DefaultValueAccessor,
   FooterComponent,
   FormsModule,
@@ -9,31 +10,16 @@ import {
   NgModel,
   RequiredValidator,
   ɵNgNoValidate
-} from "./chunk-HXJAKZL7.js";
+} from "./chunk-HPEEYXSC.js";
 import {
   ActivatedRoute,
-  Auth,
   CommonModule,
-  Firestore,
-  GoogleAuthProvider,
   NgIf,
-  Router,
   __async,
-  authState,
-  createUserWithEmailAndPassword,
-  doc,
-  getDoc,
-  inject,
-  setDoc,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  signal,
   ɵsetClassDebugInfo,
   ɵɵStandaloneFeature,
   ɵɵadvance,
   ɵɵdefineComponent,
-  ɵɵdefineInjectable,
   ɵɵdirectiveInject,
   ɵɵelement,
   ɵɵelementEnd,
@@ -53,103 +39,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-ZYH2QR55.js";
-
-// src/app/services/auth.service.ts
-var AuthService = class _AuthService {
-  constructor() {
-    this.auth = inject(Auth);
-    this.firestore = inject(Firestore);
-    this.router = inject(Router);
-    this.currentUser = signal(null);
-    this.userProfile = signal(null);
-    authState(this.auth).subscribe((user) => __async(this, null, function* () {
-      this.currentUser.set(user);
-      if (user) {
-        yield this.syncUserProfile(user);
-      } else {
-        this.userProfile.set(null);
-      }
-    }));
-  }
-  syncUserProfile(user) {
-    return __async(this, null, function* () {
-      const userRef = doc(this.firestore, `users/${user.uid}`);
-      const snap = yield getDoc(userRef);
-      if (!snap.exists()) {
-        const profile = {
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName || "selljustcode user",
-          photoURL: user.photoURL,
-          createdAt: (/* @__PURE__ */ new Date()).toISOString()
-        };
-        yield setDoc(userRef, profile);
-        this.userProfile.set(profile);
-      } else {
-        this.userProfile.set(snap.data());
-      }
-    });
-  }
-  loginWithGoogle() {
-    return __async(this, null, function* () {
-      try {
-        const provider = new GoogleAuthProvider();
-        yield signInWithPopup(this.auth, provider);
-        this.router.navigate(["/"]);
-      } catch (err) {
-        console.error("Google Sign In Error:", err);
-        throw err;
-      }
-    });
-  }
-  loginWithEmail(email, pass) {
-    return __async(this, null, function* () {
-      try {
-        yield signInWithEmailAndPassword(this.auth, email, pass);
-        this.router.navigate(["/"]);
-      } catch (err) {
-        console.error("Email Login Error:", err);
-        throw err;
-      }
-    });
-  }
-  registerWithEmail(email, pass, name) {
-    return __async(this, null, function* () {
-      try {
-        const cred = yield createUserWithEmailAndPassword(this.auth, email, pass);
-        const userRef = doc(this.firestore, `users/${cred.user.uid}`);
-        const profile = {
-          uid: cred.user.uid,
-          email: cred.user.email,
-          displayName: name,
-          photoURL: null,
-          createdAt: (/* @__PURE__ */ new Date()).toISOString()
-        };
-        yield setDoc(userRef, profile);
-        this.userProfile.set(profile);
-        this.router.navigate(["/"]);
-      } catch (err) {
-        console.error("Email Registration Error:", err);
-        throw err;
-      }
-    });
-  }
-  logout() {
-    return __async(this, null, function* () {
-      yield signOut(this.auth);
-      this.router.navigate(["/login"]);
-    });
-  }
-  static {
-    this.\u0275fac = function AuthService_Factory(__ngFactoryType__) {
-      return new (__ngFactoryType__ || _AuthService)();
-    };
-  }
-  static {
-    this.\u0275prov = /* @__PURE__ */ \u0275\u0275defineInjectable({ token: _AuthService, factory: _AuthService.\u0275fac, providedIn: "root" });
-  }
-};
+} from "./chunk-AKTLL2DV.js";
 
 // src/app/pages/login/login.component.ts
 function LoginComponent_div_21_Template(rf, ctx) {
@@ -379,4 +269,4 @@ var LoginComponent = class _LoginComponent {
 export {
   LoginComponent
 };
-//# sourceMappingURL=chunk-THJY6DMJ.js.map
+//# sourceMappingURL=chunk-QOHPVYOQ.js.map

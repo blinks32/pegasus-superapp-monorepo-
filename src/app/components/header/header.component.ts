@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MarketplaceService } from '../../services/marketplace.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -38,10 +39,40 @@ import { MarketplaceService } from '../../services/marketplace.service';
             </svg>
             <span class="cart-badge" *ngIf="marketplace.cartCount() > 0">{{ marketplace.cartCount() }}</span>
           </a>
-          <a routerLink="/login" class="pm-btn pm-btn-ghost pm-btn-sm auth-btn">Login</a>
-          <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn" style="margin-left: 8px;">
-            Create Account
-          </a>
+          
+          <ng-container *ngIf="auth.userProfile(); else loggedOut">
+            <div class="user-profile" (mouseenter)="showProfileDropdown.set(true)" (mouseleave)="showProfileDropdown.set(false)">
+              <button class="profile-btn">
+                <img *ngIf="auth.userProfile()?.photoURL; else initials" [src]="auth.userProfile()?.photoURL" class="avatar-img" />
+                <ng-template #initials>
+                  <div class="avatar-initials">{{ auth.userProfile()?.displayName?.charAt(0) || 'U' }}</div>
+                </ng-template>
+              </button>
+              
+              <div class="dropdown-menu profile-dropdown" *ngIf="showProfileDropdown()">
+                <div class="profile-header">
+                  <strong>{{ auth.userProfile()?.displayName }}</strong>
+                  <span>{{ auth.userProfile()?.email }}</span>
+                </div>
+                <hr>
+                <a class="dropdown-item" (click)="auth.logout()">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                  </svg>
+                  <span>Log Out</span>
+                </a>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #loggedOut>
+            <a routerLink="/login" class="pm-btn pm-btn-ghost pm-btn-sm auth-btn">Login</a>
+            <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn" style="margin-left: 8px;">
+              Create Account
+            </a>
+          </ng-template>
           <button class="mobile-toggle" (click)="toggleMobile()">
             <svg *ngIf="!mobileMenuOpen()" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             <svg *ngIf="mobileMenuOpen()" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -249,6 +280,86 @@ import { MarketplaceService } from '../../services/marketplace.service';
       height: 64px;
     }
 
+    /* ═══ PROFILE DROPDOWN ═══ */
+    .user-profile {
+      position: relative;
+    }
+    .profile-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-left: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .avatar-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--pm-border-light);
+    }
+    .avatar-initials {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--pm-gradient-primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .profile-dropdown {
+      position: absolute;
+      right: 0;
+      left: auto;
+      width: 240px;
+      padding: 8px 0;
+      top: calc(100% + 4px);
+      background: white;
+      border-radius: var(--pm-radius-md);
+      box-shadow: var(--pm-shadow-lg);
+      border: 1px solid var(--pm-border);
+      z-index: 1001;
+    }
+    .profile-header {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-header strong {
+      font-size: 0.95rem;
+      color: var(--pm-text-primary);
+    }
+    .profile-header span {
+      font-size: 0.8rem;
+      color: var(--pm-text-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .profile-dropdown hr {
+      border: none;
+      border-top: 1px solid var(--pm-border-light);
+      margin: 4px 0;
+    }
+    .profile-dropdown .dropdown-item {
+      padding: 10px 16px;
+      color: var(--pm-text-secondary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .profile-dropdown .dropdown-item:hover {
+      background: var(--pm-surface-muted);
+      color: #EF4444;
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -286,8 +397,10 @@ import { MarketplaceService } from '../../services/marketplace.service';
 })
 export class HeaderComponent {
   marketplace = inject(MarketplaceService);
+  auth = inject(AuthService);
   isScrolled = signal(false);
   showDropdown = signal(false);
+  showProfileDropdown = signal(false);
   mobileMenuOpen = signal(false);
 
   constructor() {
