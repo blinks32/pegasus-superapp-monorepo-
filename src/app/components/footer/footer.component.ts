@@ -91,9 +91,9 @@ import { FormsModule } from '@angular/forms';
                 <rect width="32" height="32" rx="8" fill="url(#fLogoGrad)"/>
                 <path d="M10 22V10h6c1.5 0 2.7.5 3.5 1.3.9.9 1.3 2 1.3 3.2 0 1.3-.4 2.4-1.3 3.2-.8.8-2 1.3-3.5 1.3H13.5V22H10z M13.5 16h2.3c.6 0 1-.2 1.4-.5.3-.4.5-.8.5-1.4s-.2-1-.5-1.4c-.4-.3-.8-.5-1.4-.5H13.5V16z" fill="white"/>
               </svg>
-              <span>Pegasus<strong>Market</strong></span>
+              <span>selljust<strong>code</strong></span>
             </div>
-            <p class="footer-desc">The #1 marketplace for premium source code, templates, and digital assets. Trusted by 30,000+ developers worldwide since 2020.</p>
+            <p class="footer-desc">The #1 marketplace for premium Unity Games and Ionic Apps.</p>
             <div class="social-links">
               <a href="#" aria-label="Twitter" class="social-link">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -114,12 +114,8 @@ import { FormsModule } from '@angular/forms';
           <div class="footer-col">
             <h4 class="footer-heading">Marketplace</h4>
             <ul>
-              <li><a routerLink="/browse" [queryParams]="{category: 'web-templates'}">Web Templates</a></li>
-              <li><a routerLink="/browse" [queryParams]="{category: 'mobile-apps'}">Mobile Apps</a></li>
-              <li><a routerLink="/browse" [queryParams]="{category: 'wordpress'}">WordPress</a></li>
-              <li><a routerLink="/browse" [queryParams]="{category: 'javascript'}">JavaScript</a></li>
-              <li><a routerLink="/browse" [queryParams]="{category: 'ui-kits'}">UI Kits</a></li>
-              <li><a routerLink="/browse" [queryParams]="{category: 'full-stack'}">Full Stack</a></li>
+              <li><a routerLink="/browse" [queryParams]="{category: 'unity-games'}">Unity Games</a></li>
+              <li><a routerLink="/browse" [queryParams]="{category: 'ionic-apps'}">Ionic Apps</a></li>
             </ul>
           </div>
 
@@ -177,8 +173,8 @@ import { FormsModule } from '@angular/forms';
         <!-- Bottom Bar -->
         <div class="footer-bottom">
           <div class="footer-bottom-left">
-            <p>&copy; {{ currentYear }} Pegasus Market. All rights reserved. Registered in Delaware, USA.</p>
-            <p class="footer-legal-detail">Pegasus Digital LLC &bull; EIN: 87-XXXXXXX &bull; 221 Market Street, Suite 300, San Francisco, CA 94105</p>
+            <p>&copy; {{ currentYear }} selljustcode. All rights reserved. Registered in Delaware, USA.</p>
+            <p class="footer-legal-detail">selljustcode LLC &bull; EIN: 87-XXXXXXX &bull; 221 Market Street, Suite 300, San Francisco, CA 94105</p>
           </div>
           <div class="footer-bottom-right">
             <span class="footer-lang">🌍 English (US)</span>

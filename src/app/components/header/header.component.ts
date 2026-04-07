@@ -24,14 +24,13 @@ import { MarketplaceService } from '../../services/marketplace.service';
               <path d="M10 22V10h6c1.5 0 2.7.5 3.5 1.3.9.9 1.3 2 1.3 3.2 0 1.3-.4 2.4-1.3 3.2-.8.8-2 1.3-3.5 1.3H13.5V22H10z M13.5 16h2.3c.6 0 1-.2 1.4-.5.3-.4.5-.8.5-1.4s-.2-1-.5-1.4c-.4-.3-.8-.5-1.4-.5H13.5V16z" fill="white"/>
             </svg>
           </span>
-          <span class="logo-text">Pegasus<span class="logo-accent">Market</span></span>
+          <span class="logo-text">selljust<span class="logo-accent">code</span></span>
         </a>
 
         <!-- Navigation -->
         <nav class="nav-links" [class.mobile-open]="mobileMenuOpen()">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobile()">Home</a>
           <a routerLink="/browse" routerLinkActive="active" (click)="closeMobile()">Browse</a>
-          <a routerLink="/admin" routerLinkActive="active" (click)="closeMobile()">Sell</a>
 
           <!-- Categories Dropdown -->
           <div class="nav-dropdown" (mouseenter)="showDropdown.set(true)" (mouseleave)="showDropdown.set(false)">
@@ -64,9 +63,9 @@ import { MarketplaceService } from '../../services/marketplace.service';
             </svg>
             <span class="cart-badge" *ngIf="marketplace.cartCount() > 0">{{ marketplace.cartCount() }}</span>
           </a>
-          <a routerLink="/admin/submit" class="pm-btn pm-btn-primary pm-btn-sm upload-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-            Upload
+          <a routerLink="/login" class="pm-btn pm-btn-ghost pm-btn-sm auth-btn">Login</a>
+          <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn" style="margin-left: 8px;">
+            Create Account
           </a>
           <button class="mobile-toggle" (click)="toggleMobile()">
             <svg *ngIf="!mobileMenuOpen()" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>

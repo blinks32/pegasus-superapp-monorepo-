@@ -39,14 +39,8 @@ export interface Product {
 }
 
 export type ProductCategory =
-  | 'mobile-apps'
-  | 'web-templates'
-  | 'wordpress'
-  | 'javascript'
-  | 'ui-kits'
-  | 'full-stack'
-  | 'plugins'
-  | 'themes';
+  | 'unity-games'
+  | 'ionic-apps';
 
 export interface CategoryInfo {
   id: ProductCategory;
