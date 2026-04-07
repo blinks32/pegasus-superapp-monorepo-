@@ -66,21 +66,9 @@ export class MarketplaceService {
     { id: 'ionic-apps', label: 'Ionic Apps', icon: '📱', color: '#3B82F6', gradient: 'linear-gradient(135deg, #3B82F6, #60A5FA)', count: 0 },
   ];
 
-  /* ═══════════ Mock Authors ═══════════ */
-  private authors: Author[] = [
-    { id: 'a1', name: 'Pegasus Labs', avatar: '', bio: 'Full-stack development studio crafting premium digital products.', totalSales: 12840, rating: 4.9, memberSince: new Date('2020-03-15'), badges: ['power-elite', 'top-seller'], verified: true },
-    { id: 'a2', name: 'CodeCraft Studio', avatar: '', bio: 'Specialists in mobile and cross-platform applications.', totalSales: 8420, rating: 4.8, memberSince: new Date('2021-06-10'), badges: ['top-seller'], verified: true },
-    { id: 'a3', name: 'PixelForge', avatar: '', bio: 'UI/UX design experts building beautiful interfaces.', totalSales: 6150, rating: 4.7, memberSince: new Date('2019-11-05'), badges: ['trending', 'exclusive'], verified: true },
-    { id: 'a4', name: 'DevNova', avatar: '', bio: 'Innovative small team building next-gen web tools.', totalSales: 3890, rating: 4.6, memberSince: new Date('2022-01-20'), badges: ['trending'], verified: true },
-  ];
-
-  /* ═══════════ Sales Statistics ═══════════ */
-  salesStats: SalesStat[] = [
-    { label: 'Total Sales', value: 48250, change: 12.5, icon: '💰', color: '#10B981' },
-    { label: 'Total Products', value: 2463, change: 8.3, icon: '📦', color: '#6366F1' },
-    { label: 'Happy Customers', value: 31800, change: 15.2, icon: '😊', color: '#F59E0B' },
-    { label: 'Total Reviews', value: 18920, change: 9.7, icon: '⭐', color: '#EC4899' },
-  ];
+  /* ═══════════ Collections ═══════════ */
+  private authors: Author[] = []; // Real authors would come from a collection
+  salesStats: SalesStat[] = []; // Calculated dynamically
 
   constructor() {
     const productsRef = collection(this.firestore, 'products');

@@ -36,6 +36,7 @@ export interface Product {
   license: 'regular' | 'extended';
   hasReskinService: boolean;
   reskinPrice?: number;
+  status?: 'draft' | 'pending' | 'published' | 'rejected';
 }
 
 export type ProductCategory = string;
