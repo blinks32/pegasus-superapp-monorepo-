@@ -122,12 +122,12 @@ import { FormsModule } from '@angular/forms';
           <div class="footer-col">
             <h4 class="footer-heading">Company</h4>
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Affiliate Program</a></li>
-              <li><a href="#">Press Kit</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a routerLink="/page/about">About Us</a></li>
+              <li><a routerLink="/page/careers">Careers</a></li>
+              <li><a routerLink="/page/blog">Blog</a></li>
+              <li><a routerLink="/page/affiliate">Affiliate Program</a></li>
+              <li><a routerLink="/page/press">Press Kit</a></li>
+              <li><a routerLink="/page/contact">Contact Us</a></li>
             </ul>
           </div>
 
@@ -135,12 +135,12 @@ import { FormsModule } from '@angular/forms';
           <div class="footer-col">
             <h4 class="footer-heading">Support</h4>
             <ul>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Author Guide</a></li>
-              <li><a href="#">Buyer FAQ</a></li>
-              <li><a href="#">Licensing</a></li>
-              <li><a href="#">Refund Policy</a></li>
-              <li><a href="#">Report an Item</a></li>
+              <li><a routerLink="/page/help">Help Center</a></li>
+              <li><a routerLink="/page/author-guide">Author Guide</a></li>
+              <li><a routerLink="/page/buyer-faq">Buyer FAQ</a></li>
+              <li><a routerLink="/page/licensing">Licensing</a></li>
+              <li><a routerLink="/page/refund">Refund Policy</a></li>
+              <li><a routerLink="/page/report">Report an Item</a></li>
             </ul>
           </div>
 
@@ -148,11 +148,11 @@ import { FormsModule } from '@angular/forms';
           <div class="footer-col">
             <h4 class="footer-heading">Legal</h4>
             <ul>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Cookie Policy</a></li>
-              <li><a href="#">DMCA Policy</a></li>
-              <li><a href="#">GDPR Compliance</a></li>
+              <li><a routerLink="/page/terms">Terms of Service</a></li>
+              <li><a routerLink="/page/privacy">Privacy Policy</a></li>
+              <li><a routerLink="/page/cookie">Cookie Policy</a></li>
+              <li><a routerLink="/page/dmca">DMCA Policy</a></li>
+              <li><a routerLink="/page/gdpr">GDPR Compliance</a></li>
               <li><a href="#">Accessibility</a></li>
             </ul>
           </div>

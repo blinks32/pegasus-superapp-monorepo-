@@ -25,6 +25,7 @@ import {
   provideFirestore,
   provideRouter,
   setClassMetadata,
+  withInMemoryScrolling,
   withPreloading,
   ɵsetClassDebugInfo,
   ɵɵStandaloneFeature,
@@ -34,7 +35,7 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-RFDP3TD2.js";
+} from "./chunk-ZYH2QR55.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -4547,31 +4548,35 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-IULJ3TDE.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-R772J24G.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-3Y5T4ZO4.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-KL627PSI.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-QMYILGLK.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-FWCVQV6E.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-XCSXG4NE.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-BL2RSQSZ.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-Q5BWEKW4.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-CUUPI3IR.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-JLQPQFUM.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-2R5FAOWM.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-6JZIEL7I.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-THJY6DMJ.js").then((m) => m.LoginComponent)
+  },
+  {
+    path: "page/:slug",
+    loadComponent: () => import("./chunk-CY55PDUS.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "**",
@@ -4596,7 +4601,7 @@ var environment = {
 // src/app/app.config.ts
 var appConfig = {
   providers: [
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(routes, withPreloading(PreloadAllModules), withInMemoryScrolling({ scrollPositionRestoration: "enabled", anchorScrolling: "enabled" })),
     provideAnimations(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

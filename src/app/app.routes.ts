@@ -41,6 +41,11 @@ export const routes: Routes = [
       import('./pages/login/login.component').then((m) => m.LoginComponent),
   },
   {
+    path: 'page/:slug',
+    loadComponent: () =>
+      import('./pages/static-page/static-page.component').then((m) => m.StaticPageComponent),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

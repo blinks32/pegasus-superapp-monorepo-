@@ -1,5 +1,5 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
+import { provideRouter, withPreloading, PreloadAllModules, withInMemoryScrolling } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { routes } from './app.routes';
 
@@ -10,7 +10,11 @@ import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideRouter(
+      routes, 
+      withPreloading(PreloadAllModules),
+      withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })
+    ),
     provideAnimations(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
