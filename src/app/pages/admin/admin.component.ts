@@ -180,7 +180,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
 
           <div class="blog-management">
             <div class="blog-actions">
-              <button class="pm-btn pm-btn-primary" (click)="createNewBlog()">
+              <button class="pm-btn pm-btn-primary" (click)="openBlogModal()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 5v14M5 12h14"/>
                 </svg>
@@ -194,7 +194,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
                   <div class="blog-item-header">
                     <h4>{{ blog.title || 'Untitled Blog' }}</h4>
                     <div class="blog-actions">
-                      <button class="pm-btn pm-btn-sm pm-btn-ghost" (click)="editBlog(blog)">
+                      <button class="pm-btn pm-btn-sm pm-btn-ghost" (click)="openBlogModal(blog)">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                           <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                           <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
@@ -232,6 +232,42 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               <p>Create your first blog post to get started.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Modal -->
+    <div class="modal-overlay" *ngIf="showBlogModal" (click)="closeBlogModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h3>{{ editingBlogId ? 'Edit Blog Post' : 'New Blog Post' }}</h3>
+          <button class="modal-close" (click)="closeBlogModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="blogTitle">Title *</label>
+            <input id="blogTitle" type="text" [(ngModel)]="blogForm.title" placeholder="Enter blog title" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label for="blogExcerpt">Excerpt *</label>
+            <textarea id="blogExcerpt" [(ngModel)]="blogForm.excerpt" placeholder="Short description (appears in listings)" class="form-input" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="blogContent">Content *</label>
+            <textarea id="blogContent" [(ngModel)]="blogForm.content" placeholder="Full blog content (supports HTML)" class="form-input" rows="10"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" [(ngModel)]="blogForm.published" />
+              <span>Published</span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="pm-btn pm-btn-ghost" (click)="closeBlogModal()">Cancel</button>
+          <button class="pm-btn pm-btn-primary" (click)="saveBlogFromModal()" [disabled]="!blogForm.title || !blogForm.excerpt">
+            {{ editingBlogId ? 'Update' : 'Create' }}
+          </button>
         </div>
       </div>
     </div>
@@ -574,6 +610,84 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
     .empty-state h4 { margin: 0 0 8px; color: var(--pm-text-primary); }
     .empty-state p { margin: 0; }
 
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-content {
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-lg);
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--pm-shadow-lg);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--pm-border-light);
+    }
+    .modal-header h3 { margin: 0; font-size: 1.2rem; }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--pm-text-muted);
+      padding: 0;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--pm-text-primary); }
+    .modal-body { padding: 24px; }
+    .modal-body .form-group { margin-bottom: 20px; }
+    .modal-body .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--pm-text-primary);
+    }
+    .modal-body .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--pm-border);
+      border-radius: var(--pm-radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: var(--pm-surface);
+      color: var(--pm-text-primary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .modal-body .form-input:focus { border-color: var(--ion-color-primary); }
+    .modal-body .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .modal-body .checkbox-label input { accent-color: var(--ion-color-primary); }
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 16px 24px;
+      border-top: 1px solid var(--pm-border-light);
+    }
+
     @media (max-width: 768px) {
       .hero-row { flex-direction: column; align-items: flex-start; }
       .stats-grid { grid-template-columns: 1fr; }
@@ -582,6 +696,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
       .project-price, .project-date { display: none; }
       .form-grid { grid-template-columns: 1fr; }
       .form-group-row { flex-direction: column; }
+      .modal-content { max-height: 100vh; border-radius: 0; }
     }
   `],
 })
@@ -609,7 +724,8 @@ export class AdminComponent implements OnInit {
 
   // Blog Management
   blogs: any[] = [];
-  newBlog = {
+  showBlogModal = false;
+  blogForm = {
     title: '',
     content: '',
     excerpt: '',
@@ -852,56 +968,55 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  async createNewBlog() {
-    const title = prompt('Enter blog post title:');
-    if (!title) return;
-    
-    const excerpt = prompt('Enter a short excerpt:');
-    if (!excerpt) return;
-    
-    const content = prompt('Enter blog content (or leave empty to edit later):');
-    
-    try {
-      const blogsRef = collection(this.firestore, 'blogs');
-      await addDoc(blogsRef, {
-        title,
-        excerpt,
-        content: content || '',
-        published: false,
-        createdAt: serverTimestamp(),
-        author: 'Admin'
-      });
-      alert('Blog post created successfully!');
-    } catch (error) {
-      console.error('Error creating blog:', error);
-      alert('Failed to create blog post. Please try again.');
+  openBlogModal(blog?: any) {
+    if (blog) {
+      this.editingBlogId = blog.id;
+      this.blogForm = {
+        title: blog.title || '',
+        content: blog.content || '',
+        excerpt: blog.excerpt || '',
+        published: blog.published || false
+      };
+    } else {
+      this.editingBlogId = null;
+      this.blogForm = { title: '', content: '', excerpt: '', published: false };
     }
+    this.showBlogModal = true;
   }
 
-  async editBlog(blog: any) {
-    const title = prompt('Edit blog title:', blog.title);
-    if (title === null) return;
-    
-    const excerpt = prompt('Edit excerpt:', blog.excerpt);
-    if (excerpt === null) return;
-    
-    const content = prompt('Edit content:', blog.content);
-    if (content === null) return;
-    
-    const publish = confirm('Publish this blog post?');
-    
+  closeBlogModal() {
+    this.showBlogModal = false;
+    this.editingBlogId = null;
+    this.blogForm = { title: '', content: '', excerpt: '', published: false };
+  }
+
+  async saveBlogFromModal() {
+    if (!this.blogForm.title || !this.blogForm.excerpt) return;
+
     try {
-      const blogRef = doc(this.firestore, `blogs/${blog.id}`);
-      await updateDoc(blogRef, {
-        title: title || blog.title,
-        excerpt: excerpt || blog.excerpt,
-        content: content || blog.content,
-        published: publish
-      });
-      alert('Blog post updated successfully!');
+      if (this.editingBlogId) {
+        const blogRef = doc(this.firestore, `blogs/${this.editingBlogId}`);
+        await updateDoc(blogRef, {
+          title: this.blogForm.title,
+          excerpt: this.blogForm.excerpt,
+          content: this.blogForm.content,
+          published: this.blogForm.published
+        });
+      } else {
+        const blogsRef = collection(this.firestore, 'blogs');
+        await addDoc(blogsRef, {
+          title: this.blogForm.title,
+          excerpt: this.blogForm.excerpt,
+          content: this.blogForm.content,
+          published: this.blogForm.published,
+          createdAt: serverTimestamp(),
+          author: 'Admin'
+        });
+      }
+      this.closeBlogModal();
     } catch (error) {
-      console.error('Error updating blog:', error);
-      alert('Failed to update blog post. Please try again.');
+      console.error('Error saving blog:', error);
+      alert('Failed to save blog post. Please check your Firestore rules.');
     }
   }
 
@@ -910,12 +1025,10 @@ export class AdminComponent implements OnInit {
       try {
         const blogRef = doc(this.firestore, `blogs/${blogId}`);
         await deleteDoc(blogRef);
-        alert('Blog post deleted successfully!');
       } catch (error) {
         console.error('Error deleting blog:', error);
-        alert('Failed to delete blog post. Please try again.');
+        alert('Failed to delete blog post. Please check your Firestore rules.');
       }
     }
   }
-
-  }
+}

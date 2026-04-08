@@ -1,7 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
+    
     // Helper function to check if user is authenticated
     function isAuthenticated() {
       return request.auth != null;
@@ -27,6 +27,7 @@ service cloud.firestore {
     match /Riders/{userId} {
       allow read: if isAuthenticated();
       allow write: if isOwner(userId) || isAdmin();
+      
       match /KnownPlaces/{placeId} {
         allow read, write: if isOwner(userId) || isAdmin();
       }
@@ -44,6 +45,7 @@ service cloud.firestore {
       allow write: if isOwner(userId) || isAdmin();
       allow update: if isAuthenticated()
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['onlineState', 'currentRequestId', 'rating', 'ratingCount']);
+      
       match /History/{historyId} {
         allow read, write: if isOwner(userId) || isAdmin();
       }
@@ -78,7 +80,11 @@ service cloud.firestore {
     // RideHistory collection
     match /RideHistory/{historyId} {
       allow create: if isAuthenticated();
-      allow read: if isAuthenticated() && (request.auth.uid == resource.data.riderId || request.auth.uid == resource.data.driverId || isAdmin());
+      allow read: if isAuthenticated() && (
+        request.auth.uid == resource.data.riderId || 
+        request.auth.uid == resource.data.driverId ||
+        isAdmin()
+      );
     }
 
     // Global Messages
@@ -94,29 +100,33 @@ service cloud.firestore {
       allow read: if true;
       allow write: if true; // Admin panel has no auth - allow all writes
     }
-    // Products collection (marketplace)
-    match /products/{productId} {
-      allow read: if true;
-      allow write: if true; // Admin panel has no auth - allow all writes
-    }
     match /HomepageContent/{docId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if true;
     }
     match /ServiceOptions/{docId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if true;
     }
+
     match /ratings/{ratingId} {
       allow read, create: if isAuthenticated();
       allow delete, update: if isAdmin();
     }
+
     match /paystackAuthCodes/{code} {
       allow read, write: if isAuthenticated();
     }
+
     match /Settings/{document} {
       allow read: if isAuthenticated();
       allow write: if isAdmin();
+    }
+
+    // Products collection (marketplace)
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if true; // Admin panel has no auth - allow all writes
     }
 
     // Wallet & Referrals
@@ -143,7 +153,8 @@ service cloud.firestore {
       allow create, read, update, delete: if isAuthenticated();
     }
     match /TripShares/{docId} {
-      allow read: if true; allow create: if isAuthenticated();
+      allow read: if true; 
+      allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
     }
     match /SOSAlerts/{docId} {
@@ -190,9 +201,11 @@ service cloud.firestore {
       allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
       allow write: if isAdmin();
     }
+
     match /AllRides/{userId}/customer/{rideId} {
       allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
     }
+
     match /users/{userId} {
       allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
       match /projects/{projectId} {
@@ -202,10 +215,12 @@ service cloud.firestore {
         allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
       }
     }
+
     match /CancelledRides/{docId} {
       allow read: if isAdmin();
       allow create: if isAuthenticated();
     }
+
     match /items/{docId} {
       allow read, write: if isAdmin();
     }
@@ -213,14 +228,21 @@ service cloud.firestore {
     // Deliveries collection
     match /Deliveries/{deliveryId} {
       allow create: if isAuthenticated();
-      allow read: if isAuthenticated() && (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.driverId ||
+      allow read: if isAuthenticated() && (
+        request.auth.uid == resource.data.senderId || 
+        request.auth.uid == resource.data.driverId ||
         resource.data.status == 'pending' ||
-        isAdmin());
-      allow update: if isAuthenticated() && (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.driverId ||
+        isAdmin()
+      );
+      allow update: if isAuthenticated() && (
+        request.auth.uid == resource.data.senderId || 
+        request.auth.uid == resource.data.driverId ||
         isAdmin() ||
-        (resource.data.status == 'pending' && request.resource.data.status == 'accepted' && request.resource.data.driverId == request.auth.uid));
+        (resource.data.status == 'pending' && request.resource.data.status == 'accepted' && request.resource.data.driverId == request.auth.uid)
+      );
       allow delete: if isAdmin();
     }
+
     match /PackageSizes/{sizeId} {
       allow read: if isAuthenticated();
       allow write: if isAdmin();
@@ -229,16 +251,19 @@ service cloud.firestore {
     // ════════════════════════════════════════════════════════════
     // VENDOR & E-COMMERCE COLLECTIONS
     // ════════════════════════════════════════════════════════════
+
     match /Vendors/{vendorId} {
       allow read: if isAuthenticated();
       allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated() && (isAdmin() || resource.data.ownerId == request.auth.uid);
+      
       // Subcollections (Categories, Products, inventory)
       match /{allPaths=**} {
         allow read: if isAuthenticated();
         allow write: if isAdmin() || (isAuthenticated() && get(/databases/$(database)/documents/Vendors/$(vendorId)).data.ownerId == request.auth.uid);
       }
     }
+
     // Collection Group rules for cross-vendor product search
     match /{path=**}/Products/{prodId} {
       allow read: if isAuthenticated();
@@ -247,45 +272,55 @@ service cloud.firestore {
     // Order Collections (Legacy and E-Commerce)
     match /FoodOrders/{orderId} {
       allow create: if isAuthenticated();
-      allow read, update: if isAuthenticated() && (request.auth.uid == resource.data.riderId || request.auth.uid == resource.data.vendorId ||
+      allow read, update: if isAuthenticated() && (
+        request.auth.uid == resource.data.riderId || 
+        request.auth.uid == resource.data.vendorId ||
         request.auth.uid == resource.data.driverId ||
         isAdmin() ||
-        (exists(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)) && get(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)).data.ownerId == request.auth.uid));
+        (exists(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)) && 
+         get(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)).data.ownerId == request.auth.uid)
+      );
     }
+
     match /EcommerceOrders/{orderId} {
       allow create: if isAuthenticated();
-      allow read, update: if isAuthenticated() && (request.auth.uid == resource.data.customerId || request.auth.uid == resource.data.vendorId ||
+      allow read, update: if isAuthenticated() && (
+        request.auth.uid == resource.data.customerId || 
+        request.auth.uid == resource.data.vendorId ||
         request.auth.uid == resource.data.driverId ||
         isAdmin() ||
-        (exists(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)) && get(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)).data.ownerId == request.auth.uid));
+        (exists(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)) && 
+         get(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)).data.ownerId == request.auth.uid)
+      );
     }
+
     match /AdminNotifications/{docId} {
       allow create: if isAuthenticated();
       allow read: if isAdmin();
     }
+
     match /connectivity-test/{docId} {
       allow read: if isAuthenticated();
     }
+    
+    
+   // ─── Admin Settings (for selljustcode admin panel) ───
+match /settings/admin {
+  // Allow any authenticated user to read the admin email (needed for login check)
+  allow read: if request.auth != null;
+  
+  allow create: if request.auth != null
+    && request.auth.token.email != null
+    && request.resource.data.email == request.auth.token.email;
 
-    // ─── Admin Settings (for selljustcode admin panel) ───
-    // Note: Using lowercase 'settings' to match the code
-    match /settings/admin {
-      // Allow any authenticated user to read the admin email (needed for login check)
-      allow read: if request.auth != null;
+  allow update: if request.auth != null
+    && request.auth.token.email != null
+    && (request.auth.token.email == resource.data.email
+      || request.auth.token.email == request.resource.data.email);
 
-      // Only authenticated users can create, and the email must match their own
-      allow create: if request.auth != null
-        && request.auth.token.email != null
-        && request.resource.data.email == request.auth.token.email;
+  allow delete: if false;
+}
 
-      // Allow update if the signed-in user's email matches the stored email or new email
-      allow update: if request.auth != null
-        && request.auth.token.email != null
-        && (request.auth.token.email == resource.data.email
-          || request.auth.token.email == request.resource.data.email);
-
-      allow delete: if false;
-    }
 
     // ─── Deny all other access ───
     match /{document=**} {
