@@ -211,18 +211,25 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
             </div>
 
             <div class="form-group">
-              <label>Preview Screenshots</label>
+              <label>Preview Screenshots (up to 5)</label>
               <div class="file-upload" (click)="screenshotInput.click()">
                 <input #screenshotInput type="file" accept="image/*" multiple hidden (change)="onScreenshotsSelect($event)" />
                 <div class="upload-content" *ngIf="screenshotNames.length === 0">
                   <span class="upload-icon">📸</span>
                   <strong>Upload preview screenshots</strong>
-                  <span>Up to 5 images. PNG, JPG up to 5MB each</span>
+                  <span>Select up to 5 images. PNG, JPG up to 5MB each</span>
                 </div>
                 <div class="upload-content selected" *ngIf="screenshotNames.length > 0">
                   <span class="upload-icon">✅</span>
                   <strong>{{ screenshotNames.length }} file(s) selected</strong>
-                  <span>Click to change</span>
+                  <span>Click to add more or change</span>
+                </div>
+              </div>
+              <!-- Display selected screenshots -->
+              <div class="selected-files" *ngIf="screenshotNames.length > 0">
+                <div class="selected-file" *ngFor="let name of screenshotNames; let i = index">
+                  <span class="file-name">{{ name }}</span>
+                  <button type="button" class="remove-file" (click)="removeScreenshot(i)">×</button>
                 </div>
               </div>
             </div>
@@ -448,6 +455,33 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
     .upload-content.selected { color: #10B981; }
     .upload-content.selected strong { color: #059669; }
 
+    /* Selected Files */
+    .selected-files { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .selected-file {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--pm-surface-muted);
+      border-radius: var(--pm-radius-sm);
+      font-size: 0.8rem;
+    }
+    .selected-file .file-name { color: var(--pm-text-primary); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .remove-file {
+      background: none;
+      border: none;
+      color: var(--pm-text-muted);
+      cursor: pointer;
+      font-size: 1.2rem;
+      line-height: 1;
+      padding: 0;
+    }
+    .remove-file:hover { color: #EF4444; }
+    .upload-content strong { font-size: 0.875rem; color: var(--pm-text-primary); }
+    .upload-content span { font-size: 0.75rem; color: var(--pm-text-muted); }
+    .upload-content.selected { color: #10B981; }
+    .upload-content.selected strong { color: #059669; }
+
     /* Guidelines */
     .guidelines-box {
       padding: 20px;
@@ -568,7 +602,16 @@ export class SubmitProjectComponent {
 
   onScreenshotsSelect(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files) this.screenshotNames = Array.from(input.files).map(f => f.name);
+    if (input.files) {
+      const newFiles = Array.from(input.files).map(f => f.name);
+      // Limit to 5 screenshots total
+      const combined = [...this.screenshotNames, ...newFiles].slice(0, 5);
+      this.screenshotNames = combined;
+    }
+  }
+
+  removeScreenshot(index: number) {
+    this.screenshotNames = this.screenshotNames.filter((_, i) => i !== index);
   }
 
   onSourceSelect(event: Event) {
