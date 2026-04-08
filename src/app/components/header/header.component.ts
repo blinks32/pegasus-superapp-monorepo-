@@ -80,12 +80,6 @@ import { AuthService } from '../../services/auth.service';
               Create Account
             </a>
           </ng-template>
-          <!-- Three-line button icon (does nothing) -->
-          <button class="three-line-btn" title="Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 12h18M3 6h18M3 18h18"/>
-            </svg>
-          </button>
           <button class="mobile-toggle" (click)="toggleMobile()">
             <svg *ngIf="!mobileMenuOpen()" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             <svg *ngIf="mobileMenuOpen()" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -277,18 +271,6 @@ import { AuthService } from '../../services/auth.service';
       text-decoration: none;
     }
 
-    .three-line-btn {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--pm-text-secondary);
-    }
-
     .mobile-toggle {
       display: none;
       align-items: center;
@@ -410,7 +392,6 @@ import { AuthService } from '../../services/auth.service';
       .nav-dropdown { width: 100%; }
       .nav-dropdown-trigger { width: 100%; font-size: 1.1rem; padding: 14px 16px; }
       .dropdown-menu { position: static; box-shadow: none; border: none; padding-left: 20px; }
-      .three-line-btn { display: flex; }
       .mobile-toggle { display: flex; }
       .upload-btn { display: none; }
 

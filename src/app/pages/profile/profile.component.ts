@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { AuthService } from '../../services/auth.service';
-import { Firestore, collection, query, where, getDocs } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-profile',
@@ -133,13 +132,14 @@ import { Firestore, collection, query, where, getDocs } from '@angular/fire/fire
     .profile-hero {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      padding: 60px 0;
-      margin-bottom: 40px;
+      padding: 40px 0;
+      margin-bottom: 20px;
     }
     
     .profile-hero h1 {
       margin: 0;
       color: white;
+      font-size: 2rem;
     }
     
     .profile-hero p {
@@ -149,41 +149,44 @@ import { Firestore, collection, query, where, getDocs } from '@angular/fire/fire
     
     .profile-layout {
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 40px;
-      margin-top: 40px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    @media (min-width: 769px) {
+      .profile-layout {
+        grid-template-columns: 300px 1fr;
+        gap: 30px;
+      }
     }
     
     .profile-sidebar {
       background: white;
       border-radius: 12px;
-      padding: 30px;
+      padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
     }
     
     .profile-avatar {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: white;
       font-weight: bold;
-      margin: 0 auto 20px;
-    }
-    
-    .profile-avatar-initial {
-      font-size: 2rem;
-      font-weight: bold;
+      margin: 0 auto 15px;
     }
     
     .profile-name {
       text-align: center;
-      margin: 20px 0 5px;
-      font-size: 1.5rem;
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
       font-weight: 600;
     }
     
@@ -191,33 +194,49 @@ import { Firestore, collection, query, where, getDocs } from '@angular/fire/fire
       color: #666;
       text-align: center;
       margin-bottom: 20px;
+      font-size: 0.9rem;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    .profile-joined {
+      text-align: center;
+      color: #666;
+      font-size: 0.875rem;
+      margin-bottom: 20px;
     }
     
     .profile-stats {
       display: flex;
       justify-content: space-around;
-      margin-top: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     
     .stat-item {
       text-align: center;
+      flex: 1;
+      min-width: 80px;
     }
     
     .stat-value {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: bold;
       color: #667eea;
+      display: block;
     }
     
     .stat-label {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       color: #666;
+      display: block;
     }
     
     .profile-content {
       background: white;
       border-radius: 12px;
-      padding: 30px;
+      padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     
@@ -226,13 +245,14 @@ import { Firestore, collection, query, where, getDocs } from '@angular/fire/fire
     }
     
     .profile-section h2 {
-      margin-bottom: 20px;
+      margin: 0 0 15px 0;
+      font-size: 1.25rem;
       color: #333;
     }
     
     .profile-info {
       display: grid;
-      gap: 15px;
+      gap: 10px;
     }
     
     .info-row {
@@ -240,15 +260,20 @@ import { Firestore, collection, query, where, getDocs } from '@angular/fire/fire
       justify-content: space-between;
       padding: 10px 0;
       border-bottom: 1px solid #eee;
+      flex-wrap: wrap;
     }
     
     .info-label {
       font-weight: 600;
       color: #555;
+      font-size: 0.9rem;
     }
     
     .info-value {
       color: #333;
+      font-size: 0.9rem;
+      text-align: right;
+      word-break: break-word;
     }
     
     .rank-badge {
@@ -256,67 +281,154 @@ import { Firestore, collection, query, where, getDocs } from '@angular/fire/fire
       color: white;
       padding: 4px 12px;
       border-radius: 20px;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       font-weight: 600;
+      display: inline-block;
     }
     
     .activity-summary {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    @media (min-width: 480px) {
+      .activity-summary {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
     }
     
     .activity-item {
       background: #f8f9fa;
-      padding: 20px;
+      padding: 15px;
       border-radius: 8px;
       text-align: center;
     }
     
     .activity-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
     }
     
     .activity-title {
       font-weight: 600;
       margin-bottom: 5px;
+      font-size: 0.9rem;
     }
     
     .activity-count {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: bold;
       color: #667eea;
     }
     
     .recent-activity {
-      margin-top: 20px;
+      margin-top: 15px;
     }
     
     .activity-item {
       display: flex;
       align-items: center;
-      padding: 15px;
+      padding: 12px;
       background: #f8f9fa;
       border-radius: 8px;
       margin-bottom: 10px;
     }
     
     .activity-item .activity-icon {
-      font-size: 1.5rem;
-      margin-right: 15px;
+      font-size: 1.25rem;
+      margin-right: 12px;
+      flex-shrink: 0;
     }
     
     .activity-time {
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       color: #666;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-hero {
+        padding: 30px 0;
+      }
+      
+      .profile-hero h1 {
+        font-size: 1.75rem;
+      }
+      
+      .profile-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      
+      .profile-name {
+        font-size: 1rem;
+      }
+      
+      .profile-email {
+        font-size: 0.8rem;
+      }
+      
+      .profile-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .stat-item {
+        min-width: auto;
+      }
+      
+      .info-row {
+        flex-direction: column;
+        gap: 5px;
+      }
+      
+      .info-label, .info-value {
+        width: 100%;
+        text-align: left;
+      }
+      
+      .info-value {
+        text-align: left;
+        margin-top: 5px;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .profile-layout {
+        grid-template-columns: 300px 1fr;
+        gap: 30px;
+      }
+      
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+      }
+      
+      .profile-name {
+        font-size: 1.5rem;
+      }
+      
+      .profile-email {
+        font-size: 0.9rem;
+      }
+      
+      .profile-stats {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+      
+      .activity-summary {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   `]
 })
 export class ProfileComponent implements OnInit {
   auth = inject(AuthService);
-  firestore = inject(Firestore);
   
   userData: any = null;
   userStats = {
