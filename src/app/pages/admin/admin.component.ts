@@ -5,8 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
-import { AuthService } from '../../services/auth.service';
-import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
+import { AdminAuthService } from '../../services/admin-auth.service';
+import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-admin',
@@ -56,9 +56,9 @@ import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
           <div class="chart-header">
             <h3>Revenue Overview</h3>
             <div class="chart-tabs">
-              <button [class.active]="chartPeriod === '7d'" (click)="chartPeriod = '7d'">7 Days</button>
-              <button [class.active]="chartPeriod === '30d'" (click)="chartPeriod = '30d'">30 Days</button>
-              <button [class.active]="chartPeriod === '12m'" (click)="chartPeriod = '12m'">12 Months</button>
+              <button [class.active]="chartPeriod === '7d'" (click)="setChartPeriod('7d')">7 Days</button>
+              <button [class.active]="chartPeriod === '30d'" (click)="setChartPeriod('30d')">30 Days</button>
+              <button [class.active]="chartPeriod === '12m'" (click)="setChartPeriod('12m')">12 Months</button>
             </div>
           </div>
           <div class="chart-body">
@@ -66,7 +66,7 @@ import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
               <div class="chart-bar" *ngFor="let bar of chartData" [style.height.%]="bar.pct" [attr.data-label]="bar.label">
                 <span class="bar-tooltip">\${{ bar.value | number }}</span>
               </div>
-              <div class="empty-chart" *ngIf="chartData.length === 0">
+              <div class="empty-chart" *ngIf="chartTotalRevenue === 0">
                 <p>No sales data available for this period.</p>
               </div>
             </div>
@@ -97,14 +97,16 @@ import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
               <span class="project-desc">{{ project.shortDescription }}</span>
             </div>
             <div class="project-status">
-              <span class="status-badge" [class]="'status-' + project.status">
-                {{ project.status | titlecase }}
+              <span class="status-badge" [class]="'status-' + (project.status || 'pending')">
+                {{ (project.status || 'pending') | titlecase }}
               </span>
             </div>
             <div class="project-price">\${{ project.price }}</div>
             <div class="project-date">{{ project.createdAt | date:'mediumDate' }}</div>
             <div class="project-actions">
-              <button class="pm-btn pm-btn-ghost pm-btn-sm">Edit</button>
+              <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">
+                View
+              </a>
             </div>
           </div>
 
@@ -125,9 +127,9 @@ import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
           <div class="settings-form">
             <div class="form-section">
               <h4>Authorized Email</h4>
-              <p class="section-desc">Only this email will be allowed to access the admin dashboard.</p>
+              <p class="section-desc">Only this email + password can access the admin dashboard.</p>
               <div class="form-group-row">
-                <input type="email" [(ngModel)]="newAdminEmail" placeholder="admin@example.com" class="pm-input">
+                <input type="email" [(ngModel)]="newAdminEmail" placeholder="Admin email" class="pm-input">
                 <button (click)="updateAdminEmail()" class="pm-btn pm-btn-primary" [disabled]="isUpdating">
                   {{ isUpdating ? 'Updating...' : 'Save Email' }}
                 </button>
@@ -142,7 +144,7 @@ import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
               <div class="form-grid">
                 <div class="form-group">
                   <label>New Password</label>
-                  <input type="password" [(ngModel)]="newPassword" placeholder="Minimum 6 characters" class="pm-input">
+                  <input type="password" [(ngModel)]="newPassword" placeholder="Enter new password" class="pm-input">
                 </div>
                 <div class="form-group">
                   <label>Confirm Password</label>
@@ -219,7 +221,7 @@ import { Firestore, doc, getDoc, updateDoc } from '@angular/fire/firestore';
 })
 export class AdminComponent implements OnInit {
   marketplace = inject(MarketplaceService);
-  authService = inject(AuthService);
+  adminAuth = inject(AdminAuthService);
   firestore = inject(Firestore);
 
   activeTab = 'dashboard';
@@ -229,10 +231,11 @@ export class AdminComponent implements OnInit {
   // Real Data State
   dashboardStats: any[] = [];
   chartData: any[] = [];
+  chartTotalRevenue = 0;
   allProjects: any[] = [];
   
   // Settings Form
-  newAdminEmail = 'chndth@gmail.com';
+  newAdminEmail = '';
   newPassword = '';
   confirmPassword = '';
   isUpdating = false;
@@ -249,13 +252,11 @@ export class AdminComponent implements OnInit {
     this.calculateStats();
     
     // Fetch authorized email from Firestore
-    try {
-      const snap = await getDoc(doc(this.firestore, 'settings/admin'));
-      if (snap.exists()) {
-        this.newAdminEmail = snap.data()['email'];
-      }
-    } catch (e) {
-      console.warn('Could not fetch admin config, using default.');
+    const snap = await getDoc(doc(this.firestore, 'settings/admin'));
+    if (snap.exists()) {
+      this.newAdminEmail = snap.data()['email'] || '';
+    } else {
+      this.newAdminEmail = '';
     }
   }
 
@@ -276,13 +277,101 @@ export class AdminComponent implements OnInit {
       { icon: '⭐', label: 'Avg. Rating', value: avgRating.toFixed(1), change: 0, gradient: 'linear-gradient(135deg, rgba(236,72,153,0.15), rgba(219,39,119,0.15))' },
     ];
 
-    // Simple placeholder for chart bars based on real data distribution
-    // In a real app, this would query a 'sales' collection by date
-    this.chartData = products.slice(0, 12).map((p, i) => ({
-      label: p.title.substring(0, 3) + '...',
-      value: p.price * p.totalSales,
-      pct: Math.min(100, (p.totalSales / 50) * 100)
+    this.chartData = this.buildRevenueChart(products, this.chartPeriod);
+    this.chartTotalRevenue = this.chartData.reduce((sum, b) => sum + (b.value || 0), 0);
+  }
+
+  setChartPeriod(period: string) {
+    this.chartPeriod = period;
+    this.calculateStats();
+  }
+
+  private buildRevenueChart(products: any[], period: string): Array<{ label: string; value: number; pct: number }> {
+    const now = new Date();
+    const revenues: number[] = [];
+    const labels: string[] = [];
+
+    const addLabel = (d: Date, mode: 'day' | 'month') => {
+      if (mode === 'day') {
+        return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+      }
+      return d.toLocaleDateString(undefined, { month: 'short' });
+    };
+
+    if (period === '7d') {
+      const start = new Date(now);
+      start.setDate(now.getDate() - 6);
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(start);
+        d.setDate(start.getDate() + i);
+        labels.push(addLabel(d, 'day'));
+        revenues.push(0);
+      }
+
+      for (const p of products) {
+        const createdAt = this.parseDate(p.createdAt);
+        if (!createdAt) continue;
+        const diffDays = Math.floor((createdAt.getTime() - start.getTime()) / 86400000);
+        if (diffDays < 0 || diffDays >= 7) continue;
+        const revenue = (p.price || 0) * (p.totalSales || 0);
+        revenues[diffDays] += revenue;
+      }
+    } else if (period === '12m') {
+      const start = new Date(now.getFullYear(), now.getMonth() - 11, 1);
+      for (let i = 0; i < 12; i++) {
+        const d = new Date(start.getFullYear(), start.getMonth() + i, 1);
+        labels.push(addLabel(d, 'month'));
+        revenues.push(0);
+      }
+
+      for (const p of products) {
+        const createdAt = this.parseDate(p.createdAt);
+        if (!createdAt) continue;
+        const idx =
+          (createdAt.getFullYear() - start.getFullYear()) * 12 +
+          (createdAt.getMonth() - start.getMonth());
+        if (idx < 0 || idx >= 12) continue;
+        const revenue = (p.price || 0) * (p.totalSales || 0);
+        revenues[idx] += revenue;
+      }
+    } else {
+      // Default: 30d
+      const start = new Date(now);
+      start.setDate(now.getDate() - 29);
+      const binCount = 10;
+      const binSizeDays = 3; // ~30 days / 10 bins
+
+      for (let i = 0; i < binCount; i++) {
+        const d = new Date(start);
+        d.setDate(start.getDate() + i * binSizeDays);
+        labels.push(addLabel(d, 'day'));
+        revenues.push(0);
+      }
+
+      for (const p of products) {
+        const createdAt = this.parseDate(p.createdAt);
+        if (!createdAt) continue;
+        const diffDays = Math.floor((createdAt.getTime() - start.getTime()) / 86400000);
+        if (diffDays < 0) continue;
+        const idx = Math.min(binCount - 1, Math.floor(diffDays / binSizeDays));
+        const revenue = (p.price || 0) * (p.totalSales || 0);
+        revenues[idx] += revenue;
+      }
+    }
+
+    const maxRevenue = Math.max(...revenues, 0);
+    return revenues.map((value, i) => ({
+      label: labels[i] || '',
+      value,
+      pct: maxRevenue > 0 ? (value / maxRevenue) * 100 : 0,
     }));
+  }
+
+  private parseDate(value: any): Date | null {
+    if (!value) return null;
+    if (value instanceof Date) return value;
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? null : d;
   }
 
   formatViews(v: number): string {
@@ -292,13 +381,20 @@ export class AdminComponent implements OnInit {
   }
 
   async updateAdminEmail() {
-    if (!this.newAdminEmail.includes('@')) {
+    const normalizedEmail = (this.newAdminEmail || '').trim().toLowerCase();
+    if (!normalizedEmail.includes('@')) {
       alert('Please enter a valid email.');
       return;
     }
     this.isUpdating = true;
     try {
-      await updateDoc(doc(this.firestore, 'settings/admin'), { email: this.newAdminEmail });
+      const ref = doc(this.firestore, 'settings/admin');
+      try {
+        await updateDoc(ref, { email: normalizedEmail });
+      } catch {
+        // If the doc doesn't exist yet, create it (safe default: keep passwordHash unset).
+        await setDoc(ref, { email: normalizedEmail }, { merge: true });
+      }
       alert('Authorized admin email updated successfully!');
     } catch (e) {
       console.error(e);
@@ -320,11 +416,24 @@ export class AdminComponent implements OnInit {
     
     this.isUpdating = true;
     try {
-      // Logic for updating password via AuthService/Firebase
-      // This would typically involve re-authentication in Firebase
-      alert('Password update initiated. Check console for details.');
+      const passwordHash = await this.adminAuth.hashPassword(this.newPassword);
+      const ref = doc(this.firestore, 'settings/admin');
+      const snap = await getDoc(ref);
+      const currentEmail = snap.exists() ? (snap.data() as any)?.email : this.newAdminEmail;
+
+      try {
+        await updateDoc(ref, { passwordHash });
+      } catch {
+        await setDoc(ref, { email: currentEmail || '', passwordHash }, { merge: true });
+      }
+
+      // Clear password fields after successful update.
+      this.newPassword = '';
+      this.confirmPassword = '';
+      alert('Admin password updated successfully.');
     } catch (e) {
       alert('Error updating password.');
+      console.error(e);
     } finally {
       this.isUpdating = false;
     }
@@ -348,7 +457,7 @@ export class AdminComponent implements OnInit {
   getFilteredProjects() {
     const products = this.marketplace.products();
     if (this.projectTab === 'all') return products;
-    // Assuming status field matches projectTab or implement mapping
-    return products;
+    const desiredStatus = this.projectTab;
+    return products.filter((p) => (p.status || 'pending') === desiredStatus);
   }
 }

@@ -54,19 +54,19 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
 
             <div class="form-group">
               <label for="title">Project Title *</label>
-              <input id="title" type="text" [(ngModel)]="project.title" name="title" placeholder="e.g., SuperApp — Flutter Multi-Service Platform" class="form-input" required />
+                <input id="title" type="text" [(ngModel)]="project.title" name="title" placeholder="Project title" class="form-input" required />
               <span class="form-hint">Use a clear, descriptive name with framework/technology</span>
             </div>
 
             <div class="form-group">
               <label for="shortDesc">Short Description *</label>
-              <textarea id="shortDesc" [(ngModel)]="project.shortDescription" name="shortDesc" placeholder="Brief overview of your product in 1-2 sentences..." class="form-input" rows="3" required></textarea>
+                <textarea id="shortDesc" [(ngModel)]="project.shortDescription" name="shortDesc" placeholder="Brief overview (1-2 sentences)" class="form-input" rows="3" required></textarea>
               <span class="form-hint">Max 200 characters. This appears in product cards.</span>
             </div>
 
             <div class="form-group">
               <label for="fullDesc">Full Description *</label>
-              <textarea id="fullDesc" [(ngModel)]="project.fullDescription" name="fullDesc" placeholder="Detailed description with features, tech stack, and usage instructions..." class="form-input" rows="8" required></textarea>
+                <textarea id="fullDesc" [(ngModel)]="project.fullDescription" name="fullDesc" placeholder="Detailed description (features, tech stack, usage)" class="form-input" rows="8" required></textarea>
               <span class="form-hint">Supports HTML formatting. Be thorough — good descriptions increase sales.</span>
             </div>
 
@@ -80,7 +80,7 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
               </div>
               <div class="form-group">
                 <label for="version">Version *</label>
-                <input id="version" type="text" [(ngModel)]="project.version" name="version" placeholder="e.g., 1.0.0" class="form-input" required />
+                  <input id="version" type="text" [(ngModel)]="project.version" name="version" placeholder="Version" class="form-input" required />
               </div>
             </div>
           </div>
@@ -96,14 +96,14 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
                 <label for="price">Regular Price (USD) *</label>
                 <div class="price-input-wrap">
                   <span class="price-symbol">$</span>
-                  <input id="price" type="number" [(ngModel)]="project.price" name="price" placeholder="49" class="form-input price-field" required min="1" />
+                  <input id="price" type="number" [(ngModel)]="project.price" name="price" placeholder="Price" class="form-input price-field" required min="1" />
                 </div>
               </div>
               <div class="form-group">
                 <label for="origPrice">Original Price (Optional)</label>
                 <div class="price-input-wrap">
                   <span class="price-symbol">$</span>
-                  <input id="origPrice" type="number" [(ngModel)]="project.originalPrice" name="origPrice" placeholder="99" class="form-input price-field" />
+                  <input id="origPrice" type="number" [(ngModel)]="project.originalPrice" name="origPrice" placeholder="Original price (optional)" class="form-input price-field" />
                 </div>
                 <span class="form-hint">Set higher to show discount</span>
               </div>
@@ -140,7 +140,7 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
               <label for="reskinPrice">Reskin Service Price (USD)</label>
               <div class="price-input-wrap">
                 <span class="price-symbol">$</span>
-                <input id="reskinPrice" type="number" [(ngModel)]="project.reskinPrice" name="reskinPrice" placeholder="199" class="form-input price-field" />
+                  <input id="reskinPrice" type="number" [(ngModel)]="project.reskinPrice" name="reskinPrice" placeholder="Reskin service price (optional)" class="form-input price-field" />
               </div>
             </div>
           </div>
@@ -153,7 +153,7 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
 
             <div class="form-group">
               <label for="tags">Tags (comma separated) *</label>
-              <input id="tags" type="text" [(ngModel)]="tagsInput" name="tags" placeholder="flutter, firebase, multi-vendor, super-app" class="form-input" />
+                <input id="tags" type="text" [(ngModel)]="tagsInput" name="tags" placeholder="Tags (comma separated)" class="form-input" />
               <span class="form-hint">Add relevant tags to help buyers find your product</span>
               <div class="tag-preview" *ngIf="tagsInput">
                 <span class="preview-tag" *ngFor="let tag of parseTags()">{{ tag }}</span>
@@ -162,27 +162,27 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
 
             <div class="form-group">
               <label for="features">Key Features (one per line) *</label>
-              <textarea id="features" [(ngModel)]="featuresInput" name="features" placeholder="Push Notifications&#10;Payment Gateway&#10;Admin Dashboard&#10;Real-time Tracking" class="form-input" rows="6"></textarea>
+                <textarea id="features" [(ngModel)]="featuresInput" name="features" placeholder="Enter key features, one per line." class="form-input" rows="6"></textarea>
             </div>
 
             <div class="form-group">
               <label for="techStack">Tech Stack (comma separated)</label>
-              <input id="techStack" type="text" [(ngModel)]="techStackInput" name="techStack" placeholder="Flutter 3.x, Firebase, Dart, Google Maps API" class="form-input" />
+                <input id="techStack" type="text" [(ngModel)]="techStackInput" name="techStack" placeholder="Tech stack (comma separated)" class="form-input" />
             </div>
 
             <div class="form-group">
               <label for="compat">Compatibility (comma separated)</label>
-              <input id="compat" type="text" [(ngModel)]="compatInput" name="compat" placeholder="iOS 13+, Android 8+, Web" class="form-input" />
+                <input id="compat" type="text" [(ngModel)]="compatInput" name="compat" placeholder="Supported platforms (comma separated)" class="form-input" />
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="fileSize">File Size</label>
-                <input id="fileSize" type="text" [(ngModel)]="project.fileSize" name="fileSize" placeholder="e.g., 285 MB" class="form-input" />
+                  <input id="fileSize" type="text" [(ngModel)]="project.fileSize" name="fileSize" placeholder="File size" class="form-input" />
               </div>
               <div class="form-group">
                 <label for="demoUrl">Demo URL (optional)</label>
-                <input id="demoUrl" type="url" [(ngModel)]="project.demoUrl" name="demoUrl" placeholder="https://demo.example.com" class="form-input" />
+                  <input id="demoUrl" type="url" [(ngModel)]="project.demoUrl" name="demoUrl" placeholder="Demo URL (optional)" class="form-input" />
               </div>
             </div>
           </div>
@@ -517,7 +517,7 @@ export class SubmitProjectComponent {
     features: [],
     techStack: [],
     compatibility: [],
-    version: '1.0.0',
+    version: '',
     fileSize: '',
     license: 'regular',
     hasReskinService: false,
@@ -538,7 +538,7 @@ export class SubmitProjectComponent {
 
   isStepValid(): boolean {
     switch (this.currentStep()) {
-      case 0: return !!(this.project.title && this.project.shortDescription && this.project.category);
+      case 0: return !!(this.project.title && this.project.shortDescription && this.project.category && this.project.version);
       case 1: return this.project.price > 0;
       case 2: return true;
       default: return true;
@@ -546,7 +546,7 @@ export class SubmitProjectComponent {
   }
 
   isFormValid(): boolean {
-    return !!(this.project.title && this.project.shortDescription && this.project.category && this.project.price > 0);
+    return !!(this.project.title && this.project.shortDescription && this.project.category && this.project.version && this.project.price > 0);
   }
 
   nextStep() {
@@ -602,7 +602,7 @@ export class SubmitProjectComponent {
     this.project = {
       title: '', shortDescription: '', fullDescription: '', category: '' as ProductCategory,
       price: 0, tags: [], features: [], techStack: [], compatibility: [],
-      version: '1.0.0', fileSize: '', license: 'regular', hasReskinService: false, status: 'pending',
+      version: '', fileSize: '', license: 'regular', hasReskinService: false, status: 'pending',
     };
     this.tagsInput = '';
     this.featuresInput = '';

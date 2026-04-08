@@ -83,7 +83,7 @@ import { AuthService } from '../../services/auth.service';
       background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
       display: flex;
       align-items: center;
-      margin-top: 64px;
+      margin-top: 0;
     }
     
     .login-wrapper {

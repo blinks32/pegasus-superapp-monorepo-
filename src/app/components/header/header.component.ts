@@ -69,7 +69,7 @@ import { AuthService } from '../../services/auth.service';
 
           <ng-template #loggedOut>
             <a routerLink="/login" class="pm-btn pm-btn-ghost pm-btn-sm auth-btn">Login</a>
-            <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn" style="margin-left: 8px;">
+            <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn auth-btn-create">
               Create Account
             </a>
           </ng-template>
@@ -387,6 +387,11 @@ import { AuthService } from '../../services/auth.service';
       .dropdown-menu { position: static; box-shadow: none; border: none; padding-left: 20px; }
       .mobile-toggle { display: flex; }
       .upload-btn { display: none; }
+
+      /* Prevent right-side actions from overflowing horizontally on small screens */
+      .header-inner { gap: 16px; }
+      .header-actions { gap: 8px; }
+      .auth-btn-create { display: none; }
     }
 
     @keyframes scaleIn {
