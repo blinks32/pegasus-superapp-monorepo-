@@ -12,6 +12,7 @@ export class MarketplaceService {
   private _cart = signal<CartItem[]>([]);
   private _searchFilters = signal<SearchFilters>({ query: '', sortBy: 'bestselling' });
   private _adminProjects = signal<AdminProject[]>([]);
+  isLoading = signal<boolean>(true);
 
   products = this._products.asReadonly();
   cart = this._cart.asReadonly();
@@ -75,6 +76,7 @@ export class MarketplaceService {
     const q = query(productsRef, orderBy('createdAt', 'desc'));
     collectionData(q, { idField: 'id' }).subscribe((data: any) => {
       this._products.set(data as Product[]);
+      this.isLoading.set(false);
     });
 
     // Load cart from localStorage
@@ -174,8 +176,8 @@ export class MarketplaceService {
       fullDescription: project.fullDescription,
       category: project.category,
       price: project.price,
-      thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
-      previewImages: [],
+      thumbnailUrl: project.thumbnailData || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
+      previewImages: project.previewData && project.previewData.length > 0 ? project.previewData : [],
       rating: 0,
       totalRatings: 0,
       totalSales: 0,

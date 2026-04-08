@@ -34,6 +34,7 @@ export class AuthService {
 
   currentUser = signal<User | null>(null);
   userProfile = signal<UserProfile | null>(null);
+  isAuthLoaded = signal<boolean>(false);
 
   constructor() {
     authState(this.auth).subscribe(async (user) => {
@@ -43,6 +44,7 @@ export class AuthService {
       } else {
         this.userProfile.set(null);
       }
+      this.isAuthLoaded.set(true);
     });
   }
 

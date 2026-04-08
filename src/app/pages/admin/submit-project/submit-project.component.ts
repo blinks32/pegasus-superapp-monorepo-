@@ -228,6 +228,9 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
               <!-- Display selected screenshots -->
               <div class="selected-files" *ngIf="screenshotNames.length > 0">
                 <div class="selected-file" *ngFor="let name of screenshotNames; let i = index">
+                  <div class="preview-thumb" *ngIf="project.previewData && project.previewData[i]">
+                    <img [src]="project.previewData[i]" alt="preview" style="height:40px; border-radius:4px;" />
+                  </div>
                   <span class="file-name">{{ name }}</span>
                   <button type="button" class="remove-file" (click)="removeScreenshot(i)">×</button>
                 </div>
@@ -570,21 +573,37 @@ export class SubmitProjectComponent {
 
   onThumbSelect(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) this.thumbnailName = input.files[0].name;
+    if (input.files?.length) {
+      this.thumbnailName = input.files[0].name;
+      const reader = new FileReader();
+      reader.onload = (e) => this.project.thumbnailData = e.target?.result as string;
+      reader.readAsDataURL(input.files[0]);
+    }
   }
 
   onScreenshotsSelect(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files) {
-      const newFiles = Array.from(input.files).map(f => f.name);
-      // Limit to 5 screenshots total
-      const combined = [...this.screenshotNames, ...newFiles].slice(0, 5);
-      this.screenshotNames = combined;
+      if (!this.project.previewData) this.project.previewData = [];
+      Array.from(input.files).forEach(file => {
+        if (this.screenshotNames.length >= 5) return;
+        this.screenshotNames.push(file.name);
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          if (this.project.previewData!.length < 5) {
+            this.project.previewData!.push(e.target?.result as string);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
     }
   }
 
   removeScreenshot(index: number) {
     this.screenshotNames = this.screenshotNames.filter((_, i) => i !== index);
+    if (this.project.previewData) {
+      this.project.previewData = this.project.previewData.filter((_, i) => i !== index);
+    }
   }
 
   onSourceSelect(event: Event) {
@@ -631,6 +650,7 @@ export class SubmitProjectComponent {
       title: '', shortDescription: '', fullDescription: '', category: '' as ProductCategory,
       price: 0, tags: [], features: [], techStack: [], compatibility: [],
       version: '', fileSize: '', license: 'regular', hasReskinService: false, status: 'pending',
+      thumbnailData: undefined, previewData: [],
     };
     this.tagsInput = '';
     this.featuresInput = '';

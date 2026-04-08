@@ -32,14 +32,15 @@ import { Product } from '../../models/marketplace.models';
         <div class="detail-main">
           <!-- Preview Card -->
           <div class="preview-card">
-            <div class="preview-image" [style.background]="getGradient()">
-              <span class="preview-icon">{{ getCategoryIcon() }}</span>
-              <span class="preview-title">{{ product.title.split('—')[0] }}</span>
+            <div class="preview-image" [style.background]="activePreviewIndex === -1 ? getGradient() : 'none'" [style.backgroundImage]="activePreviewIndex === -1 && product.thumbnailUrl && !product.thumbnailUrl.startsWith('http') ? 'url(' + product.thumbnailUrl + ')' : activePreviewIndex >= 0 ? 'url(' + product.previewImages[activePreviewIndex] + ')' : 'none'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
+              <ng-container *ngIf="activePreviewIndex === -1 && (!product.thumbnailUrl || product.thumbnailUrl.startsWith('http'))">
+                <span class="preview-icon">{{ getCategoryIcon() }}</span>
+                <span class="preview-title">{{ product.title.split('—')[0] }}</span>
+              </ng-container>
             </div>
             <div class="preview-thumbnails">
-              <div class="thumb-item active" [style.background]="getGradient()"></div>
-              <div class="thumb-item" *ngFor="let c of ['#3B82F6,#60A5FA', '#EC4899,#F472B6']"
-                   [style.background]="'linear-gradient(135deg, ' + c + ')'"></div>
+              <div class="thumb-item" [class.active]="activePreviewIndex === -1" [style.background]="getGradient()" [style.backgroundImage]="product.thumbnailUrl && !product.thumbnailUrl.startsWith('http') ? 'url(' + product.thumbnailUrl + ')' : 'none'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = -1"></div>
+              <div class="thumb-item" *ngFor="let img of product.previewImages; let i = index" [class.active]="activePreviewIndex === i" [style.backgroundImage]="'url(' + img + ')'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = i"></div>
             </div>
           </div>
 
@@ -200,7 +201,11 @@ import { Product } from '../../models/marketplace.models';
               </label>
             </div>
 
-            <button class="pm-btn pm-btn-success pm-btn-lg" style="width:100%; margin-top: 16px"
+            <a *ngIf="product.demoUrl" [href]="product.demoUrl" target="_blank" class="pm-btn pm-btn-outline pm-btn-lg" style="width:100%; margin-top: 16px; margin-bottom: 8px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px;">
+               🌐 Live Demo
+            </a>
+
+            <button class="pm-btn pm-btn-success pm-btn-lg" style="width:100%; margin-top: 8px"
                     (click)="addToCart()"
                     [class.added]="isInCart">
               {{ isInCart ? '✓ Added to Cart' : '🛒 Add to Cart' }}
@@ -604,6 +609,7 @@ export class ProductDetailComponent implements OnInit {
   selectedLicense: 'regular' | 'extended' = 'regular';
   addReskin = false;
   isInCart = false;
+  activePreviewIndex = -1;
 
   newReviewRating = 5;
   newReviewTitle = '';

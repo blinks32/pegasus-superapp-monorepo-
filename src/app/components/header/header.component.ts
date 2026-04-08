@@ -40,46 +40,52 @@ import { AuthService } from '../../services/auth.service';
             <span class="cart-badge" *ngIf="marketplace.cartCount() > 0">{{ marketplace.cartCount() }}</span>
           </a>
           
-          <ng-container *ngIf="auth.userProfile(); else loggedOut">
-            <div class="user-profile" (mouseenter)="showProfileDropdown.set(true)" (mouseleave)="showProfileDropdown.set(false)">
-              <button class="profile-btn">
-                <img *ngIf="auth.userProfile()?.photoURL; else initials" [src]="auth.userProfile()?.photoURL" class="avatar-img" />
-                <ng-template #initials>
-                  <div class="avatar-initials">{{ auth.userProfile()?.displayName?.charAt(0) || 'U' }}</div>
-                </ng-template>
-              </button>
-              
-              <div class="dropdown-menu profile-dropdown" *ngIf="showProfileDropdown()">
-                <div class="profile-header">
-                  <strong>{{ auth.userProfile()?.displayName }}</strong>
-                  <span>{{ auth.userProfile()?.email }}</span>
-                </div>
-                <hr>
-                <a routerLink="/profile" class="dropdown-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                  <span>My Profile</span>
-                </a>
-                <a class="dropdown-item" (click)="auth.logout()">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-                    <polyline points="16 17 21 12 16 7"></polyline>
-                    <line x1="21" y1="12" x2="9" y2="12"></line>
-                  </svg>
-                  <span>Log Out</span>
-                </a>
-              </div>
-            </div>
+          <ng-container *ngIf="!auth.isAuthLoaded()">
+            <div class="skeleton-avatar" style="width: 40px; height: 40px; border-radius: 50%; background: var(--pm-surface-muted); animation: pulse 1.5s infinite"></div>
           </ng-container>
 
-          <ng-template #loggedOut>
-            <a routerLink="/login" class="pm-btn pm-btn-ghost pm-btn-sm auth-btn">Login</a>
-            <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn auth-btn-create">
-              Create Account
-            </a>
-          </ng-template>
+          <ng-container *ngIf="auth.isAuthLoaded()">
+            <ng-container *ngIf="auth.userProfile(); else loggedOut">
+              <div class="user-profile" (mouseenter)="showProfileDropdown.set(true)" (mouseleave)="showProfileDropdown.set(false)">
+                <button class="profile-btn">
+                  <img *ngIf="auth.userProfile()?.photoURL; else initials" [src]="auth.userProfile()?.photoURL" class="avatar-img" />
+                  <ng-template #initials>
+                    <div class="avatar-initials">{{ auth.userProfile()?.displayName?.charAt(0) || 'U' }}</div>
+                  </ng-template>
+                </button>
+                
+                <div class="dropdown-menu profile-dropdown" *ngIf="showProfileDropdown()">
+                  <div class="profile-header">
+                    <strong>{{ auth.userProfile()?.displayName }}</strong>
+                    <span>{{ auth.userProfile()?.email }}</span>
+                  </div>
+                  <hr>
+                  <a routerLink="/profile" class="dropdown-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>My Profile</span>
+                  </a>
+                  <a class="dropdown-item" (click)="auth.logout()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                      <polyline points="16 17 21 12 16 7"></polyline>
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Log Out</span>
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-template #loggedOut>
+              <a routerLink="/login" class="pm-btn pm-btn-ghost pm-btn-sm auth-btn">Login</a>
+              <a routerLink="/login" [queryParams]="{register: true}" class="pm-btn pm-btn-primary pm-btn-sm auth-btn auth-btn-create">
+                Create Account
+              </a>
+            </ng-template>
+          </ng-container>
         </div>
       </div>
     </header>

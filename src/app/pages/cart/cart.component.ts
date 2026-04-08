@@ -87,9 +87,9 @@ import { MarketplaceService } from '../../services/marketplace.service';
           </button>
 
           <div class="payment-methods">
-            <span>Pay with:</span>
+            <span>Pay securely with</span>
             <div class="pay-icons">
-              <span *ngFor="let p of ['Visa', 'MC', 'PayPal', 'Stripe']" class="pay-tag">{{ p }}</span>
+              <span class="pay-tag" style="background:#FFE600; color:#1A1A1A;">Lemon Squeezy</span>
             </div>
           </div>
 
@@ -342,8 +342,10 @@ export class CartComponent {
   checkout() {
     this.checkingOut = true;
     setTimeout(() => {
+      // Mock Lemon Squeezy Checkout Redirect
+      window.open('https://app.lemonsqueezy.com/checkout', '_blank');
       this.marketplace.clearCart();
       this.checkingOut = false;
-    }, 2000);
+    }, 1000);
   }
 }

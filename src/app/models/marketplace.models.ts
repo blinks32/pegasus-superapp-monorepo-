@@ -119,6 +119,8 @@ export interface AdminProject {
   thumbnailFile?: File;
   previewFiles?: File[];
   sourceFile?: File;
+  thumbnailData?: string;
+  previewData?: string[];
   createdAt?: Date;
   updatedAt?: Date;
 }
