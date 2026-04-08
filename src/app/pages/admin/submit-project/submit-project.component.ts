@@ -455,33 +455,6 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
     .upload-content.selected { color: #10B981; }
     .upload-content.selected strong { color: #059669; }
 
-    /* Selected Files */
-    .selected-files { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .selected-file {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      background: var(--pm-surface-muted);
-      border-radius: var(--pm-radius-sm);
-      font-size: 0.8rem;
-    }
-    .selected-file .file-name { color: var(--pm-text-primary); max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .remove-file {
-      background: none;
-      border: none;
-      color: var(--pm-text-muted);
-      cursor: pointer;
-      font-size: 1.2rem;
-      line-height: 1;
-      padding: 0;
-    }
-    .remove-file:hover { color: #EF4444; }
-    .upload-content strong { font-size: 0.875rem; color: var(--pm-text-primary); }
-    .upload-content span { font-size: 0.75rem; color: var(--pm-text-muted); }
-    .upload-content.selected { color: #10B981; }
-    .upload-content.selected strong { color: #059669; }
-
     /* Guidelines */
     .guidelines-box {
       padding: 20px;
