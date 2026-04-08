@@ -24,6 +24,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
           </div>
           <div class="hero-actions">
             <button (click)="activeTab = 'dashboard'" [class.active]="activeTab === 'dashboard'" class="tab-btn">Dashboard</button>
+            <button (click)="activeTab = 'blogs'" [class.active]="activeTab === 'blogs'" class="tab-btn">Blogs</button>
             <button (click)="activeTab = 'settings'" [class.active]="activeTab === 'settings'" class="tab-btn">Settings</button>
             <a routerLink="/admin/submit" class="pm-btn pm-btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
@@ -168,6 +169,71 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
           </div>
         </div>
       </div>
+
+      <!-- Blog Management View -->
+      <div *ngIf="activeTab === 'blogs'" class="fade-in">
+        <div class="settings-card">
+          <div class="settings-header">
+            <h3>Blog Management</h3>
+            <p>Create, edit, and manage blog posts</p>
+          </div>
+
+          <div class="blog-management">
+            <div class="blog-actions">
+              <button class="pm-btn pm-btn-primary" (click)="createNewBlog()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+                New Blog Post
+              </button>
+            </div>
+
+            <div class="blogs-list" *ngIf="blogs.length > 0">
+              <div class="blog-item" *ngFor="let blog of blogs">
+                <div class="blog-item-content">
+                  <div class="blog-item-header">
+                    <h4>{{ blog.title || 'Untitled Blog' }}</h4>
+                    <div class="blog-actions">
+                      <button class="pm-btn pm-btn-sm pm-btn-ghost" (click)="editBlog(blog)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        Edit
+                      </button>
+                      <button class="pm-btn pm-btn-sm pm-btn-danger" (click)="deleteBlog(blog.id)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                  <p class="blog-excerpt">{{ blog.excerpt || 'No content' }}</p>
+                  <div class="blog-meta">
+                    <span class="blog-status" [class]="blog.published ? 'status-published' : 'status-draft'">
+                      {{ blog.published ? 'Published' : 'Draft' }}
+                    </span>
+                    <span class="blog-date">{{ blog.createdAt | date:'medium' }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="blogs.length === 0" class="empty-state">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <h4>No blog posts yet</h4>
+              <p>Create your first blog post to get started.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <app-footer></app-footer>
@@ -227,6 +293,92 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
     .empty-chart { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--pm-text-muted); font-size: 0.9rem; }
     .fade-in { animation: fadeIn 0.3s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Blog Management */
+    .blog-management {
+      margin-top: 20px;
+    }
+    .blog-actions {
+      margin-bottom: 24px;
+    }
+    .blogs-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .blog-item {
+      background: var(--pm-surface);
+      border: 1px solid var(--pm-border-light);
+      border-radius: var(--pm-radius-md);
+      padding: 20px;
+      transition: all var(--pm-transition-fast);
+    }
+    .blog-item:hover {
+      border-color: var(--ion-color-primary);
+      box-shadow: var(--pm-shadow-sm);
+    }
+    .blog-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .blog-item-header h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--pm-text-primary);
+      flex: 1;
+    }
+    .blog-item-header .blog-actions {
+      display: flex;
+      gap: 8px;
+      margin: 0;
+    }
+    .blog-excerpt {
+      margin: 0 0 12px;
+      color: var(--pm-text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.8rem;
+    }
+    .blog-status {
+      padding: 4px 8px;
+      border-radius: var(--pm-radius-sm);
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+    .status-published {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10B981;
+    }
+    .status-draft {
+      background: rgba(245, 158, 11, 0.1);
+      color: #F59E0B;
+    }
+    .blog-date {
+      color: var(--pm-text-muted);
+    }
+    .empty-state {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--pm-text-muted);
+    }
+    .empty-state svg {
+      margin-bottom: 16px;
+      color: var(--pm-border);
+    }
+    .empty-state h4 {
+      margin: 0 0 8px;
+      color: var(--pm-text-primary);
+    }
+    .empty-state p {
+      margin: 0;
+    }
   `],
 })
 export class AdminComponent implements OnInit {
@@ -251,6 +403,16 @@ export class AdminComponent implements OnInit {
   confirmPassword = '';
   isUpdating = false;
 
+  // Blog Management
+  blogs: any[] = [];
+  newBlog = {
+    title: '',
+    content: '',
+    excerpt: '',
+    published: false
+  };
+  editingBlogId: string | null = null;
+
   constructor() {
     // Reactively update stats when products change
     effect(() => {
@@ -269,6 +431,9 @@ export class AdminComponent implements OnInit {
     } else {
       this.newAdminEmail = '';
     }
+    
+    // Load blogs
+    this.loadBlogs();
   }
 
   calculateStats() {
@@ -474,5 +639,81 @@ export class AdminComponent implements OnInit {
     if (this.projectTab === 'all') return products;
     const desiredStatus = this.projectTab;
     return products.filter((p) => (p.status || 'pending') === desiredStatus);
+  }
+
+  // Blog Management Methods
+  async loadBlogs() {
+    // In a real app, you would fetch blogs from Firestore
+    // For now, we'll use mock data
+    this.blogs = [
+      {
+        id: '1',
+        title: 'Getting Started with Ionic Framework',
+        excerpt: 'Learn how to build mobile apps with Ionic',
+        content: 'Full article content here...',
+        published: true,
+        createdAt: new Date('2024-01-15'),
+        author: 'Admin'
+      },
+      {
+        id: '2',
+        title: 'Angular 17 Features',
+        excerpt: 'New features in Angular 17',
+        content: 'Angular 17 brings many new features...',
+        published: false,
+        createdAt: new Date('2024-01-10'),
+        author: 'Admin'
+      }
+    ];
+  }
+
+  createNewBlog() {
+    this.newBlog = {
+      title: '',
+      content: '',
+      excerpt: '',
+      published: false
+    };
+    this.editingBlogId = null;
+    // In a real app, you would show a modal or navigate to an editor
+    alert('Blog editor would open here. In a real app, this would open a form or modal.');
+  }
+
+  editBlog(blog: any) {
+    this.newBlog = { ...blog };
+    this.editingBlogId = blog.id;
+    // In a real app, you would open an editor
+    alert(`Editing blog: ${blog.title}`);
+  }
+
+  async deleteBlog(blogId: string) {
+    if (confirm('Are you sure you want to delete this blog post?')) {
+      // In a real app, you would call a service to delete from Firestore
+      this.blogs = this.blogs.filter(blog => blog.id !== blogId);
+      alert('Blog post deleted (simulated)');
+    }
+  }
+
+  saveBlog() {
+    if (this.editingBlogId) {
+      // Update existing blog
+      const index = this.blogs.findIndex(b => b.id === this.editingBlogId);
+      if (index !== -1) {
+        this.blogs[index] = { ...this.newBlog, id: this.editingBlogId };
+      }
+    } else {
+      // Create new blog
+      const newBlog = {
+        id: Date.now().toString(),
+        ...this.newBlog,
+        createdAt: new Date(),
+        author: 'Admin'
+      };
+      this.blogs.push(newBlog);
+    }
+    
+    // Reset form
+    this.newBlog = { title: '', content: '', excerpt: '', published: false };
+    this.editingBlogId = null;
   }
 }

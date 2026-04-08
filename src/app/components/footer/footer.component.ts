@@ -1,31 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink],
   template: `
-    <!-- Newsletter -->
-    <section class="newsletter-section">
-      <div class="pm-container">
-        <div class="newsletter-card">
-          <div class="newsletter-content">
-            <h3>Stay Updated with New Releases</h3>
-            <p>Get notified about trending products, exclusive deals, and developer tips.</p>
-          </div>
-          <div class="newsletter-form">
-            <input type="email" placeholder="Enter your email address" [(ngModel)]="email" />
-            <button class="pm-btn pm-btn-primary" (click)="subscribe()">
-              {{ subscribed ? '✓ Subscribed!' : 'Subscribe' }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Main Footer -->
     <footer class="pm-footer">
       <div class="pm-container">
@@ -215,59 +196,7 @@ import { FormsModule } from '@angular/forms';
       color: var(--pm-text-muted);
     }
 
-    /* Newsletter */
-    .newsletter-section {
-      padding: 48px 0;
-      background: var(--pm-surface-muted);
-    }
-    .newsletter-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--pm-gradient-primary);
-      border-radius: var(--pm-radius-xl);
-      padding: 40px 48px;
-      gap: 32px;
-    }
-    .newsletter-content h3 {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0 0 6px;
-    }
-    .newsletter-content p {
-      color: rgba(255,255,255,0.8);
-      margin: 0;
-      font-size: 0.9rem;
-    }
-    .newsletter-form {
-      display: flex;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-    .newsletter-form input {
-      padding: 12px 20px;
-      border-radius: var(--pm-radius-sm);
-      border: 2px solid rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.15);
-      color: white;
-      font-size: 0.9rem;
-      font-family: inherit;
-      width: 280px;
-      outline: none;
-      transition: border-color var(--pm-transition-fast);
-    }
-    .newsletter-form input::placeholder { color: rgba(255,255,255,0.6); }
-    .newsletter-form input:focus { border-color: white; }
-    .newsletter-form .pm-btn {
-      background: white;
-      color: var(--ion-color-primary);
-      box-shadow: none;
-      white-space: nowrap;
-    }
-    .newsletter-form .pm-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+
 
     /* Main Footer */
     .pm-footer {
@@ -415,9 +344,6 @@ import { FormsModule } from '@angular/forms';
     }
     @media (max-width: 768px) {
       .trust-inner { grid-template-columns: repeat(2, 1fr); }
-      .newsletter-card { flex-direction: column; text-align: center; padding: 32px 24px; }
-      .newsletter-form { width: 100%; }
-      .newsletter-form input { flex: 1; width: auto; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: span 2; }
     }
@@ -425,14 +351,11 @@ import { FormsModule } from '@angular/forms';
       .trust-inner { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-brand { grid-column: span 1; }
-      .newsletter-form { flex-direction: column; }
     }
   `],
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
-  email = '';
-  subscribed = false;
 
   paymentMethods = [
     { name: 'Visa', icon: 'V', color: '#1A1F71' },
@@ -443,11 +366,4 @@ export class FooterComponent {
     { name: 'Google Pay', icon: 'G', color: '#4285F4' },
     { name: 'Crypto', icon: '₿', color: '#F7931A' },
   ];
-
-  subscribe() {
-    if (this.email && this.email.includes('@')) {
-      this.subscribed = true;
-      setTimeout(() => { this.subscribed = false; this.email = ''; }, 3000);
-    }
-  }
 }

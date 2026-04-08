@@ -51,6 +51,11 @@ export const routes: Routes = [
       import('./pages/login/login.component').then((m) => m.LoginComponent),
   },
   {
+    path: 'profile',
+    loadComponent: () =>
+      import('./pages/profile/profile.component').then((m) => m.ProfileComponent),
+  },
+  {
     path: 'page/:slug',
     loadComponent: () =>
       import('./pages/static-page/static-page.component').then((m) => m.StaticPageComponent),
