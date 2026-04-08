@@ -778,7 +778,7 @@ export class AdminComponent implements OnInit {
       : 0;
 
     this.dashboardStats = [
-      { icon: '💰', label: 'Total Revenue', value: `\${{ totalRev.toLocaleString() }}`, change: 0, gradient: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.15))' },
+      { icon: '💰', label: 'Total Revenue', value: `\$${totalRev.toLocaleString()}`, change: 0, gradient: 'linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.15))' },
       { icon: '📦', label: 'Products Sold', value: totalSales.toString(), change: 0, gradient: 'linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.15))' },
       { icon: '👁️', label: 'Total Views', value: this.formatViews(totalVisits), change: 0, gradient: 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(234,88,12,0.15))' },
       { icon: '⭐', label: 'Avg. Rating', value: avgRating.toFixed(1), change: 0, gradient: 'linear-gradient(135deg, rgba(236,72,153,0.15), rgba(219,39,119,0.15))' },

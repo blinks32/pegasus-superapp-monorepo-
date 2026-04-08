@@ -166,7 +166,7 @@ export class MarketplaceService {
       .replace(/(^-|-$)/g, '');
 
     const now = new Date();
-    const newProduct: Product = {
+    const newProduct: any = {
       id,
       title: project.title,
       slug,
@@ -174,11 +174,8 @@ export class MarketplaceService {
       fullDescription: project.fullDescription,
       category: project.category,
       price: project.price,
-      originalPrice: project.originalPrice,
-      discountPercent: project.originalPrice ? Math.round((1 - project.price / project.originalPrice) * 100) : undefined,
       thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
       previewImages: [],
-      demoUrl: project.demoUrl,
       rating: 0,
       totalRatings: 0,
       totalSales: 0,
@@ -209,9 +206,22 @@ export class MarketplaceService {
       frameworks: project.techStack,
       license: project.license,
       hasReskinService: project.hasReskinService,
-      reskinPrice: project.reskinPrice,
       status: project.status || 'published'
     };
+
+    // Only include fields that have values
+    if (project.originalPrice) {
+      newProduct.originalPrice = project.originalPrice;
+      newProduct.discountPercent = Math.round((1 - project.price / project.originalPrice) * 100);
+    }
+    
+    if (project.demoUrl) {
+      newProduct.demoUrl = project.demoUrl;
+    }
+    
+    if (project.hasReskinService && project.reskinPrice) {
+      newProduct.reskinPrice = project.reskinPrice;
+    }
 
     try {
       const projectRef = doc(this.firestore, `products/${id}`);
