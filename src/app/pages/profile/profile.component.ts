@@ -24,29 +24,25 @@ import { AuthService } from '../../services/auth.service';
         <div class="profile-layout">
           <!-- Sidebar -->
           <div class="profile-sidebar">
-            <div class="profile-card">
-              <div class="profile-avatar">
-                <div class="avatar-large">
-                  {{ auth.userProfile()?.displayName?.charAt(0) || 'U' }}
-                </div>
-                <h3>{{ auth.userProfile()?.displayName || 'User' }}</h3>
-                <p class="profile-email">{{ auth.userProfile()?.email }}</p>
-                <p class="profile-joined">Member since {{ getJoinDate() | date:'mediumDate' }}</p>
+            <div class="profile-avatar">
+              {{ auth.userProfile()?.displayName?.charAt(0) || 'U' }}
+            </div>
+            <h3 class="profile-name">{{ auth.userProfile()?.displayName || 'User' }}</h3>
+            <p class="profile-email">{{ auth.userProfile()?.email }}</p>
+            <p class="profile-joined">Member since {{ getJoinDate() | date:'mediumDate' }}</p>
+            
+            <div class="profile-stats">
+              <div class="stat-item">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Assets Bought</div>
               </div>
-              
-              <div class="profile-stats">
-                <div class="stat-item">
-                  <div class="stat-value">0</div>
-                  <div class="stat-label">Assets Bought</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">0</div>
-                  <div class="stat-label">Reviews</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-value">0</div>
-                  <div class="stat-label">Rank</div>
-                </div>
+              <div class="stat-item">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Reviews</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Rank</div>
               </div>
             </div>
           </div>
@@ -164,9 +160,10 @@ import { AuthService } from '../../services/auth.service';
     .profile-sidebar {
       background: white;
       border-radius: 12px;
-      padding: 20px;
+      padding: 24px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       margin-bottom: 20px;
+      text-align: center;
     }
     
     .profile-avatar {
@@ -180,30 +177,28 @@ import { AuthService } from '../../services/auth.service';
       font-size: 2rem;
       color: white;
       font-weight: bold;
-      margin: 0 auto 15px;
+      margin: 0 auto 16px;
     }
     
     .profile-name {
-      text-align: center;
-      margin: 10px 0 5px;
-      font-size: 1.1rem;
+      margin: 0 0 8px 0;
+      font-size: 1.25rem;
       font-weight: 600;
+      color: #333;
     }
     
     .profile-email {
       color: #666;
-      text-align: center;
-      margin-bottom: 20px;
+      margin: 0 0 8px 0;
       font-size: 0.9rem;
       word-break: break-word;
       overflow-wrap: break-word;
     }
     
     .profile-joined {
-      text-align: center;
-      color: #666;
-      font-size: 0.875rem;
-      margin-bottom: 20px;
+      color: #888;
+      font-size: 0.85rem;
+      margin: 0 0 24px 0;
     }
     
     .profile-stats {
@@ -356,17 +351,25 @@ import { AuthService } from '../../services/auth.service';
         font-size: 1.75rem;
       }
       
+      .profile-sidebar {
+        padding: 20px;
+      }
+      
       .profile-avatar {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
       }
       
       .profile-name {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       
       .profile-email {
+        font-size: 0.85rem;
+      }
+      
+      .profile-joined {
         font-size: 0.8rem;
       }
       
@@ -402,6 +405,10 @@ import { AuthService } from '../../services/auth.service';
         gap: 30px;
       }
       
+      .profile-sidebar {
+        padding: 30px;
+      }
+      
       .profile-avatar {
         width: 100px;
         height: 100px;
@@ -413,6 +420,10 @@ import { AuthService } from '../../services/auth.service';
       }
       
       .profile-email {
+        font-size: 0.95rem;
+      }
+      
+      .profile-joined {
         font-size: 0.9rem;
       }
       
