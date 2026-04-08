@@ -576,24 +576,36 @@ export class SubmitProjectComponent {
     if (input.files?.length) this.sourceName = input.files[0].name;
   }
 
-  saveDraft() {
+  async saveDraft() {
     this.project.tags = this.parseTags();
     this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
     this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
     this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
     this.project.status = 'draft';
-    this.marketplace.submitProject(this.project);
-    alert('Draft saved successfully!');
+    
+    try {
+      await this.marketplace.submitProject(this.project);
+      alert('Draft saved successfully!');
+    } catch (error) {
+      console.error('Error saving draft:', error);
+      alert('Failed to save draft. Please check your Firestore rules and try again.');
+    }
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.project.tags = this.parseTags();
     this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
     this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
     this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
-    this.project.status = 'pending';
-    this.marketplace.submitProject(this.project);
-    this.submitted.set(true);
+    this.project.status = 'published';
+    
+    try {
+      await this.marketplace.submitProject(this.project);
+      this.submitted.set(true);
+    } catch (error) {
+      console.error('Error submitting project:', error);
+      alert('Failed to submit project. Please check your Firestore rules and try again.');
+    }
   }
 
   resetForm() {

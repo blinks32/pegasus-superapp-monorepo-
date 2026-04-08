@@ -689,14 +689,27 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
     }
 
     @media (max-width: 768px) {
-      .hero-row { flex-direction: column; align-items: flex-start; }
-      .stats-grid { grid-template-columns: 1fr; }
-      .chart-header { flex-direction: column; align-items: flex-start; }
-      .project-row { flex-wrap: wrap; }
+      .hero-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .hero-actions { width: 100%; justify-content: flex-start; }
+      .tab-btn { padding: 8px 12px; font-size: 0.85rem; }
+      .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+      .stat-card { padding: 16px; }
+      .stat-card-icon { width: 48px; height: 48px; font-size: 1.25rem; }
+      .chart-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .chart-tabs { width: 100%; justify-content: space-between; }
+      .chart-tabs button { flex: 1; text-align: center; }
+      .project-row { flex-wrap: wrap; gap: 12px; padding: 12px 0; }
+      .project-thumb { width: 40px; height: 40px; font-size: 1rem; }
+      .project-info { min-width: 0; }
+      .project-title { font-size: 0.9rem; }
+      .project-desc { font-size: 0.8rem; }
       .project-price, .project-date { display: none; }
       .form-grid { grid-template-columns: 1fr; }
       .form-group-row { flex-direction: column; }
-      .modal-content { max-height: 100vh; border-radius: 0; }
+      .modal-content { max-height: 100vh; border-radius: 0; margin: 0; width: 100%; }
+      .settings-card { padding: 20px; }
+      .blog-item-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .blog-item-header .blog-actions { width: 100%; justify-content: flex-start; }
     }
   `],
 })
@@ -1000,7 +1013,8 @@ export class AdminComponent implements OnInit {
           title: this.blogForm.title,
           excerpt: this.blogForm.excerpt,
           content: this.blogForm.content,
-          published: this.blogForm.published
+          published: this.blogForm.published,
+          updatedAt: serverTimestamp()
         });
       } else {
         const blogsRef = collection(this.firestore, 'blogs');
@@ -1009,8 +1023,9 @@ export class AdminComponent implements OnInit {
           excerpt: this.blogForm.excerpt,
           content: this.blogForm.content,
           published: this.blogForm.published,
+          author: 'Admin',
           createdAt: serverTimestamp(),
-          author: 'Admin'
+          updatedAt: serverTimestamp()
         });
       }
       this.closeBlogModal();

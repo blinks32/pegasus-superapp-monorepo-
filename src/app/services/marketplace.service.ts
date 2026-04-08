@@ -210,12 +210,18 @@ export class MarketplaceService {
       license: project.license,
       hasReskinService: project.hasReskinService,
       reskinPrice: project.reskinPrice,
-      status: project.status || 'pending'
+      status: project.status || 'published'
     };
 
-    const projectRef = doc(this.firestore, `products/${id}`);
-    await setDoc(projectRef, newProduct);
-    return id;
+    try {
+      const projectRef = doc(this.firestore, `products/${id}`);
+      await setDoc(projectRef, newProduct);
+      console.log('Project saved successfully:', id);
+      return id;
+    } catch (error) {
+      console.error('Error saving project to Firestore:', error);
+      throw error;
+    }
   }
 
   updateProjectStatus(id: string, status: AdminProject['status']) {
