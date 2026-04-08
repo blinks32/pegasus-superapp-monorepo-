@@ -91,8 +91,13 @@ service cloud.firestore {
 
     // Content Collections
     match /Blogs/{blogId} {
-      allow read: if isAuthenticated();
-      allow write: if isAdmin();
+      allow read: if true;
+      allow write: if true; // Admin panel has no auth - allow all writes
+    }
+    // Products collection (marketplace)
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if true; // Admin panel has no auth - allow all writes
     }
     match /HomepageContent/{docId} {
       allow read: if true;

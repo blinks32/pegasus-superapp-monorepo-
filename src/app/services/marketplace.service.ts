@@ -160,10 +160,61 @@ export class MarketplaceService {
   /* ═══════════ Admin ═══════════ */
 
   async submitProject(project: AdminProject) {
-    const id = 'proj_' + Date.now();
-    const newProject = { ...project, id, status: 'pending' as const, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() };
+    const id = 'prod_' + Date.now();
+    const slug = project.title.toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+
+    const now = new Date();
+    const newProduct: Product = {
+      id,
+      title: project.title,
+      slug,
+      shortDescription: project.shortDescription,
+      fullDescription: project.fullDescription,
+      category: project.category,
+      price: project.price,
+      originalPrice: project.originalPrice,
+      discountPercent: project.originalPrice ? Math.round((1 - project.price / project.originalPrice) * 100) : undefined,
+      thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop',
+      previewImages: [],
+      demoUrl: project.demoUrl,
+      rating: 0,
+      totalRatings: 0,
+      totalSales: 0,
+      totalVisits: 0,
+      tags: project.tags,
+      features: project.features,
+      techStack: project.techStack,
+      compatibility: project.compatibility,
+      lastUpdated: now,
+      createdAt: now,
+      version: project.version,
+      fileSize: project.fileSize,
+      author: {
+        id: 'admin',
+        name: 'Admin',
+        avatar: 'https://ui-avatars.com/api/?name=Admin&background=6366F1&color=fff',
+        bio: 'Platform Administrator',
+        totalSales: 0,
+        rating: 0,
+        memberSince: now,
+        badges: [],
+        verified: true
+      },
+      reviews: [],
+      isFeatured: false,
+      isNew: true,
+      isBestseller: false,
+      frameworks: project.techStack,
+      license: project.license,
+      hasReskinService: project.hasReskinService,
+      reskinPrice: project.reskinPrice,
+      status: project.status || 'pending'
+    };
+
     const projectRef = doc(this.firestore, `products/${id}`);
-    await setDoc(projectRef, newProject);
+    await setDoc(projectRef, newProduct);
     return id;
   }
 

@@ -6,7 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { AuthService } from '../../services/auth.service';
-import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, deleteDoc, addDoc, query, orderBy, serverTimestamp } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-admin',
@@ -239,6 +239,21 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
     <app-footer></app-footer>
   `,
   styles: [`
+    .admin-hero {
+      background: linear-gradient(135deg, #F8FAFC, #EEF0FF);
+      padding: 32px 0;
+      border-bottom: 1px solid var(--pm-border-light);
+    }
+    .hero-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .admin-hero h1 { margin: 0 0 4px; }
+    .admin-hero p { margin: 0; }
+
     /* Tabs */
     .hero-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .tab-btn {
@@ -254,6 +269,246 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
     }
     .tab-btn:hover { background: rgba(0,0,0,0.05); }
     .tab-btn.active { background: white; color: var(--ion-color-primary); box-shadow: var(--pm-shadow-sm); }
+
+    .admin-content {
+      padding: 32px 0 64px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-lg);
+      padding: 24px;
+      border: 1px solid var(--pm-border-light);
+      box-shadow: var(--pm-shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .stat-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--pm-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .stat-card-info { flex: 1; }
+    .stat-card-value {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--pm-text-primary);
+    }
+    .stat-card-label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--pm-text-muted);
+    }
+    .stat-card-change {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: var(--pm-radius-sm);
+    }
+    .stat-card-change.positive {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10B981;
+    }
+
+    /* Chart Card */
+    .chart-card {
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-lg);
+      padding: 24px;
+      border: 1px solid var(--pm-border-light);
+      box-shadow: var(--pm-shadow-sm);
+      margin-bottom: 32px;
+    }
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .chart-header h3 { margin: 0; }
+    .chart-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--pm-surface-muted);
+      padding: 4px;
+      border-radius: var(--pm-radius-sm);
+    }
+    .chart-tabs button {
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      border-radius: var(--pm-radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chart-tabs button.active {
+      background: white;
+      box-shadow: var(--pm-shadow-sm);
+    }
+    .chart-body { min-height: 200px; }
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 200px;
+      padding-bottom: 8px;
+    }
+    .chart-bar {
+      flex: 1;
+      background: linear-gradient(180deg, #6366F1, #A855F7);
+      border-radius: 4px 4px 0 0;
+      min-height: 4px;
+      position: relative;
+      transition: height 0.3s ease;
+    }
+    .bar-tooltip {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      background: #1F2937;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .chart-bar:hover .bar-tooltip { opacity: 1; }
+    .chart-labels {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .chart-labels span {
+      flex: 1;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--pm-text-muted);
+    }
+    .empty-chart {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pm-text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Projects Card */
+    .projects-card {
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-lg);
+      padding: 24px;
+      border: 1px solid var(--pm-border-light);
+      box-shadow: var(--pm-shadow-sm);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .card-header h3 { margin: 0; }
+    .header-tabs { display: flex; gap: 4px; }
+    .header-tabs button {
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      border-radius: var(--pm-radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--pm-text-muted);
+      transition: all 0.2s;
+    }
+    .header-tabs button.active {
+      background: var(--pm-surface-muted);
+      color: var(--pm-text-primary);
+    }
+
+    .project-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--pm-border-light);
+    }
+    .project-row:last-child { border-bottom: none; }
+    .project-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--pm-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .project-info { flex: 1; min-width: 0; }
+    .project-title {
+      display: block;
+      font-weight: 600;
+      color: var(--pm-text-primary);
+      margin-bottom: 2px;
+    }
+    .project-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--pm-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .project-status { flex-shrink: 0; }
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: var(--pm-radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .status-published { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+    .status-pending { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+    .status-draft { background: rgba(99, 102, 241, 0.1); color: #6366F1; }
+    .status-rejected { background: rgba(239, 68, 68, 0.1); color: #EF4444; }
+    .project-price {
+      font-weight: 600;
+      color: var(--pm-text-primary);
+      flex-shrink: 0;
+    }
+    .project-date {
+      font-size: 0.85rem;
+      color: var(--pm-text-muted);
+      flex-shrink: 0;
+    }
+    .project-actions { flex-shrink: 0; }
+    .empty-projects {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--pm-text-muted);
+    }
+    .empty-projects a { color: var(--ion-color-primary); }
 
     /* Settings */
     .settings-card {
@@ -290,22 +545,13 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
     .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
     .pm-divider { height: 1px; background: var(--pm-border-light); margin: 32px 0; }
     .mt-16 { margin-top: 16px; }
-    .empty-chart { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--pm-text-muted); font-size: 0.9rem; }
     .fade-in { animation: fadeIn 0.3s ease-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     /* Blog Management */
-    .blog-management {
-      margin-top: 20px;
-    }
-    .blog-actions {
-      margin-bottom: 24px;
-    }
-    .blogs-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .blog-management { margin-top: 20px; }
+    .blog-actions { margin-bottom: 24px; }
+    .blogs-list { display: flex; flex-direction: column; gap: 16px; }
     .blog-item {
       background: var(--pm-surface);
       border: 1px solid var(--pm-border-light);
@@ -313,71 +559,29 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
       padding: 20px;
       transition: all var(--pm-transition-fast);
     }
-    .blog-item:hover {
-      border-color: var(--ion-color-primary);
-      box-shadow: var(--pm-shadow-sm);
-    }
-    .blog-item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-    .blog-item-header h4 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: var(--pm-text-primary);
-      flex: 1;
-    }
-    .blog-item-header .blog-actions {
-      display: flex;
-      gap: 8px;
-      margin: 0;
-    }
-    .blog-excerpt {
-      margin: 0 0 12px;
-      color: var(--pm-text-secondary);
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-    .blog-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.8rem;
-    }
-    .blog-status {
-      padding: 4px 8px;
-      border-radius: var(--pm-radius-sm);
-      font-weight: 600;
-      font-size: 0.75rem;
-    }
-    .status-published {
-      background: rgba(16, 185, 129, 0.1);
-      color: #10B981;
-    }
-    .status-draft {
-      background: rgba(245, 158, 11, 0.1);
-      color: #F59E0B;
-    }
-    .blog-date {
-      color: var(--pm-text-muted);
-    }
-    .empty-state {
-      text-align: center;
-      padding: 48px 24px;
-      color: var(--pm-text-muted);
-    }
-    .empty-state svg {
-      margin-bottom: 16px;
-      color: var(--pm-border);
-    }
-    .empty-state h4 {
-      margin: 0 0 8px;
-      color: var(--pm-text-primary);
-    }
-    .empty-state p {
-      margin: 0;
+    .blog-item:hover { border-color: var(--ion-color-primary); box-shadow: var(--pm-shadow-sm); }
+    .blog-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .blog-item-header h4 { margin: 0; font-size: 1.1rem; color: var(--pm-text-primary); flex: 1; }
+    .blog-item-header .blog-actions { display: flex; gap: 8px; margin: 0; }
+    .blog-excerpt { margin: 0 0 12px; color: var(--pm-text-secondary); font-size: 0.9rem; line-height: 1.5; }
+    .blog-meta { display: flex; align-items: center; gap: 12px; font-size: 0.8rem; }
+    .blog-status { padding: 4px 8px; border-radius: var(--pm-radius-sm); font-weight: 600; font-size: 0.75rem; }
+    .status-published { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+    .status-draft { background: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+    .blog-date { color: var(--pm-text-muted); }
+    .empty-state { text-align: center; padding: 48px 24px; color: var(--pm-text-muted); }
+    .empty-state svg { margin-bottom: 16px; color: var(--pm-border); }
+    .empty-state h4 { margin: 0 0 8px; color: var(--pm-text-primary); }
+    .empty-state p { margin: 0; }
+
+    @media (max-width: 768px) {
+      .hero-row { flex-direction: column; align-items: flex-start; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .chart-header { flex-direction: column; align-items: flex-start; }
+      .project-row { flex-wrap: wrap; }
+      .project-price, .project-date { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group-row { flex-direction: column; }
     }
   `],
 })
@@ -633,77 +837,85 @@ export class AdminComponent implements OnInit {
 
   // Blog Management Methods
   async loadBlogs() {
-    // In a real app, you would fetch blogs from Firestore
-    // For now, we'll use mock data
-    this.blogs = [
-      {
-        id: '1',
-        title: 'Getting Started with Ionic Framework',
-        excerpt: 'Learn how to build mobile apps with Ionic',
-        content: 'Full article content here...',
-        published: true,
-        createdAt: new Date('2024-01-15'),
-        author: 'Admin'
-      },
-      {
-        id: '2',
-        title: 'Angular 17 Features',
-        excerpt: 'New features in Angular 17',
-        content: 'Angular 17 brings many new features...',
+    try {
+      const blogsRef = collection(this.firestore, 'blogs');
+      const q = query(blogsRef, orderBy('createdAt', 'desc'));
+      collectionData(q, { idField: 'id' }).subscribe((data: any) => {
+        this.blogs = data.map((blog: any) => ({
+          ...blog,
+          createdAt: blog.createdAt?.toDate?.() || new Date(blog.createdAt)
+        }));
+      });
+    } catch (error) {
+      console.error('Error loading blogs:', error);
+      this.blogs = [];
+    }
+  }
+
+  async createNewBlog() {
+    const title = prompt('Enter blog post title:');
+    if (!title) return;
+    
+    const excerpt = prompt('Enter a short excerpt:');
+    if (!excerpt) return;
+    
+    const content = prompt('Enter blog content (or leave empty to edit later):');
+    
+    try {
+      const blogsRef = collection(this.firestore, 'blogs');
+      await addDoc(blogsRef, {
+        title,
+        excerpt,
+        content: content || '',
         published: false,
-        createdAt: new Date('2024-01-10'),
+        createdAt: serverTimestamp(),
         author: 'Admin'
-      }
-    ];
+      });
+      alert('Blog post created successfully!');
+    } catch (error) {
+      console.error('Error creating blog:', error);
+      alert('Failed to create blog post. Please try again.');
+    }
   }
 
-  createNewBlog() {
-    this.newBlog = {
-      title: '',
-      content: '',
-      excerpt: '',
-      published: false
-    };
-    this.editingBlogId = null;
-    // In a real app, you would show a modal or navigate to an editor
-    alert('Blog editor would open here. In a real app, this would open a form or modal.');
-  }
-
-  editBlog(blog: any) {
-    this.newBlog = { ...blog };
-    this.editingBlogId = blog.id;
-    // In a real app, you would open an editor
-    alert(`Editing blog: ${blog.title}`);
+  async editBlog(blog: any) {
+    const title = prompt('Edit blog title:', blog.title);
+    if (title === null) return;
+    
+    const excerpt = prompt('Edit excerpt:', blog.excerpt);
+    if (excerpt === null) return;
+    
+    const content = prompt('Edit content:', blog.content);
+    if (content === null) return;
+    
+    const publish = confirm('Publish this blog post?');
+    
+    try {
+      const blogRef = doc(this.firestore, `blogs/${blog.id}`);
+      await updateDoc(blogRef, {
+        title: title || blog.title,
+        excerpt: excerpt || blog.excerpt,
+        content: content || blog.content,
+        published: publish
+      });
+      alert('Blog post updated successfully!');
+    } catch (error) {
+      console.error('Error updating blog:', error);
+      alert('Failed to update blog post. Please try again.');
+    }
   }
 
   async deleteBlog(blogId: string) {
     if (confirm('Are you sure you want to delete this blog post?')) {
-      // In a real app, you would call a service to delete from Firestore
-      this.blogs = this.blogs.filter(blog => blog.id !== blogId);
-      alert('Blog post deleted (simulated)');
+      try {
+        const blogRef = doc(this.firestore, `blogs/${blogId}`);
+        await deleteDoc(blogRef);
+        alert('Blog post deleted successfully!');
+      } catch (error) {
+        console.error('Error deleting blog:', error);
+        alert('Failed to delete blog post. Please try again.');
+      }
     }
   }
 
-  saveBlog() {
-    if (this.editingBlogId) {
-      // Update existing blog
-      const index = this.blogs.findIndex(b => b.id === this.editingBlogId);
-      if (index !== -1) {
-        this.blogs[index] = { ...this.newBlog, id: this.editingBlogId };
-      }
-    } else {
-      // Create new blog
-      const newBlog = {
-        id: Date.now().toString(),
-        ...this.newBlog,
-        createdAt: new Date(),
-        author: 'Admin'
-      };
-      this.blogs.push(newBlog);
-    }
-    
-    // Reset form
-    this.newBlog = { title: '', content: '', excerpt: '', published: false };
-    this.editingBlogId = null;
   }
-}
