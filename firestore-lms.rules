@@ -2,64 +2,278 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // ─── Topics (read-only for all authenticated users) ───
-    match /topics/{topicId} {
-      allow read: if request.auth != null;
-      allow write: if false; // Admin-only via console or Cloud Functions
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
     }
 
-    // ─── Quizzes & Questions (read-only) ───
-    match /quizzes/{topicId} {
-      allow read: if request.auth != null;
-      allow write: if false;
+    // Helper function to check if user is accessing their own data
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
 
-      match /questions/{questionId} {
-        allow read: if request.auth != null;
-        allow write: if false;
+    // Helper function to check if user is an admin
+    function isAdmin() {
+      return isAuthenticated() && exists(/databases/$(database)/documents/Admins/$(request.auth.uid));
+    }
+
+    // Admins collection
+    match /Admins/{adminId} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(adminId) || isAdmin();
+    }
+
+    // Riders collection
+    match /Riders/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) || isAdmin();
+      match /KnownPlaces/{placeId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+      match /cards/{cardId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+      match /payments/{paymentId} {
+        allow read, write: if isOwner(userId) || isAdmin();
       }
     }
 
-    // ─── Student Scores (user can only access own data) ───
-    match /user_stats/{userId} {
-      allow read: if request.auth != null && request.auth.uid == userId;
-      allow write: if false;
-
-      match /scores/{scoreId} {
-        // Students can read and create their own scores
-        allow read: if request.auth != null && request.auth.uid == userId;
-        allow create: if request.auth != null
-                      && request.auth.uid == userId
-                      && request.resource.data.keys().hasAll(['topicId', 'score', 'total', 'timestamp', 'userId'])
-                      && request.resource.data.userId == request.auth.uid
-                      && request.resource.data.score is int
-                      && request.resource.data.total is int
-                      && request.resource.data.score >= 0
-                      && request.resource.data.score <= request.resource.data.total;
-        // Students cannot update or delete scores (immutable)
-        allow update, delete: if false;
+    // Drivers collection
+    match /Drivers/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId) || isAdmin();
+      allow update: if isAuthenticated()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['onlineState', 'currentRequestId', 'rating', 'ratingCount']);
+      match /History/{historyId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+      match /Documents/{docId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+      match /rating/{ratingId} {
+        allow read, write: if isAuthenticated();
+      }
+      match /ratingCount/{countId} {
+        allow read, write: if isAuthenticated();
+      }
+      match /Cards/{cardId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+      match /wallet/{walletId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+        match /transactions/{transactionId} {
+          allow read, write: if isOwner(userId) || isAdmin();
+        }
       }
     }
 
-    // ─── Teacher Dashboard (Global Scores Read) ───
-    match /{path=**}/scores/{scoreId} {
-      allow read: if request.auth != null;
+    // Request collection
+    match /Request/{requestId} {
+      allow create, read, update, delete: if isAuthenticated();
+      match /messages/{messageId} {
+        allow read, create: if isAuthenticated();
+      }
     }
 
-    // ─── Admin Settings (Email allowed + admin updates) ───
+    // RideHistory collection
+    match /RideHistory/{historyId} {
+      allow create: if isAuthenticated();
+      allow read: if isAuthenticated() && (request.auth.uid == resource.data.riderId || request.auth.uid == resource.data.driverId || isAdmin());
+    }
+
+    // Global Messages
+    match /Messages/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+      match /messages/{messageId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+    }
+
+    // Content Collections
+    match /Blogs/{blogId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    match /HomepageContent/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /ServiceOptions/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /ratings/{ratingId} {
+      allow read, create: if isAuthenticated();
+      allow delete, update: if isAdmin();
+    }
+    match /paystackAuthCodes/{code} {
+      allow read, write: if isAuthenticated();
+    }
+    match /Settings/{document} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // Wallet & Referrals
+    match /Wallets/{userId} {
+      allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+    }
+    match /WalletTransactions/{docId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || resource.data.riderId == request.auth.uid || resource.data.driverId == request.auth.uid || isAdmin());
+      allow create, update: if isAuthenticated();
+    }
+    match /Referrals/{docId} {
+      allow read: if isAuthenticated() && (resource.data.referrerId == request.auth.uid || resource.data.referredId == request.auth.uid || isAdmin());
+      allow create: if isAuthenticated();
+    }
+    match /ReferralRewards/{docId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Safety & SOS
+    match /EmergencyContacts/{docId} {
+      allow read, write: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+    match /SharedRides/{docId} {
+      allow create, read, update, delete: if isAuthenticated();
+    }
+    match /TripShares/{docId} {
+      allow read: if true; allow create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+    match /SOSAlerts/{docId} {
+      allow read, write: if isAuthenticated() && (resource.data.userId == request.auth.uid || resource.data.riderId == request.auth.uid || isAdmin());
+    }
+    match /AudioRecordings/{docId} {
+      allow read, write: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+    match /SafetyRatings/{docId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow delete, update: if isAdmin();
+    }
+    match /DriverVerifications/{docId} {
+      allow read: if isAuthenticated() && (resource.data.driverId == request.auth.uid || isAdmin());
+      allow create: if isAuthenticated();
+      allow update: if isAdmin();
+    }
+
+    // ScheduledRides collection
+    match /ScheduledRides/{docId} {
+      allow create: if isAuthenticated();
+      allow read, update, delete: if isAuthenticated() && (resource.data.riderId == request.auth.uid || isAdmin());
+    }
+
+    // System Config
+    match /Cartypes/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    match /prices/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    match /Documents/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    match /Roles/{docId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+    match /Payments/{docId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow write: if isAdmin();
+    }
+    match /AllRides/{userId}/customer/{rideId} {
+      allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+    }
+    match /users/{userId} {
+      allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      match /projects/{projectId} {
+        allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      }
+      match /rideHistory/{historyId} {
+        allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+      }
+    }
+    match /CancelledRides/{docId} {
+      allow read: if isAdmin();
+      allow create: if isAuthenticated();
+    }
+    match /items/{docId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Deliveries collection
+    match /Deliveries/{deliveryId} {
+      allow create: if isAuthenticated();
+      allow read: if isAuthenticated() && (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.driverId ||
+        resource.data.status == 'pending' ||
+        isAdmin());
+      allow update: if isAuthenticated() && (request.auth.uid == resource.data.senderId || request.auth.uid == resource.data.driverId ||
+        isAdmin() ||
+        (resource.data.status == 'pending' && request.resource.data.status == 'accepted' && request.resource.data.driverId == request.auth.uid));
+      allow delete: if isAdmin();
+    }
+    match /PackageSizes/{sizeId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ════════════════════════════════════════════════════════════
+    // VENDOR & E-COMMERCE COLLECTIONS
+    // ════════════════════════════════════════════════════════════
+    match /Vendors/{vendorId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && (isAdmin() || resource.data.ownerId == request.auth.uid);
+      // Subcollections (Categories, Products, inventory)
+      match /{allPaths=**} {
+        allow read: if isAuthenticated();
+        allow write: if isAdmin() || (isAuthenticated() && get(/databases/$(database)/documents/Vendors/$(vendorId)).data.ownerId == request.auth.uid);
+      }
+    }
+    // Collection Group rules for cross-vendor product search
+    match /{path=**}/Products/{prodId} {
+      allow read: if isAuthenticated();
+    }
+
+    // Order Collections (Legacy and E-Commerce)
+    match /FoodOrders/{orderId} {
+      allow create: if isAuthenticated();
+      allow read, update: if isAuthenticated() && (request.auth.uid == resource.data.riderId || request.auth.uid == resource.data.vendorId ||
+        request.auth.uid == resource.data.driverId ||
+        isAdmin() ||
+        (exists(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)) && get(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)).data.ownerId == request.auth.uid));
+    }
+    match /EcommerceOrders/{orderId} {
+      allow create: if isAuthenticated();
+      allow read, update: if isAuthenticated() && (request.auth.uid == resource.data.customerId || request.auth.uid == resource.data.vendorId ||
+        request.auth.uid == resource.data.driverId ||
+        isAdmin() ||
+        (exists(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)) && get(/databases/$(database)/documents/Vendors/$(resource.data.vendorId)).data.ownerId == request.auth.uid));
+    }
+    match /AdminNotifications/{docId} {
+      allow create: if isAuthenticated();
+      allow read: if isAdmin();
+    }
+    match /connectivity-test/{docId} {
+      allow read: if isAuthenticated();
+    }
+
+    // ─── Admin Settings (for selljustcode admin panel) ───
+    // Note: Using lowercase 'settings' to match the code
     match /settings/admin {
-      // Admin login + dashboard needs to read the configured admin email.
-      // Restrict reads to the currently configured admin user.
-      allow read: if request.auth != null
-        && request.auth.token.email != null
-        && request.auth.token.email == resource.data.email;
+      // Allow any authenticated user to read the admin email (needed for login check)
+      allow read: if request.auth != null;
 
-      // Only the currently authenticated admin can update this document.
-      // We allow updates if the signed-in user's email matches either the current
-      // stored email (resource.data.email) or the new email being written (request.resource.data.email).
+      // Only authenticated users can create, and the email must match their own
       allow create: if request.auth != null
         && request.auth.token.email != null
         && request.resource.data.email == request.auth.token.email;
 
+      // Allow update if the signed-in user's email matches the stored email or new email
       allow update: if request.auth != null
         && request.auth.token.email != null
         && (request.auth.token.email == resource.data.email

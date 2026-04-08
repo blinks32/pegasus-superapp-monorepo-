@@ -424,12 +424,10 @@ export class AdminComponent implements OnInit {
     this.allProjects = this.marketplace.products();
     this.calculateStats();
     
-    // Fetch authorized email from Firestore
-    const snap = await getDoc(doc(this.firestore, 'settings/admin'));
-    if (snap.exists()) {
-      this.newAdminEmail = snap.data()['email'] || '';
-    } else {
-      this.newAdminEmail = '';
+    // Set the current user's email
+    const user = this.authService.currentUser();
+    if (user) {
+      this.newAdminEmail = user.email || '';
     }
     
     // Load blogs
@@ -568,21 +566,13 @@ export class AdminComponent implements OnInit {
     }
     this.isUpdating = true;
     try {
-      // Update Firebase Auth first so admin access stays consistent.
+      // Update Firebase Auth email
       await this.authService.updateEmailWithReauth(normalizedEmail, this.currentPassword);
-
-      const ref = doc(this.firestore, 'settings/admin');
-      try {
-        await updateDoc(ref, { email: normalizedEmail });
-      } catch {
-        await setDoc(ref, { email: normalizedEmail }, { merge: true });
-      }
-      alert('Authorized admin email updated successfully!');
-
+      alert('Email updated successfully!');
       this.currentPassword = '';
     } catch (e) {
       console.error(e);
-      alert('Error updating configuration. Make sure the document exists in Firestore.');
+      alert('Error updating email. Please check your password and try again.');
     } finally {
       this.isUpdating = false;
     }

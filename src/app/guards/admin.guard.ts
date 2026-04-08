@@ -10,27 +10,22 @@ export const adminGuard: CanActivateFn = (_route, _state) => {
   const firebaseAuth = inject(Auth);
 
   // Must be logged in (Firebase Auth) to access admin.
-  // Use Firebase Auth's currentUser to avoid timing issues with signal updates.
   const user = firebaseAuth.currentUser;
   if (!user) {
     router.navigate(['/admin/login']);
     return false;
   }
 
-  // Compare against configured admin email in Firestore.
-  return from(getDoc(doc(firestore, 'settings/admin'))).pipe(
+  // Check if user exists in Admins collection
+  return from(getDoc(doc(firestore, 'Admins', user.uid))).pipe(
     map((snap) => {
-      const configuredEmail = snap.exists() ? (snap.data() as any)?.['email'] : null;
-      if (!configuredEmail) {
-        router.navigate(['/admin/login']);
-        return false;
+      if (snap.exists()) {
+        return true;
       }
-
-      const currentEmail = (user.email || '').toLowerCase();
-      return currentEmail === String(configuredEmail).toLowerCase();
+      router.navigate(['/admin/login']);
+      return false;
     }),
     catchError(() => {
-      // Includes Firestore permission errors.
       router.navigate(['/admin/login']);
       return of(false);
     }),
