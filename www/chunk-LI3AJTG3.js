@@ -4,6 +4,7 @@ import {
   CommonModule,
   Directive,
   ElementRef,
+  EmailAuthProvider,
   EventEmitter,
   Firestore,
   GoogleAuthProvider,
@@ -47,6 +48,7 @@ import {
   map,
   orderBy,
   query,
+  reauthenticateWithCredential,
   setClassMetadata,
   setDoc,
   signInWithEmailAndPassword,
@@ -54,6 +56,8 @@ import {
   signOut,
   signal,
   untracked,
+  updateEmail,
+  updatePassword,
   ɵsetClassDebugInfo,
   ɵɵInheritDefinitionFeature,
   ɵɵNgOnChangesFeature,
@@ -94,7 +98,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-HWE2I25U.js";
+} from "./chunk-3B7JSY2Q.js";
 
 // node_modules/@angular/forms/fesm2022/forms.mjs
 var BaseControlValueAccessor = class _BaseControlValueAccessor {
@@ -6418,6 +6422,42 @@ var AuthService = class _AuthService {
       }
     });
   }
+  /**
+   * Sign in without navigation (used by the admin login page).
+   */
+  signInWithEmailRaw(email, pass) {
+    return __async(this, null, function* () {
+      yield signInWithEmailAndPassword(this.auth, email, pass);
+    });
+  }
+  getCurrentUserOrThrow() {
+    const user = this.currentUser();
+    if (!user)
+      throw new Error("Not authenticated.");
+    return user;
+  }
+  updateEmailWithReauth(newEmail, currentPassword) {
+    return __async(this, null, function* () {
+      const user = this.getCurrentUserOrThrow();
+      const email = user.email;
+      if (!email)
+        throw new Error("Current user has no email.");
+      const credential = EmailAuthProvider.credential(email, currentPassword);
+      yield reauthenticateWithCredential(user, credential);
+      yield updateEmail(user, newEmail);
+    });
+  }
+  updatePasswordWithReauth(newPassword, currentPassword) {
+    return __async(this, null, function* () {
+      const user = this.getCurrentUserOrThrow();
+      const email = user.email;
+      if (!email)
+        throw new Error("Current user has no email.");
+      const credential = EmailAuthProvider.credential(email, currentPassword);
+      yield reauthenticateWithCredential(user, credential);
+      yield updatePassword(user, newPassword);
+    });
+  }
   registerWithEmail(email, pass, name) {
     return __async(this, null, function* () {
       try {
@@ -6670,33 +6710,9 @@ var HeaderComponent = class _HeaderComponent {
 })();
 
 // src/app/components/footer/footer.component.ts
-function FooterComponent_div_38_Template(rf, ctx) {
+function FooterComponent_div_121_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 66)(1, "div", 67)(2, "span", 68);
-    \u0275\u0275text(3);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(4, "div", 69)(5, "span", 70);
-    \u0275\u0275text(6);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "span", 71);
-    \u0275\u0275text(8);
-    \u0275\u0275elementEnd()()();
-  }
-  if (rf & 2) {
-    const cert_r1 = ctx.$implicit;
-    \u0275\u0275advance();
-    \u0275\u0275styleProp("background", cert_r1.bgColor);
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(cert_r1.icon);
-    \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(cert_r1.name);
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(cert_r1.detail);
-  }
-}
-function FooterComponent_div_160_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 72)(1, "span", 73);
+    \u0275\u0275elementStart(0, "div", 59)(1, "span", 60);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "span");
@@ -6704,13 +6720,13 @@ function FooterComponent_div_160_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const pm_r2 = ctx.$implicit;
+    const pm_r1 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275styleProp("background", pm_r2.color);
+    \u0275\u0275styleProp("background", pm_r1.color);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(pm_r2.icon);
+    \u0275\u0275textInterpolate(pm_r1.icon);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(pm_r2.name);
+    \u0275\u0275textInterpolate(pm_r1.name);
   }
 }
 var FooterComponent = class _FooterComponent {
@@ -6718,14 +6734,6 @@ var FooterComponent = class _FooterComponent {
     this.currentYear = (/* @__PURE__ */ new Date()).getFullYear();
     this.email = "";
     this.subscribed = false;
-    this.certifications = [
-      { name: "Trustpilot", detail: "Excellent 4.8/5", icon: "\u2B50", bgColor: "rgba(0, 182, 122, 0.15)" },
-      { name: "Norton Secured", detail: "Verified & Safe", icon: "\u{1F512}", bgColor: "rgba(99, 102, 241, 0.15)" },
-      { name: "McAfee SECURE", detail: "Tested Daily", icon: "\u{1F6E1}\uFE0F", bgColor: "rgba(239, 68, 68, 0.15)" },
-      { name: "SSL Certified", detail: "256-bit Encryption", icon: "\u{1F510}", bgColor: "rgba(16, 185, 129, 0.15)" },
-      { name: "GDPR Compliant", detail: "EU Data Protection", icon: "\u{1F1EA}\u{1F1FA}", bgColor: "rgba(59, 130, 246, 0.15)" },
-      { name: "PCI DSS", detail: "Level 1 Certified", icon: "\u{1F4B3}", bgColor: "rgba(245, 158, 11, 0.15)" }
-    ];
     this.paymentMethods = [
       { name: "Visa", icon: "V", color: "#1A1F71" },
       { name: "Mastercard", icon: "MC", color: "#EB001B" },
@@ -6751,199 +6759,158 @@ var FooterComponent = class _FooterComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _FooterComponent, selectors: [["app-footer"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 172, vars: 5, consts: [[1, "trust-bar"], [1, "pm-container"], [1, "trust-inner"], [1, "trust-item"], [1, "trust-icon"], [1, "certifications-bar"], [1, "cert-inner"], ["class", "cert-badge", 4, "ngFor", "ngForOf"], [1, "newsletter-section"], [1, "newsletter-card"], [1, "newsletter-content"], [1, "newsletter-form"], ["type", "email", "placeholder", "Enter your email address", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", 3, "click"], [1, "pm-footer"], [1, "footer-grid"], [1, "footer-col", "footer-brand"], [1, "footer-logo"], ["width", "28", "height", "28", "viewBox", "0 0 32 32", "fill", "none"], ["id", "fLogoGrad", "x1", "0", "y1", "0", "x2", "32", "y2", "32"], ["offset", "0%", "stop-color", "#6366F1"], ["offset", "100%", "stop-color", "#A855F7"], ["width", "32", "height", "32", "rx", "8", "fill", "url(#fLogoGrad)"], ["x", "16", "y", "24", "font-family", "Plus Jakarta Sans, sans-serif", "font-size", "22", "font-weight", "800", "text-anchor", "middle", "fill", "white"], [1, "footer-desc"], [1, "social-links"], ["href", "#", "aria-label", "Twitter", 1, "social-link"], ["width", "18", "height", "18", "viewBox", "0 0 24 24", "fill", "currentColor"], ["d", "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"], ["href", "#", "aria-label", "GitHub", 1, "social-link"], ["d", "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"], ["href", "#", "aria-label", "Discord", 1, "social-link"], ["d", "M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"], ["href", "#", "aria-label", "YouTube", 1, "social-link"], ["d", "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"], [1, "footer-col"], [1, "footer-heading"], ["routerLink", "/browse"], ["routerLink", "/page/about"], ["routerLink", "/page/careers"], ["routerLink", "/page/blog"], ["routerLink", "/page/affiliate"], ["routerLink", "/page/press"], ["routerLink", "/page/contact"], ["routerLink", "/page/help"], ["routerLink", "/page/author-guide"], ["routerLink", "/page/buyer-faq"], ["routerLink", "/page/licensing"], ["routerLink", "/page/refund"], ["routerLink", "/page/report"], ["routerLink", "/page/terms"], ["routerLink", "/page/privacy"], ["routerLink", "/page/cookie"], ["routerLink", "/page/dmca"], ["routerLink", "/page/gdpr"], ["href", "#"], [1, "payment-section"], [1, "payment-label"], [1, "payment-icons"], ["class", "payment-icon", 4, "ngFor", "ngForOf"], [1, "footer-bottom"], [1, "footer-bottom-left"], [1, "footer-legal-detail"], [1, "footer-bottom-right"], [1, "footer-lang"], [1, "footer-currency"], [1, "cert-badge"], [1, "cert-icon-wrap"], [1, "cert-emoji"], [1, "cert-info"], [1, "cert-name"], [1, "cert-detail"], [1, "payment-icon"], [1, "pay-logo"]], template: function FooterComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _FooterComponent, selectors: [["app-footer"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 133, vars: 4, consts: [[1, "newsletter-section"], [1, "pm-container"], [1, "newsletter-card"], [1, "newsletter-content"], [1, "newsletter-form"], ["type", "email", "placeholder", "Enter your email address", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", 3, "click"], [1, "pm-footer"], [1, "footer-grid"], [1, "footer-col", "footer-brand"], [1, "footer-logo"], ["width", "28", "height", "28", "viewBox", "0 0 32 32", "fill", "none"], ["id", "fLogoGrad", "x1", "0", "y1", "0", "x2", "32", "y2", "32"], ["offset", "0%", "stop-color", "#6366F1"], ["offset", "100%", "stop-color", "#A855F7"], ["width", "32", "height", "32", "rx", "8", "fill", "url(#fLogoGrad)"], ["x", "16", "y", "24", "font-family", "Plus Jakarta Sans, sans-serif", "font-size", "22", "font-weight", "800", "text-anchor", "middle", "fill", "white"], [1, "footer-desc"], [1, "social-links"], ["href", "#", "aria-label", "Twitter", 1, "social-link"], ["width", "18", "height", "18", "viewBox", "0 0 24 24", "fill", "currentColor"], ["d", "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"], ["href", "#", "aria-label", "GitHub", 1, "social-link"], ["d", "M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"], ["href", "#", "aria-label", "Discord", 1, "social-link"], ["d", "M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"], ["href", "#", "aria-label", "YouTube", 1, "social-link"], ["d", "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"], [1, "footer-col"], [1, "footer-heading"], ["routerLink", "/browse"], ["routerLink", "/page/about"], ["routerLink", "/page/careers"], ["routerLink", "/page/blog"], ["routerLink", "/page/affiliate"], ["routerLink", "/page/press"], ["routerLink", "/page/contact"], ["routerLink", "/page/help"], ["routerLink", "/page/author-guide"], ["routerLink", "/page/buyer-faq"], ["routerLink", "/page/licensing"], ["routerLink", "/page/refund"], ["routerLink", "/page/report"], ["routerLink", "/page/terms"], ["routerLink", "/page/privacy"], ["routerLink", "/page/cookie"], ["routerLink", "/page/dmca"], ["routerLink", "/page/gdpr"], ["href", "#"], [1, "payment-section"], [1, "payment-label"], [1, "payment-icons"], ["class", "payment-icon", 4, "ngFor", "ngForOf"], [1, "footer-bottom"], [1, "footer-bottom-left"], [1, "footer-legal-detail"], [1, "footer-bottom-right"], [1, "footer-lang"], [1, "footer-currency"], [1, "payment-icon"], [1, "pay-logo"]], template: function FooterComponent_Template(rf, ctx) {
       if (rf & 1) {
-        \u0275\u0275elementStart(0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "div", 4);
-        \u0275\u0275text(5, "\u{1F6E1}\uFE0F");
+        \u0275\u0275elementStart(0, "section", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "h3");
+        \u0275\u0275text(5, "Stay Updated with New Releases");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(6, "div")(7, "strong");
-        \u0275\u0275text(8, "Secure Payments");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(9, "span");
-        \u0275\u0275text(10, "256-bit SSL encryption");
-        \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(11, "div", 3)(12, "div", 4);
-        \u0275\u0275text(13, "\u{1F4B0}");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(14, "div")(15, "strong");
-        \u0275\u0275text(16, "Money Back Guarantee");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(17, "span");
-        \u0275\u0275text(18, "30-day refund policy");
-        \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(19, "div", 3)(20, "div", 4);
-        \u0275\u0275text(21, "\u{1F527}");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(22, "div")(23, "strong");
-        \u0275\u0275text(24, "Premium Support");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(25, "span");
-        \u0275\u0275text(26, "24/7 expert assistance");
-        \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(27, "div", 3)(28, "div", 4);
-        \u0275\u0275text(29, "\u2705");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(30, "div")(31, "strong");
-        \u0275\u0275text(32, "Quality Reviewed");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(33, "span");
-        \u0275\u0275text(34, "Every item manually checked");
-        \u0275\u0275elementEnd()()()()()();
-        \u0275\u0275elementStart(35, "section", 5)(36, "div", 1)(37, "div", 6);
-        \u0275\u0275template(38, FooterComponent_div_38_Template, 9, 5, "div", 7);
-        \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(39, "section", 8)(40, "div", 1)(41, "div", 9)(42, "div", 10)(43, "h3");
-        \u0275\u0275text(44, "Stay Updated with New Releases");
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(45, "p");
-        \u0275\u0275text(46, "Get notified about trending products, exclusive deals, and developer tips.");
+        \u0275\u0275elementStart(6, "p");
+        \u0275\u0275text(7, "Get notified about trending products, exclusive deals, and developer tips.");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(47, "div", 11)(48, "input", 12);
-        \u0275\u0275twoWayListener("ngModelChange", function FooterComponent_Template_input_ngModelChange_48_listener($event) {
+        \u0275\u0275elementStart(8, "div", 4)(9, "input", 5);
+        \u0275\u0275twoWayListener("ngModelChange", function FooterComponent_Template_input_ngModelChange_9_listener($event) {
           \u0275\u0275twoWayBindingSet(ctx.email, $event) || (ctx.email = $event);
           return $event;
         });
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(49, "button", 13);
-        \u0275\u0275listener("click", function FooterComponent_Template_button_click_49_listener() {
+        \u0275\u0275elementStart(10, "button", 6);
+        \u0275\u0275listener("click", function FooterComponent_Template_button_click_10_listener() {
           return ctx.subscribe();
         });
-        \u0275\u0275text(50);
+        \u0275\u0275text(11);
         \u0275\u0275elementEnd()()()()();
-        \u0275\u0275elementStart(51, "footer", 14)(52, "div", 1)(53, "div", 15)(54, "div", 16)(55, "div", 17);
+        \u0275\u0275elementStart(12, "footer", 7)(13, "div", 1)(14, "div", 8)(15, "div", 9)(16, "div", 10);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(56, "svg", 18)(57, "defs")(58, "linearGradient", 19);
-        \u0275\u0275element(59, "stop", 20)(60, "stop", 21);
+        \u0275\u0275elementStart(17, "svg", 11)(18, "defs")(19, "linearGradient", 12);
+        \u0275\u0275element(20, "stop", 13)(21, "stop", 14);
         \u0275\u0275elementEnd()();
-        \u0275\u0275element(61, "rect", 22);
-        \u0275\u0275elementStart(62, "text", 23);
-        \u0275\u0275text(63, "S");
+        \u0275\u0275element(22, "rect", 15);
+        \u0275\u0275elementStart(23, "text", 16);
+        \u0275\u0275text(24, "S");
         \u0275\u0275elementEnd()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(64, "span");
-        \u0275\u0275text(65, "selljust");
-        \u0275\u0275elementStart(66, "strong");
-        \u0275\u0275text(67, "code");
+        \u0275\u0275elementStart(25, "span");
+        \u0275\u0275text(26, "selljust");
+        \u0275\u0275elementStart(27, "strong");
+        \u0275\u0275text(28, "code");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(68, "p", 24);
-        \u0275\u0275text(69, "The #1 marketplace for premium Unity Games and Ionic Apps.");
+        \u0275\u0275elementStart(29, "p", 17);
+        \u0275\u0275text(30, "The #1 marketplace for premium Unity Games and Ionic Apps.");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(70, "div", 25)(71, "a", 26);
+        \u0275\u0275elementStart(31, "div", 18)(32, "a", 19);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(72, "svg", 27);
-        \u0275\u0275element(73, "path", 28);
+        \u0275\u0275elementStart(33, "svg", 20);
+        \u0275\u0275element(34, "path", 21);
         \u0275\u0275elementEnd()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(74, "a", 29);
+        \u0275\u0275elementStart(35, "a", 22);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(75, "svg", 27);
-        \u0275\u0275element(76, "path", 30);
+        \u0275\u0275elementStart(36, "svg", 20);
+        \u0275\u0275element(37, "path", 23);
         \u0275\u0275elementEnd()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(77, "a", 31);
+        \u0275\u0275elementStart(38, "a", 24);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(78, "svg", 27);
-        \u0275\u0275element(79, "path", 32);
+        \u0275\u0275elementStart(39, "svg", 20);
+        \u0275\u0275element(40, "path", 25);
         \u0275\u0275elementEnd()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(80, "a", 33);
+        \u0275\u0275elementStart(41, "a", 26);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(81, "svg", 27);
-        \u0275\u0275element(82, "path", 34);
+        \u0275\u0275elementStart(42, "svg", 20);
+        \u0275\u0275element(43, "path", 27);
         \u0275\u0275elementEnd()()()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(83, "div", 35)(84, "h4", 36);
-        \u0275\u0275text(85, "Marketplace");
+        \u0275\u0275elementStart(44, "div", 28)(45, "h4", 29);
+        \u0275\u0275text(46, "Marketplace");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(86, "ul")(87, "li")(88, "a", 37);
-        \u0275\u0275text(89, "All Products");
+        \u0275\u0275elementStart(47, "ul")(48, "li")(49, "a", 30);
+        \u0275\u0275text(50, "All Products");
         \u0275\u0275elementEnd()()()();
-        \u0275\u0275elementStart(90, "div", 35)(91, "h4", 36);
-        \u0275\u0275text(92, "Company");
+        \u0275\u0275elementStart(51, "div", 28)(52, "h4", 29);
+        \u0275\u0275text(53, "Company");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(93, "ul")(94, "li")(95, "a", 38);
-        \u0275\u0275text(96, "About Us");
+        \u0275\u0275elementStart(54, "ul")(55, "li")(56, "a", 31);
+        \u0275\u0275text(57, "About Us");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(97, "li")(98, "a", 39);
-        \u0275\u0275text(99, "Careers");
+        \u0275\u0275elementStart(58, "li")(59, "a", 32);
+        \u0275\u0275text(60, "Careers");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(100, "li")(101, "a", 40);
-        \u0275\u0275text(102, "Blog");
+        \u0275\u0275elementStart(61, "li")(62, "a", 33);
+        \u0275\u0275text(63, "Blog");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(103, "li")(104, "a", 41);
-        \u0275\u0275text(105, "Affiliate Program");
+        \u0275\u0275elementStart(64, "li")(65, "a", 34);
+        \u0275\u0275text(66, "Affiliate Program");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(106, "li")(107, "a", 42);
-        \u0275\u0275text(108, "Press Kit");
+        \u0275\u0275elementStart(67, "li")(68, "a", 35);
+        \u0275\u0275text(69, "Press Kit");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(109, "li")(110, "a", 43);
-        \u0275\u0275text(111, "Contact Us");
+        \u0275\u0275elementStart(70, "li")(71, "a", 36);
+        \u0275\u0275text(72, "Contact Us");
         \u0275\u0275elementEnd()()()();
-        \u0275\u0275elementStart(112, "div", 35)(113, "h4", 36);
-        \u0275\u0275text(114, "Support");
+        \u0275\u0275elementStart(73, "div", 28)(74, "h4", 29);
+        \u0275\u0275text(75, "Support");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(115, "ul")(116, "li")(117, "a", 44);
-        \u0275\u0275text(118, "Help Center");
+        \u0275\u0275elementStart(76, "ul")(77, "li")(78, "a", 37);
+        \u0275\u0275text(79, "Help Center");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(119, "li")(120, "a", 45);
-        \u0275\u0275text(121, "Author Guide");
+        \u0275\u0275elementStart(80, "li")(81, "a", 38);
+        \u0275\u0275text(82, "Author Guide");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(122, "li")(123, "a", 46);
-        \u0275\u0275text(124, "Buyer FAQ");
+        \u0275\u0275elementStart(83, "li")(84, "a", 39);
+        \u0275\u0275text(85, "Buyer FAQ");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(125, "li")(126, "a", 47);
-        \u0275\u0275text(127, "Licensing");
+        \u0275\u0275elementStart(86, "li")(87, "a", 40);
+        \u0275\u0275text(88, "Licensing");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(128, "li")(129, "a", 48);
-        \u0275\u0275text(130, "Refund Policy");
+        \u0275\u0275elementStart(89, "li")(90, "a", 41);
+        \u0275\u0275text(91, "Refund Policy");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(131, "li")(132, "a", 49);
-        \u0275\u0275text(133, "Report an Item");
+        \u0275\u0275elementStart(92, "li")(93, "a", 42);
+        \u0275\u0275text(94, "Report an Item");
         \u0275\u0275elementEnd()()()();
-        \u0275\u0275elementStart(134, "div", 35)(135, "h4", 36);
-        \u0275\u0275text(136, "Legal");
+        \u0275\u0275elementStart(95, "div", 28)(96, "h4", 29);
+        \u0275\u0275text(97, "Legal");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(137, "ul")(138, "li")(139, "a", 50);
-        \u0275\u0275text(140, "Terms of Service");
+        \u0275\u0275elementStart(98, "ul")(99, "li")(100, "a", 43);
+        \u0275\u0275text(101, "Terms of Service");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(141, "li")(142, "a", 51);
-        \u0275\u0275text(143, "Privacy Policy");
+        \u0275\u0275elementStart(102, "li")(103, "a", 44);
+        \u0275\u0275text(104, "Privacy Policy");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(144, "li")(145, "a", 52);
-        \u0275\u0275text(146, "Cookie Policy");
+        \u0275\u0275elementStart(105, "li")(106, "a", 45);
+        \u0275\u0275text(107, "Cookie Policy");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(147, "li")(148, "a", 53);
-        \u0275\u0275text(149, "DMCA Policy");
+        \u0275\u0275elementStart(108, "li")(109, "a", 46);
+        \u0275\u0275text(110, "DMCA Policy");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(150, "li")(151, "a", 54);
-        \u0275\u0275text(152, "GDPR Compliance");
+        \u0275\u0275elementStart(111, "li")(112, "a", 47);
+        \u0275\u0275text(113, "GDPR Compliance");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(153, "li")(154, "a", 55);
-        \u0275\u0275text(155, "Accessibility");
+        \u0275\u0275elementStart(114, "li")(115, "a", 48);
+        \u0275\u0275text(116, "Accessibility");
         \u0275\u0275elementEnd()()()()();
-        \u0275\u0275elementStart(156, "div", 56)(157, "span", 57);
-        \u0275\u0275text(158, "We Accept:");
+        \u0275\u0275elementStart(117, "div", 49)(118, "span", 50);
+        \u0275\u0275text(119, "We Accept:");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(159, "div", 58);
-        \u0275\u0275template(160, FooterComponent_div_160_Template, 5, 4, "div", 59);
+        \u0275\u0275elementStart(120, "div", 51);
+        \u0275\u0275template(121, FooterComponent_div_121_Template, 5, 4, "div", 52);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(161, "div", 60)(162, "div", 61)(163, "p");
-        \u0275\u0275text(164);
+        \u0275\u0275elementStart(122, "div", 53)(123, "div", 54)(124, "p");
+        \u0275\u0275text(125);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(165, "p", 62);
-        \u0275\u0275text(166, "selljustcode LLC \u2022 EIN: 87-XXXXXXX \u2022 221 Market Street, Suite 300, San Francisco, CA 94105");
+        \u0275\u0275elementStart(126, "p", 55);
+        \u0275\u0275text(127, "selljustcode LLC \u2022 EIN: 87-XXXXXXX \u2022 221 Market Street, Suite 300, San Francisco, CA 94105");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(167, "div", 63)(168, "span", 64);
-        \u0275\u0275text(169, "\u{1F30D} English (US)");
+        \u0275\u0275elementStart(128, "div", 56)(129, "span", 57);
+        \u0275\u0275text(130, "\u{1F30D} English (US)");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(170, "span", 65);
-        \u0275\u0275text(171, "\u{1F4B2} USD");
+        \u0275\u0275elementStart(131, "span", 58);
+        \u0275\u0275text(132, "\u{1F4B2} USD");
         \u0275\u0275elementEnd()()()()();
       }
       if (rf & 2) {
-        \u0275\u0275advance(38);
-        \u0275\u0275property("ngForOf", ctx.certifications);
-        \u0275\u0275advance(10);
+        \u0275\u0275advance(9);
         \u0275\u0275twoWayProperty("ngModel", ctx.email);
         \u0275\u0275advance(2);
         \u0275\u0275textInterpolate1(" ", ctx.subscribed ? "\u2713 Subscribed!" : "Subscribe", " ");
@@ -6956,7 +6923,7 @@ var FooterComponent = class _FooterComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(FooterComponent, { className: "FooterComponent", filePath: "src\\app\\components\\footer\\footer.component.ts", lineNumber: 485 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(FooterComponent, { className: "FooterComponent", filePath: "src\\app\\components\\footer\\footer.component.ts", lineNumber: 432 });
 })();
 
 export {
@@ -6980,4 +6947,4 @@ export {
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-YSRYBUAR.js.map
+//# sourceMappingURL=chunk-LI3AJTG3.js.map

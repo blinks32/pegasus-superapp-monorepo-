@@ -1,7 +1,5 @@
 import {
-  AdminAuthService
-} from "./chunk-2RFJ37WR.js";
-import {
+  AuthService,
   DefaultValueAccessor,
   FooterComponent,
   FormsModule,
@@ -9,7 +7,7 @@ import {
   MarketplaceService,
   NgControlStatus,
   NgModel
-} from "./chunk-YSRYBUAR.js";
+} from "./chunk-LI3AJTG3.js";
 import {
   CommonModule,
   DatePipe,
@@ -56,7 +54,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-HWE2I25U.js";
+} from "./chunk-3B7JSY2Q.js";
 
 // src/app/pages/admin/admin.component.ts
 var _c0 = (a0) => ["/product", a0];
@@ -340,34 +338,45 @@ function AdminComponent_div_20_Template(rf, ctx) {
     \u0275\u0275text(22, "Update the password for your current admin account.");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(23, "div", 62)(24, "div", 63)(25, "label");
-    \u0275\u0275text(26, "New Password");
+    \u0275\u0275text(26, "Current Password");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(27, "input", 64);
     \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_20_Template_input_ngModelChange_27_listener($event) {
+      \u0275\u0275restoreView(_r7);
+      const ctx_r2 = \u0275\u0275nextContext();
+      \u0275\u0275twoWayBindingSet(ctx_r2.currentPassword, $event) || (ctx_r2.currentPassword = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(28, "div", 63)(29, "label");
+    \u0275\u0275text(30, "New Password");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(31, "input", 65);
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_20_Template_input_ngModelChange_31_listener($event) {
       \u0275\u0275restoreView(_r7);
       const ctx_r2 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r2.newPassword, $event) || (ctx_r2.newPassword = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(28, "div", 63)(29, "label");
-    \u0275\u0275text(30, "Confirm Password");
+    \u0275\u0275elementStart(32, "div", 63)(33, "label");
+    \u0275\u0275text(34, "Confirm Password");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(31, "input", 65);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_20_Template_input_ngModelChange_31_listener($event) {
+    \u0275\u0275elementStart(35, "input", 66);
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_20_Template_input_ngModelChange_35_listener($event) {
       \u0275\u0275restoreView(_r7);
       const ctx_r2 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r2.confirmPassword, $event) || (ctx_r2.confirmPassword = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(32, "button", 66);
-    \u0275\u0275listener("click", function AdminComponent_div_20_Template_button_click_32_listener() {
+    \u0275\u0275elementStart(36, "button", 67);
+    \u0275\u0275listener("click", function AdminComponent_div_20_Template_button_click_36_listener() {
       \u0275\u0275restoreView(_r7);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.updatePassword());
     });
-    \u0275\u0275text(33, " Update Password ");
+    \u0275\u0275text(37, " Update Password ");
     \u0275\u0275elementEnd()()()()();
   }
   if (rf & 2) {
@@ -375,21 +384,23 @@ function AdminComponent_div_20_Template(rf, ctx) {
     \u0275\u0275advance(14);
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.newAdminEmail);
     \u0275\u0275advance();
-    \u0275\u0275property("disabled", ctx_r2.isUpdating);
+    \u0275\u0275property("disabled", ctx_r2.isUpdating || !ctx_r2.currentPassword);
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", ctx_r2.isUpdating ? "Updating..." : "Save Email", " ");
     \u0275\u0275advance(11);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r2.currentPassword);
+    \u0275\u0275advance(4);
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.newPassword);
     \u0275\u0275advance(4);
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.confirmPassword);
     \u0275\u0275advance();
-    \u0275\u0275property("disabled", ctx_r2.isUpdating || !ctx_r2.newPassword);
+    \u0275\u0275property("disabled", ctx_r2.isUpdating || !ctx_r2.newPassword || !ctx_r2.confirmPassword || !ctx_r2.currentPassword);
   }
 }
 var AdminComponent = class _AdminComponent {
   constructor() {
     this.marketplace = inject(MarketplaceService);
-    this.adminAuth = inject(AdminAuthService);
+    this.authService = inject(AuthService);
     this.firestore = inject(Firestore);
     this.activeTab = "dashboard";
     this.chartPeriod = "30d";
@@ -399,6 +410,7 @@ var AdminComponent = class _AdminComponent {
     this.chartTotalRevenue = 0;
     this.allProjects = [];
     this.newAdminEmail = "";
+    this.currentPassword = "";
     this.newPassword = "";
     this.confirmPassword = "";
     this.isUpdating = false;
@@ -551,8 +563,13 @@ var AdminComponent = class _AdminComponent {
         alert("Please enter a valid email.");
         return;
       }
+      if (!this.currentPassword) {
+        alert("Please enter your current password to save the email.");
+        return;
+      }
       this.isUpdating = true;
       try {
+        yield this.authService.updateEmailWithReauth(normalizedEmail, this.currentPassword);
         const ref = doc(this.firestore, "settings/admin");
         try {
           yield updateDoc(ref, { email: normalizedEmail });
@@ -560,6 +577,7 @@ var AdminComponent = class _AdminComponent {
           yield setDoc(ref, { email: normalizedEmail }, { merge: true });
         }
         alert("Authorized admin email updated successfully!");
+        this.currentPassword = "";
       } catch (e) {
         console.error(e);
         alert("Error updating configuration. Make sure the document exists in Firestore.");
@@ -570,6 +588,10 @@ var AdminComponent = class _AdminComponent {
   }
   updatePassword() {
     return __async(this, null, function* () {
+      if (!this.currentPassword) {
+        alert("Please enter your current password.");
+        return;
+      }
       if (this.newPassword !== this.confirmPassword) {
         alert("Passwords do not match.");
         return;
@@ -580,21 +602,14 @@ var AdminComponent = class _AdminComponent {
       }
       this.isUpdating = true;
       try {
-        const passwordHash = yield this.adminAuth.hashPassword(this.newPassword);
-        const ref = doc(this.firestore, "settings/admin");
-        const snap = yield getDoc(ref);
-        const currentEmail = snap.exists() ? snap.data()?.email : this.newAdminEmail;
-        try {
-          yield updateDoc(ref, { passwordHash });
-        } catch {
-          yield setDoc(ref, { email: currentEmail || "", passwordHash }, { merge: true });
-        }
+        yield this.authService.updatePasswordWithReauth(this.newPassword, this.currentPassword);
         this.newPassword = "";
         this.confirmPassword = "";
+        this.currentPassword = "";
         alert("Admin password updated successfully.");
       } catch (e) {
-        alert("Error updating password.");
         console.error(e);
+        alert("Error updating password. Did your current password match?");
       } finally {
         this.isUpdating = false;
       }
@@ -619,7 +634,7 @@ var AdminComponent = class _AdminComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AdminComponent, selectors: [["app-admin"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 22, vars: 6, consts: [[1, "admin-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "hero-actions"], [1, "tab-btn", 3, "click"], ["routerLink", "/admin/submit", 1, "pm-btn", "pm-btn-primary"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M12 5v14M5 12h14"], [1, "pm-container", "admin-content"], ["class", "fade-in", 4, "ngIf"], [1, "fade-in"], [1, "stats-grid", "stagger-children"], ["class", "stat-card", 4, "ngFor", "ngForOf"], [1, "chart-card"], [1, "chart-header"], [1, "chart-tabs"], [3, "click"], [1, "chart-body"], [1, "chart-bars"], ["class", "chart-bar", 3, "height", 4, "ngFor", "ngForOf"], ["class", "empty-chart", 4, "ngIf"], [1, "chart-labels"], [4, "ngFor", "ngForOf"], [1, "projects-card"], [1, "card-header"], [1, "header-tabs"], ["class", "project-row", 4, "ngFor", "ngForOf"], ["class", "empty-projects", 4, "ngIf"], [1, "stat-card"], [1, "stat-card-icon"], [1, "stat-card-info"], [1, "stat-card-value"], [1, "stat-card-label"], ["class", "stat-card-change positive", 4, "ngIf"], [1, "stat-card-change", "positive"], [1, "chart-bar"], [1, "bar-tooltip"], [1, "empty-chart"], [1, "project-row"], [1, "project-thumb"], [1, "project-info"], [1, "project-title"], [1, "project-desc"], [1, "project-status"], [1, "status-badge"], [1, "project-price"], [1, "project-date"], [1, "project-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "routerLink"], [1, "empty-projects"], ["routerLink", "/admin/submit"], [1, "settings-card"], [1, "settings-header"], [1, "settings-form"], [1, "form-section"], [1, "section-desc"], [1, "form-group-row"], ["type", "email", "placeholder", "Admin email", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], [1, "pm-divider"], [1, "form-grid"], [1, "form-group"], ["type", "password", "placeholder", "Enter new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Repeat new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "mt-16", 3, "click", "disabled"]], template: function AdminComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AdminComponent, selectors: [["app-admin"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 22, vars: 6, consts: [[1, "admin-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "hero-actions"], [1, "tab-btn", 3, "click"], ["routerLink", "/admin/submit", 1, "pm-btn", "pm-btn-primary"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M12 5v14M5 12h14"], [1, "pm-container", "admin-content"], ["class", "fade-in", 4, "ngIf"], [1, "fade-in"], [1, "stats-grid", "stagger-children"], ["class", "stat-card", 4, "ngFor", "ngForOf"], [1, "chart-card"], [1, "chart-header"], [1, "chart-tabs"], [3, "click"], [1, "chart-body"], [1, "chart-bars"], ["class", "chart-bar", 3, "height", 4, "ngFor", "ngForOf"], ["class", "empty-chart", 4, "ngIf"], [1, "chart-labels"], [4, "ngFor", "ngForOf"], [1, "projects-card"], [1, "card-header"], [1, "header-tabs"], ["class", "project-row", 4, "ngFor", "ngForOf"], ["class", "empty-projects", 4, "ngIf"], [1, "stat-card"], [1, "stat-card-icon"], [1, "stat-card-info"], [1, "stat-card-value"], [1, "stat-card-label"], ["class", "stat-card-change positive", 4, "ngIf"], [1, "stat-card-change", "positive"], [1, "chart-bar"], [1, "bar-tooltip"], [1, "empty-chart"], [1, "project-row"], [1, "project-thumb"], [1, "project-info"], [1, "project-title"], [1, "project-desc"], [1, "project-status"], [1, "status-badge"], [1, "project-price"], [1, "project-date"], [1, "project-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "routerLink"], [1, "empty-projects"], ["routerLink", "/admin/submit"], [1, "settings-card"], [1, "settings-header"], [1, "settings-form"], [1, "form-section"], [1, "section-desc"], [1, "form-group-row"], ["type", "email", "placeholder", "Admin email", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], [1, "pm-divider"], [1, "form-grid"], [1, "form-group"], ["type", "password", "placeholder", "Enter current password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Enter new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Repeat new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "mt-16", 3, "click", "disabled"]], template: function AdminComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "section", 0)(2, "div", 1)(3, "div", 2)(4, "div")(5, "h1", 3);
@@ -649,7 +664,7 @@ var AdminComponent = class _AdminComponent {
         \u0275\u0275elementEnd()()()()();
         \u0275\u0275namespaceHTML();
         \u0275\u0275elementStart(18, "div", 10);
-        \u0275\u0275template(19, AdminComponent_div_19_Template, 35, 21, "div", 11)(20, AdminComponent_div_20_Template, 34, 6, "div", 11);
+        \u0275\u0275template(19, AdminComponent_div_19_Template, 35, 21, "div", 11)(20, AdminComponent_div_20_Template, 38, 7, "div", 11);
         \u0275\u0275elementEnd();
         \u0275\u0275element(21, "app-footer");
       }
@@ -667,9 +682,9 @@ var AdminComponent = class _AdminComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 222 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 232 });
 })();
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-ILWPL5CS.js.map
+//# sourceMappingURL=chunk-KK5K7IBW.js.map

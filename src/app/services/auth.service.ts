@@ -1,5 +1,18 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { Auth, authState, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, User } from '@angular/fire/auth';
+import {
+  Auth,
+  authState,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  User,
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+  updateEmail as fbUpdateEmail,
+  updatePassword as fbUpdatePassword
+} from '@angular/fire/auth';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
@@ -71,6 +84,39 @@ export class AuthService {
       console.error('Email Login Error:', err);
       throw err;
     }
+  }
+
+  /**
+   * Sign in without navigation (used by the admin login page).
+   */
+  async signInWithEmailRaw(email: string, pass: string) {
+    await signInWithEmailAndPassword(this.auth, email, pass);
+  }
+
+  private getCurrentUserOrThrow(): User {
+    const user = this.currentUser();
+    if (!user) throw new Error('Not authenticated.');
+    return user;
+  }
+
+  async updateEmailWithReauth(newEmail: string, currentPassword: string) {
+    const user = this.getCurrentUserOrThrow();
+    const email = user.email;
+    if (!email) throw new Error('Current user has no email.');
+
+    const credential = EmailAuthProvider.credential(email, currentPassword);
+    await reauthenticateWithCredential(user, credential);
+    await fbUpdateEmail(user, newEmail);
+  }
+
+  async updatePasswordWithReauth(newPassword: string, currentPassword: string) {
+    const user = this.getCurrentUserOrThrow();
+    const email = user.email;
+    if (!email) throw new Error('Current user has no email.');
+
+    const credential = EmailAuthProvider.credential(email, currentPassword);
+    await reauthenticateWithCredential(user, credential);
+    await fbUpdatePassword(user, newPassword);
   }
 
   async registerWithEmail(email: string, pass: string, name: string) {

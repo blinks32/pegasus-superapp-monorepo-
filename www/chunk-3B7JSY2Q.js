@@ -61927,8 +61927,11 @@ export {
   __async,
   Subject,
   from,
+  of,
   map,
   forkJoin,
+  catchError,
+  take,
   RuntimeError,
   forwardRef,
   ɵɵdefineInjectable,
@@ -62032,15 +62035,19 @@ export {
   withPreloading,
   provideFirebaseApp,
   initializeApp2 as initializeApp,
+  EmailAuthProvider,
   GoogleAuthProvider,
   Auth,
   provideAuth,
   authState2 as authState,
   createUserWithEmailAndPassword2 as createUserWithEmailAndPassword,
   getAuth2 as getAuth,
+  reauthenticateWithCredential2 as reauthenticateWithCredential,
   signInWithEmailAndPassword2 as signInWithEmailAndPassword,
   signInWithPopup2 as signInWithPopup,
   signOut2 as signOut,
+  updateEmail2 as updateEmail,
+  updatePassword2 as updatePassword,
   Firestore2 as Firestore,
   provideFirestore,
   collectionData2 as collectionData,
@@ -62053,4 +62060,4 @@ export {
   setDoc2 as setDoc,
   updateDoc2 as updateDoc
 };
-//# sourceMappingURL=chunk-HWE2I25U.js.map
+//# sourceMappingURL=chunk-3B7JSY2Q.js.map

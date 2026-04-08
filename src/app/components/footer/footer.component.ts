@@ -8,59 +8,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-      <div class="pm-container">
-        <div class="trust-inner">
-          <div class="trust-item">
-            <div class="trust-icon">🛡️</div>
-            <div>
-              <strong>Secure Payments</strong>
-              <span>256-bit SSL encryption</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">💰</div>
-            <div>
-              <strong>Money Back Guarantee</strong>
-              <span>30-day refund policy</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">🔧</div>
-            <div>
-              <strong>Premium Support</strong>
-              <span>24/7 expert assistance</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">✅</div>
-            <div>
-              <strong>Quality Reviewed</strong>
-              <span>Every item manually checked</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications Bar -->
-    <section class="certifications-bar">
-      <div class="pm-container">
-        <div class="cert-inner">
-          <div class="cert-badge" *ngFor="let cert of certifications">
-            <div class="cert-icon-wrap" [style.background]="cert.bgColor">
-              <span class="cert-emoji">{{ cert.icon }}</span>
-            </div>
-            <div class="cert-info">
-              <span class="cert-name">{{ cert.name }}</span>
-              <span class="cert-detail">{{ cert.detail }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Newsletter -->
     <section class="newsletter-section">
       <div class="pm-container">
@@ -486,15 +433,6 @@ export class FooterComponent {
   currentYear = new Date().getFullYear();
   email = '';
   subscribed = false;
-
-  certifications = [
-    { name: 'Trustpilot', detail: 'Excellent 4.8/5', icon: '⭐', bgColor: 'rgba(0, 182, 122, 0.15)' },
-    { name: 'Norton Secured', detail: 'Verified & Safe', icon: '🔒', bgColor: 'rgba(99, 102, 241, 0.15)' },
-    { name: 'McAfee SECURE', detail: 'Tested Daily', icon: '🛡️', bgColor: 'rgba(239, 68, 68, 0.15)' },
-    { name: 'SSL Certified', detail: '256-bit Encryption', icon: '🔐', bgColor: 'rgba(16, 185, 129, 0.15)' },
-    { name: 'GDPR Compliant', detail: 'EU Data Protection', icon: '🇪🇺', bgColor: 'rgba(59, 130, 246, 0.15)' },
-    { name: 'PCI DSS', detail: 'Level 1 Certified', icon: '💳', bgColor: 'rgba(245, 158, 11, 0.15)' },
-  ];
 
   paymentMethods = [
     { name: 'Visa', icon: 'V', color: '#1A1F71' },

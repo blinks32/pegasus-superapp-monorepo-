@@ -83,21 +83,13 @@ import { MarketplaceService } from '../../services/marketplace.service';
           </div>
 
           <button class="pm-btn pm-btn-success pm-btn-lg checkout-btn" (click)="checkout()">
-            {{ checkingOut ? '✓ Order Placed!' : '🔒 Secure Checkout' }}
+            {{ checkingOut ? '✓ Order Placed!' : 'Checkout' }}
           </button>
 
           <div class="payment-methods">
             <span>Pay with:</span>
             <div class="pay-icons">
               <span *ngFor="let p of ['Visa', 'MC', 'PayPal', 'Stripe']" class="pay-tag">{{ p }}</span>
-            </div>
-          </div>
-
-          <div class="guarantee-box">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <div>
-              <strong>30-Day Money Back Guarantee</strong>
-              <span>No questions asked refund policy</span>
             </div>
           </div>
 
@@ -273,19 +265,6 @@ import { MarketplaceService } from '../../services/marketplace.service';
       font-size: 0.65rem;
       font-weight: 600;
     }
-
-    .guarantee-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px;
-      background: rgba(16,185,129,0.05);
-      border: 1px solid rgba(16,185,129,0.15);
-      border-radius: var(--pm-radius-md);
-      margin-top: 16px;
-    }
-    .guarantee-box strong { display: block; font-size: 0.8rem; color: var(--pm-text-primary); }
-    .guarantee-box span { font-size: 0.7rem; color: var(--pm-text-muted); }
 
     .coupon-card h4 { margin: 0 0 12px; font-size: 0.9rem; }
     .coupon-input { display: flex; gap: 8px; }

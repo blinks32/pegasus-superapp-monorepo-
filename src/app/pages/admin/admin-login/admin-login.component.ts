@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
-import { AdminAuthService } from '../../../services/admin-auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -177,7 +177,7 @@ import { AdminAuthService } from '../../../services/admin-auth.service';
 })
 export class AdminLoginComponent {
   private router = inject(Router);
-  private adminAuth = inject(AdminAuthService);
+  private auth = inject(AuthService);
 
   email = '';
   password = '';
@@ -191,12 +191,10 @@ export class AdminLoginComponent {
     this.errorMessage = '';
 
     try {
-      const ok = await this.adminAuth.login(this.email, this.password);
-      if (!ok) {
-        this.errorMessage = 'Invalid admin credentials.';
-        return;
-      }
+      await this.auth.signInWithEmailRaw(this.email, this.password);
       this.router.navigate(['/admin']);
+    } catch (err: any) {
+      this.errorMessage = err?.message || 'Invalid admin credentials.';
     } finally {
       this.isLoading = false;
     }

@@ -1,7 +1,5 @@
 import {
-  AdminAuthService
-} from "./chunk-2RFJ37WR.js";
-import {
+  AuthService,
   DefaultValueAccessor,
   FooterComponent,
   FormsModule,
@@ -12,7 +10,7 @@ import {
   NgModel,
   RequiredValidator,
   ɵNgNoValidate
-} from "./chunk-YSRYBUAR.js";
+} from "./chunk-LI3AJTG3.js";
 import {
   CommonModule,
   NgIf,
@@ -37,7 +35,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-HWE2I25U.js";
+} from "./chunk-3B7JSY2Q.js";
 
 // src/app/pages/admin/admin-login/admin-login.component.ts
 function AdminLoginComponent_div_9_Template(rf, ctx) {
@@ -55,7 +53,7 @@ function AdminLoginComponent_div_9_Template(rf, ctx) {
 var AdminLoginComponent = class _AdminLoginComponent {
   constructor() {
     this.router = inject(Router);
-    this.adminAuth = inject(AdminAuthService);
+    this.auth = inject(AuthService);
     this.email = "";
     this.password = "";
     this.isLoading = false;
@@ -68,12 +66,10 @@ var AdminLoginComponent = class _AdminLoginComponent {
       this.isLoading = true;
       this.errorMessage = "";
       try {
-        const ok = yield this.adminAuth.login(this.email, this.password);
-        if (!ok) {
-          this.errorMessage = "Invalid admin credentials.";
-          return;
-        }
+        yield this.auth.signInWithEmailRaw(this.email, this.password);
         this.router.navigate(["/admin"]);
+      } catch (err) {
+        this.errorMessage = err?.message || "Invalid admin credentials.";
       } finally {
         this.isLoading = false;
       }
@@ -149,4 +145,4 @@ var AdminLoginComponent = class _AdminLoginComponent {
 export {
   AdminLoginComponent
 };
-//# sourceMappingURL=chunk-LFCE37C2.js.map
+//# sourceMappingURL=chunk-CYA7ZWBU.js.map

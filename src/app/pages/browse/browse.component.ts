@@ -248,6 +248,7 @@ import { ProductCategory } from '../../models/marketplace.models';
       display: flex;
       align-items: center;
       gap: 16px;
+      flex-wrap: wrap;
       margin-bottom: 24px;
       padding: 12px 16px;
       background: var(--pm-surface);
@@ -320,7 +321,7 @@ import { ProductCategory } from '../../models/marketplace.models';
       .browse-sidebar {
         display: none;
         position: fixed;
-        top: 0;
+        top: 64px;
         left: 0;
         right: 0;
         bottom: 0;
@@ -333,7 +334,16 @@ import { ProductCategory } from '../../models/marketplace.models';
       .browse-sidebar.mobile-open { display: block; }
       .sidebar-close { display: block; }
       .filter-toggle { display: flex; }
-      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .sort-bar { gap: 10px; }
+      .sort-options {
+        margin-left: 0;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .sort-options label { white-space: normal; }
+      .sort-select { width: 100%; }
+      .products-grid { grid-template-columns: 1fr; gap: 16px; }
     }
     @media (max-width: 480px) {
       .products-grid { grid-template-columns: 1fr; }

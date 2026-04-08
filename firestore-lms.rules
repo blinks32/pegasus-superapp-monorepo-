@@ -45,6 +45,29 @@ service cloud.firestore {
       allow read: if request.auth != null;
     }
 
+    // ─── Admin Settings (Email allowed + admin updates) ───
+    match /settings/admin {
+      // Admin login + dashboard needs to read the configured admin email.
+      // Restrict reads to the currently configured admin user.
+      allow read: if request.auth != null
+        && request.auth.token.email != null
+        && request.auth.token.email == resource.data.email;
+
+      // Only the currently authenticated admin can update this document.
+      // We allow updates if the signed-in user's email matches either the current
+      // stored email (resource.data.email) or the new email being written (request.resource.data.email).
+      allow create: if request.auth != null
+        && request.auth.token.email != null
+        && request.resource.data.email == request.auth.token.email;
+
+      allow update: if request.auth != null
+        && request.auth.token.email != null
+        && (request.auth.token.email == resource.data.email
+          || request.auth.token.email == request.resource.data.email);
+
+      allow delete: if false;
+    }
+
     // ─── Deny all other access ───
     match /{document=**} {
       allow read, write: if false;

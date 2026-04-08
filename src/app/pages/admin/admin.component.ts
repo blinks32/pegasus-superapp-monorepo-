@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
-import { AdminAuthService } from '../../services/admin-auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firestore';
 
 @Component({
@@ -130,7 +130,10 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
               <p class="section-desc">Only this email + password can access the admin dashboard.</p>
               <div class="form-group-row">
                 <input type="email" [(ngModel)]="newAdminEmail" placeholder="Admin email" class="pm-input">
-                <button (click)="updateAdminEmail()" class="pm-btn pm-btn-primary" [disabled]="isUpdating">
+                <button
+                  (click)="updateAdminEmail()"
+                  class="pm-btn pm-btn-primary"
+                  [disabled]="isUpdating || !currentPassword">
                   {{ isUpdating ? 'Updating...' : 'Save Email' }}
                 </button>
               </div>
@@ -143,6 +146,10 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
               <p class="section-desc">Update the password for your current admin account.</p>
               <div class="form-grid">
                 <div class="form-group">
+                  <label>Current Password</label>
+                  <input type="password" [(ngModel)]="currentPassword" placeholder="Enter current password" class="pm-input">
+                </div>
+                <div class="form-group">
                   <label>New Password</label>
                   <input type="password" [(ngModel)]="newPassword" placeholder="Enter new password" class="pm-input">
                 </div>
@@ -151,7 +158,10 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
                   <input type="password" [(ngModel)]="confirmPassword" placeholder="Repeat new password" class="pm-input">
                 </div>
               </div>
-              <button (click)="updatePassword()" class="pm-btn pm-btn-primary mt-16" [disabled]="isUpdating || !newPassword">
+              <button
+                (click)="updatePassword()"
+                class="pm-btn pm-btn-primary mt-16"
+                [disabled]="isUpdating || !newPassword || !confirmPassword || !currentPassword">
                  Update Password
               </button>
             </div>
@@ -221,7 +231,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc } from '@angular/fire/firesto
 })
 export class AdminComponent implements OnInit {
   marketplace = inject(MarketplaceService);
-  adminAuth = inject(AdminAuthService);
+  authService = inject(AuthService);
   firestore = inject(Firestore);
 
   activeTab = 'dashboard';
@@ -236,6 +246,7 @@ export class AdminComponent implements OnInit {
   
   // Settings Form
   newAdminEmail = '';
+  currentPassword = '';
   newPassword = '';
   confirmPassword = '';
   isUpdating = false;
@@ -386,16 +397,24 @@ export class AdminComponent implements OnInit {
       alert('Please enter a valid email.');
       return;
     }
+    if (!this.currentPassword) {
+      alert('Please enter your current password to save the email.');
+      return;
+    }
     this.isUpdating = true;
     try {
+      // Update Firebase Auth first so admin access stays consistent.
+      await this.authService.updateEmailWithReauth(normalizedEmail, this.currentPassword);
+
       const ref = doc(this.firestore, 'settings/admin');
       try {
         await updateDoc(ref, { email: normalizedEmail });
       } catch {
-        // If the doc doesn't exist yet, create it (safe default: keep passwordHash unset).
         await setDoc(ref, { email: normalizedEmail }, { merge: true });
       }
       alert('Authorized admin email updated successfully!');
+
+      this.currentPassword = '';
     } catch (e) {
       console.error(e);
       alert('Error updating configuration. Make sure the document exists in Firestore.');
@@ -405,6 +424,10 @@ export class AdminComponent implements OnInit {
   }
 
   async updatePassword() {
+    if (!this.currentPassword) {
+      alert('Please enter your current password.');
+      return;
+    }
     if (this.newPassword !== this.confirmPassword) {
       alert('Passwords do not match.');
       return;
@@ -416,24 +439,16 @@ export class AdminComponent implements OnInit {
     
     this.isUpdating = true;
     try {
-      const passwordHash = await this.adminAuth.hashPassword(this.newPassword);
-      const ref = doc(this.firestore, 'settings/admin');
-      const snap = await getDoc(ref);
-      const currentEmail = snap.exists() ? (snap.data() as any)?.email : this.newAdminEmail;
-
-      try {
-        await updateDoc(ref, { passwordHash });
-      } catch {
-        await setDoc(ref, { email: currentEmail || '', passwordHash }, { merge: true });
-      }
+      await this.authService.updatePasswordWithReauth(this.newPassword, this.currentPassword);
 
       // Clear password fields after successful update.
       this.newPassword = '';
       this.confirmPassword = '';
+      this.currentPassword = '';
       alert('Admin password updated successfully.');
     } catch (e) {
-      alert('Error updating password.');
       console.error(e);
+      alert('Error updating password. Did your current password match?');
     } finally {
       this.isUpdating = false;
     }
