@@ -68,7 +68,7 @@ import { Firestore, collection, collectionData, doc, updateDoc, addDoc, deleteDo
                 {{ (project.status || 'pending') | titlecase }}
               </span>
             </div>
-            <div class="project-price">${{ project.price }}</div>
+            <div class="project-price">$ {{ project.price }}</div>
           </div>
 
           <div class="empty-projects" *ngIf="getFilteredProjects().length === 0">

@@ -61927,11 +61927,8 @@ export {
   __async,
   Subject,
   from,
-  of,
   map,
   forkJoin,
-  catchError,
-  take,
   RuntimeError,
   forwardRef,
   ɵɵdefineInjectable,
@@ -62051,13 +62048,16 @@ export {
   Firestore2 as Firestore,
   provideFirestore,
   collectionData2 as collectionData,
+  addDoc2 as addDoc,
   collection3 as collection,
+  deleteDoc2 as deleteDoc,
   doc3 as doc,
   getDoc2 as getDoc,
   getFirestore2 as getFirestore,
   orderBy2 as orderBy,
   query2 as query,
+  serverTimestamp2 as serverTimestamp,
   setDoc2 as setDoc,
   updateDoc2 as updateDoc
 };
-//# sourceMappingURL=chunk-3B7JSY2Q.js.map
+//# sourceMappingURL=chunk-R4VRCTGY.js.map

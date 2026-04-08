@@ -1,40 +1,30 @@
 import {
   ANIMATION_MODULE_TYPE,
-  Auth,
   BrowserModule,
   DOCUMENT,
   DomRendererFactory2,
-  Firestore,
   Inject,
   Injectable,
   NgModule,
   NgZone,
   PreloadAllModules,
   RendererFactory2,
-  Router,
   RouterOutlet,
   RuntimeError,
   ViewEncapsulation$1,
   __objRest,
   __spreadValues,
   bootstrapApplication,
-  catchError,
-  doc,
-  from,
   getAuth,
-  getDoc,
   getFirestore,
   initializeApp,
   inject,
-  map,
-  of,
   performanceMarkFeature,
   provideAuth,
   provideFirebaseApp,
   provideFirestore,
   provideRouter,
   setClassMetadata,
-  take,
   withInMemoryScrolling,
   withPreloading,
   ɵsetClassDebugInfo,
@@ -45,7 +35,7 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-3B7JSY2Q.js";
+} from "./chunk-R4VRCTGY.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -124,7 +114,7 @@ var AnimationBuilder = class _AnimationBuilder {
 var AnimationFactory = class {
 };
 var BrowserAnimationBuilder = class _BrowserAnimationBuilder extends AnimationBuilder {
-  constructor(rootRenderer, doc2) {
+  constructor(rootRenderer, doc) {
     super();
     this.animationModuleType = inject(ANIMATION_MODULE_TYPE, {
       optional: true
@@ -138,7 +128,7 @@ var BrowserAnimationBuilder = class _BrowserAnimationBuilder extends AnimationBu
         animation: []
       }
     };
-    this._renderer = rootRenderer.createRenderer(doc2.body, typeData);
+    this._renderer = rootRenderer.createRenderer(doc.body, typeData);
     if (this.animationModuleType === null && !isAnimationRenderer(this._renderer)) {
       throw new RuntimeError(3600, (typeof ngDevMode === "undefined" || ngDevMode) && "Angular detected that the `AnimationBuilder` was injected, but animation support was not enabled. Please make sure that you enable animations in your application by calling `provideAnimations()` or `provideAnimationsAsync()` function.");
     }
@@ -669,10 +659,10 @@ function makeAnimationEvent(element, triggerName, fromState, toState, phaseName 
     disabled: !!disabled
   };
 }
-function getOrSetDefaultValue(map2, key, defaultValue) {
-  let value = map2.get(key);
+function getOrSetDefaultValue(map, key, defaultValue) {
+  let value = map.get(key);
   if (!value) {
-    map2.set(key, value = defaultValue);
+    map.set(key, value = defaultValue);
   }
   return value;
 }
@@ -3688,15 +3678,15 @@ var TransitionAnimationPlayer = class {
     }
   }
 };
-function deleteOrUnsetInMap(map2, key, value) {
-  let currentValues = map2.get(key);
+function deleteOrUnsetInMap(map, key, value) {
+  let currentValues = map.get(key);
   if (currentValues) {
     if (currentValues.length) {
       const index = currentValues.indexOf(value);
       currentValues.splice(index, 1);
     }
     if (currentValues.length == 0) {
-      map2.delete(key);
+      map.delete(key);
     }
   }
   return currentValues;
@@ -3812,14 +3802,14 @@ function replacePostStylesAsPre(element, allPreStyleElements, allPostStyleElemen
   return true;
 }
 var AnimationEngine = class {
-  constructor(doc2, _driver, _normalizer) {
+  constructor(doc, _driver, _normalizer) {
     this._driver = _driver;
     this._normalizer = _normalizer;
     this._triggerCache = {};
     this.onRemovalComplete = (element, context) => {
     };
-    this._transitionEngine = new TransitionAnimationEngine(doc2.body, _driver, _normalizer);
-    this._timelineEngine = new TimelineAnimationEngine(doc2.body, _driver, _normalizer);
+    this._transitionEngine = new TransitionAnimationEngine(doc.body, _driver, _normalizer);
+    this._timelineEngine = new TimelineAnimationEngine(doc.body, _driver, _normalizer);
     this._transitionEngine.onRemovalComplete = (element, context) => this.onRemovalComplete(element, context);
   }
   registerTrigger(componentId, namespaceId, hostElement, name, metadata) {
@@ -4409,8 +4399,8 @@ var InjectableAnimationEngine = class _InjectableAnimationEngine extends Animati
   // The `ApplicationRef` is injected here explicitly to force the dependency ordering.
   // Since the `ApplicationRef` should be created earlier before the `AnimationEngine`, they
   // both have `ngOnDestroy` hooks and `flush()` must be called after all views are destroyed.
-  constructor(doc2, driver, normalizer) {
-    super(doc2, driver, normalizer);
+  constructor(doc, driver, normalizer) {
+    super(doc, driver, normalizer);
   }
   ngOnDestroy() {
     this.flush();
@@ -4554,69 +4544,43 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
   }], null, null);
 })();
 
-// src/app/guards/admin.guard.ts
-var adminGuard = (_route, _state) => {
-  const router = inject(Router);
-  const firestore = inject(Firestore);
-  const firebaseAuth = inject(Auth);
-  const user = firebaseAuth.currentUser;
-  if (!user) {
-    router.navigate(["/admin/login"]);
-    return false;
-  }
-  return from(getDoc(doc(firestore, "settings/admin"))).pipe(map((snap) => {
-    const configuredEmail = snap.exists() ? snap.data()?.["email"] : null;
-    if (!configuredEmail) {
-      router.navigate(["/admin/login"]);
-      return false;
-    }
-    const currentEmail = (user.email || "").toLowerCase();
-    return currentEmail === String(configuredEmail).toLowerCase();
-  }), catchError(() => {
-    router.navigate(["/admin/login"]);
-    return of(false);
-  }), take(1));
-};
-
 // src/app/app.routes.ts
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-UF7VXSOS.js").then((m) => m.HomeComponent)
-  },
-  {
-    path: "admin/login",
-    loadComponent: () => import("./chunk-CYA7ZWBU.js").then((m) => m.AdminLoginComponent)
+    loadComponent: () => import("./chunk-XTX3OGAO.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-BN6YFPOH.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-UOV2I7NJ.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-Z2KDGH44.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-XKJOFREN.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-BWC7O2SF.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-OONNEZKB.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    canActivate: [adminGuard],
-    loadComponent: () => import("./chunk-KK5K7IBW.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-JYDU7FH3.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    canActivate: [adminGuard],
-    loadComponent: () => import("./chunk-VT4CRO34.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-VPCJK3Z5.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-S63FKRPT.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-5CN7MJ35.js").then((m) => m.LoginComponent)
+  },
+  {
+    path: "profile",
+    loadComponent: () => import("./chunk-4E6XUNNK.js").then((m) => m.ProfileComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-IOLPNE3S.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-AJCAGDQL.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "**",

@@ -1,10 +1,7 @@
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
-  FooterComponent,
   FormsModule,
-  HeaderComponent,
-  MarketplaceService,
   MinValidator,
   NgControlStatus,
   NgControlStatusGroup,
@@ -17,13 +14,19 @@ import {
   SelectControlValueAccessor,
   ɵNgNoValidate,
   ɵNgSelectMultipleOption
-} from "./chunk-LI3AJTG3.js";
+} from "./chunk-JLNVYNUZ.js";
+import {
+  FooterComponent,
+  HeaderComponent,
+  MarketplaceService
+} from "./chunk-O7ABM3XC.js";
 import {
   CommonModule,
   NgForOf,
   NgIf,
   Router,
   RouterLink,
+  __async,
   inject,
   signal,
   ɵsetClassDebugInfo,
@@ -49,7 +52,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-3B7JSY2Q.js";
+} from "./chunk-R4VRCTGY.js";
 
 // src/app/pages/admin/submit-project/submit-project.component.ts
 function SubmitProjectComponent_div_10_Template(rf, ctx) {
@@ -456,7 +459,7 @@ function SubmitProjectComponent_form_11_div_5_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 85)(1, "span", 86);
+    \u0275\u0275elementStart(0, "div", 86)(1, "span", 87);
     \u0275\u0275text(2, "\u{1F5BC}\uFE0F");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -469,7 +472,7 @@ function SubmitProjectComponent_form_11_div_6_div_10_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 87)(1, "span", 86);
+    \u0275\u0275elementStart(0, "div", 88)(1, "span", 87);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -487,27 +490,27 @@ function SubmitProjectComponent_form_11_div_6_div_11_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_18_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 85)(1, "span", 86);
+    \u0275\u0275elementStart(0, "div", 86)(1, "span", 87);
     \u0275\u0275text(2, "\u{1F4F8}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
     \u0275\u0275text(4, "Upload preview screenshots");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "span");
-    \u0275\u0275text(6, "Up to 5 images. PNG, JPG up to 5MB each");
+    \u0275\u0275text(6, "Select up to 5 images. PNG, JPG up to 5MB each");
     \u0275\u0275elementEnd()();
   }
 }
 function SubmitProjectComponent_form_11_div_6_div_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 87)(1, "span", 86);
+    \u0275\u0275elementStart(0, "div", 88)(1, "span", 87);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "span");
-    \u0275\u0275text(6, "Click to change");
+    \u0275\u0275text(6, "Click to add more or change");
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -516,9 +519,42 @@ function SubmitProjectComponent_form_11_div_6_div_19_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("", ctx_r1.screenshotNames.length, " file(s) selected");
   }
 }
-function SubmitProjectComponent_form_11_div_6_div_26_Template(rf, ctx) {
+function SubmitProjectComponent_form_11_div_6_div_20_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 85)(1, "span", 86);
+    const _r16 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 91)(1, "span", 92);
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "button", 93);
+    \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_div_20_div_1_Template_button_click_3_listener() {
+      const i_r17 = \u0275\u0275restoreView(_r16).index;
+      const ctx_r1 = \u0275\u0275nextContext(4);
+      return \u0275\u0275resetView(ctx_r1.removeScreenshot(i_r17));
+    });
+    \u0275\u0275text(4, "\xD7");
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const name_r18 = ctx.$implicit;
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(name_r18);
+  }
+}
+function SubmitProjectComponent_form_11_div_6_div_20_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 89);
+    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_6_div_20_div_1_Template, 5, 1, "div", 90);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngForOf", ctx_r1.screenshotNames);
+  }
+}
+function SubmitProjectComponent_form_11_div_6_div_27_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 86)(1, "span", 87);
     \u0275\u0275text(2, "\u{1F4C1}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -529,9 +565,9 @@ function SubmitProjectComponent_form_11_div_6_div_26_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function SubmitProjectComponent_form_11_div_6_div_27_Template(rf, ctx) {
+function SubmitProjectComponent_form_11_div_6_div_28_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 87)(1, "span", 86);
+    \u0275\u0275elementStart(0, "div", 88)(1, "span", 87);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -572,7 +608,7 @@ function SubmitProjectComponent_form_11_div_6_Template(rf, ctx) {
     \u0275\u0275template(10, SubmitProjectComponent_form_11_div_6_div_10_Template, 7, 0, "div", 80)(11, SubmitProjectComponent_form_11_div_6_div_11_Template, 7, 1, "div", 81);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 30)(13, "label");
-    \u0275\u0275text(14, "Preview Screenshots");
+    \u0275\u0275text(14, "Preview Screenshots (up to 5)");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(15, "div", 78);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_Template_div_click_15_listener() {
@@ -588,42 +624,44 @@ function SubmitProjectComponent_form_11_div_6_Template(rf, ctx) {
     });
     \u0275\u0275elementEnd();
     \u0275\u0275template(18, SubmitProjectComponent_form_11_div_6_div_18_Template, 7, 0, "div", 80)(19, SubmitProjectComponent_form_11_div_6_div_19_Template, 7, 1, "div", 81);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(20, "div", 30)(21, "label");
-    \u0275\u0275text(22, "Source Code (ZIP) *");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(23, "div", 78);
-    \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_Template_div_click_23_listener() {
+    \u0275\u0275template(20, SubmitProjectComponent_form_11_div_6_div_20_Template, 2, 1, "div", 83);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(21, "div", 30)(22, "label");
+    \u0275\u0275text(23, "Source Code (ZIP) *");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(24, "div", 78);
+    \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_Template_div_click_24_listener() {
       \u0275\u0275restoreView(_r13);
-      const sourceInput_r16 = \u0275\u0275reference(25);
-      return \u0275\u0275resetView(sourceInput_r16.click());
+      const sourceInput_r19 = \u0275\u0275reference(26);
+      return \u0275\u0275resetView(sourceInput_r19.click());
     });
-    \u0275\u0275elementStart(24, "input", 83, 2);
-    \u0275\u0275listener("change", function SubmitProjectComponent_form_11_div_6_Template_input_change_24_listener($event) {
+    \u0275\u0275elementStart(25, "input", 84, 2);
+    \u0275\u0275listener("change", function SubmitProjectComponent_form_11_div_6_Template_input_change_25_listener($event) {
       \u0275\u0275restoreView(_r13);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onSourceSelect($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(26, SubmitProjectComponent_form_11_div_6_div_26_Template, 7, 0, "div", 80)(27, SubmitProjectComponent_form_11_div_6_div_27_Template, 7, 1, "div", 81);
+    \u0275\u0275template(27, SubmitProjectComponent_form_11_div_6_div_27_Template, 7, 0, "div", 80)(28, SubmitProjectComponent_form_11_div_6_div_28_Template, 7, 1, "div", 81);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(28, "div", 84)(29, "h4");
-    \u0275\u0275text(30, "\u{1F4CB} Submission Guidelines");
+    \u0275\u0275elementStart(29, "div", 85)(30, "h4");
+    \u0275\u0275text(31, "\u{1F4CB} Submission Guidelines");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(31, "ul")(32, "li");
-    \u0275\u0275text(33, "Ensure your code is well-documented and organized");
+    \u0275\u0275elementStart(32, "ul")(33, "li");
+    \u0275\u0275text(34, "Ensure your code is well-documented and organized");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(34, "li");
-    \u0275\u0275text(35, "Include a README with setup instructions");
+    \u0275\u0275elementStart(35, "li");
+    \u0275\u0275text(36, "Include a README with setup instructions");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(36, "li");
-    \u0275\u0275text(37, "Remove any API keys or sensitive credentials");
+    \u0275\u0275elementStart(37, "li");
+    \u0275\u0275text(38, "Remove any API keys or sensitive credentials");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(38, "li");
-    \u0275\u0275text(39, "Test thoroughly before submitting");
+    \u0275\u0275elementStart(39, "li");
+    \u0275\u0275text(40, "Test thoroughly before submitting");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(40, "li");
-    \u0275\u0275text(41, "Review typically takes 2-3 business days");
+    \u0275\u0275elementStart(41, "li");
+    \u0275\u0275text(42, "Review typically takes 2-3 business days");
     \u0275\u0275elementEnd()()()()();
   }
   if (rf & 2) {
@@ -636,6 +674,8 @@ function SubmitProjectComponent_form_11_div_6_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r1.screenshotNames.length === 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.screenshotNames.length > 0);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r1.screenshotNames.length > 0);
     \u0275\u0275advance(7);
     \u0275\u0275property("ngIf", !ctx_r1.sourceName);
     \u0275\u0275advance();
@@ -644,10 +684,10 @@ function SubmitProjectComponent_form_11_div_6_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_8_Template(rf, ctx) {
   if (rf & 1) {
-    const _r17 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 88);
+    const _r20 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 94);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_button_8_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r17);
+      \u0275\u0275restoreView(_r20);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.prevStep());
     });
@@ -657,10 +697,10 @@ function SubmitProjectComponent_form_11_button_8_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r18 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 89);
+    const _r21 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 95);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_button_10_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r18);
+      \u0275\u0275restoreView(_r21);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.saveDraft());
     });
@@ -670,10 +710,10 @@ function SubmitProjectComponent_form_11_button_10_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_11_Template(rf, ctx) {
   if (rf & 1) {
-    const _r19 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 90);
+    const _r22 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 96);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_button_11_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r19);
+      \u0275\u0275restoreView(_r22);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.nextStep());
     });
@@ -687,7 +727,7 @@ function SubmitProjectComponent_form_11_button_11_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_12_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "button", 91);
+    \u0275\u0275elementStart(0, "button", 97);
     \u0275\u0275text(1, " \u{1F680} Submit for Review ");
     \u0275\u0275elementEnd();
   }
@@ -708,7 +748,7 @@ function SubmitProjectComponent_form_11_Template(rf, ctx) {
     \u0275\u0275elementStart(1, "div", 17);
     \u0275\u0275template(2, SubmitProjectComponent_form_11_div_2_Template, 5, 6, "div", 18);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, SubmitProjectComponent_form_11_div_3_Template, 34, 6, "div", 19)(4, SubmitProjectComponent_form_11_div_4_Template, 45, 10, "div", 19)(5, SubmitProjectComponent_form_11_div_5_Template, 32, 7, "div", 19)(6, SubmitProjectComponent_form_11_div_6_Template, 42, 6, "div", 19);
+    \u0275\u0275template(3, SubmitProjectComponent_form_11_div_3_Template, 34, 6, "div", 19)(4, SubmitProjectComponent_form_11_div_4_Template, 45, 10, "div", 19)(5, SubmitProjectComponent_form_11_div_5_Template, 32, 7, "div", 19)(6, SubmitProjectComponent_form_11_div_6_Template, 43, 7, "div", 19);
     \u0275\u0275elementStart(7, "div", 20);
     \u0275\u0275template(8, SubmitProjectComponent_form_11_button_8_Template, 2, 0, "button", 21);
     \u0275\u0275element(9, "div", 22);
@@ -805,8 +845,14 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
   }
   onScreenshotsSelect(event) {
     const input = event.target;
-    if (input.files)
-      this.screenshotNames = Array.from(input.files).map((f) => f.name);
+    if (input.files) {
+      const newFiles = Array.from(input.files).map((f) => f.name);
+      const combined = [...this.screenshotNames, ...newFiles].slice(0, 5);
+      this.screenshotNames = combined;
+    }
+  }
+  removeScreenshot(index) {
+    this.screenshotNames = this.screenshotNames.filter((_, i) => i !== index);
   }
   onSourceSelect(event) {
     const input = event.target;
@@ -814,22 +860,36 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
       this.sourceName = input.files[0].name;
   }
   saveDraft() {
-    this.project.tags = this.parseTags();
-    this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
-    this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
-    this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
-    this.project.status = "draft";
-    this.marketplace.submitProject(this.project);
-    alert("Draft saved successfully!");
+    return __async(this, null, function* () {
+      this.project.tags = this.parseTags();
+      this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
+      this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
+      this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
+      this.project.status = "draft";
+      try {
+        yield this.marketplace.submitProject(this.project);
+        alert("Draft saved successfully!");
+      } catch (error) {
+        console.error("Error saving draft:", error);
+        alert("Failed to save draft. Please check your Firestore rules and try again.");
+      }
+    });
   }
   onSubmit() {
-    this.project.tags = this.parseTags();
-    this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
-    this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
-    this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
-    this.project.status = "pending";
-    this.marketplace.submitProject(this.project);
-    this.submitted.set(true);
+    return __async(this, null, function* () {
+      this.project.tags = this.parseTags();
+      this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
+      this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
+      this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
+      this.project.status = "published";
+      try {
+        yield this.marketplace.submitProject(this.project);
+        this.submitted.set(true);
+      } catch (error) {
+        console.error("Error submitting project:", error);
+        alert("Failed to submit project. Please check your Firestore rules and try again.");
+      }
+    });
   }
   resetForm() {
     this.submitted.set(false);
@@ -864,7 +924,7 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SubmitProjectComponent, selectors: [["app-submit-project"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 2, consts: [["thumbInput", ""], ["screenshotInput", ""], ["sourceInput", ""], [1, "submit-hero"], [1, "pm-container"], ["routerLink", "/admin", 1, "back-link"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "submit-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/admin", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-outline", 3, "click", 4, "ngIf"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "Project title", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description (features, tech stack, usage)", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "Version", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "Price", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "Original price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", "name", "reskin", 3, "ngModelChange", "ngModel"], ["class", "form-group", 4, "ngIf"], ["for", "reskinPrice"], ["id", "reskinPrice", "type", "number", "name", "reskinPrice", "placeholder", "Reskin service price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "Tags (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Enter key features, one per line.", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Tech stack (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "compat"], ["id", "compat", "type", "text", "name", "compat", "placeholder", "Supported platforms (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "File size", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "demoUrl"], ["id", "demoUrl", "type", "url", "name", "demoUrl", "placeholder", "Demo URL (optional)", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], ["type", "file", "accept", ".zip,.rar,.7z", "hidden", "", 3, "change"], [1, "guidelines-box"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-outline", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SubmitProjectComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SubmitProjectComponent, selectors: [["app-submit-project"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 2, consts: [["thumbInput", ""], ["screenshotInput", ""], ["sourceInput", ""], [1, "submit-hero"], [1, "pm-container"], ["routerLink", "/admin", 1, "back-link"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "submit-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/admin", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-outline", 3, "click", 4, "ngIf"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "Project title", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description (features, tech stack, usage)", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "Version", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "Price", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "Original price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", "name", "reskin", 3, "ngModelChange", "ngModel"], ["class", "form-group", 4, "ngIf"], ["for", "reskinPrice"], ["id", "reskinPrice", "type", "number", "name", "reskinPrice", "placeholder", "Reskin service price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "Tags (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Enter key features, one per line.", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Tech stack (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "compat"], ["id", "compat", "type", "text", "name", "compat", "placeholder", "Supported platforms (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "File size", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "demoUrl"], ["id", "demoUrl", "type", "url", "name", "demoUrl", "placeholder", "Demo URL (optional)", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], ["class", "selected-files", 4, "ngIf"], ["type", "file", "accept", ".zip,.rar,.7z", "hidden", "", 3, "change"], [1, "guidelines-box"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], [1, "selected-files"], ["class", "selected-file", 4, "ngFor", "ngForOf"], [1, "selected-file"], [1, "file-name"], ["type", "button", 1, "remove-file", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-outline", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SubmitProjectComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "section", 3)(2, "div", 4)(3, "a", 5);
@@ -887,13 +947,13 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", !ctx.submitted());
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, RouterLink, FormsModule, \u0275NgNoValidate, NgSelectOption, \u0275NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor, RadioControlValueAccessor, NgControlStatus, NgControlStatusGroup, RequiredValidator, MinValidator, NgModel, NgForm, HeaderComponent, FooterComponent], styles: ["\n\n.submit-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.submit-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.submit-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.back-link[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  text-decoration: none;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.back-link[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.submit-layout[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n  max-width: 800px;\n}\n.submit-form[_ngcontent-%COMP%] {\n  width: 100%;\n}\n.progress-steps[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin-bottom: 32px;\n}\n.step[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 12px 16px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  border: 2px solid var(--pm-border);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.step.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.04);\n}\n.step.completed[_ngcontent-%COMP%] {\n  border-color: #10B981;\n  background: rgba(16, 185, 129, 0.04);\n}\n.step-num[_ngcontent-%COMP%] {\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.8rem;\n  font-weight: 700;\n  background: var(--pm-surface-muted);\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.step.active[_ngcontent-%COMP%]   .step-num[_ngcontent-%COMP%] {\n  background: var(--ion-color-primary);\n  color: white;\n}\n.step.completed[_ngcontent-%COMP%]   .step-num[_ngcontent-%COMP%] {\n  background: #10B981;\n  color: white;\n}\n.step[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n}\n.step.active[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.step.completed[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: #059669;\n}\n.form-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  margin-bottom: 24px;\n}\n.form-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 24px;\n  font-size: 1.2rem;\n}\n.form-group[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 6px;\n}\n.form-input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-sm);\n  font-family: inherit;\n  font-size: 0.9rem;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: border-color var(--pm-transition-fast);\n}\n.form-input[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n}\n.form-input[_ngcontent-%COMP%]::placeholder {\n  color: var(--pm-text-muted);\n}\ntextarea.form-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n  line-height: 1.5;\n}\nselect.form-input[_ngcontent-%COMP%] {\n  cursor: pointer;\n}\n.form-hint[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  margin-top: 4px;\n  display: block;\n}\n.form-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n}\n.form-row[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.price-input-wrap[_ngcontent-%COMP%] {\n  position: relative;\n}\n.price-symbol[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 16px;\n  top: 50%;\n  transform: translateY(-50%);\n  font-weight: 700;\n  color: var(--pm-text-muted);\n}\n.price-field[_ngcontent-%COMP%] {\n  padding-left: 32px;\n}\n.license-options[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n}\n.license-opt[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-opt.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-opt[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-opt-content[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-opt-content[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.checkbox-label[_ngcontent-%COMP%] {\n  display: flex !important;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.checkbox-label[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.tag-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 4px;\n  margin-top: 8px;\n}\n.preview-tag[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  color: #6366F1;\n}\n.file-upload[_ngcontent-%COMP%] {\n  border: 2px dashed var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  padding: 32px;\n  text-align: center;\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.file-upload[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.02);\n}\n.upload-content[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n}\n.upload-icon[_ngcontent-%COMP%] {\n  font-size: 2rem;\n}\n.upload-content[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-primary);\n}\n.upload-content[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.upload-content.selected[_ngcontent-%COMP%] {\n  color: #10B981;\n}\n.upload-content.selected[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: #059669;\n}\n.guidelines-box[_ngcontent-%COMP%] {\n  padding: 20px;\n  background: rgba(245, 158, 11, 0.05);\n  border: 1px solid rgba(245, 158, 11, 0.2);\n  border-radius: var(--pm-radius-md);\n  margin-top: 8px;\n}\n.guidelines-box[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 10px;\n  font-size: 0.9rem;\n}\n.guidelines-box[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  margin: 0;\n  padding-left: 20px;\n}\n.guidelines-box[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  color: var(--pm-text-secondary);\n  padding: 3px 0;\n}\n.form-navigation[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.nav-spacer[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.success-card[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 64px 32px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-xl);\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-lg);\n  max-width: 560px;\n  margin: 48px auto;\n  animation: _ngcontent-%COMP%_scaleIn 0.4s ease;\n}\n.success-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  margin-bottom: 16px;\n}\n.success-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n}\n.success-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin: 0 0 28px;\n}\n.success-actions[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n}\n@keyframes _ngcontent-%COMP%_scaleIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n@media (max-width: 768px) {\n  .progress-steps[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 4px;\n  }\n  .form-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 0;\n  }\n  .license-options[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .form-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n}\n/*# sourceMappingURL=submit-project.component.css.map */"] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, RouterLink, FormsModule, \u0275NgNoValidate, NgSelectOption, \u0275NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor, RadioControlValueAccessor, NgControlStatus, NgControlStatusGroup, RequiredValidator, MinValidator, NgModel, NgForm, HeaderComponent, FooterComponent], styles: ["\n\n.submit-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.submit-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.submit-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.back-link[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  text-decoration: none;\n  display: inline-block;\n  margin-bottom: 8px;\n}\n.back-link[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.submit-layout[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n  max-width: 800px;\n}\n.submit-form[_ngcontent-%COMP%] {\n  width: 100%;\n}\n.progress-steps[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin-bottom: 32px;\n}\n.step[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 12px 16px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  border: 2px solid var(--pm-border);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.step.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.04);\n}\n.step.completed[_ngcontent-%COMP%] {\n  border-color: #10B981;\n  background: rgba(16, 185, 129, 0.04);\n}\n.step-num[_ngcontent-%COMP%] {\n  width: 28px;\n  height: 28px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 0.8rem;\n  font-weight: 700;\n  background: var(--pm-surface-muted);\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.step.active[_ngcontent-%COMP%]   .step-num[_ngcontent-%COMP%] {\n  background: var(--ion-color-primary);\n  color: white;\n}\n.step.completed[_ngcontent-%COMP%]   .step-num[_ngcontent-%COMP%] {\n  background: #10B981;\n  color: white;\n}\n.step[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n}\n.step.active[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.step.completed[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: #059669;\n}\n.form-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  margin-bottom: 24px;\n}\n.form-card[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 24px;\n  font-size: 1.2rem;\n}\n.form-group[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 6px;\n}\n.form-input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-sm);\n  font-family: inherit;\n  font-size: 0.9rem;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: border-color var(--pm-transition-fast);\n}\n.form-input[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n}\n.form-input[_ngcontent-%COMP%]::placeholder {\n  color: var(--pm-text-muted);\n}\ntextarea.form-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n  line-height: 1.5;\n}\nselect.form-input[_ngcontent-%COMP%] {\n  cursor: pointer;\n}\n.form-hint[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  margin-top: 4px;\n  display: block;\n}\n.form-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n}\n.form-row[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.price-input-wrap[_ngcontent-%COMP%] {\n  position: relative;\n}\n.price-symbol[_ngcontent-%COMP%] {\n  position: absolute;\n  left: 16px;\n  top: 50%;\n  transform: translateY(-50%);\n  font-weight: 700;\n  color: var(--pm-text-muted);\n}\n.price-field[_ngcontent-%COMP%] {\n  padding-left: 32px;\n}\n.license-options[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n}\n.license-opt[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-opt.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-opt[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-opt-content[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-opt-content[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.checkbox-label[_ngcontent-%COMP%] {\n  display: flex !important;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.checkbox-label[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.tag-preview[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 4px;\n  margin-top: 8px;\n}\n.preview-tag[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  color: #6366F1;\n}\n.file-upload[_ngcontent-%COMP%] {\n  border: 2px dashed var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  padding: 32px;\n  text-align: center;\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.file-upload[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.02);\n}\n.upload-content[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n}\n.upload-icon[_ngcontent-%COMP%] {\n  font-size: 2rem;\n}\n.upload-content[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-primary);\n}\n.upload-content[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.upload-content.selected[_ngcontent-%COMP%] {\n  color: #10B981;\n}\n.upload-content.selected[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: #059669;\n}\n.selected-files[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin-top: 12px;\n}\n.selected-file[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.8rem;\n}\n.selected-file[_ngcontent-%COMP%]   .file-name[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  max-width: 200px;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.remove-file[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n  font-size: 1.2rem;\n  line-height: 1;\n  padding: 0;\n}\n.remove-file[_ngcontent-%COMP%]:hover {\n  color: #EF4444;\n}\n.upload-content[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-primary);\n}\n.upload-content[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.upload-content.selected[_ngcontent-%COMP%] {\n  color: #10B981;\n}\n.upload-content.selected[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: #059669;\n}\n.guidelines-box[_ngcontent-%COMP%] {\n  padding: 20px;\n  background: rgba(245, 158, 11, 0.05);\n  border: 1px solid rgba(245, 158, 11, 0.2);\n  border-radius: var(--pm-radius-md);\n  margin-top: 8px;\n}\n.guidelines-box[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 10px;\n  font-size: 0.9rem;\n}\n.guidelines-box[_ngcontent-%COMP%]   ul[_ngcontent-%COMP%] {\n  margin: 0;\n  padding-left: 20px;\n}\n.guidelines-box[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  color: var(--pm-text-secondary);\n  padding: 3px 0;\n}\n.form-navigation[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.nav-spacer[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.success-card[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 64px 32px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-xl);\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-lg);\n  max-width: 560px;\n  margin: 48px auto;\n  animation: _ngcontent-%COMP%_scaleIn 0.4s ease;\n}\n.success-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  margin-bottom: 16px;\n}\n.success-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n}\n.success-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin: 0 0 28px;\n}\n.success-actions[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n}\n@keyframes _ngcontent-%COMP%_scaleIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n@media (max-width: 768px) {\n  .progress-steps[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 4px;\n  }\n  .form-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    gap: 0;\n  }\n  .license-options[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .form-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n}\n/*# sourceMappingURL=submit-project.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SubmitProjectComponent, { className: "SubmitProjectComponent", filePath: "src\\app\\pages\\admin\\submit-project\\submit-project.component.ts", lineNumber: 501 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SubmitProjectComponent, { className: "SubmitProjectComponent", filePath: "src\\app\\pages\\admin\\submit-project\\submit-project.component.ts", lineNumber: 535 });
 })();
 export {
   SubmitProjectComponent
 };
-//# sourceMappingURL=chunk-VT4CRO34.js.map
+//# sourceMappingURL=chunk-VPCJK3Z5.js.map
