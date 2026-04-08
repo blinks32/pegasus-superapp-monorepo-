@@ -1,18 +1,10 @@
 import { Routes } from '@angular/router';
-import { adminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
       import('./pages/home/home.component').then((m) => m.HomeComponent),
-  },
-  {
-    path: 'admin/login',
-    loadComponent: () =>
-      import('./pages/admin/admin-login/admin-login.component').then(
-        (m) => m.AdminLoginComponent
-      ),
   },
   {
     path: 'browse',
@@ -33,13 +25,11 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate: [adminGuard],
     loadComponent: () =>
       import('./pages/admin/admin.component').then((m) => m.AdminComponent),
   },
   {
     path: 'admin/submit',
-    canActivate: [adminGuard],
     loadComponent: () =>
       import('./pages/admin/submit-project/submit-project.component').then(
         (m) => m.SubmitProjectComponent
