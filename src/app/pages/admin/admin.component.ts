@@ -128,7 +128,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             </div>
 
             <div class="empty-projects" *ngIf="getFilteredProjects().length === 0">
-              <p>No projects found. <a routerLink="/admin/submit">Submit your first project →</a></p>
+              <p>No projects submitted yet. <a routerLink="/admin/submit">Submit your first project →</a></p>
             </div>
           </ng-container>
         </div>

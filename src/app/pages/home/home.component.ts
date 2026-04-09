@@ -44,7 +44,7 @@ import { SeoService } from '../../services/seo.service';
 
 
 
-    <!-- ═══ ALL PRODUCTS ═══ -->
+    <!-- ═══ ALL PRODUCTS (Debug: EmptyState Removed) ═══ -->
     <section class="pm-section">
       <div class="pm-container">
         <div class="section-header">

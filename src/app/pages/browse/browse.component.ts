@@ -128,14 +128,6 @@ import { ProductCategory } from '../../models/marketplace.models';
             <app-product-card *ngFor="let product of marketplace.filteredProducts()" [product]="product"></app-product-card>
           </div>
         }
-        @else {
-          <!-- Empty State -->
-          <div class="empty-state">
-            <span class="empty-icon">🔍</span>
-            <h3>No products found</h3>
-            <p>Try adjusting your filters or search terms</p>
-            <button class="pm-btn pm-btn-primary" (click)="clearFilters()">Clear Filters</button>
-          </div>
         }
       </main>
     </div>
