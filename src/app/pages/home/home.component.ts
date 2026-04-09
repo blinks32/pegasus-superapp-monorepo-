@@ -75,7 +75,6 @@ import { SeoService } from '../../services/seo.service';
             }
           </div>
         }
-        }
       </div>
     </section>
     </div>
