@@ -9,13 +9,15 @@ export class MarketplaceService {
 
   /* ═══════════ State Signals ═══════════ */
   private _products = signal<Product[]>([]); // Initialized as empty array
-  private _isLoadingProducts = signal<boolean>(true); // Tracks the initial fetch state
+  private _isLoadingProducts = signal<boolean>(true);
+  private _initialLoadComplete = signal<boolean>(false);
   private _cart = signal<CartItem[]>([]);
   private _searchFilters = signal<SearchFilters>({ query: '', sortBy: 'bestselling' });
   private _adminProjects = signal<AdminProject[]>([]);
 
   products = this._products.asReadonly();
-  isLoadingProducts = this._isLoadingProducts.asReadonly(); // Expose to components
+  isLoadingProducts = this._isLoadingProducts.asReadonly();
+  initialLoadComplete = this._initialLoadComplete.asReadonly();
   cart = this._cart.asReadonly();
   searchFilters = this._searchFilters.asReadonly();
   adminProjects = this._adminProjects.asReadonly();
@@ -98,8 +100,9 @@ export class MarketplaceService {
 
     collectionData(q, { idField: 'id' }).subscribe((data: any) => {
       this._products.set(data as Product[]);
-      // Set loading to false once the data arrives from Firestore
+      // Important: Only flip loading states after we have at least one emission
       this._isLoadingProducts.set(false);
+      this._initialLoadComplete.set(true);
     });
 
     // Load cart from localStorage

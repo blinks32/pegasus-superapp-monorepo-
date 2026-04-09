@@ -20,7 +20,9 @@ import { ProductCategory } from '../../models/marketplace.models';
       <section class="browse-hero">
         <div class="pm-container">
           <h1 class="pm-heading-lg">{{ getPageTitle() }}</h1>
-          <p class="pm-text-secondary">{{ marketplace.filteredProducts().length | number }} items found</p>
+          <p class="pm-text-secondary" *ngIf="marketplace.initialLoadComplete()">
+            {{ marketplace.filteredProducts().length | number }} items found
+          </p>
         </div>
       </section>
 
@@ -109,7 +111,7 @@ import { ProductCategory } from '../../models/marketplace.models';
         </div>
 
         <!-- Results -->
-        @if (marketplace.isLoadingProducts()) {
+        @if (!marketplace.initialLoadComplete()) {
           <div class="products-grid" [class.list-view]="viewMode === 'list'">
             @for (i of [1,2,3,4,5,6]; track i) {
               <div class="product-skeleton" style="background:var(--pm-surface); border-radius:var(--pm-radius-lg); height:330px; animation: pulse 1.5s infinite;">
@@ -123,7 +125,7 @@ import { ProductCategory } from '../../models/marketplace.models';
             }
           </div>
         }
-        @else if (marketplace.filteredProducts().length > 0) {
+        @else {
           <div class="products-grid" [class.list-view]="viewMode === 'list'">
             <app-product-card *ngFor="let product of marketplace.filteredProducts()" [product]="product"></app-product-card>
           </div>

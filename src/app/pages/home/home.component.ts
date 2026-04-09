@@ -53,7 +53,7 @@ import { SeoService } from '../../services/seo.service';
           </div>
           <a routerLink="/browse" class="pm-btn pm-btn-outline pm-btn-sm">View All →</a>
         </div>
-        @if (marketplace.isLoadingProducts()) {
+        @if (!marketplace.initialLoadComplete()) {
           <div class="products-grid stagger-children">
             @for (i of [1,2,3,4,5,6,7,8]; track i) {
               <div class="product-skeleton" style="background:var(--pm-surface); border-radius:var(--pm-radius-lg); height:330px; animation: pulse 1.5s infinite;">
@@ -68,7 +68,7 @@ import { SeoService } from '../../services/seo.service';
             }
           </div>
         }
-        @else if (marketplace.products().length > 0) {
+        @else {
           <div class="products-grid stagger-children">
             @for (product of marketplace.products().slice(0, 12); track product.id) {
               <app-product-card [product]="product"></app-product-card>
