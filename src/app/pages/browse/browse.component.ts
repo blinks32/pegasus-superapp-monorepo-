@@ -16,12 +16,13 @@ import { ProductCategory } from '../../models/marketplace.models';
   template: `
     <app-header></app-header>
 
-    <section class="browse-hero">
-      <div class="pm-container">
-        <h1 class="pm-heading-lg">{{ getPageTitle() }}</h1>
-        <p class="pm-text-secondary">{{ marketplace.filteredProducts().length | number }} items found</p>
-      </div>
-    </section>
+    <div class="page-enter">
+      <section class="browse-hero">
+        <div class="pm-container">
+          <h1 class="pm-heading-lg">{{ getPageTitle() }}</h1>
+          <p class="pm-text-secondary">{{ marketplace.filteredProducts().length | number }} items found</p>
+        </div>
+      </section>
 
     <div class="pm-container browse-layout">
       <!-- Sidebar Filters -->
@@ -121,7 +122,7 @@ import { ProductCategory } from '../../models/marketplace.models';
         </div>
       </main>
     </div>
-
+    </div>
     <app-footer></app-footer>
   `,
   styles: [`

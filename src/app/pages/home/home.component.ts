@@ -14,7 +14,7 @@ import { SeoService } from '../../services/seo.service';
   imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent],
   template: `
     <app-header></app-header>
-
+    <div class="page-enter">
     <!-- ═══ HERO SECTION ═══ -->
     <section class="hero">
       <div class="pm-container hero-content">
@@ -74,6 +74,7 @@ import { SeoService } from '../../services/seo.service';
         </div>
       </div>
     </section>
+    </div>
 
     <app-footer></app-footer>
   `,

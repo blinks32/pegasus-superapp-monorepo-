@@ -88,8 +88,11 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               <button [class.active]="projectTab === 'draft'" (click)="projectTab = 'draft'">Drafts</button>
             </div>
           </div>          <div class="project-row" *ngFor="let project of getFilteredProjects()">
-            <div class="project-thumb" [style.background]="getProjectGradient(project.category)">
-              {{ getCategoryIcon(project.category) }}
+            <div class="project-thumb"
+              [style.background]="project.thumbnailUrl ? 'none' : getProjectGradient(project.category)"
+              [style.backgroundImage]="project.thumbnailUrl ? 'url(' + project.thumbnailUrl + ')' : 'none'"
+              [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
+              <span *ngIf="!project.thumbnailUrl">{{ getCategoryIcon(project.category) }}</span>
             </div>
             <div class="project-info">
               <span class="project-title">{{ project.title }}</span>
@@ -342,6 +345,26 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             <label>Tech Stack (comma separated)</label>
             <input type="text" [(ngModel)]="editForm.techStackStr" class="form-input" />
           </div>
+
+          <!-- Image Uploads -->
+          <div class="form-group">
+            <label>Cover Image</label>
+            <div *ngIf="editForm.thumbnailPreview" style="margin-bottom:8px">
+              <img [src]="editForm.thumbnailPreview" style="max-width:200px; max-height:120px; border-radius:8px; object-fit:cover" />
+            </div>
+            <input type="file" accept="image/*" (change)="onEditThumbnailSelect($event)" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Screenshots (up to 5)</label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px" *ngIf="editForm.screenshotPreviews?.length > 0">
+              <div *ngFor="let img of editForm.screenshotPreviews; let i = index" style="position:relative">
+                <img [src]="img" style="width:100px;height:70px;border-radius:6px;object-fit:cover" />
+                <button (click)="removeEditScreenshot(i)" style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:#EF4444;color:white;border:none;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center">&times;</button>
+              </div>
+            </div>
+            <input type="file" accept="image/*" multiple (change)="onEditScreenshotsSelect($event)" class="form-input" />
+          </div>
+
           <div style="display:flex;gap:12px; align-items:center; margin-top:8px;">
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
               <input type="checkbox" [(ngModel)]="editForm.isFeatured" /> Featured
@@ -1079,6 +1102,10 @@ export class AdminComponent implements OnInit {
       isFeatured: product.isFeatured || false,
       isBestseller: product.isBestseller || false,
       isNew: product.isNew || false,
+      thumbnailPreview: product.thumbnailUrl || '',
+      newThumbnailData: null,
+      screenshotPreviews: [...(product.previewImages || [])],
+      newScreenshotData: [] as string[],
     };
     this.showEditModal = true;
   }
@@ -1113,6 +1140,13 @@ export class AdminComponent implements OnInit {
     if (this.editForm.demoUrl) {
       updates.demoUrl = this.editForm.demoUrl;
     }
+    // Image updates
+    if (this.editForm.newThumbnailData) {
+      updates.thumbnailUrl = this.editForm.newThumbnailData;
+    }
+    if (this.editForm.screenshotPreviews?.length > 0) {
+      updates.previewImages = this.editForm.screenshotPreviews;
+    }
     try {
       await this.marketplace.updateProduct(this.editingProductId, updates);
       this.closeEditModal();
@@ -1132,6 +1166,37 @@ export class AdminComponent implements OnInit {
       console.error('Error deleting product:', error);
       alert('Failed to delete product.');
     }
+  }
+
+  // Image handling for edit modal
+  onEditThumbnailSelect(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.editForm.thumbnailPreview = e.target?.result as string;
+        this.editForm.newThumbnailData = e.target?.result as string;
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  onEditScreenshotsSelect(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files) {
+      Array.from(input.files).forEach(file => {
+        if (this.editForm.screenshotPreviews.length >= 5) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          this.editForm.screenshotPreviews.push(e.target?.result as string);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+  }
+
+  removeEditScreenshot(index: number) {
+    this.editForm.screenshotPreviews = this.editForm.screenshotPreviews.filter((_: any, i: number) => i !== index);
   }
 
   // Blog Management Methods

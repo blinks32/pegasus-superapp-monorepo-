@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { MarketplaceService } from '../../services/marketplace.service';
+import { AuthService } from '../../services/auth.service';
 import { SeoService } from '../../services/seo.service';
 import { Product } from '../../models/marketplace.models';
 
@@ -16,7 +17,7 @@ import { Product } from '../../models/marketplace.models';
   template: `
     <app-header></app-header>
 
-    <div class="pm-container" *ngIf="product">
+    <div class="pm-container page-enter" *ngIf="product">
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
         <a routerLink="/">Home</a>
@@ -33,14 +34,20 @@ import { Product } from '../../models/marketplace.models';
         <div class="detail-main">
           <!-- Preview Card -->
           <div class="preview-card">
-            <div class="preview-image" [style.background]="activePreviewIndex === -1 ? getGradient() : 'none'" [style.backgroundImage]="activePreviewIndex === -1 && product.thumbnailUrl && !product.thumbnailUrl.startsWith('http') ? 'url(' + product.thumbnailUrl + ')' : activePreviewIndex >= 0 ? 'url(' + product.previewImages[activePreviewIndex] + ')' : 'none'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
-              <ng-container *ngIf="activePreviewIndex === -1 && (!product.thumbnailUrl || product.thumbnailUrl.startsWith('http'))">
+            <div class="preview-image"
+              [style.background]="activePreviewIndex === -1 ? (product.thumbnailUrl ? 'none' : getGradient()) : 'none'"
+              [style.backgroundImage]="activePreviewIndex === -1 && product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : activePreviewIndex >= 0 ? 'url(' + product.previewImages[activePreviewIndex] + ')' : 'none'"
+              [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
+              <ng-container *ngIf="activePreviewIndex === -1 && !product.thumbnailUrl">
                 <span class="preview-icon">{{ getCategoryIcon() }}</span>
                 <span class="preview-title">{{ product.title.split('—')[0] }}</span>
               </ng-container>
             </div>
             <div class="preview-thumbnails">
-              <div class="thumb-item" [class.active]="activePreviewIndex === -1" [style.background]="getGradient()" [style.backgroundImage]="product.thumbnailUrl && !product.thumbnailUrl.startsWith('http') ? 'url(' + product.thumbnailUrl + ')' : 'none'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = -1"></div>
+              <div class="thumb-item" [class.active]="activePreviewIndex === -1"
+                [style.background]="product.thumbnailUrl ? 'none' : getGradient()"
+                [style.backgroundImage]="product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : 'none'"
+                [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = -1"></div>
               <div class="thumb-item" *ngFor="let img of product.previewImages; let i = index" [class.active]="activePreviewIndex === i" [style.backgroundImage]="'url(' + img + ')'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = i"></div>
             </div>
           </div>
@@ -103,18 +110,10 @@ import { Product } from '../../models/marketplace.models';
               </div>
             </div>
 
-            <!-- Write Review -->
-            <div class="write-review">
-              <h3>Write a Review</h3>
-              <div class="review-rating-select">
-                <span *ngFor="let s of [1,2,3,4,5]"
-                      class="selectable-star"
-                      [class.filled]="newReviewRating >= s"
-                      (click)="newReviewRating = s">★</span>
-              </div>
-              <input type="text" placeholder="Review title..." [(ngModel)]="newReviewTitle" class="filter-input" />
-              <textarea placeholder="Write your review..." [(ngModel)]="newReviewComment" class="filter-input" rows="3"></textarea>
-              <button class="pm-btn pm-btn-primary pm-btn-sm" (click)="submitReview()" [disabled]="!newReviewComment">Submit Review</button>
+            <!-- Review notice -->
+            <div class="purchase-notice">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              <span>Only verified buyers can leave reviews after purchase.</span>
             </div>
 
             <!-- Review List -->
@@ -140,6 +139,40 @@ import { Product } from '../../models/marketplace.models';
                   <button class="pm-btn pm-btn-ghost pm-btn-sm">👍 Helpful ({{ review.helpful }})</button>
                 </div>
               </div>
+            </div>
+
+            <div class="empty-reviews" *ngIf="product.reviews.length === 0">
+              <p>No reviews yet. Be the first buyer to leave a review!</p>
+            </div>
+          </div>
+
+          <!-- Comments Tab -->
+          <div class="tab-content" *ngIf="activeTab === 'comments'">
+            <div class="write-review">
+              <h3>💬 Leave a Comment</h3>
+              <textarea placeholder="Ask a question or share your thoughts..." [(ngModel)]="newCommentText" class="filter-input" rows="3"></textarea>
+              <button class="pm-btn pm-btn-primary pm-btn-sm" (click)="submitComment()" [disabled]="!newCommentText">
+                Post Comment
+              </button>
+            </div>
+
+            <div class="comments-list">
+              <div class="comment-card" *ngFor="let c of comments">
+                <div class="review-header">
+                  <div class="review-user">
+                    <div class="review-avatar" [style.background]="getReviewColor(c.userName)">{{ c.userName.charAt(0) }}</div>
+                    <div>
+                      <strong>{{ c.userName }}</strong>
+                    </div>
+                  </div>
+                  <span class="review-date">{{ c.date | date:'mediumDate' }}</span>
+                </div>
+                <p class="review-comment">{{ c.text }}</p>
+              </div>
+            </div>
+
+            <div class="empty-reviews" *ngIf="comments.length === 0">
+              <p>No comments yet. Start the conversation!</p>
             </div>
           </div>
 
@@ -270,6 +303,15 @@ import { Product } from '../../models/marketplace.models';
     <app-footer></app-footer>
   `,
   styles: [`
+    /* Page transition */
+    .page-enter {
+      animation: pageEnter 0.4s ease-out;
+    }
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .breadcrumb {
       display: flex;
       align-items: center;
@@ -429,16 +471,35 @@ import { Product } from '../../models/marketplace.models';
       gap: 12px;
     }
     .write-review h3 { margin: 0; font-size: 1rem; }
-    .review-rating-select { display: flex; gap: 4px; }
-    .selectable-star {
-      font-size: 1.5rem;
-      color: #CBD5E1;
-      cursor: pointer;
-      transition: color var(--pm-transition-fast);
-    }
-    .selectable-star.filled { color: #F59E0B; }
-    .selectable-star:hover { color: #F59E0B; }
     textarea.filter-input { resize: vertical; min-height: 80px; }
+
+    .purchase-notice {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px;
+      background: rgba(99,102,241,0.06);
+      border: 1px solid rgba(99,102,241,0.15);
+      border-radius: var(--pm-radius-md);
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--pm-text-secondary);
+    }
+    .empty-reviews {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--pm-text-muted);
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-lg);
+      border: 1px solid var(--pm-border-light);
+    }
+    .comment-card {
+      background: var(--pm-surface);
+      padding: 20px;
+      border-radius: var(--pm-radius-md);
+      border: 1px solid var(--pm-border-light);
+      margin-bottom: 12px;
+    }
 
     .review-card {
       background: var(--pm-surface);
@@ -602,6 +663,7 @@ import { Product } from '../../models/marketplace.models';
 })
 export class ProductDetailComponent implements OnInit {
   marketplace = inject(MarketplaceService);
+  auth = inject(AuthService);
   private route = inject(ActivatedRoute);
   private seo = inject(SeoService);
 
@@ -613,13 +675,13 @@ export class ProductDetailComponent implements OnInit {
   isInCart = false;
   activePreviewIndex = -1;
 
-  newReviewRating = 5;
-  newReviewTitle = '';
-  newReviewComment = '';
+  newCommentText = '';
+  comments: Array<{userName: string; text: string; date: Date}> = [];
 
   tabs = [
     { id: 'description', label: '📝 Description' },
     { id: 'reviews', label: '⭐ Reviews' },
+    { id: 'comments', label: '💬 Comments' },
     { id: 'changelog', label: '📋 Changelog' },
   ];
 
@@ -655,10 +717,15 @@ export class ProductDetailComponent implements OnInit {
       const id = params['id'];
       this.product = this.marketplace.getProductById(id);
       if (this.product) {
-        this.marketplace.incrementVisit(id);
+        // Unique view tracking (once per session per product)
+        this.marketplace.trackUniqueVisit(id);
+
         this.relatedProducts = this.marketplace.getRelatedProducts(this.product);
         this.isInCart = this.marketplace.isInCart(id);
         this.ratingBars = this.computeRatingBars();
+
+        // Load comments
+        this.marketplace.getComments(id).then(c => this.comments = c);
 
         // SEO: Dynamic meta tags + Product schema
         this.seo.updateTitle(this.product.title);
@@ -715,21 +782,17 @@ export class ProductDetailComponent implements OnInit {
     this.isInCart = true;
   }
 
-  submitReview() {
-    if (!this.product || !this.newReviewComment) return;
-    this.marketplace.addReview(this.product.id, {
-      userId: 'guest',
-      userName: 'Guest User',
-      userAvatar: '',
-      rating: this.newReviewRating,
-      title: this.newReviewTitle || 'Review',
-      comment: this.newReviewComment,
-      verified: false,
-    });
-    this.newReviewTitle = '';
-    this.newReviewComment = '';
-    this.newReviewRating = 5;
-    this.product = this.marketplace.getProductById(this.product.id);
+  async submitComment() {
+    if (!this.product || !this.newCommentText) return;
+    const user = this.auth.userProfile();
+    const comment = {
+      userName: user?.displayName || 'Anonymous',
+      text: this.newCommentText,
+      date: new Date(),
+    };
+    await this.marketplace.addComment(this.product.id, comment);
+    this.comments = [comment, ...this.comments];
+    this.newCommentText = '';
   }
 
   private computeRatingBars() {

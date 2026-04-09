@@ -10,8 +10,11 @@ import { Product } from '../../models/marketplace.models';
   template: `
     <a [routerLink]="['/product', product.id]" class="product-card">
       <!-- Thumbnail -->
-      <div class="card-thumb" [style.background]="getGradient()">
-        <div class="thumb-overlay">
+      <div class="card-thumb"
+        [style.background]="product.thumbnailUrl ? 'none' : getGradient()"
+        [style.backgroundImage]="product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : 'none'"
+        [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
+        <div class="thumb-overlay" *ngIf="!product.thumbnailUrl">
           <span class="thumb-icon">{{ getCategoryIcon() }}</span>
           <span class="thumb-title">{{ product.title.split('—')[0] }}</span>
         </div>

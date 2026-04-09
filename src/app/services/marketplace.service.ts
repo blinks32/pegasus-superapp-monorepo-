@@ -1,6 +1,6 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
 import { Product, ProductCategory, CategoryInfo, Review, Author, CartItem, SearchFilters, AdminProject, SalesStat } from '../models/marketplace.models';
-import { Firestore, collection, collectionData, doc, setDoc, updateDoc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, setDoc, updateDoc, deleteDoc, query, orderBy, increment, addDoc, getDocs } from '@angular/fire/firestore';
 
 @Injectable({ providedIn: 'root' })
 export class MarketplaceService {
@@ -157,6 +157,57 @@ export class MarketplaceService {
     this._products.update(products =>
       products.map(p => p.id === productId ? { ...p, totalVisits: p.totalVisits + 1 } : p)
     );
+  }
+
+  /**
+   * Track a unique visit per product. Uses localStorage to prevent
+   * counting the same user twice. Persists the increment to Firestore.
+   */
+  async trackUniqueVisit(productId: string) {
+    const key = `visited_${productId}`;
+    if (localStorage.getItem(key)) return; // Already counted this user
+
+    localStorage.setItem(key, '1');
+    // Optimistic local update
+    this.incrementVisit(productId);
+
+    // Persist to Firestore
+    try {
+      const productRef = doc(this.firestore, `products/${productId}`);
+      await updateDoc(productRef, { totalVisits: increment(1) });
+    } catch (e) {
+      console.error('Failed to persist visit count:', e);
+    }
+  }
+
+  /* ═══════════ Comments ═══════════ */
+
+  async addComment(productId: string, comment: { userName: string; text: string; date: Date }) {
+    try {
+      const commentsRef = collection(this.firestore, `products/${productId}/comments`);
+      await addDoc(commentsRef, comment);
+    } catch (e) {
+      console.error('Error adding comment:', e);
+    }
+  }
+
+  async getComments(productId: string): Promise<Array<{userName: string; text: string; date: Date}>> {
+    try {
+      const commentsRef = collection(this.firestore, `products/${productId}/comments`);
+      const q = query(commentsRef, orderBy('date', 'desc'));
+      const snap = await getDocs(q);
+      return snap.docs.map(d => {
+        const data = d.data() as any;
+        return {
+          userName: data.userName || 'Anonymous',
+          text: data.text || '',
+          date: data.date?.toDate?.() || new Date(data.date),
+        };
+      });
+    } catch (e) {
+      console.error('Error loading comments:', e);
+      return [];
+    }
   }
 
   /* ═══════════ Admin ═══════════ */
