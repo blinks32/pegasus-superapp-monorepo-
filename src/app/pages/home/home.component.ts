@@ -75,11 +75,6 @@ import { SeoService } from '../../services/seo.service';
             }
           </div>
         }
-        @else {
-          <div class="empty-state" style="text-align: center; padding: 40px; background: var(--pm-surface-muted); border-radius: var(--pm-radius-md);">
-            <h3>No products found</h3>
-            <p>Wait for new products to be uploaded.</p>
-          </div>
         }
       </div>
     </section>
