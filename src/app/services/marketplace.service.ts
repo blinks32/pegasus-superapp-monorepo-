@@ -178,6 +178,22 @@ export class MarketplaceService {
     try {
       const productRef = doc(this.firestore, `products/${productId}`);
       await updateDoc(productRef, { totalVisits: increment(1) });
+
+      // Geo analytics tracking
+      fetch('https://get.geojs.io/v1/ip/geo.json').then(async (resp) => {
+        const geo = await resp.json();
+        const analyticsRef = collection(this.firestore, 'site_analytics');
+        await addDoc(analyticsRef, {
+          productId,
+          timestamp: new Date(),
+          ip: geo.ip || 'Unknown',
+          country: geo.country || 'Unknown',
+          countryCode: geo.country_code || '',
+          city: geo.city || 'Unknown',
+          device: navigator.userAgent
+        });
+      }).catch(e => console.error('Geo tracking failed', e));
+
     } catch (e) {
       console.error('Failed to persist visit count:', e);
     }

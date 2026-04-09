@@ -25,6 +25,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           <div class="hero-actions">
             <button (click)="activeTab = 'dashboard'" [class.active]="activeTab === 'dashboard'" class="tab-btn">Dashboard</button>
             <button (click)="activeTab = 'blogs'" [class.active]="activeTab === 'blogs'" class="tab-btn">Blogs</button>
+            <button (click)="activeTab = 'analytics'; loadAnalytics()" [class.active]="activeTab === 'analytics'" class="tab-btn">Analytics</button>
             <button (click)="activeTab = 'settings'" [class.active]="activeTab === 'settings'" class="tab-btn">Settings</button>
             <a routerLink="/admin/submit" class="pm-btn pm-btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
@@ -236,6 +237,45 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               </svg>
               <h4>No blog posts yet</h4>
               <p>Create your first blog post to get started.</p>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics View -->
+      <div *ngIf="activeTab === 'analytics'" class="fade-in">
+        <div class="settings-card">
+          <div class="settings-header">
+            <h3>Geographic & Device Analytics</h3>
+            <p>Real-time tracked views grouped by users.</p>
+          </div>
+          
+          <div style="overflow-x: auto;">
+            <table class="pm-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--pm-border-light);">
+                  <th style="padding: 12px; color: var(--pm-text-muted);">Date</th>
+                  <th style="padding: 12px; color: var(--pm-text-muted);">Product ID</th>
+                  <th style="padding: 12px; color: var(--pm-text-muted);">IP Address</th>
+                  <th style="padding: 12px; color: var(--pm-text-muted);">Location</th>
+                  <th style="padding: 12px; color: var(--pm-text-muted);">Device Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let view of analyticsEvents" style="border-bottom: 1px solid var(--pm-border-light);">
+                  <td style="padding: 12px; white-space: nowrap;">{{ view.timestamp | date:'short' }}</td>
+                  <td style="padding: 12px;">{{ view.productId | slice:0:8 }}</td>
+                  <td style="padding: 12px;"><strong>{{ view.ip }}</strong></td>
+                  <td style="padding: 12px;">{{ view.city }}, {{ view.country }} {{ view.countryCode }}</td>
+                  <td style="padding: 12px; font-size: 0.8rem; color: var(--pm-text-secondary); max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" [title]="view.device">{{ view.device }}</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div *ngIf="analyticsEvents.length === 0" class="empty-state">
+              <p>No analytics events recorded yet.</p>
             </div>
           </div>
         </div>
@@ -1209,6 +1249,23 @@ export class AdminComponent implements OnInit {
   }
 
   // Blog Management Methods
+  analyticsEvents: any[] = [];
+  
+  async loadAnalytics() {
+    try {
+      const analyticsRef = collection(this.firestore, 'site_analytics');
+      const q = query(analyticsRef, orderBy('timestamp', 'desc'));
+      collectionData(q, { idField: 'id' }).subscribe((events: any) => {
+        this.analyticsEvents = events.map((ev: any) => ({
+          ...ev,
+          timestamp: ev.timestamp?.toDate?.() || new Date(ev.timestamp)
+        }));
+      });
+    } catch(e) {
+      console.error('Failed to load analytics', e);
+    }
+  }
+
   async loadBlogs() {
     try {
       const blogsRef = collection(this.firestore, 'blogs');
