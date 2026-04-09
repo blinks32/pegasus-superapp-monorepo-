@@ -85,7 +85,7 @@ export class StaticPageComponent implements OnInit {
     'about': {
       title: 'About Us',
       html: `
-        <p>Welcome to <strong>selljustcode</strong>! We are the leading marketplace dedicated entirely to premium Unity Games and Ionic Applications.</p>
+        <p>Welcome to <strong>selljustcode</strong>! We are the leading marketplace dedicated to premium SaaS Boilerplates, Complete Business Systems, EdTech LMS, and PvP Multiplayer Games.</p>
         <p>Our mission is to empower developers worldwide by providing a platform where they can seamlessly sell their top-tier source codes while allowing buyers to kickstart their projects with robust, high-quality foundations.</p>
         <h2>Our Vision</h2>
         <p>We envision a world where development time is drastically reduced, enabling creators to focus on innovation rather than reinventing the wheel.</p>
@@ -102,7 +102,7 @@ export class StaticPageComponent implements OnInit {
     'blog': {
       title: 'Developer Blog',
       html: `
-        <p>Welcome to the <strong>selljustcode</strong> blog. We regularly post tutorials, industry news, and tips for optimizing your Unity and Ionic projects.</p>
+        <p>Welcome to the <strong>selljustcode</strong> blog. We regularly post tutorials, industry news, and tips for optimizing your SaaS and B2B platforms.</p>
         <p><em>Check back soon for our first article!</em></p>
       `
     },
@@ -157,7 +157,7 @@ export class StaticPageComponent implements OnInit {
         <h2>Submission Guidelines</h2>
         <ul>
           <li>Provide comprehensive, well-documented source code.</li>
-          <li>Ensure the code compiles without errors in the latest stable release of Unity or Ionic.</li>
+          <li>Ensure the code works without errors in the latest stable release of its respective framework or platform.</li>
           <li>Include high-quality preview images and ideally a demo link.</li>
         </ul>
         <p>Our review team will verify your submission before it goes live on the marketplace.</p>

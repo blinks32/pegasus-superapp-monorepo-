@@ -753,22 +753,18 @@ export class ProductDetailComponent implements OnInit {
   ];
 
   private gradientMap: Record<string, string> = {
-    'mobile-apps': 'linear-gradient(135deg, #F97316, #FB923C)',
-    'web-templates': 'linear-gradient(135deg, #3B82F6, #60A5FA)',
-    'wordpress': 'linear-gradient(135deg, #8B5CF6, #A78BFA)',
-    'javascript': 'linear-gradient(135deg, #EAB308, #FDE047)',
-    'ui-kits': 'linear-gradient(135deg, #EC4899, #F472B6)',
-    'full-stack': 'linear-gradient(135deg, #10B981, #34D399)',
-    'plugins': 'linear-gradient(135deg, #06B6D4, #22D3EE)',
-    'themes': 'linear-gradient(135deg, #F43F5E, #FB7185)',
+    'saas-boilerplates': 'linear-gradient(135deg, #10B981, #34D399)',
+    'b2b-systems': 'linear-gradient(135deg, #3B82F6, #60A5FA)',
+    'super-apps': 'linear-gradient(135deg, #F97316, #FB923C)',
+    'edtech-lms': 'linear-gradient(135deg, #8B5CF6, #A78BFA)',
+    'pvp-games': 'linear-gradient(135deg, #EF4444, #F87171)',
   };
   private categoryLabels: Record<string, string> = {
-    'mobile-apps': 'Mobile Apps', 'web-templates': 'Web Templates', 'wordpress': 'WordPress',
-    'javascript': 'JavaScript', 'ui-kits': 'UI Kits', 'full-stack': 'Full Stack',
+    'saas-boilerplates': 'SaaS Boilerplates', 'b2b-systems': 'B2B Systems', 'super-apps': 'Super Apps',
+    'edtech-lms': 'EdTech LMS', 'pvp-games': 'PvP Games'
   };
   private categoryIcons: Record<string, string> = {
-    'mobile-apps': '📱', 'web-templates': '🌐', 'wordpress': '🔧', 'javascript': '⚡',
-    'ui-kits': '🎨', 'full-stack': '🚀', 'plugins': '🧩', 'themes': '✨',
+    'saas-boilerplates': '🚀', 'b2b-systems': '🏢', 'super-apps': '📱', 'edtech-lms': '🎓', 'pvp-games': '🎮'
   };
 
   ngOnInit() {

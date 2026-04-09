@@ -63,8 +63,11 @@ export class MarketplaceService {
 
   /* ═══════════ Categories ═══════════ */
   categories: CategoryInfo[] = [
-    { id: 'unity-games', label: 'Unity Games', icon: '🎮', color: '#10B981', gradient: 'linear-gradient(135deg, #10B981, #34D399)', count: 0 },
-    { id: 'ionic-apps', label: 'Ionic Apps', icon: '📱', color: '#3B82F6', gradient: 'linear-gradient(135deg, #3B82F6, #60A5FA)', count: 0 },
+    { id: 'saas-boilerplates', label: 'SaaS Boilerplates', icon: '🚀', color: '#10B981', gradient: 'linear-gradient(135deg, #10B981, #34D399)', count: 0 },
+    { id: 'b2b-systems', label: 'B2B Systems', icon: '🏢', color: '#3B82F6', gradient: 'linear-gradient(135deg, #3B82F6, #60A5FA)', count: 0 },
+    { id: 'super-apps', label: 'Super Apps', icon: '📱', color: '#F97316', gradient: 'linear-gradient(135deg, #F97316, #FB923C)', count: 0 },
+    { id: 'edtech-lms', label: 'EdTech LMS', icon: '🎓', color: '#8B5CF6', gradient: 'linear-gradient(135deg, #8B5CF6, #A78BFA)', count: 0 },
+    { id: 'pvp-games', label: 'PvP Games', icon: '🎮', color: '#EF4444', gradient: 'linear-gradient(135deg, #EF4444, #F87171)', count: 0 },
   ];
 
   /* ═══════════ Collections ═══════════ */

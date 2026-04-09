@@ -1068,15 +1068,14 @@ export class AdminComponent implements OnInit {
   }
 
   private gradients: Record<string, string> = {
-    'mobile-apps': 'linear-gradient(135deg, #F97316, #FB923C)',
-    'web-templates': 'linear-gradient(135deg, #3B82F6, #60A5FA)',
-    'wordpress': 'linear-gradient(135deg, #8B5CF6, #A78BFA)',
-    'javascript': 'linear-gradient(135deg, #EAB308, #FDE047)',
-    'ui-kits': 'linear-gradient(135deg, #EC4899, #F472B6)',
-    'full-stack': 'linear-gradient(135deg, #10B981, #34D399)',
+    'saas-boilerplates': 'linear-gradient(135deg, #10B981, #34D399)',
+    'b2b-systems': 'linear-gradient(135deg, #3B82F6, #60A5FA)',
+    'super-apps': 'linear-gradient(135deg, #F97316, #FB923C)',
+    'edtech-lms': 'linear-gradient(135deg, #8B5CF6, #A78BFA)',
+    'pvp-games': 'linear-gradient(135deg, #EF4444, #F87171)',
   };
   private icons: Record<string, string> = {
-    'mobile-apps': '📱', 'web-templates': '🌐', 'wordpress': '🔧', 'javascript': '⚡', 'ui-kits': '🎨', 'full-stack': '🚀',
+    'saas-boilerplates': '🚀', 'b2b-systems': '🏢', 'super-apps': '📱', 'edtech-lms': '🎓', 'pvp-games': '🎮',
   };
 
   getProjectGradient(cat: string) { return this.gradients[cat] || 'linear-gradient(135deg, #6366F1, #A855F7)'; }

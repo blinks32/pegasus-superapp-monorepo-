@@ -21,7 +21,7 @@ import { RouterLink } from '@angular/router';
               </svg>
               <span>selljust<strong>code</strong></span>
             </div>
-            <p class="footer-desc">The #1 marketplace for premium Unity Games and Ionic Apps.</p>
+            <p class="footer-desc">The leading marketplace for SaaS Boilerplates, EdTech LMS, and Complete B2B Systems.</p>
             <div class="social-links">
               <a href="#" aria-label="Twitter" class="social-link">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>

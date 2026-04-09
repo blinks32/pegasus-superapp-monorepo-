@@ -13,7 +13,7 @@ export class SeoService {
 
   private readonly siteName = 'selljustcode';
   private readonly siteUrl = 'https://selljustcode.com';
-  private readonly defaultDescription = 'Buy and sell premium Unity games, Ionic apps, source code, templates, and digital assets. Trusted marketplace for developers.';
+  private readonly defaultDescription = 'Buy and sell complete business solutions, B2B ride booking apps, parcel delivery systems, PVP games, and EdTech LMS curriculums. Trusted marketplace for developers.';
   private readonly defaultImage = `${this.siteUrl}/assets/og-image.png`;
 
   init() {

@@ -373,7 +373,7 @@ export class BrowseComponent implements OnInit {
       if (params['sort']) this.sortBy = params['sort'];
       this.applyFilters();
       this.seo.updateTitle(this.getPageTitle());
-      this.seo.updateDescription(`Browse ${this.getPageTitle()} on selljustcode. Find premium Unity games, Ionic apps, and code templates.`);
+      this.seo.updateDescription(`Browse ${this.getPageTitle()} on selljustcode. Find premium SaaS Boilerplates, Complete Business Systems, EdTech LMS, and PvP Multiplayer Games.`);
     });
   }
 

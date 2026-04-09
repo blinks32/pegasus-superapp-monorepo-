@@ -22,7 +22,7 @@ import { SeoService } from '../../services/seo.service';
           <span class="hero-gradient-text">selljustcode</span>
         </h1>
         <p class="hero-subtitle fade-in-up">
-          Discover premium Unity Games and Ionic Apps.
+          Buy and sell complete business solutions, B2B super apps, SaaS boilerplates & EdTech LMS.
         </p>
 
         <!-- Search Bar -->
@@ -193,11 +193,11 @@ export class HomeComponent implements OnInit {
   private seo = inject(SeoService);
   searchQuery = '';
 
-  popularTags = ['Unity', 'Ionic', '2D Game', 'App Template'];
+  popularTags = ['SaaS Boilerplate', 'Super App', 'Ride Booking', 'PvP Multiplayer', 'EdTech LMS'];
 
   ngOnInit() {
     this.seo.updateTitle('');
-    this.seo.updateDescription('selljustcode is the #1 marketplace for premium Unity games, Ionic apps, source code templates, and digital assets. Browse thousands of ready-to-use projects.');
+    this.seo.updateDescription('selljustcode is the leading marketplace for complete business solutions, B2B ride booking systems, parcel delivery super apps, PvP games, SaaS boilerplates, and EdTech LMS curriculums tested by Legends of Learning.');
   }
 
   goSearch() {
