@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { MarketplaceService } from '../../services/marketplace.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -186,11 +187,17 @@ import { MarketplaceService } from '../../services/marketplace.service';
     }
   `]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   marketplace = inject(MarketplaceService);
+  private seo = inject(SeoService);
   searchQuery = '';
 
   popularTags = ['Unity', 'Ionic', '2D Game', 'App Template'];
+
+  ngOnInit() {
+    this.seo.updateTitle('');
+    this.seo.updateDescription('selljustcode is the #1 marketplace for premium Unity games, Ionic apps, source code templates, and digital assets. Browse thousands of ready-to-use projects.');
+  }
 
   goSearch() {
     if (this.searchQuery.trim()) {

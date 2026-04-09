@@ -1,6 +1,6 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
 import { Product, ProductCategory, CategoryInfo, Review, Author, CartItem, SearchFilters, AdminProject, SalesStat } from '../models/marketplace.models';
-import { Firestore, collection, collectionData, doc, setDoc, query, orderBy } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, setDoc, updateDoc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
 
 @Injectable({ providedIn: 'root' })
 export class MarketplaceService {
@@ -250,6 +250,30 @@ export class MarketplaceService {
       pending: projects.filter(p => p.status === 'pending').length,
       drafts: projects.filter(p => p.status === 'draft').length,
     };
+  }
+
+  /* ═══════════ Update & Delete Products ═══════════ */
+
+  async updateProduct(id: string, data: Partial<Product>) {
+    try {
+      const productRef = doc(this.firestore, `products/${id}`);
+      await updateDoc(productRef, { ...data, lastUpdated: new Date() });
+      console.log('Product updated successfully:', id);
+    } catch (error) {
+      console.error('Error updating product:', error);
+      throw error;
+    }
+  }
+
+  async deleteProduct(id: string) {
+    try {
+      const productRef = doc(this.firestore, `products/${id}`);
+      await deleteDoc(productRef);
+      console.log('Product deleted successfully:', id);
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      throw error;
+    }
   }
 
 }

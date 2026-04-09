@@ -87,9 +87,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               <button [class.active]="projectTab === 'pending'" (click)="projectTab = 'pending'">Pending</button>
               <button [class.active]="projectTab === 'draft'" (click)="projectTab = 'draft'">Drafts</button>
             </div>
-          </div>
-
-          <div class="project-row" *ngFor="let project of getFilteredProjects()">
+          </div>          <div class="project-row" *ngFor="let project of getFilteredProjects()">
             <div class="project-thumb" [style.background]="getProjectGradient(project.category)">
               {{ getCategoryIcon(project.category) }}
             </div>
@@ -102,12 +100,17 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
                 {{ (project.status || 'pending') | titlecase }}
               </span>
             </div>
-            <div class="project-price">\${{ project.price }}</div>
+            <div class="project-price">${{ project.price }}</div>
             <div class="project-date">{{ project.createdAt | date:'mediumDate' }}</div>
             <div class="project-actions">
-              <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">
-                View
-              </a>
+              <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">View</a>
+              <button class="pm-btn pm-btn-ghost pm-btn-sm" (click)="openEditProduct(project)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                Edit
+              </button>
+              <button class="pm-btn pm-btn-ghost pm-btn-sm" style="color: #EF4444" (click)="deleteProduct(project.id)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              </button>
             </div>
           </div>
 
@@ -267,6 +270,94 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           <button class="pm-btn pm-btn-ghost" (click)="closeBlogModal()">Cancel</button>
           <button class="pm-btn pm-btn-primary" (click)="saveBlogFromModal()" [disabled]="!blogForm.title || !blogForm.excerpt">
             {{ editingBlogId ? 'Update' : 'Create' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Edit Modal -->
+    <div class="modal-overlay" *ngIf="showEditModal" (click)="closeEditModal()">
+      <div class="modal-content" style="max-width:700px;" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h3>✏️ Edit Product</h3>
+          <button class="modal-close" (click)="closeEditModal()">&times;</button>
+        </div>
+        <div class="modal-body" style="max-height:70vh; overflow-y:auto;">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" [(ngModel)]="editForm.title" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Short Description</label>
+            <textarea [(ngModel)]="editForm.shortDescription" class="form-input" rows="2"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Full Description</label>
+            <textarea [(ngModel)]="editForm.fullDescription" class="form-input" rows="6"></textarea>
+          </div>
+          <div style="display:flex; gap:16px;">
+            <div class="form-group" style="flex:1">
+              <label>Price (USD)</label>
+              <input type="number" [(ngModel)]="editForm.price" class="form-input" />
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>Original Price</label>
+              <input type="number" [(ngModel)]="editForm.originalPrice" class="form-input" />
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>Version</label>
+              <input type="text" [(ngModel)]="editForm.version" class="form-input" />
+            </div>
+          </div>
+          <div style="display:flex; gap:16px;">
+            <div class="form-group" style="flex:1">
+              <label>Category</label>
+              <select [(ngModel)]="editForm.category" class="form-input">
+                <option *ngFor="let cat of marketplace.categories" [value]="cat.id">{{ cat.icon }} {{ cat.label }}</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>Status</label>
+              <select [(ngModel)]="editForm.status" class="form-input">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="pending">Pending</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Demo URL</label>
+            <input type="url" [(ngModel)]="editForm.demoUrl" class="form-input" placeholder="https://..." />
+          </div>
+          <div class="form-group">
+            <label>Tags (comma separated)</label>
+            <input type="text" [(ngModel)]="editForm.tagsStr" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Features (one per line)</label>
+            <textarea [(ngModel)]="editForm.featuresStr" class="form-input" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Tech Stack (comma separated)</label>
+            <input type="text" [(ngModel)]="editForm.techStackStr" class="form-input" />
+          </div>
+          <div style="display:flex;gap:12px; align-items:center; margin-top:8px;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" [(ngModel)]="editForm.isFeatured" /> Featured
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" [(ngModel)]="editForm.isBestseller" /> Bestseller
+            </label>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+              <input type="checkbox" [(ngModel)]="editForm.isNew" /> New
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="pm-btn pm-btn-ghost" (click)="closeEditModal()">Cancel</button>
+          <button class="pm-btn pm-btn-primary" (click)="saveEditProduct()" [disabled]="!editForm.title">
+            💾 Save Changes
           </button>
         </div>
       </div>
@@ -746,6 +837,11 @@ export class AdminComponent implements OnInit {
   };
   editingBlogId: string | null = null;
 
+  // Product Edit Modal
+  showEditModal = false;
+  editingProductId: string | null = null;
+  editForm: any = {};
+
   constructor() {
     // Reactively update stats when products change
     effect(() => {
@@ -962,6 +1058,80 @@ export class AdminComponent implements OnInit {
     if (this.projectTab === 'all') return products;
     const desiredStatus = this.projectTab;
     return products.filter((p) => (p.status || 'pending') === desiredStatus);
+  }
+
+  // Product Edit/Delete
+  openEditProduct(product: any) {
+    this.editingProductId = product.id;
+    this.editForm = {
+      title: product.title || '',
+      shortDescription: product.shortDescription || '',
+      fullDescription: product.fullDescription || '',
+      price: product.price || 0,
+      originalPrice: product.originalPrice || null,
+      version: product.version || '',
+      category: product.category || '',
+      status: product.status || 'published',
+      demoUrl: product.demoUrl || '',
+      tagsStr: (product.tags || []).join(', '),
+      featuresStr: (product.features || []).join('\n'),
+      techStackStr: (product.techStack || []).join(', '),
+      isFeatured: product.isFeatured || false,
+      isBestseller: product.isBestseller || false,
+      isNew: product.isNew || false,
+    };
+    this.showEditModal = true;
+  }
+
+  closeEditModal() {
+    this.showEditModal = false;
+    this.editingProductId = null;
+    this.editForm = {};
+  }
+
+  async saveEditProduct() {
+    if (!this.editingProductId || !this.editForm.title) return;
+    const updates: any = {
+      title: this.editForm.title,
+      shortDescription: this.editForm.shortDescription,
+      fullDescription: this.editForm.fullDescription,
+      price: Number(this.editForm.price),
+      version: this.editForm.version,
+      category: this.editForm.category,
+      status: this.editForm.status,
+      tags: this.editForm.tagsStr.split(',').map((t: string) => t.trim()).filter((t: string) => t),
+      features: this.editForm.featuresStr.split('\n').filter((f: string) => f.trim()),
+      techStack: this.editForm.techStackStr.split(',').map((t: string) => t.trim()).filter((t: string) => t),
+      isFeatured: this.editForm.isFeatured,
+      isBestseller: this.editForm.isBestseller,
+      isNew: this.editForm.isNew,
+    };
+    if (this.editForm.originalPrice) {
+      updates.originalPrice = Number(this.editForm.originalPrice);
+      updates.discountPercent = Math.round((1 - updates.price / updates.originalPrice) * 100);
+    }
+    if (this.editForm.demoUrl) {
+      updates.demoUrl = this.editForm.demoUrl;
+    }
+    try {
+      await this.marketplace.updateProduct(this.editingProductId, updates);
+      this.closeEditModal();
+      alert('Product updated successfully!');
+    } catch (error) {
+      console.error('Error updating product:', error);
+      alert('Failed to update product.');
+    }
+  }
+
+  async deleteProduct(productId: string) {
+    if (!confirm('Are you sure you want to permanently delete this product?')) return;
+    try {
+      await this.marketplace.deleteProduct(productId);
+      alert('Product deleted.');
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      alert('Failed to delete product.');
+    }
   }
 
   // Blog Management Methods

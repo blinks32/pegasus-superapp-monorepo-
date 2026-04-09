@@ -21,7 +21,9 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              { "glob": "**/*", "input": "src/assets", "output": "/assets" }
+              { "glob": "**/*", "input": "src/assets", "output": "/assets" },
+              { "glob": "robots.txt", "input": "src/assets", "output": "/" },
+              { "glob": "sitemap.xml", "input": "src/assets", "output": "/" }
             ],
             "styles": [
               "src/theme/variables.scss",

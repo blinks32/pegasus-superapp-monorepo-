@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { MarketplaceService } from '../../services/marketplace.service';
+import { SeoService } from '../../services/seo.service';
 import { ProductCategory } from '../../models/marketplace.models';
 
 @Component({
@@ -353,6 +354,7 @@ import { ProductCategory } from '../../models/marketplace.models';
 export class BrowseComponent implements OnInit {
   marketplace = inject(MarketplaceService);
   private route = inject(ActivatedRoute);
+  private seo = inject(SeoService);
 
   searchQuery = '';
   selectedCategory?: ProductCategory;
@@ -369,6 +371,8 @@ export class BrowseComponent implements OnInit {
       if (params['q']) this.searchQuery = params['q'];
       if (params['sort']) this.sortBy = params['sort'];
       this.applyFilters();
+      this.seo.updateTitle(this.getPageTitle());
+      this.seo.updateDescription(`Browse ${this.getPageTitle()} on selljustcode. Find premium Unity games, Ionic apps, and code templates.`);
     });
   }
 

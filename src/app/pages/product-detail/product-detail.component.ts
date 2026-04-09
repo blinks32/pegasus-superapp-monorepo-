@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { MarketplaceService } from '../../services/marketplace.service';
+import { SeoService } from '../../services/seo.service';
 import { Product } from '../../models/marketplace.models';
 
 @Component({
@@ -602,6 +603,7 @@ import { Product } from '../../models/marketplace.models';
 export class ProductDetailComponent implements OnInit {
   marketplace = inject(MarketplaceService);
   private route = inject(ActivatedRoute);
+  private seo = inject(SeoService);
 
   product?: Product;
   relatedProducts: Product[] = [];
@@ -657,6 +659,22 @@ export class ProductDetailComponent implements OnInit {
         this.relatedProducts = this.marketplace.getRelatedProducts(this.product);
         this.isInCart = this.marketplace.isInCart(id);
         this.ratingBars = this.computeRatingBars();
+
+        // SEO: Dynamic meta tags + Product schema
+        this.seo.updateTitle(this.product.title);
+        this.seo.updateDescription(this.product.shortDescription);
+        this.seo.updateImage(this.product.thumbnailUrl);
+        this.seo.setProductSchema({
+          name: this.product.title,
+          description: this.product.shortDescription,
+          price: this.product.price,
+          image: this.product.thumbnailUrl,
+          url: `https://selljustcode.com/product/${this.product.id}`,
+          rating: this.product.rating,
+          ratingCount: this.product.totalRatings,
+          seller: this.product.author?.name,
+          category: this.product.category,
+        });
       }
     });
   }
