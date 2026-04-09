@@ -83,7 +83,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           <div class="card-header">
             <h3>My Projects</h3>
             <div class="header-tabs">
-              <button [class.active]="projectTab === 'all'" (click)="projectTab = 'all'">All ({{ getFilteredProjects().length }})</button>
+              <button [class.active]="projectTab === 'all'" (click)="projectTab = 'all'">All ({{ (getFilteredProjects() || []).length }})</button>
               <button [class.active]="projectTab === 'published'" (click)="projectTab = 'published'">Published</button>
               <button [class.active]="projectTab === 'pending'" (click)="projectTab = 'pending'">Pending</button>
               <button [class.active]="projectTab === 'draft'" (click)="projectTab = 'draft'">Drafts</button>
@@ -118,7 +118,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             </div>
           </div>
 
-          <div class="empty-projects" *ngIf="getFilteredProjects().length === 0">
+          <div class="empty-projects" *ngIf="(getFilteredProjects() || []).length === 0">
             <p>No projects found. <a routerLink="/admin/submit">Submit your first project →</a></p>
           </div>
         </div>
@@ -917,7 +917,7 @@ export class AdminComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.allProjects = this.marketplace.products();
+    this.allProjects = this.marketplace.products() || [];
     this.calculateStats();
     
     // Set the current user's email
@@ -931,7 +931,7 @@ export class AdminComponent implements OnInit {
   }
 
   calculateStats() {
-    const products = this.marketplace.products();
+    const products = this.marketplace.products() || [];
     
     const totalRev = products.reduce((sum, p) => sum + (p.price * (p.totalSales || 0)), 0);
     const totalSales = products.reduce((sum, p) => sum + (p.totalSales || 0), 0);
@@ -1120,7 +1120,7 @@ export class AdminComponent implements OnInit {
   getCategoryIcon(cat: string) { return this.icons[cat] || '📦'; }
 
   getFilteredProjects() {
-    const products = this.marketplace.products();
+    const products = this.marketplace.products() || [];
     if (this.projectTab === 'all') return products;
     const desiredStatus = this.projectTab;
     return products.filter((p) => (p.status || 'pending') === desiredStatus);

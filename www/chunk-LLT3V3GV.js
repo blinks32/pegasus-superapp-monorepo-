@@ -62,17 +62,16 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-PNZRYTCW.js";
+} from "./chunk-QET7PT5I.js";
 
 // src/app/services/marketplace.service.ts
 var MarketplaceService = class _MarketplaceService {
   constructor() {
     this.firestore = inject(Firestore);
-    this._products = signal([]);
+    this._products = signal(null);
     this._cart = signal([]);
     this._searchFilters = signal({ query: "", sortBy: "bestselling" });
     this._adminProjects = signal([]);
-    this.isLoading = signal(true);
     this.products = this._products.asReadonly();
     this.cart = this._cart.asReadonly();
     this.searchFilters = this._searchFilters.asReadonly();
@@ -85,8 +84,11 @@ var MarketplaceService = class _MarketplaceService {
     }, 0));
     this.cartCount = computed(() => this._cart().reduce((sum, item) => sum + item.quantity, 0));
     this.filteredProducts = computed(() => {
+      const products = this._products();
+      if (!products)
+        return [];
       const filters = this._searchFilters();
-      let result = [...this._products()];
+      let result = [...products];
       if (filters.query) {
         const q2 = filters.query.toLowerCase();
         result = result.filter((p) => p.title.toLowerCase().includes(q2) || p.shortDescription.toLowerCase().includes(q2) || p.tags.some((t) => t.toLowerCase().includes(q2)));
@@ -121,9 +123,18 @@ var MarketplaceService = class _MarketplaceService {
       }
       return result;
     });
-    this.featuredProducts = computed(() => this._products().filter((p) => p.isFeatured));
-    this.bestsellerProducts = computed(() => [...this._products()].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8));
-    this.newestProducts = computed(() => [...this._products()].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8));
+    this.featuredProducts = computed(() => {
+      const products = this._products();
+      return products ? products.filter((p) => p.isFeatured) : [];
+    });
+    this.bestsellerProducts = computed(() => {
+      const products = this._products();
+      return products ? [...products].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8) : [];
+    });
+    this.newestProducts = computed(() => {
+      const products = this._products();
+      return products ? [...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8) : [];
+    });
     this.categories = [
       { id: "saas-boilerplates", label: "SaaS Boilerplates", icon: "\u{1F680}", color: "#10B981", gradient: "linear-gradient(135deg, #10B981, #34D399)", count: 0 },
       { id: "b2b-systems", label: "B2B Systems", icon: "\u{1F3E2}", color: "#3B82F6", gradient: "linear-gradient(135deg, #3B82F6, #60A5FA)", count: 0 },
@@ -137,7 +148,6 @@ var MarketplaceService = class _MarketplaceService {
     const q = query(productsRef, orderBy("createdAt", "desc"));
     collectionData(q, { idField: "id" }).subscribe((data) => {
       this._products.set(data);
-      this.isLoading.set(false);
     });
     const saved = localStorage.getItem("pm_cart");
     if (saved) {
@@ -149,16 +159,28 @@ var MarketplaceService = class _MarketplaceService {
   }
   /* ═══════════ Product CRUD ═══════════ */
   getProductById(id) {
-    return this._products().find((p) => p.id === id);
+    const products = this._products();
+    if (!products)
+      return void 0;
+    return products.find((p) => p.id === id);
   }
   getProductBySlug(slug) {
-    return this._products().find((p) => p.slug === slug);
+    const products = this._products();
+    if (!products)
+      return void 0;
+    return products.find((p) => p.slug === slug);
   }
   getProductsByCategory(cat) {
-    return this._products().filter((p) => p.category === cat);
+    const products = this._products();
+    if (!products)
+      return [];
+    return products.filter((p) => p.category === cat);
   }
   getRelatedProducts(product, limit = 4) {
-    return this._products().filter((p) => p.id !== product.id && (p.category === product.category || p.tags.some((t) => product.tags.includes(t)))).slice(0, limit);
+    const products = this._products();
+    if (!products)
+      return [];
+    return products.filter((p) => p.id !== product.id && (p.category === product.category || p.tags.some((t) => product.tags.includes(t)))).slice(0, limit);
   }
   /* ═══════════ Search & Filter ═══════════ */
   updateFilters(filters) {
@@ -192,6 +214,8 @@ var MarketplaceService = class _MarketplaceService {
   /* ═══════════ Reviews ═══════════ */
   addReview(productId, review) {
     this._products.update((products) => {
+      if (!products)
+        return products;
       return products.map((p) => {
         if (p.id !== productId)
           return p;
@@ -203,7 +227,11 @@ var MarketplaceService = class _MarketplaceService {
     });
   }
   incrementVisit(productId) {
-    this._products.update((products) => products.map((p) => p.id === productId ? __spreadProps(__spreadValues({}, p), { totalVisits: p.totalVisits + 1 }) : p));
+    this._products.update((products) => {
+      if (!products)
+        return products;
+      return products.map((p) => p.id === productId ? __spreadProps(__spreadValues({}, p), { totalVisits: p.totalVisits + 1 }) : p);
+    });
   }
   /**
    * Track a unique visit per product. Uses localStorage to prevent
@@ -918,4 +946,4 @@ export {
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-UPUB4LNI.js.map
+//# sourceMappingURL=chunk-LLT3V3GV.js.map

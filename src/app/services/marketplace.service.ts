@@ -8,11 +8,10 @@ export class MarketplaceService {
   private firestore = inject(Firestore);
 
   /* ═══════════ State Signals ═══════════ */
-  private _products = signal<Product[]>([]);
+  private _products = signal<Product[] | null>(null);
   private _cart = signal<CartItem[]>([]);
   private _searchFilters = signal<SearchFilters>({ query: '', sortBy: 'bestselling' });
   private _adminProjects = signal<AdminProject[]>([]);
-  isLoading = signal<boolean>(true);
 
   products = this._products.asReadonly();
   cart = this._cart.asReadonly();
@@ -30,8 +29,11 @@ export class MarketplaceService {
   cartCount = computed(() => this._cart().reduce((sum, item) => sum + item.quantity, 0));
 
   filteredProducts = computed(() => {
+    const products = this._products();
+    if (!products) return [];
+    
     const filters = this._searchFilters();
-    let result = [...this._products()];
+    let result = [...products];
 
     if (filters.query) {
       const q = filters.query.toLowerCase();
@@ -57,9 +59,20 @@ export class MarketplaceService {
     return result;
   });
 
-  featuredProducts = computed(() => this._products().filter(p => p.isFeatured));
-  bestsellerProducts = computed(() => [...this._products()].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8));
-  newestProducts = computed(() => [...this._products()].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8));
+  featuredProducts = computed(() => {
+    const products = this._products();
+    return products ? products.filter(p => p.isFeatured) : [];
+  });
+  
+  bestsellerProducts = computed(() => {
+    const products = this._products();
+    return products ? [...products].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8) : [];
+  });
+  
+  newestProducts = computed(() => {
+    const products = this._products();
+    return products ? [...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8) : [];
+  });
 
   /* ═══════════ Categories ═══════════ */
   categories: CategoryInfo[] = [
@@ -79,7 +92,6 @@ export class MarketplaceService {
     const q = query(productsRef, orderBy('createdAt', 'desc'));
     collectionData(q, { idField: 'id' }).subscribe((data: any) => {
       this._products.set(data as Product[]);
-      this.isLoading.set(false);
     });
 
     // Load cart from localStorage
@@ -92,19 +104,27 @@ export class MarketplaceService {
   /* ═══════════ Product CRUD ═══════════ */
 
   getProductById(id: string): Product | undefined {
-    return this._products().find(p => p.id === id);
+    const products = this._products();
+    if (!products) return undefined;
+    return products.find(p => p.id === id);
   }
 
   getProductBySlug(slug: string): Product | undefined {
-    return this._products().find(p => p.slug === slug);
+    const products = this._products();
+    if (!products) return undefined;
+    return products.find(p => p.slug === slug);
   }
 
   getProductsByCategory(cat: ProductCategory): Product[] {
-    return this._products().filter(p => p.category === cat);
+    const products = this._products();
+    if (!products) return [];
+    return products.filter(p => p.category === cat);
   }
 
   getRelatedProducts(product: Product, limit = 4): Product[] {
-    return this._products().filter(p => p.id !== product.id && (p.category === product.category || p.tags.some(t => product.tags.includes(t)))).slice(0, limit);
+    const products = this._products();
+    if (!products) return [];
+    return products.filter(p => p.id !== product.id && (p.category === product.category || p.tags.some(t => product.tags.includes(t)))).slice(0, limit);
   }
 
   /* ═══════════ Search & Filter ═══════════ */
@@ -146,6 +166,7 @@ export class MarketplaceService {
 
   addReview(productId: string, review: Omit<Review, 'id' | 'date' | 'helpful'>) {
     this._products.update(products => {
+      if (!products) return products;
       return products.map(p => {
         if (p.id !== productId) return p;
         const newReview: Review = { ...review, id: 'r' + Date.now(), date: new Date(), helpful: 0 };
@@ -157,9 +178,10 @@ export class MarketplaceService {
   }
 
   incrementVisit(productId: string) {
-    this._products.update(products =>
-      products.map(p => p.id === productId ? { ...p, totalVisits: p.totalVisits + 1 } : p)
-    );
+    this._products.update(products => {
+      if (!products) return products;
+      return products.map(p => p.id === productId ? { ...p, totalVisits: p.totalVisits + 1 } : p);
+    });
   }
 
   /**

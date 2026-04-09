@@ -8,13 +8,13 @@ import {
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-UDBZGDEZ.js";
+} from "./chunk-WOXRJJG6.js";
 import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-UPUB4LNI.js";
+} from "./chunk-LLT3V3GV.js";
 import {
   CommonModule,
   DatePipe,
@@ -59,6 +59,7 @@ import {
   ɵɵpipeBind2,
   ɵɵpipeBind3,
   ɵɵproperty,
+  ɵɵpureFunction0,
   ɵɵpureFunction1,
   ɵɵresetView,
   ɵɵrestoreView,
@@ -73,10 +74,11 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-PNZRYTCW.js";
+} from "./chunk-QET7PT5I.js";
 
 // src/app/pages/admin/admin.component.ts
-var _c0 = (a0) => ["/product", a0];
+var _c0 = () => [];
+var _c1 = (a0) => ["/product", a0];
 function AdminComponent_div_23_div_2_span_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 37);
@@ -234,7 +236,7 @@ function AdminComponent_div_23_div_33_Template(rf, ctx) {
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 20, project_r7.createdAt, "mediumDate"));
     \u0275\u0275advance(3);
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(23, _c0, project_r7.id));
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(23, _c1, project_r7.id));
   }
 }
 function AdminComponent_div_23_div_34_Template(rf, ctx) {
@@ -342,7 +344,7 @@ function AdminComponent_div_23_Template(rf, ctx) {
     \u0275\u0275advance(6);
     \u0275\u0275classProp("active", ctx_r2.projectTab === "all");
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1("All (", ctx_r2.getFilteredProjects().length, ")");
+    \u0275\u0275textInterpolate1("All (", (ctx_r2.getFilteredProjects() || \u0275\u0275pureFunction0(21, _c0)).length, ")");
     \u0275\u0275advance();
     \u0275\u0275classProp("active", ctx_r2.projectTab === "published");
     \u0275\u0275advance(2);
@@ -352,7 +354,7 @@ function AdminComponent_div_23_Template(rf, ctx) {
     \u0275\u0275advance(2);
     \u0275\u0275property("ngForOf", ctx_r2.getFilteredProjects());
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.getFilteredProjects().length === 0);
+    \u0275\u0275property("ngIf", (ctx_r2.getFilteredProjects() || \u0275\u0275pureFunction0(22, _c0)).length === 0);
   }
 }
 function AdminComponent_div_24_Template(rf, ctx) {
@@ -1154,7 +1156,7 @@ var AdminComponent = class _AdminComponent {
   }
   ngOnInit() {
     return __async(this, null, function* () {
-      this.allProjects = this.marketplace.products();
+      this.allProjects = this.marketplace.products() || [];
       this.calculateStats();
       const user = this.authService.currentUser();
       if (user) {
@@ -1164,7 +1166,7 @@ var AdminComponent = class _AdminComponent {
     });
   }
   calculateStats() {
-    const products = this.marketplace.products();
+    const products = this.marketplace.products() || [];
     const totalRev = products.reduce((sum, p) => sum + p.price * (p.totalSales || 0), 0);
     const totalSales = products.reduce((sum, p) => sum + (p.totalSales || 0), 0);
     const totalVisits = products.reduce((sum, p) => sum + (p.totalVisits || 0), 0);
@@ -1333,7 +1335,7 @@ var AdminComponent = class _AdminComponent {
     return this.icons[cat] || "\u{1F4E6}";
   }
   getFilteredProjects() {
-    const products = this.marketplace.products();
+    const products = this.marketplace.products() || [];
     if (this.projectTab === "all")
       return products;
     const desiredStatus = this.projectTab;
@@ -1604,7 +1606,7 @@ var AdminComponent = class _AdminComponent {
         \u0275\u0275elementEnd()()()()();
         \u0275\u0275namespaceHTML();
         \u0275\u0275elementStart(22, "div", 10);
-        \u0275\u0275template(23, AdminComponent_div_23_Template, 35, 21, "div", 11)(24, AdminComponent_div_24_Template, 38, 7, "div", 11)(25, AdminComponent_div_25_Template, 15, 2, "div", 11)(26, AdminComponent_div_26_Template, 24, 2, "div", 11);
+        \u0275\u0275template(23, AdminComponent_div_23_Template, 35, 23, "div", 11)(24, AdminComponent_div_24_Template, 38, 7, "div", 11)(25, AdminComponent_div_25_Template, 15, 2, "div", 11)(26, AdminComponent_div_26_Template, 24, 2, "div", 11);
         \u0275\u0275elementEnd();
         \u0275\u0275template(27, AdminComponent_div_27_Template, 30, 7, "div", 12)(28, AdminComponent_div_28_Template, 97, 20, "div", 12);
         \u0275\u0275element(29, "app-footer");
@@ -1640,4 +1642,4 @@ var AdminComponent = class _AdminComponent {
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-NDRKG73O.js.map
+//# sourceMappingURL=chunk-E5OBQKFY.js.map

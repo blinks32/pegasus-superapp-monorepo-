@@ -53,25 +53,34 @@ import { SeoService } from '../../services/seo.service';
           </div>
           <a routerLink="/browse" class="pm-btn pm-btn-outline pm-btn-sm">View All →</a>
         </div>
-        <div class="products-grid stagger-children" *ngIf="marketplace.isLoading()">
-          <div class="product-skeleton" *ngFor="let i of [1,2,3,4,5,6,7,8]" style="background:var(--pm-surface); border-radius:var(--pm-radius-lg); height:330px; animation: pulse 1.5s infinite;">
-            <div style="height:160px; background:var(--pm-surface-muted); width:100%;"></div>
-            <div style="padding:16px;">
-              <div style="height:20px; background:var(--pm-surface-muted); width:70%; margin-bottom:12px;"></div>
-              <div style="height:14px; background:var(--pm-surface-muted); width:100%; margin-bottom:8px;"></div>
-              <div style="height:14px; background:var(--pm-surface-muted); width:80%; margin-bottom:20px;"></div>
-              <div style="height:24px; background:var(--pm-surface-muted); width:40%;"></div>
-            </div>
+        @if (marketplace.products() === null) {
+          <div class="products-grid stagger-children">
+            @for (i of [1,2,3,4,5,6,7,8]; track i) {
+              <div class="product-skeleton" style="background:var(--pm-surface); border-radius:var(--pm-radius-lg); height:330px; animation: pulse 1.5s infinite;">
+                <div style="height:160px; background:var(--pm-surface-muted); width:100%;"></div>
+                <div style="padding:16px;">
+                  <div style="height:20px; background:var(--pm-surface-muted); width:70%; margin-bottom:12px;"></div>
+                  <div style="height:14px; background:var(--pm-surface-muted); width:100%; margin-bottom:8px;"></div>
+                  <div style="height:14px; background:var(--pm-surface-muted); width:80%; margin-bottom:20px;"></div>
+                  <div style="height:24px; background:var(--pm-surface-muted); width:40%;"></div>
+                </div>
+              </div>
+            }
           </div>
-        </div>
-
-        <div class="products-grid stagger-children" *ngIf="!marketplace.isLoading() && marketplace.products().length > 0">
-          <app-product-card *ngFor="let product of marketplace.products().slice(0, 12)" [product]="product"></app-product-card>
-        </div>
-        <div class="empty-state" *ngIf="!marketplace.isLoading() && marketplace.products().length === 0" style="text-align: center; padding: 40px; background: var(--pm-surface-muted); border-radius: var(--pm-radius-md);">
-           <h3>No products found</h3>
-           <p>Wait for new products to be uploaded.</p>
-        </div>
+        }
+        @else if (marketplace.products()!.length > 0) {
+          <div class="products-grid stagger-children">
+            @for (product of marketplace.products()!.slice(0, 12); track product.id) {
+              <app-product-card [product]="product"></app-product-card>
+            }
+          </div>
+        }
+        @else {
+          <div class="empty-state" style="text-align: center; padding: 40px; background: var(--pm-surface-muted); border-radius: var(--pm-radius-md);">
+            <h3>No products found</h3>
+            <p>Wait for new products to be uploaded.</p>
+          </div>
+        }
       </div>
     </section>
     </div>
