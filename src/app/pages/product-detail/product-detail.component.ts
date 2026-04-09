@@ -63,6 +63,10 @@ import { Product } from '../../models/marketplace.models';
                 [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = -1"></div>
               <div class="thumb-item" *ngFor="let img of product.previewImages; let i = index" [class.active]="activePreviewIndex === i" [style.backgroundImage]="'url(' + img + ')'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = i"></div>
             </div>
+            
+            <a *ngIf="product.demoUrl" [href]="product.demoUrl" target="_blank" class="pm-btn pm-btn-outline pm-btn-lg" style="margin: 16px; margin-top: 0; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);">
+               🌐 Live Demo
+            </a>
           </div>
 
           <!-- Tabs -->
@@ -196,23 +200,6 @@ import { Product } from '../../models/marketplace.models';
               <p>No comments yet. Start the conversation!</p>
             </div>
           </div>
-
-          <!-- Changelog Tab -->
-          <div class="tab-content" *ngIf="activeTab === 'changelog'">
-            <div class="desc-card">
-              <h2>Version History</h2>
-              <div class="changelog-item">
-                <div class="cl-version">v{{ product.version }}</div>
-                <div class="cl-date">{{ product.lastUpdated | date:'mediumDate' }}</div>
-                <ul>
-                  <li>Performance improvements and bug fixes</li>
-                  <li>Updated dependencies to latest versions</li>
-                  <li>Added new UI components</li>
-                  <li>Improved documentation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Right Sidebar -->
@@ -255,10 +242,6 @@ import { Product } from '../../models/marketplace.models';
                 </div>
               </label>
             </div>
-
-            <a *ngIf="product.demoUrl" [href]="product.demoUrl" target="_blank" class="pm-btn pm-btn-outline pm-btn-lg" style="width:100%; margin-top: 16px; margin-bottom: 8px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px;">
-               🌐 Live Demo
-            </a>
 
             <button class="pm-btn pm-btn-success pm-btn-lg" style="width:100%; margin-top: 8px"
                     (click)="addToCart()"
@@ -722,17 +705,6 @@ import { Product } from '../../models/marketplace.models';
       gap: 24px;
     }
 
-    .changelog-item {
-      padding: 16px;
-      background: var(--pm-surface-muted);
-      border-radius: var(--pm-radius-md);
-      border-left: 3px solid var(--ion-color-primary);
-    }
-    .cl-version { font-weight: 700; color: var(--ion-color-primary); }
-    .cl-date { font-size: 0.78rem; color: var(--pm-text-muted); margin-bottom: 8px; }
-    .changelog-item ul { margin: 0; padding-left: 20px; }
-    .changelog-item li { font-size: 0.85rem; color: var(--pm-text-secondary); padding: 3px 0; }
-
     @media (max-width: 1024px) {
       .detail-layout { flex-direction: column; }
       .detail-sidebar { width: 100%; }
@@ -769,8 +741,7 @@ export class ProductDetailComponent implements OnInit {
   tabs = [
     { id: 'description', label: '📝 Description' },
     { id: 'reviews', label: '⭐ Reviews' },
-    { id: 'comments', label: '💬 Comments' },
-    { id: 'changelog', label: '📋 Changelog' },
+    { id: 'comments', label: '💬 Comments' }
   ];
 
   ratingBars = [
