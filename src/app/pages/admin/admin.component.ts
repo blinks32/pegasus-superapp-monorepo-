@@ -100,7 +100,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
                 {{ (project.status || 'pending') | titlecase }}
               </span>
             </div>
-            <div class="project-price">${{ project.price }}</div>
+            <div class="project-price">{{'$'}}{{ project.price }}</div>
             <div class="project-date">{{ project.createdAt | date:'mediumDate' }}</div>
             <div class="project-actions">
               <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">View</a>
