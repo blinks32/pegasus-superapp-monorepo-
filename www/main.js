@@ -4561,39 +4561,39 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-OGF6PM4S.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-XVZNKB7G.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-QQTBWEPI.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-MIBQEMO5.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-NEEC7K5E.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-WED2R5XQ.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-QNVLJTJL.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-TIWH24PT.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-E5OBQKFY.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-FZ3W3ZSD.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-37NHPI44.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-CW5NGB4M.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-QFP66FJN.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-IVYCUIMG.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-3AT5GTY3.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-7WO3RXQN.js").then((m) => m.ProfileComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-CKOAVQ6V.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-Z44VWR6T.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "**",

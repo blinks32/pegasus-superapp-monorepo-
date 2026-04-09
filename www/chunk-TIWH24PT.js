@@ -2,7 +2,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-LLT3V3GV.js";
+} from "./chunk-G4S4SSCL.js";
 import {
   CommonModule,
   DecimalPipe,
@@ -325,4 +325,4 @@ var CartComponent = class _CartComponent {
 export {
   CartComponent
 };
-//# sourceMappingURL=chunk-QNVLJTJL.js.map
+//# sourceMappingURL=chunk-TIWH24PT.js.map

@@ -14,7 +14,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-LLT3V3GV.js";
+} from "./chunk-G4S4SSCL.js";
 import {
   CommonModule,
   NgForOf,
@@ -198,4 +198,4 @@ var HomeComponent = class _HomeComponent {
 export {
   HomeComponent
 };
-//# sourceMappingURL=chunk-OGF6PM4S.js.map
+//# sourceMappingURL=chunk-XVZNKB7G.js.map

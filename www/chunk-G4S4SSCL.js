@@ -68,11 +68,13 @@ import {
 var MarketplaceService = class _MarketplaceService {
   constructor() {
     this.firestore = inject(Firestore);
-    this._products = signal(null);
+    this._products = signal([]);
+    this._isLoadingProducts = signal(true);
     this._cart = signal([]);
     this._searchFilters = signal({ query: "", sortBy: "bestselling" });
     this._adminProjects = signal([]);
     this.products = this._products.asReadonly();
+    this.isLoadingProducts = this._isLoadingProducts.asReadonly();
     this.cart = this._cart.asReadonly();
     this.searchFilters = this._searchFilters.asReadonly();
     this.adminProjects = this._adminProjects.asReadonly();
@@ -146,8 +148,10 @@ var MarketplaceService = class _MarketplaceService {
     this.salesStats = [];
     const productsRef = collection(this.firestore, "products");
     const q = query(productsRef, orderBy("createdAt", "desc"));
+    this._isLoadingProducts.set(true);
     collectionData(q, { idField: "id" }).subscribe((data) => {
       this._products.set(data);
+      this._isLoadingProducts.set(false);
     });
     const saved = localStorage.getItem("pm_cart");
     if (saved) {
@@ -946,4 +950,4 @@ export {
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-LLT3V3GV.js.map
+//# sourceMappingURL=chunk-G4S4SSCL.js.map
