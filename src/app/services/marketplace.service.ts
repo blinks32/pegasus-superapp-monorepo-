@@ -8,12 +8,14 @@ export class MarketplaceService {
   private firestore = inject(Firestore);
 
   /* ═══════════ State Signals ═══════════ */
-  private _products = signal<Product[] | null>(null);
+  private _products = signal<Product[]>([]); // Initialized as empty array
+  private _isLoadingProducts = signal<boolean>(true); // Tracks the initial fetch state
   private _cart = signal<CartItem[]>([]);
   private _searchFilters = signal<SearchFilters>({ query: '', sortBy: 'bestselling' });
   private _adminProjects = signal<AdminProject[]>([]);
 
   products = this._products.asReadonly();
+  isLoadingProducts = this._isLoadingProducts.asReadonly(); // Expose to components
   cart = this._cart.asReadonly();
   searchFilters = this._searchFilters.asReadonly();
   adminProjects = this._adminProjects.asReadonly();
@@ -31,7 +33,7 @@ export class MarketplaceService {
   filteredProducts = computed(() => {
     const products = this._products();
     if (!products) return [];
-    
+
     const filters = this._searchFilters();
     let result = [...products];
 
@@ -63,12 +65,12 @@ export class MarketplaceService {
     const products = this._products();
     return products ? products.filter(p => p.isFeatured) : [];
   });
-  
+
   bestsellerProducts = computed(() => {
     const products = this._products();
     return products ? [...products].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8) : [];
   });
-  
+
   newestProducts = computed(() => {
     const products = this._products();
     return products ? [...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8) : [];
@@ -90,8 +92,14 @@ export class MarketplaceService {
   constructor() {
     const productsRef = collection(this.firestore, 'products');
     const q = query(productsRef, orderBy('createdAt', 'desc'));
+
+    // Explicitly set loading to true before fetching
+    this._isLoadingProducts.set(true);
+
     collectionData(q, { idField: 'id' }).subscribe((data: any) => {
       this._products.set(data as Product[]);
+      // Set loading to false once the data arrives from Firestore
+      this._isLoadingProducts.set(false);
     });
 
     // Load cart from localStorage
@@ -232,7 +240,7 @@ export class MarketplaceService {
     }
   }
 
-  async getComments(productId: string): Promise<Array<{userName: string; text: string; date: Date}>> {
+  async getComments(productId: string): Promise<Array<{ userName: string; text: string; date: Date }>> {
     try {
       const commentsRef = collection(this.firestore, `products/${productId}/comments`);
       const q = query(commentsRef, orderBy('date', 'desc'));
@@ -308,11 +316,11 @@ export class MarketplaceService {
       newProduct.originalPrice = project.originalPrice;
       newProduct.discountPercent = Math.round((1 - project.price / project.originalPrice) * 100);
     }
-    
+
     if (project.demoUrl) {
       newProduct.demoUrl = project.demoUrl;
     }
-    
+
     if (project.hasReskinService && project.reskinPrice) {
       newProduct.reskinPrice = project.reskinPrice;
     }
