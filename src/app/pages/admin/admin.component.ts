@@ -329,9 +329,15 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label>Demo URL</label>
-            <input type="url" [(ngModel)]="editForm.demoUrl" class="form-input" placeholder="https://..." />
+          <div style="display:flex; gap:16px;">
+            <div class="form-group" style="flex:1">
+              <label>Demo URL</label>
+              <input type="url" [(ngModel)]="editForm.demoUrl" class="form-input" placeholder="https://..." />
+            </div>
+            <div class="form-group" style="flex:1">
+              <label>YouTube Video URL</label>
+              <input type="url" [(ngModel)]="editForm.youtubeUrl" class="form-input" placeholder="https://youtube.com/watch?v=..." />
+            </div>
           </div>
           <div class="form-group">
             <label>Tags (comma separated)</label>
@@ -1096,6 +1102,7 @@ export class AdminComponent implements OnInit {
       category: product.category || '',
       status: product.status || 'published',
       demoUrl: product.demoUrl || '',
+      youtubeUrl: product.youtubeUrl || '',
       tagsStr: (product.tags || []).join(', '),
       featuresStr: (product.features || []).join('\n'),
       techStackStr: (product.techStack || []).join(', '),
@@ -1139,6 +1146,9 @@ export class AdminComponent implements OnInit {
     }
     if (this.editForm.demoUrl) {
       updates.demoUrl = this.editForm.demoUrl;
+    }
+    if (this.editForm.youtubeUrl) {
+      updates.youtubeUrl = this.editForm.youtubeUrl;
     }
     // Image updates
     if (this.editForm.newThumbnailData) {

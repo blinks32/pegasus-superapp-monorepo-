@@ -15,6 +15,7 @@ export interface Product {
   thumbnailUrl: string;
   previewImages: string[];
   demoUrl?: string;
+  youtubeUrl?: string;
   rating: number;
   totalRatings: number;
   totalSales: number;
@@ -115,6 +116,7 @@ export interface AdminProject {
   hasReskinService: boolean;
   reskinPrice?: number;
   demoUrl?: string;
+  youtubeUrl?: string;
   status: 'draft' | 'pending' | 'published' | 'rejected';
   thumbnailFile?: File;
   previewFiles?: File[];

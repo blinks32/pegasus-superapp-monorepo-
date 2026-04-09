@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +19,14 @@ import { Product } from '../../models/marketplace.models';
     <app-header></app-header>
 
     <div class="pm-container page-enter" *ngIf="product">
+      <!-- Lightbox -->
+      <div class="lightbox-overlay" *ngIf="maximizedImage" (click)="maximizedImage = null">
+        <div class="lightbox-content" (click)="$event.stopPropagation()">
+          <img [src]="maximizedImage" />
+          <button class="lightbox-close" (click)="maximizedImage = null">&times;</button>
+        </div>
+      </div>
+
       <!-- Breadcrumb -->
       <nav class="breadcrumb">
         <a routerLink="/">Home</a>
@@ -42,6 +51,10 @@ import { Product } from '../../models/marketplace.models';
                 <span class="preview-icon">{{ getCategoryIcon() }}</span>
                 <span class="preview-title">{{ product.title.split('—')[0] }}</span>
               </ng-container>
+              <!-- Maximize Button -->
+              <button class="maximize-btn" *ngIf="getRawPreviewUrl()" (click)="maximizedImage = getRawPreviewUrl()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              </button>
             </div>
             <div class="preview-thumbnails">
               <div class="thumb-item" [class.active]="activePreviewIndex === -1"
@@ -65,6 +78,14 @@ import { Product } from '../../models/marketplace.models';
           <!-- Description Tab -->
           <div class="tab-content" *ngIf="activeTab === 'description'">
             <div class="desc-card">
+              <!-- YouTube Video Section -->
+              <div *ngIf="safeYoutubeUrl" style="margin-bottom: 24px;">
+                <h2 style="margin-top:0">Video Overview</h2>
+                <div class="video-container">
+                  <iframe [src]="safeYoutubeUrl" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                </div>
+              </div>
+
               <h2>Overview</h2>
               <p>{{ product.shortDescription }}</p>
 
@@ -348,7 +369,70 @@ import { Product } from '../../models/marketplace.models';
       align-items: center;
       justify-content: center;
       gap: 12px;
+      position: relative;
     }
+    .maximize-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      padding: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--pm-transition-fast);
+      backdrop-filter: blur(4px);
+    }
+    .maximize-btn:hover { background: rgba(0,0,0,0.8); }
+
+    .lightbox-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px; right: 0px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      border-radius: var(--pm-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--pm-shadow-sm);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+    }
+
     .preview-icon { font-size: 4rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2)); }
     .preview-title {
       color: white;
@@ -666,6 +750,7 @@ export class ProductDetailComponent implements OnInit {
   auth = inject(AuthService);
   private route = inject(ActivatedRoute);
   private seo = inject(SeoService);
+  private sanitizer = inject(DomSanitizer);
 
   product?: Product;
   relatedProducts: Product[] = [];
@@ -674,6 +759,9 @@ export class ProductDetailComponent implements OnInit {
   addReskin = false;
   isInCart = false;
   activePreviewIndex = -1;
+
+  maximizedImage: string | null = null;
+  safeYoutubeUrl?: SafeResourceUrl;
 
   newCommentText = '';
   comments: Array<{userName: string; text: string; date: Date}> = [];
@@ -742,8 +830,25 @@ export class ProductDetailComponent implements OnInit {
           seller: this.product.author?.name,
           category: this.product.category,
         });
+
+        // Set safe youtube URL
+        if (this.product.youtubeUrl) {
+          let embedUrl = this.product.youtubeUrl;
+          if (embedUrl.includes('watch?v=')) {
+            embedUrl = embedUrl.replace('watch?v=', 'embed/');
+          }
+          this.safeYoutubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+        }
       }
     });
+  }
+
+  getRawPreviewUrl(): string | null {
+    if (!this.product) return null;
+    if (this.activePreviewIndex === -1) {
+      return this.product.thumbnailUrl || null;
+    }
+    return this.product.previewImages[this.activePreviewIndex] || null;
   }
 
   getGradient(): string {
