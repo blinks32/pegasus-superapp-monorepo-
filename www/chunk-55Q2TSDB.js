@@ -1,6 +1,9 @@
 import {
   ProductCardComponent
-} from "./chunk-GM3JAHEA.js";
+} from "./chunk-PKFR7YJW.js";
+import {
+  SeoService
+} from "./chunk-LSCNX6AF.js";
 import {
   DefaultValueAccessor,
   FormsModule,
@@ -10,12 +13,12 @@ import {
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-JLNVYNUZ.js";
+} from "./chunk-UDBZGDEZ.js";
 import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-O7ABM3XC.js";
+} from "./chunk-UPUB4LNI.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -50,15 +53,15 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-R4VRCTGY.js";
+} from "./chunk-PNZRYTCW.js";
 
 // src/app/pages/browse/browse.component.ts
 var _c0 = () => [4, 3, 2, 1];
-function BrowseComponent_button_25_Template(rf, ctx) {
+function BrowseComponent_button_26_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 11);
-    \u0275\u0275listener("click", function BrowseComponent_button_25_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 12);
+    \u0275\u0275listener("click", function BrowseComponent_button_26_Template_button_click_0_listener() {
       const cat_r2 = \u0275\u0275restoreView(_r1).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectCategory(cat_r2.id));
@@ -74,16 +77,16 @@ function BrowseComponent_button_25_Template(rf, ctx) {
     \u0275\u0275textInterpolate2(" ", cat_r2.icon, " ", cat_r2.label, " ");
   }
 }
-function BrowseComponent_button_38_Template(rf, ctx) {
+function BrowseComponent_button_39_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 44);
-    \u0275\u0275listener("click", function BrowseComponent_button_38_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 45);
+    \u0275\u0275listener("click", function BrowseComponent_button_39_Template_button_click_0_listener() {
       const r_r5 = \u0275\u0275restoreView(_r4).$implicit;
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.setMinRating(r_r5));
     });
-    \u0275\u0275elementStart(1, "span", 45);
+    \u0275\u0275elementStart(1, "span", 46);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "span");
@@ -98,19 +101,19 @@ function BrowseComponent_button_38_Template(rf, ctx) {
     \u0275\u0275textInterpolate2("", "\u2605".repeat(r_r5), "", "\u2606".repeat(5 - r_r5), "");
   }
 }
-function BrowseComponent_div_75_app_product_card_1_Template(rf, ctx) {
+function BrowseComponent_div_76_app_product_card_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "app-product-card", 48);
+    \u0275\u0275element(0, "app-product-card", 49);
   }
   if (rf & 2) {
     const product_r6 = ctx.$implicit;
     \u0275\u0275property("product", product_r6);
   }
 }
-function BrowseComponent_div_75_Template(rf, ctx) {
+function BrowseComponent_div_76_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 46);
-    \u0275\u0275template(1, BrowseComponent_div_75_app_product_card_1_Template, 1, 1, "app-product-card", 47);
+    \u0275\u0275elementStart(0, "div", 47);
+    \u0275\u0275template(1, BrowseComponent_div_76_app_product_card_1_Template, 1, 1, "app-product-card", 48);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -120,10 +123,10 @@ function BrowseComponent_div_75_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.marketplace.filteredProducts());
   }
 }
-function BrowseComponent_div_76_Template(rf, ctx) {
+function BrowseComponent_div_77_Template(rf, ctx) {
   if (rf & 1) {
     const _r7 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 49)(1, "span", 50);
+    \u0275\u0275elementStart(0, "div", 50)(1, "span", 51);
     \u0275\u0275text(2, "\u{1F50D}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "h3");
@@ -132,8 +135,8 @@ function BrowseComponent_div_76_Template(rf, ctx) {
     \u0275\u0275elementStart(5, "p");
     \u0275\u0275text(6, "Try adjusting your filters or search terms");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "button", 51);
-    \u0275\u0275listener("click", function BrowseComponent_div_76_Template_button_click_7_listener() {
+    \u0275\u0275elementStart(7, "button", 52);
+    \u0275\u0275listener("click", function BrowseComponent_div_77_Template_button_click_7_listener() {
       \u0275\u0275restoreView(_r7);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.clearFilters());
@@ -146,6 +149,7 @@ var BrowseComponent = class _BrowseComponent {
   constructor() {
     this.marketplace = inject(MarketplaceService);
     this.route = inject(ActivatedRoute);
+    this.seo = inject(SeoService);
     this.searchQuery = "";
     this.sortBy = "bestselling";
     this.viewMode = "grid";
@@ -160,6 +164,8 @@ var BrowseComponent = class _BrowseComponent {
       if (params["sort"])
         this.sortBy = params["sort"];
       this.applyFilters();
+      this.seo.updateTitle(this.getPageTitle());
+      this.seo.updateDescription(`Browse ${this.getPageTitle()} on selljustcode. Find premium SaaS Boilerplates, Complete Business Systems, EdTech LMS, and PvP Multiplayer Games.`);
     });
   }
   getPageTitle() {
@@ -204,151 +210,151 @@ var BrowseComponent = class _BrowseComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _BrowseComponent, selectors: [["app-browse"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 78, vars: 21, consts: [[1, "browse-hero"], [1, "pm-container"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "browse-layout"], [1, "browse-sidebar"], [1, "sidebar-header"], [1, "sidebar-close", 3, "click"], [1, "filter-group"], ["type", "text", "placeholder", "Search products...", 1, "filter-input", 3, "ngModelChange", "input", "ngModel"], [1, "filter-chips"], [1, "filter-chip", 3, "click"], ["class", "filter-chip", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "price-inputs"], ["type", "number", "placeholder", "Min", 1, "filter-input", 3, "ngModelChange", "input", "ngModel"], ["type", "number", "placeholder", "Max", 1, "filter-input", 3, "ngModelChange", "input", "ngModel"], [1, "rating-filter"], ["class", "rating-option", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "pm-btn", "pm-btn-ghost", 2, "width", "100%", 3, "click"], [1, "browse-main"], [1, "sort-bar"], [1, "filter-toggle", "pm-btn", "pm-btn-outline", "pm-btn-sm", 3, "click"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"], [1, "sort-options"], [1, "sort-select", 3, "ngModelChange", "change", "ngModel"], ["value", "bestselling"], ["value", "newest"], ["value", "price-low"], ["value", "price-high"], ["value", "rating"], ["value", "trending"], [1, "view-toggle"], [3, "click"], ["width", "18", "height", "18", "viewBox", "0 0 24 24", "fill", "currentColor"], ["x", "3", "y", "3", "width", "7", "height", "7", "rx", "1"], ["x", "14", "y", "3", "width", "7", "height", "7", "rx", "1"], ["x", "3", "y", "14", "width", "7", "height", "7", "rx", "1"], ["x", "14", "y", "14", "width", "7", "height", "7", "rx", "1"], ["x", "3", "y", "4", "width", "18", "height", "4", "rx", "1"], ["x", "3", "y", "10", "width", "18", "height", "4", "rx", "1"], ["x", "3", "y", "16", "width", "18", "height", "4", "rx", "1"], ["class", "products-grid", 3, "list-view", 4, "ngIf"], ["class", "empty-state", 4, "ngIf"], [1, "rating-option", 3, "click"], [1, "stars-sm"], [1, "products-grid"], [3, "product", 4, "ngFor", "ngForOf"], [3, "product"], [1, "empty-state"], [1, "empty-icon"], [1, "pm-btn", "pm-btn-primary", 3, "click"]], template: function BrowseComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _BrowseComponent, selectors: [["app-browse"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 79, vars: 21, consts: [[1, "page-enter"], [1, "browse-hero"], [1, "pm-container"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "browse-layout"], [1, "browse-sidebar"], [1, "sidebar-header"], [1, "sidebar-close", 3, "click"], [1, "filter-group"], ["type", "text", "placeholder", "Search products...", 1, "filter-input", 3, "ngModelChange", "input", "ngModel"], [1, "filter-chips"], [1, "filter-chip", 3, "click"], ["class", "filter-chip", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "price-inputs"], ["type", "number", "placeholder", "Min", 1, "filter-input", 3, "ngModelChange", "input", "ngModel"], ["type", "number", "placeholder", "Max", 1, "filter-input", 3, "ngModelChange", "input", "ngModel"], [1, "rating-filter"], ["class", "rating-option", 3, "active", "click", 4, "ngFor", "ngForOf"], [1, "pm-btn", "pm-btn-ghost", 2, "width", "100%", 3, "click"], [1, "browse-main"], [1, "sort-bar"], [1, "filter-toggle", "pm-btn", "pm-btn-outline", "pm-btn-sm", 3, "click"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"], [1, "sort-options"], [1, "sort-select", 3, "ngModelChange", "change", "ngModel"], ["value", "bestselling"], ["value", "newest"], ["value", "price-low"], ["value", "price-high"], ["value", "rating"], ["value", "trending"], [1, "view-toggle"], [3, "click"], ["width", "18", "height", "18", "viewBox", "0 0 24 24", "fill", "currentColor"], ["x", "3", "y", "3", "width", "7", "height", "7", "rx", "1"], ["x", "14", "y", "3", "width", "7", "height", "7", "rx", "1"], ["x", "3", "y", "14", "width", "7", "height", "7", "rx", "1"], ["x", "14", "y", "14", "width", "7", "height", "7", "rx", "1"], ["x", "3", "y", "4", "width", "18", "height", "4", "rx", "1"], ["x", "3", "y", "10", "width", "18", "height", "4", "rx", "1"], ["x", "3", "y", "16", "width", "18", "height", "4", "rx", "1"], ["class", "products-grid", 3, "list-view", 4, "ngIf"], ["class", "empty-state", 4, "ngIf"], [1, "rating-option", 3, "click"], [1, "stars-sm"], [1, "products-grid"], [3, "product", 4, "ngFor", "ngForOf"], [3, "product"], [1, "empty-state"], [1, "empty-icon"], [1, "pm-btn", "pm-btn-primary", 3, "click"]], template: function BrowseComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
-        \u0275\u0275elementStart(1, "section", 0)(2, "div", 1)(3, "h1", 2);
-        \u0275\u0275text(4);
+        \u0275\u0275elementStart(1, "div", 0)(2, "section", 1)(3, "div", 2)(4, "h1", 3);
+        \u0275\u0275text(5);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(5, "p", 3);
-        \u0275\u0275text(6);
-        \u0275\u0275pipe(7, "number");
+        \u0275\u0275elementStart(6, "p", 4);
+        \u0275\u0275text(7);
+        \u0275\u0275pipe(8, "number");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(8, "div", 4)(9, "aside", 5)(10, "div", 6)(11, "h3");
-        \u0275\u0275text(12, "Filters");
+        \u0275\u0275elementStart(9, "div", 5)(10, "aside", 6)(11, "div", 7)(12, "h3");
+        \u0275\u0275text(13, "Filters");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(13, "button", 7);
-        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_13_listener() {
+        \u0275\u0275elementStart(14, "button", 8);
+        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_14_listener() {
           return ctx.sidebarOpen = false;
         });
-        \u0275\u0275text(14, "\u2715");
+        \u0275\u0275text(15, "\u2715");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(15, "div", 8)(16, "label");
-        \u0275\u0275text(17, "Search");
+        \u0275\u0275elementStart(16, "div", 9)(17, "label");
+        \u0275\u0275text(18, "Search");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(18, "input", 9);
-        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_input_ngModelChange_18_listener($event) {
+        \u0275\u0275elementStart(19, "input", 10);
+        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_input_ngModelChange_19_listener($event) {
           \u0275\u0275twoWayBindingSet(ctx.searchQuery, $event) || (ctx.searchQuery = $event);
           return $event;
         });
-        \u0275\u0275listener("input", function BrowseComponent_Template_input_input_18_listener() {
+        \u0275\u0275listener("input", function BrowseComponent_Template_input_input_19_listener() {
           return ctx.applyFilters();
         });
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(19, "div", 8)(20, "label");
-        \u0275\u0275text(21, "Category");
+        \u0275\u0275elementStart(20, "div", 9)(21, "label");
+        \u0275\u0275text(22, "Category");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(22, "div", 10)(23, "button", 11);
-        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_23_listener() {
+        \u0275\u0275elementStart(23, "div", 11)(24, "button", 12);
+        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_24_listener() {
           return ctx.selectCategory(void 0);
         });
-        \u0275\u0275text(24, "All");
+        \u0275\u0275text(25, "All");
         \u0275\u0275elementEnd();
-        \u0275\u0275template(25, BrowseComponent_button_25_Template, 2, 4, "button", 12);
+        \u0275\u0275template(26, BrowseComponent_button_26_Template, 2, 4, "button", 13);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(26, "div", 8)(27, "label");
-        \u0275\u0275text(28, "Price Range");
+        \u0275\u0275elementStart(27, "div", 9)(28, "label");
+        \u0275\u0275text(29, "Price Range");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(29, "div", 13)(30, "input", 14);
-        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_input_ngModelChange_30_listener($event) {
+        \u0275\u0275elementStart(30, "div", 14)(31, "input", 15);
+        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_input_ngModelChange_31_listener($event) {
           \u0275\u0275twoWayBindingSet(ctx.minPrice, $event) || (ctx.minPrice = $event);
           return $event;
         });
-        \u0275\u0275listener("input", function BrowseComponent_Template_input_input_30_listener() {
+        \u0275\u0275listener("input", function BrowseComponent_Template_input_input_31_listener() {
           return ctx.applyFilters();
         });
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(31, "span");
-        \u0275\u0275text(32, "\u2014");
+        \u0275\u0275elementStart(32, "span");
+        \u0275\u0275text(33, "\u2014");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(33, "input", 15);
-        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_input_ngModelChange_33_listener($event) {
+        \u0275\u0275elementStart(34, "input", 16);
+        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_input_ngModelChange_34_listener($event) {
           \u0275\u0275twoWayBindingSet(ctx.maxPrice, $event) || (ctx.maxPrice = $event);
           return $event;
         });
-        \u0275\u0275listener("input", function BrowseComponent_Template_input_input_33_listener() {
+        \u0275\u0275listener("input", function BrowseComponent_Template_input_input_34_listener() {
           return ctx.applyFilters();
         });
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(34, "div", 8)(35, "label");
-        \u0275\u0275text(36, "Minimum Rating");
+        \u0275\u0275elementStart(35, "div", 9)(36, "label");
+        \u0275\u0275text(37, "Minimum Rating");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(37, "div", 16);
-        \u0275\u0275template(38, BrowseComponent_button_38_Template, 5, 4, "button", 17);
+        \u0275\u0275elementStart(38, "div", 17);
+        \u0275\u0275template(39, BrowseComponent_button_39_Template, 5, 4, "button", 18);
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(39, "button", 18);
-        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_39_listener() {
+        \u0275\u0275elementStart(40, "button", 19);
+        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_40_listener() {
           return ctx.clearFilters();
         });
-        \u0275\u0275text(40, "Clear All Filters");
+        \u0275\u0275text(41, "Clear All Filters");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(41, "main", 19)(42, "div", 20)(43, "button", 21);
-        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_43_listener() {
+        \u0275\u0275elementStart(42, "main", 20)(43, "div", 21)(44, "button", 22);
+        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_44_listener() {
           return ctx.sidebarOpen = !ctx.sidebarOpen;
         });
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(44, "svg", 22);
-        \u0275\u0275element(45, "path", 23);
+        \u0275\u0275elementStart(45, "svg", 23);
+        \u0275\u0275element(46, "path", 24);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(46, " Filters ");
+        \u0275\u0275text(47, " Filters ");
         \u0275\u0275elementEnd();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(47, "div", 24)(48, "label");
-        \u0275\u0275text(49, "Sort by:");
+        \u0275\u0275elementStart(48, "div", 25)(49, "label");
+        \u0275\u0275text(50, "Sort by:");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(50, "select", 25);
-        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_select_ngModelChange_50_listener($event) {
+        \u0275\u0275elementStart(51, "select", 26);
+        \u0275\u0275twoWayListener("ngModelChange", function BrowseComponent_Template_select_ngModelChange_51_listener($event) {
           \u0275\u0275twoWayBindingSet(ctx.sortBy, $event) || (ctx.sortBy = $event);
           return $event;
         });
-        \u0275\u0275listener("change", function BrowseComponent_Template_select_change_50_listener() {
+        \u0275\u0275listener("change", function BrowseComponent_Template_select_change_51_listener() {
           return ctx.applyFilters();
         });
-        \u0275\u0275elementStart(51, "option", 26);
-        \u0275\u0275text(52, "Best Selling");
+        \u0275\u0275elementStart(52, "option", 27);
+        \u0275\u0275text(53, "Best Selling");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(53, "option", 27);
-        \u0275\u0275text(54, "Newest");
+        \u0275\u0275elementStart(54, "option", 28);
+        \u0275\u0275text(55, "Newest");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(55, "option", 28);
-        \u0275\u0275text(56, "Price: Low to High");
+        \u0275\u0275elementStart(56, "option", 29);
+        \u0275\u0275text(57, "Price: Low to High");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(57, "option", 29);
-        \u0275\u0275text(58, "Price: High to Low");
+        \u0275\u0275elementStart(58, "option", 30);
+        \u0275\u0275text(59, "Price: High to Low");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(59, "option", 30);
-        \u0275\u0275text(60, "Highest Rated");
+        \u0275\u0275elementStart(60, "option", 31);
+        \u0275\u0275text(61, "Highest Rated");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(61, "option", 31);
-        \u0275\u0275text(62, "Trending");
+        \u0275\u0275elementStart(62, "option", 32);
+        \u0275\u0275text(63, "Trending");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(63, "div", 32)(64, "button", 33);
-        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_64_listener() {
+        \u0275\u0275elementStart(64, "div", 33)(65, "button", 34);
+        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_65_listener() {
           return ctx.viewMode = "grid";
         });
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(65, "svg", 34);
-        \u0275\u0275element(66, "rect", 35)(67, "rect", 36)(68, "rect", 37)(69, "rect", 38);
+        \u0275\u0275elementStart(66, "svg", 35);
+        \u0275\u0275element(67, "rect", 36)(68, "rect", 37)(69, "rect", 38)(70, "rect", 39);
         \u0275\u0275elementEnd()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(70, "button", 33);
-        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_70_listener() {
+        \u0275\u0275elementStart(71, "button", 34);
+        \u0275\u0275listener("click", function BrowseComponent_Template_button_click_71_listener() {
           return ctx.viewMode = "list";
         });
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(71, "svg", 34);
-        \u0275\u0275element(72, "rect", 39)(73, "rect", 40)(74, "rect", 41);
+        \u0275\u0275elementStart(72, "svg", 35);
+        \u0275\u0275element(73, "rect", 40)(74, "rect", 41)(75, "rect", 42);
         \u0275\u0275elementEnd()()()();
-        \u0275\u0275template(75, BrowseComponent_div_75_Template, 2, 3, "div", 42)(76, BrowseComponent_div_76_Template, 9, 0, "div", 43);
-        \u0275\u0275elementEnd()();
+        \u0275\u0275template(76, BrowseComponent_div_76_Template, 2, 3, "div", 43)(77, BrowseComponent_div_77_Template, 9, 0, "div", 44);
+        \u0275\u0275elementEnd()()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275element(77, "app-footer");
+        \u0275\u0275element(78, "app-footer");
       }
       if (rf & 2) {
-        \u0275\u0275advance(4);
+        \u0275\u0275advance(5);
         \u0275\u0275textInterpolate(ctx.getPageTitle());
         \u0275\u0275advance(2);
-        \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind1(7, 18, ctx.marketplace.filteredProducts().length), " items found");
+        \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind1(8, 18, ctx.marketplace.filteredProducts().length), " items found");
         \u0275\u0275advance(3);
         \u0275\u0275classProp("mobile-open", ctx.sidebarOpen);
         \u0275\u0275advance(9);
@@ -378,9 +384,9 @@ var BrowseComponent = class _BrowseComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(BrowseComponent, { className: "BrowseComponent", filePath: "src\\app\\pages\\browse\\browse.component.ts", lineNumber: 353 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(BrowseComponent, { className: "BrowseComponent", filePath: "src\\app\\pages\\browse\\browse.component.ts", lineNumber: 355 });
 })();
 export {
   BrowseComponent
 };
-//# sourceMappingURL=chunk-UOV2I7NJ.js.map
+//# sourceMappingURL=chunk-55Q2TSDB.js.map

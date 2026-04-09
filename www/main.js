@@ -1,16 +1,21 @@
 import {
+  SeoService
+} from "./chunk-LSCNX6AF.js";
+import {
   ANIMATION_MODULE_TYPE,
   BrowserModule,
   DOCUMENT,
   DomRendererFactory2,
   Inject,
   Injectable,
+  Meta,
   NgModule,
   NgZone,
   PreloadAllModules,
   RendererFactory2,
   RouterOutlet,
   RuntimeError,
+  Title,
   ViewEncapsulation$1,
   __objRest,
   __spreadValues,
@@ -35,10 +40,18 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-R4VRCTGY.js";
+} from "./chunk-PNZRYTCW.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
+  constructor() {
+    this.seo = inject(SeoService);
+  }
+  ngOnInit() {
+    this.seo.init();
+    this.seo.setWebsiteSchema();
+    this.seo.setOrganizationSchema();
+  }
   static {
     this.\u0275fac = function AppComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || _AppComponent)();
@@ -53,7 +66,7 @@ var AppComponent = class _AppComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 11 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 12 });
 })();
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
@@ -4548,39 +4561,39 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-XTX3OGAO.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-3D6SAN4Y.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-UOV2I7NJ.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-55Q2TSDB.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-XKJOFREN.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-G4G7F36P.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-OONNEZKB.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-24AFNFT5.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-JYDU7FH3.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-NDRKG73O.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-VPCJK3Z5.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-STBZJ2N4.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-5CN7MJ35.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-QUT5B5CJ.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-4E6XUNNK.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-BMWVJW3V.js").then((m) => m.ProfileComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-AJCAGDQL.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-OTPMBELK.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "**",
@@ -4607,6 +4620,8 @@ var appConfig = {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules), withInMemoryScrolling({ scrollPositionRestoration: "enabled", anchorScrolling: "enabled" })),
     provideAnimations(),
+    Title,
+    Meta,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())

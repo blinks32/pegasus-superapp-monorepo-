@@ -240,8 +240,6 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             </div>
           </div>
         </div>
-          </div>
-        </div>
       </div>
 
       <!-- Analytics View -->

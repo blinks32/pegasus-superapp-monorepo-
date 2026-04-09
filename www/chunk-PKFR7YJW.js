@@ -22,34 +22,51 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-R4VRCTGY.js";
+} from "./chunk-PNZRYTCW.js";
 
 // src/app/components/product-card/product-card.component.ts
 var _c0 = (a0) => ["/product", a0];
-function ProductCardComponent_span_8_Template(rf, ctx) {
+function ProductCardComponent_div_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 29);
+    \u0275\u0275elementStart(0, "div", 27)(1, "span", 28);
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "span", 29);
+    \u0275\u0275text(4);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r0 = \u0275\u0275nextContext();
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(ctx_r0.getCategoryIcon());
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(ctx_r0.product.title.split("\u2014")[0]);
+  }
+}
+function ProductCardComponent_span_4_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 30);
     \u0275\u0275text(1, "\u{1F525} Featured");
     \u0275\u0275elementEnd();
   }
 }
-function ProductCardComponent_span_9_Template(rf, ctx) {
+function ProductCardComponent_span_5_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 30);
+    \u0275\u0275elementStart(0, "span", 31);
     \u0275\u0275text(1, "\u2728 New");
     \u0275\u0275elementEnd();
   }
 }
-function ProductCardComponent_span_10_Template(rf, ctx) {
+function ProductCardComponent_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 31);
+    \u0275\u0275elementStart(0, "span", 32);
     \u0275\u0275text(1, "\u{1F3C6} Bestseller");
     \u0275\u0275elementEnd();
   }
 }
-function ProductCardComponent_div_11_Template(rf, ctx) {
+function ProductCardComponent_div_7_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 32);
+    \u0275\u0275elementStart(0, "div", 33);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -59,7 +76,7 @@ function ProductCardComponent_div_11_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" -", ctx_r0.product.discountPercent, "% ");
   }
 }
-function ProductCardComponent_span_22_Template(rf, ctx) {
+function ProductCardComponent_span_18_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span");
   }
@@ -68,16 +85,16 @@ function ProductCardComponent_span_22_Template(rf, ctx) {
     \u0275\u0275classMap(s_r2);
   }
 }
-function ProductCardComponent_span_38_Template(rf, ctx) {
+function ProductCardComponent_span_34_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 33);
+    \u0275\u0275elementStart(0, "span", 34);
     \u0275\u0275text(1, "\u2713");
     \u0275\u0275elementEnd();
   }
 }
-function ProductCardComponent_span_42_Template(rf, ctx) {
+function ProductCardComponent_span_38_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 34);
+    \u0275\u0275elementStart(0, "span", 35);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -151,64 +168,58 @@ var ProductCardComponent = class _ProductCardComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductCardComponent, selectors: [["app-product-card"]], inputs: { product: "product" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 43, vars: 29, consts: [[1, "product-card", 3, "routerLink"], [1, "card-thumb"], [1, "thumb-overlay"], [1, "thumb-icon"], [1, "thumb-title"], [1, "card-badges"], ["class", "pm-badge pm-badge-featured", 4, "ngIf"], ["class", "pm-badge pm-badge-success", 4, "ngIf"], ["class", "pm-badge pm-badge-warning", 4, "ngIf"], ["class", "card-discount", 4, "ngIf"], [1, "card-body"], [1, "card-category"], [1, "card-title"], [1, "card-desc"], [1, "card-meta"], [1, "card-rating"], [1, "stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-text"], [1, "rating-count"], [1, "card-stats"], [1, "stat"], [1, "card-footer-row"], [1, "card-author"], [1, "author-avatar"], ["class", "verified-badge", 4, "ngIf"], [1, "card-price-row"], [1, "pm-price"], ["class", "pm-price-original", 4, "ngIf"], [1, "pm-badge", "pm-badge-featured"], [1, "pm-badge", "pm-badge-success"], [1, "pm-badge", "pm-badge-warning"], [1, "card-discount"], [1, "verified-badge"], [1, "pm-price-original"]], template: function ProductCardComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductCardComponent, selectors: [["app-product-card"]], inputs: { product: "product" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 39, vars: 34, consts: [[1, "product-card", 3, "routerLink"], [1, "card-thumb"], ["class", "thumb-overlay", 4, "ngIf"], [1, "card-badges"], ["class", "pm-badge pm-badge-featured", 4, "ngIf"], ["class", "pm-badge pm-badge-success", 4, "ngIf"], ["class", "pm-badge pm-badge-warning", 4, "ngIf"], ["class", "card-discount", 4, "ngIf"], [1, "card-body"], [1, "card-category"], [1, "card-title"], [1, "card-desc"], [1, "card-meta"], [1, "card-rating"], [1, "stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-text"], [1, "rating-count"], [1, "card-stats"], [1, "stat"], [1, "card-footer-row"], [1, "card-author"], [1, "author-avatar"], ["class", "verified-badge", 4, "ngIf"], [1, "card-price-row"], [1, "pm-price"], ["class", "pm-price-original", 4, "ngIf"], [1, "thumb-overlay"], [1, "thumb-icon"], [1, "thumb-title"], [1, "pm-badge", "pm-badge-featured"], [1, "pm-badge", "pm-badge-success"], [1, "pm-badge", "pm-badge-warning"], [1, "card-discount"], [1, "verified-badge"], [1, "pm-price-original"]], template: function ProductCardComponent_Template(rf, ctx) {
       if (rf & 1) {
-        \u0275\u0275elementStart(0, "a", 0)(1, "div", 1)(2, "div", 2)(3, "span", 3);
-        \u0275\u0275text(4);
+        \u0275\u0275elementStart(0, "a", 0)(1, "div", 1);
+        \u0275\u0275template(2, ProductCardComponent_div_2_Template, 5, 2, "div", 2);
+        \u0275\u0275elementStart(3, "div", 3);
+        \u0275\u0275template(4, ProductCardComponent_span_4_Template, 2, 0, "span", 4)(5, ProductCardComponent_span_5_Template, 2, 0, "span", 5)(6, ProductCardComponent_span_6_Template, 2, 0, "span", 6);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(5, "span", 4);
-        \u0275\u0275text(6);
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(7, "div", 5);
-        \u0275\u0275template(8, ProductCardComponent_span_8_Template, 2, 0, "span", 6)(9, ProductCardComponent_span_9_Template, 2, 0, "span", 7)(10, ProductCardComponent_span_10_Template, 2, 0, "span", 8);
+        \u0275\u0275template(7, ProductCardComponent_div_7_Template, 2, 1, "div", 7);
         \u0275\u0275elementEnd();
-        \u0275\u0275template(11, ProductCardComponent_div_11_Template, 2, 1, "div", 9);
+        \u0275\u0275elementStart(8, "div", 8)(9, "div", 9);
+        \u0275\u0275text(10);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(12, "div", 10)(13, "div", 11);
+        \u0275\u0275elementStart(11, "h3", 10);
+        \u0275\u0275text(12);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(13, "p", 11);
         \u0275\u0275text(14);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(15, "h3", 12);
-        \u0275\u0275text(16);
+        \u0275\u0275elementStart(15, "div", 12)(16, "div", 13)(17, "span", 14);
+        \u0275\u0275template(18, ProductCardComponent_span_18_Template, 1, 2, "span", 15);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(17, "p", 13);
-        \u0275\u0275text(18);
+        \u0275\u0275elementStart(19, "span", 16);
+        \u0275\u0275text(20);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(19, "div", 14)(20, "div", 15)(21, "span", 16);
-        \u0275\u0275template(22, ProductCardComponent_span_22_Template, 1, 2, "span", 17);
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(23, "span", 18);
-        \u0275\u0275text(24);
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(25, "span", 19);
+        \u0275\u0275elementStart(21, "span", 17);
+        \u0275\u0275text(22);
+        \u0275\u0275pipe(23, "number");
+        \u0275\u0275elementEnd()();
+        \u0275\u0275elementStart(24, "div", 18)(25, "span", 19);
         \u0275\u0275text(26);
         \u0275\u0275pipe(27, "number");
-        \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(28, "div", 20)(29, "span", 21);
-        \u0275\u0275text(30);
-        \u0275\u0275pipe(31, "number");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(32, "div", 22)(33, "div", 23)(34, "div", 24);
-        \u0275\u0275text(35);
+        \u0275\u0275elementStart(28, "div", 20)(29, "div", 21)(30, "div", 22);
+        \u0275\u0275text(31);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(36, "span");
+        \u0275\u0275elementStart(32, "span");
+        \u0275\u0275text(33);
+        \u0275\u0275elementEnd();
+        \u0275\u0275template(34, ProductCardComponent_span_34_Template, 2, 0, "span", 23);
+        \u0275\u0275elementEnd();
+        \u0275\u0275elementStart(35, "div", 24)(36, "span", 25);
         \u0275\u0275text(37);
         \u0275\u0275elementEnd();
-        \u0275\u0275template(38, ProductCardComponent_span_38_Template, 2, 0, "span", 25);
-        \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(39, "div", 26)(40, "span", 27);
-        \u0275\u0275text(41);
-        \u0275\u0275elementEnd();
-        \u0275\u0275template(42, ProductCardComponent_span_42_Template, 2, 1, "span", 28);
+        \u0275\u0275template(38, ProductCardComponent_span_38_Template, 2, 1, "span", 26);
         \u0275\u0275elementEnd()()()();
       }
       if (rf & 2) {
-        \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(27, _c0, ctx.product.id));
+        \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(32, _c0, ctx.product.id));
         \u0275\u0275advance();
-        \u0275\u0275styleProp("background", ctx.getGradient());
-        \u0275\u0275advance(3);
-        \u0275\u0275textInterpolate(ctx.getCategoryIcon());
-        \u0275\u0275advance(2);
-        \u0275\u0275textInterpolate(ctx.product.title.split("\u2014")[0]);
+        \u0275\u0275styleProp("background", ctx.product.thumbnailUrl ? "none" : ctx.getGradient())("background-image", ctx.product.thumbnailUrl ? "url(" + ctx.product.thumbnailUrl + ")" : "none")("background-size", "cover")("background-position", "center");
+        \u0275\u0275advance();
+        \u0275\u0275property("ngIf", !ctx.product.thumbnailUrl);
         \u0275\u0275advance(2);
         \u0275\u0275property("ngIf", ctx.product.isFeatured);
         \u0275\u0275advance();
@@ -228,9 +239,9 @@ var ProductCardComponent = class _ProductCardComponent {
         \u0275\u0275advance(2);
         \u0275\u0275textInterpolate(ctx.product.rating);
         \u0275\u0275advance(2);
-        \u0275\u0275textInterpolate1("(", \u0275\u0275pipeBind1(27, 23, ctx.product.totalRatings), ")");
+        \u0275\u0275textInterpolate1("(", \u0275\u0275pipeBind1(23, 28, ctx.product.totalRatings), ")");
         \u0275\u0275advance(4);
-        \u0275\u0275textInterpolate1("\u{1F4B0} ", \u0275\u0275pipeBind1(31, 25, ctx.product.totalSales), " sales");
+        \u0275\u0275textInterpolate1("\u{1F4B0} ", \u0275\u0275pipeBind1(27, 30, ctx.product.totalSales), " sales");
         \u0275\u0275advance(4);
         \u0275\u0275styleProp("background", ctx.getAuthorColor());
         \u0275\u0275advance();
@@ -248,10 +259,10 @@ var ProductCardComponent = class _ProductCardComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductCardComponent, { className: "ProductCardComponent", filePath: "src\\app\\components\\product-card\\product-card.component.ts", lineNumber: 231 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductCardComponent, { className: "ProductCardComponent", filePath: "src\\app\\components\\product-card\\product-card.component.ts", lineNumber: 234 });
 })();
 
 export {
   ProductCardComponent
 };
-//# sourceMappingURL=chunk-GM3JAHEA.js.map
+//# sourceMappingURL=chunk-PKFR7YJW.js.map

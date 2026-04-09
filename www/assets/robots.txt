@@ -1,0 +1,25 @@
+# selljustcode.com Robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /login
+
+# Sitemaps
+Sitemap: https://selljustcode.com/sitemap.xml
+
+# AI Search Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /

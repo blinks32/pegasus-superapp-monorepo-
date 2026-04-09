@@ -2,7 +2,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-O7ABM3XC.js";
+} from "./chunk-UPUB4LNI.js";
 import {
   CommonModule,
   DecimalPipe,
@@ -25,7 +25,6 @@ import {
   ɵɵpipe,
   ɵɵpipeBind2,
   ɵɵproperty,
-  ɵɵpureFunction0,
   ɵɵpureFunction1,
   ɵɵresetView,
   ɵɵrestoreView,
@@ -35,11 +34,10 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2
-} from "./chunk-R4VRCTGY.js";
+} from "./chunk-PNZRYTCW.js";
 
 // src/app/pages/cart/cart.component.ts
 var _c0 = (a0) => ["/product", a0];
-var _c1 = () => ["Visa", "MC", "PayPal", "Stripe"];
 function CartComponent_div_8_div_1_span_12_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 24);
@@ -156,18 +154,6 @@ function CartComponent_aside_10_div_11_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("$", \u0275\u0275pipeBind2(5, 1, ctx_r2.getReskinTotal(), "1.2-2"), "");
   }
 }
-function CartComponent_aside_10_span_34_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 43);
-    \u0275\u0275text(1);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const p_r5 = ctx.$implicit;
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate(p_r5);
-  }
-}
 function CartComponent_aside_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
@@ -210,26 +196,26 @@ function CartComponent_aside_10_Template(rf, ctx) {
     \u0275\u0275text(29);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(30, "div", 35)(31, "span");
-    \u0275\u0275text(32, "Pay with:");
+    \u0275\u0275text(32, "Pay securely with");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(33, "div", 36);
-    \u0275\u0275template(34, CartComponent_aside_10_span_34_Template, 2, 1, "span", 37);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(35, "button", 38);
-    \u0275\u0275listener("click", function CartComponent_aside_10_Template_button_click_35_listener() {
+    \u0275\u0275elementStart(33, "div", 36)(34, "span", 37);
+    \u0275\u0275text(35, "Lemon Squeezy");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(36, "button", 38);
+    \u0275\u0275listener("click", function CartComponent_aside_10_Template_button_click_36_listener() {
       \u0275\u0275restoreView(_r4);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.marketplace.clearCart());
     });
-    \u0275\u0275text(36, " Clear Cart ");
+    \u0275\u0275text(37, " Clear Cart ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(37, "div", 39)(38, "h4");
-    \u0275\u0275text(39, "Have a coupon?");
+    \u0275\u0275elementStart(38, "div", 39)(39, "h4");
+    \u0275\u0275text(40, "Have a coupon?");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(40, "div", 40);
-    \u0275\u0275element(41, "input", 41);
-    \u0275\u0275elementStart(42, "button", 42);
-    \u0275\u0275text(43, "Apply");
+    \u0275\u0275elementStart(41, "div", 40);
+    \u0275\u0275element(42, "input", 41);
+    \u0275\u0275elementStart(43, "button", 42);
+    \u0275\u0275text(44, "Apply");
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
@@ -237,15 +223,13 @@ function CartComponent_aside_10_Template(rf, ctx) {
     \u0275\u0275advance(7);
     \u0275\u0275textInterpolate1("Subtotal (", ctx_r2.marketplace.cartCount(), " items)");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("$", \u0275\u0275pipeBind2(10, 6, ctx_r2.marketplace.cartTotal(), "1.2-2"), "");
+    \u0275\u0275textInterpolate1("$", \u0275\u0275pipeBind2(10, 5, ctx_r2.marketplace.cartTotal(), "1.2-2"), "");
     \u0275\u0275advance(2);
     \u0275\u0275property("ngIf", ctx_r2.hasReskin());
     \u0275\u0275advance(15);
-    \u0275\u0275textInterpolate1("$", \u0275\u0275pipeBind2(27, 9, ctx_r2.marketplace.cartTotal(), "1.2-2"), "");
+    \u0275\u0275textInterpolate1("$", \u0275\u0275pipeBind2(27, 8, ctx_r2.marketplace.cartTotal(), "1.2-2"), "");
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate1(" ", ctx_r2.checkingOut ? "\u2713 Order Placed!" : "Checkout", " ");
-    \u0275\u0275advance(5);
-    \u0275\u0275property("ngForOf", \u0275\u0275pureFunction0(12, _c1));
   }
 }
 var CartComponent = class _CartComponent {
@@ -297,9 +281,10 @@ var CartComponent = class _CartComponent {
   checkout() {
     this.checkingOut = true;
     setTimeout(() => {
+      window.open("https://app.lemonsqueezy.com/checkout", "_blank");
       this.marketplace.clearCart();
       this.checkingOut = false;
-    }, 2e3);
+    }, 1e3);
   }
   static {
     this.\u0275fac = function CartComponent_Factory(__ngFactoryType__) {
@@ -307,7 +292,7 @@ var CartComponent = class _CartComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _CartComponent, selectors: [["app-cart"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 12, vars: 5, consts: [[1, "cart-hero"], [1, "pm-container"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "cart-layout"], ["class", "cart-main", 4, "ngIf"], ["class", "cart-main empty-cart", 4, "ngIf"], ["class", "cart-sidebar", 4, "ngIf"], [1, "cart-main"], ["class", "cart-item", 4, "ngFor", "ngForOf"], [1, "cart-item"], [1, "item-thumb"], [1, "item-info"], [1, "item-title", 3, "routerLink"], [1, "item-desc"], [1, "item-meta"], [1, "item-license"], ["class", "item-reskin", 4, "ngIf"], [1, "item-author"], [1, "item-right"], [1, "item-price"], [1, "remove-btn", 3, "click"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"], [1, "item-reskin"], [1, "cart-main", "empty-cart"], [1, "empty-icon"], ["routerLink", "/browse", 1, "pm-btn", "pm-btn-primary"], [1, "cart-sidebar"], [1, "summary-card"], [1, "summary-rows"], [1, "summary-row"], ["class", "summary-row", 4, "ngIf"], [1, "summary-total"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", "checkout-btn", 3, "click"], [1, "payment-methods"], [1, "pay-icons"], ["class", "pay-tag", 4, "ngFor", "ngForOf"], [1, "pm-btn", "pm-btn-ghost", 2, "width", "100%", "margin-top", "8px", 3, "click"], [1, "coupon-card"], [1, "coupon-input"], ["type", "text", "placeholder", "Enter coupon code", 1, "filter-input"], [1, "pm-btn", "pm-btn-outline", "pm-btn-sm"], [1, "pay-tag"]], template: function CartComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _CartComponent, selectors: [["app-cart"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 12, vars: 5, consts: [[1, "cart-hero"], [1, "pm-container"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "cart-layout"], ["class", "cart-main", 4, "ngIf"], ["class", "cart-main empty-cart", 4, "ngIf"], ["class", "cart-sidebar", 4, "ngIf"], [1, "cart-main"], ["class", "cart-item", 4, "ngFor", "ngForOf"], [1, "cart-item"], [1, "item-thumb"], [1, "item-info"], [1, "item-title", 3, "routerLink"], [1, "item-desc"], [1, "item-meta"], [1, "item-license"], ["class", "item-reskin", 4, "ngIf"], [1, "item-author"], [1, "item-right"], [1, "item-price"], [1, "remove-btn", 3, "click"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"], [1, "item-reskin"], [1, "cart-main", "empty-cart"], [1, "empty-icon"], ["routerLink", "/browse", 1, "pm-btn", "pm-btn-primary"], [1, "cart-sidebar"], [1, "summary-card"], [1, "summary-rows"], [1, "summary-row"], ["class", "summary-row", 4, "ngIf"], [1, "summary-total"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", "checkout-btn", 3, "click"], [1, "payment-methods"], [1, "pay-icons"], [1, "pay-tag", 2, "background", "#FFE600", "color", "#1A1A1A"], [1, "pm-btn", "pm-btn-ghost", 2, "width", "100%", "margin-top", "8px", 3, "click"], [1, "coupon-card"], [1, "coupon-input"], ["type", "text", "placeholder", "Enter coupon code", 1, "filter-input"], [1, "pm-btn", "pm-btn-outline", "pm-btn-sm"]], template: function CartComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "section", 0)(2, "div", 1)(3, "h1", 2);
@@ -317,7 +302,7 @@ var CartComponent = class _CartComponent {
         \u0275\u0275text(6);
         \u0275\u0275elementEnd()()();
         \u0275\u0275elementStart(7, "div", 4);
-        \u0275\u0275template(8, CartComponent_div_8_Template, 2, 1, "div", 5)(9, CartComponent_div_9_Template, 9, 0, "div", 6)(10, CartComponent_aside_10_Template, 44, 13, "aside", 7);
+        \u0275\u0275template(8, CartComponent_div_8_Template, 2, 1, "div", 5)(9, CartComponent_div_9_Template, 9, 0, "div", 6)(10, CartComponent_aside_10_Template, 45, 11, "aside", 7);
         \u0275\u0275elementEnd();
         \u0275\u0275element(11, "app-footer");
       }
@@ -340,4 +325,4 @@ var CartComponent = class _CartComponent {
 export {
   CartComponent
 };
-//# sourceMappingURL=chunk-OONNEZKB.js.map
+//# sourceMappingURL=chunk-24AFNFT5.js.map
