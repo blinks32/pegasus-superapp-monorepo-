@@ -130,7 +130,6 @@ import { ProductCategory } from '../../models/marketplace.models';
             <app-product-card *ngFor="let product of marketplace.filteredProducts()" [product]="product"></app-product-card>
           </div>
         }
-        }
       </main>
     </div>
     </div>
