@@ -109,17 +109,34 @@ import { ProductCategory } from '../../models/marketplace.models';
         </div>
 
         <!-- Results -->
-        <div class="products-grid" [class.list-view]="viewMode === 'list'" *ngIf="marketplace.filteredProducts().length > 0">
-          <app-product-card *ngFor="let product of marketplace.filteredProducts()" [product]="product"></app-product-card>
-        </div>
-
-        <!-- Empty State -->
-        <div class="empty-state" *ngIf="marketplace.filteredProducts().length === 0">
-          <span class="empty-icon">🔍</span>
-          <h3>No products found</h3>
-          <p>Try adjusting your filters or search terms</p>
-          <button class="pm-btn pm-btn-primary" (click)="clearFilters()">Clear Filters</button>
-        </div>
+        @if (marketplace.isLoadingProducts()) {
+          <div class="products-grid" [class.list-view]="viewMode === 'list'">
+            @for (i of [1,2,3,4,5,6]; track i) {
+              <div class="product-skeleton" style="background:var(--pm-surface); border-radius:var(--pm-radius-lg); height:330px; animation: pulse 1.5s infinite;">
+                <div style="height:160px; background:var(--pm-surface-muted); width:100%;"></div>
+                <div style="padding:16px;">
+                  <div style="height:20px; background:var(--pm-surface-muted); width:70%; margin-bottom:12px;"></div>
+                  <div style="height:14px; background:var(--pm-surface-muted); width:100%; margin-bottom:8px;"></div>
+                  <div style="height:14px; background:var(--pm-surface-muted); width:80%; margin-bottom:20px;"></div>
+                </div>
+              </div>
+            }
+          </div>
+        }
+        @else if (marketplace.filteredProducts().length > 0) {
+          <div class="products-grid" [class.list-view]="viewMode === 'list'">
+            <app-product-card *ngFor="let product of marketplace.filteredProducts()" [product]="product"></app-product-card>
+          </div>
+        }
+        @else {
+          <!-- Empty State -->
+          <div class="empty-state">
+            <span class="empty-icon">🔍</span>
+            <h3>No products found</h3>
+            <p>Try adjusting your filters or search terms</p>
+            <button class="pm-btn pm-btn-primary" (click)="clearFilters()">Clear Filters</button>
+          </div>
+        }
       </main>
     </div>
     </div>

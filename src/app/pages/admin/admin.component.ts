@@ -89,39 +89,48 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               <button [class.active]="projectTab === 'draft'" (click)="projectTab = 'draft'">Drafts</button>
             </div>
           </div>
-          <div class="project-row" *ngFor="let project of getFilteredProjects()">
-            <div class="project-thumb"
-              [style.background]="project.thumbnailUrl ? 'none' : getProjectGradient(project.category)"
-              [style.backgroundImage]="project.thumbnailUrl ? 'url(' + project.thumbnailUrl + ')' : 'none'"
-              [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
-              <span *ngIf="!project.thumbnailUrl">{{ getCategoryIcon(project.category) }}</span>
-            </div>
-            <div class="project-info">
-              <span class="project-title">{{ project.title }}</span>
-              <span class="project-desc">{{ project.shortDescription }}</span>
-            </div>
-            <div class="project-status">
-              <span class="status-badge" [class]="'status-' + (project.status || 'pending')">
-                {{ (project.status || 'pending') | titlecase }}
-              </span>
-            </div>
-            <div class="project-price">{{'$'}}{{ project.price }}</div>
-            <div class="project-date">{{ project.createdAt | date:'mediumDate' }}</div>
-            <div class="project-actions">
-              <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">View</a>
-              <button class="pm-btn pm-btn-ghost pm-btn-sm" (click)="openEditProduct(project)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                Edit
-              </button>
-              <button class="pm-btn pm-btn-ghost pm-btn-sm" style="color: #EF4444" (click)="deleteProduct(project.id)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-              </button>
-            </div>
+          <!-- Loading State -->
+          <div *ngIf="marketplace.isLoadingProducts()" style="padding: 40px; text-align: center; color: var(--pm-text-muted);">
+            <div class="loading-spinner" style="margin-bottom: 12px;">⌛</div>
+            <p>Loading projects...</p>
           </div>
 
-          <div class="empty-projects" *ngIf="getFilteredProjects().length === 0">
-            <p>No projects found. <a routerLink="/admin/submit">Submit your first project →</a></p>
-          </div>
+          <!-- Project List -->
+          <ng-container *ngIf="!marketplace.isLoadingProducts()">
+            <div class="project-row" *ngFor="let project of getFilteredProjects()">
+              <div class="project-thumb"
+                [style.background]="project.thumbnailUrl ? 'none' : getProjectGradient(project.category)"
+                [style.backgroundImage]="project.thumbnailUrl ? 'url(' + project.thumbnailUrl + ')' : 'none'"
+                [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
+                <span *ngIf="!project.thumbnailUrl">{{ getCategoryIcon(project.category) }}</span>
+              </div>
+              <div class="project-info">
+                <span class="project-title">{{ project.title }}</span>
+                <span class="project-desc">{{ project.shortDescription }}</span>
+              </div>
+              <div class="project-status">
+                <span class="status-badge" [class]="'status-' + (project.status || 'pending')">
+                  {{ (project.status || 'pending') | titlecase }}
+                </span>
+              </div>
+              <div class="project-price">{{'$'}}{{ project.price }}</div>
+              <div class="project-date">{{ project.createdAt | date:'mediumDate' }}</div>
+              <div class="project-actions">
+                <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">View</a>
+                <button class="pm-btn pm-btn-ghost pm-btn-sm" (click)="openEditProduct(project)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                  Edit
+                </button>
+                <button class="pm-btn pm-btn-ghost pm-btn-sm" style="color: #EF4444" (click)="deleteProduct(project.id)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="empty-projects" *ngIf="getFilteredProjects().length === 0">
+              <p>No projects found. <a routerLink="/admin/submit">Submit your first project →</a></p>
+            </div>
+          </ng-container>
         </div>
       </div>
 
