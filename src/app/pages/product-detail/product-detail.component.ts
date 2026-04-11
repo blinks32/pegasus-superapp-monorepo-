@@ -8,13 +8,14 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { AuthService } from '../../services/auth.service';
+import { GuideWidgetComponent } from '../../components/guide-widget/guide-widget.component';
 import { SeoService } from '../../services/seo.service';
 import { Product } from '../../models/marketplace.models';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent],
+  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent],
   template: `
     <app-header></app-header>
 
@@ -69,15 +70,18 @@ import { Product } from '../../models/marketplace.models';
             </a>
           </div>
 
-          <!-- Tabs -->
-          <div class="detail-tabs">
-            <button *ngFor="let tab of tabs" 
-                    class="tab-btn" 
-                    [class.active]="activeTab === tab.id"
-                    (click)="activeTab = tab.id">
-              {{ tab.label }}
-            </button>
-          </div>
+          <!-- Tabs & Guide Section -->
+          <div class="tabs-layout">
+            <div class="tabs-main">
+              <!-- Tabs -->
+              <div class="detail-tabs">
+                <button *ngFor="let tab of tabs" 
+                        class="tab-btn" 
+                        [class.active]="activeTab === tab.id"
+                        (click)="activeTab = tab.id">
+                  {{ tab.label }}
+                </button>
+              </div>
 
           <!-- Description Tab -->
           <div class="tab-content" *ngIf="activeTab === 'description'">
@@ -201,6 +205,10 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
         </div>
+
+        <app-guide-widget></app-guide-widget>
+      </div>
+    </div>
 
         <!-- Right Sidebar -->
         <aside class="detail-sidebar">
@@ -336,6 +344,16 @@ import { Product } from '../../models/marketplace.models';
     }
     .detail-main { flex: 1; min-width: 0; }
     .detail-sidebar { width: 360px; flex-shrink: 0; }
+
+    .tabs-layout {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .tabs-main {
+      flex: 1;
+      min-width: 0;
+    }
 
     /* Preview */
     .preview-card {
