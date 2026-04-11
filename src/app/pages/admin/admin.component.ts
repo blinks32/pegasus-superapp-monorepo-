@@ -25,7 +25,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           </div>
           <div class="hero-actions">
             <button (click)="activeTab = 'dashboard'" [class.active]="activeTab === 'dashboard'" class="tab-btn">Dashboard</button>
-            <button (click)="activeTab = 'blogs'" [class.active]="activeTab === 'blogs'" class="tab-btn">Blogs</button>
+            <button (click)="activeTab = 'Blogs'" [class.active]="activeTab === 'Blogs'" class="tab-btn">Blogs</button>
             <button (click)="activeTab = 'analytics'; loadAnalytics()" [class.active]="activeTab === 'analytics'" class="tab-btn">Analytics</button>
             <button (click)="activeTab = 'settings'" [class.active]="activeTab === 'settings'" class="tab-btn">Settings</button>
             <a routerLink="/admin/submit" class="pm-btn pm-btn-primary">
@@ -189,7 +189,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
       </div>
 
       <!-- Blog Management View -->
-      <div *ngIf="activeTab === 'blogs'" class="fade-in">
+      <div *ngIf="activeTab === 'Blogs'" class="fade-in">
         <div class="settings-card">
           <div class="settings-header">
             <h3>Blog Management</h3>
@@ -1356,7 +1356,7 @@ export class AdminComponent implements OnInit {
 
   async loadBlogs() {
     try {
-      const blogsRef = collection(this.firestore, 'blogs');
+      const blogsRef = collection(this.firestore, 'Blogs');
       const q = query(blogsRef, orderBy('createdAt', 'desc'));
       collectionData(q, { idField: 'id' }).subscribe((data: any) => {
         this.blogs = data.map((blog: any) => ({
@@ -1406,7 +1406,7 @@ export class AdminComponent implements OnInit {
           updatedAt: serverTimestamp()
         });
       } else {
-        const blogsRef = collection(this.firestore, 'blogs');
+        const blogsRef = collection(this.firestore, 'Blogs');
         await addDoc(blogsRef, {
           title: this.blogForm.title,
           excerpt: this.blogForm.excerpt,

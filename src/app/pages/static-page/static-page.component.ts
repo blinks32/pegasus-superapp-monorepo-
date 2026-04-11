@@ -99,13 +99,6 @@ export class StaticPageComponent implements OnInit {
         <p>There are currently no open positions. Please check back later or subscribe to our newsletter for updates!</p>
       `
     },
-    'blog': {
-      title: 'Developer Blog',
-      html: `
-        <p>Welcome to the <strong>selljustcode</strong> blog. We regularly post tutorials, industry news, and tips for optimizing your SaaS and B2B platforms.</p>
-        <p><em>Check back soon for our first article!</em></p>
-      `
-    },
     'affiliate': {
       title: 'Affiliate Program',
       html: `

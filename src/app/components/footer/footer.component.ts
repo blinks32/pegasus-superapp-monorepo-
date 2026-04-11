@@ -52,7 +52,7 @@ import { RouterLink } from '@angular/router';
             <ul>
               <li><a routerLink="/page/about">About Us</a></li>
               <li><a routerLink="/page/careers">Careers</a></li>
-              <li><a routerLink="/page/blog">Blog</a></li>
+              <li><a routerLink="/blogs">Blog</a></li>
               <li><a routerLink="/page/affiliate">Affiliate Program</a></li>
               <li><a routerLink="/page/press">Press Kit</a></li>
               <li><a routerLink="/page/contact">Contact Us</a></li>

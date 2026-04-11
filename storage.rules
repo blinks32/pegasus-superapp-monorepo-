@@ -1,0 +1,17 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Rules for marketplace products
+    match /products/{allPaths=**} {
+      // Publicly readable for marketplace display
+      allow read: if true;
+      // Writeable by any authenticated user (you can restrict this to specific UIDs later)
+      allow write: if request.auth != null;
+    }
+    
+    // Default rules for other paths
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
