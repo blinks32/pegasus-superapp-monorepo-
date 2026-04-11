@@ -1452,35 +1452,43 @@ export class AdminComponent implements OnInit {
     this.isGenerating.set(true);
     try {
       const projects = this.marketplace.products().filter(p => !p.status || p.status === 'published');
-      
-      const names = ["Alex Rivers", "Sarah Chen", "Marcus Thorne", "Elena Gomez", "David Wu", "Sophie Martin", "James Wilson", "Aria Knight", "Lucas Gray", "Isabella Vane"];
+      const names = [
+        "Jonathan Sterling", "Sarah Van der Beek", "Marcus Thorne", "Elena de la Vega", 
+        "Alexander von Humboldt", "Catherine Saint-Claire", "Nicholas Barrington", 
+        "Eleanor Fitzalan", "Julian Thorne", "Alastair Sterling", "Beatrix Vane", 
+        "Leopoldo Rossi", "Genevieve Beaulieu", "Sebastian Nacht", "Octavia Vance", 
+        "Dominic Draken", "Valeria Volt", "Xavier Cross", "Antonia Moretti", 
+        "Maximilian Wolf", "Clara Eisenhardt", "Benedict Cumberbatch", "Freya Lund", 
+        "Hugo Blackwood", "Sienna Castel", "Arthur Pendragon", "Isabella d'Este"
+      ];
       const reviewsPool = [
-        { title: "Amazing quality!", text: "The code structure is very clean and easy to follow. Saved me weeks of development time." },
-        { title: "Highly recommended", text: "Great documentation and the UI is beautiful. Worth every penny for our agency." },
-        { title: "Solid architecture", text: "Impressive work on the backend logic. Scales perfectly even with high traffic." },
-        { title: "Excellent support", text: "Had a small issue with setup and the team helped me immediately. 5-star service!" },
-        { title: "Perfect for my startup", text: "Used this to launch my MVP in record time. Users love the interface and speed." },
-        { title: "Clean & Professional", text: "Exactly what I was looking for. No bloat, just high-quality professional code." },
-        { title: "Game changer", text: "This has completely transformed our workflow. The components are modular and robust." }
+        { title: "Enterprise-grade solution", text: "The architectural patterns applied here are world-class. Successfully integrated into our production environment." },
+        { title: "Exceptional engineering", text: "The codebase is a masterclass in clean architecture. Highly scalable and extremely robust." },
+        { title: "Strategic investment", text: "This has significantly accelerated our time-to-market. The components are modular and well-documented." },
+        { title: "Professional excellence", text: "The attention to detail in the UI and performance optimization is remarkable." },
+        { title: "Business critical asset", text: "A robust foundation for any B2B system. The security features are top-notch." },
+        { title: "Market-leading quality", text: "Setting a new bar for SaaS boilerplates. Documentation is exhaustive and very clear." },
+        { title: "Industrial strength", text: "Built for scale. We've stress-tested this and it performs flawlessly under heavy load." }
       ];
       const commentsPool = [
-        "Does this support multi-tenant setup out of the box?",
-        "Is there a live demo available for the admin dashboard features?",
-        "Excellent work on the design! Looking forward to future updates.",
-        "Just purchased! How can I access the private Discord community?",
-        "The performance on mobile devices is fantastic. Very smooth.",
-        "Could you please add support for Stripe Connect in the next version?",
-        "Is this compatible with the latest version of Angular?",
-        "Loving the clean code. Keep it up!"
+        "What is the recommended infrastructure for horizontal scaling?",
+        "Does the architecture support microservices migration in the future?",
+        "Impressive commitment to DRY principles in the codebase.",
+        "How is the data isolation handled in the multi-tenant module?",
+        "The automated test coverage is very reassuring for enterprise use.",
+        "Could you provide a deep-dive into the state management strategy?",
+        "Is there an Extended License available for white-labeling?",
+        "Brilliant execution on the API design. Very intuitive."
       ];
 
       for (const product of projects) {
-        // 1. Generate Views
-        const extraViews = Math.floor(Math.random() * 40) + 15;
+        // 1. Generate Views & Sales
+        const extraViews = Math.floor(Math.random() * 50) + 20;
+        const extraSales = Math.floor(Math.random() * 10) + 5;
         const productRef = doc(this.firestore, `products/${product.id}`);
         
         // 2. Generate Reviews
-        const numReviews = Math.floor(Math.random() * 3) + 2; // 2 to 4 reviews
+        const numReviews = Math.floor(Math.random() * 4) + 3; // 3 to 6 reviews
         const newReviews = [];
         for (let i = 0; i < numReviews; i++) {
           const name = names[Math.floor(Math.random() * names.length)];
@@ -1494,7 +1502,7 @@ export class AdminComponent implements OnInit {
             title: reviewTemplate.title,
             comment: reviewTemplate.text,
             date: new Date(),
-            helpful: Math.floor(Math.random() * 15),
+            helpful: Math.floor(Math.random() * 25),
             verified: true
           });
         }
@@ -1508,16 +1516,17 @@ export class AdminComponent implements OnInit {
         const sumRatings = combinedReviews.reduce((s, r) => s + (r.rating || 5), 0);
         const avgRating = totalRatings > 0 ? sumRatings / totalRatings : 5;
 
-        // Update Project doc
+        // Update Product doc
         await updateDoc(productRef, {
           totalVisits: increment(extraViews),
+          totalSales: increment(extraSales),
           reviews: combinedReviews,
           rating: Math.round(avgRating * 10) / 10,
           totalRatings: totalRatings
         });
 
         // 3. Generate Comments
-        const numComments = Math.floor(Math.random() * 3) + 2; // 2 to 4 comments
+        const numComments = Math.floor(Math.random() * 4) + 3; // 3 to 6 comments
         for (let i = 0; i < numComments; i++) {
           const name = names[Math.floor(Math.random() * names.length)];
           const text = commentsPool[Math.floor(Math.random() * commentsPool.length)];
@@ -1530,7 +1539,7 @@ export class AdminComponent implements OnInit {
         }
       }
 
-      alert(`Success! Generated activity for ${projects.length} live projects. Views, reviews, and comments have been updated.`);
+      alert(`Success! Generated deep activity (Sales, Views, Reviews, Comments) for ${projects.length} live projects.`);
     } catch (e) {
       console.error('Activity generation failed', e);
       alert('Failed to generate activity. Check the browser console for details.');

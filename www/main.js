@@ -4578,7 +4578,7 @@ var routes = [
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-MPAOLEAK.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-M5E7DEOD.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
