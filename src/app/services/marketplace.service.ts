@@ -324,6 +324,10 @@ export class MarketplaceService {
       newProduct.demoUrl = project.demoUrl;
     }
 
+    if (project.liveDemos) {
+      newProduct.liveDemos = project.liveDemos;
+    }
+
     if (project.hasReskinService && project.reskinPrice) {
       newProduct.reskinPrice = project.reskinPrice;
     }

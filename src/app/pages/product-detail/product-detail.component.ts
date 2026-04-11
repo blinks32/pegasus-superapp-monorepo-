@@ -57,7 +57,8 @@ import { Product } from '../../models/marketplace.models';
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
               </button>
             </div>
-            <div class="preview-thumbnails">
+            </div>
+            <div class="preview-thumbnails pm-gallery-strip">
               <div class="thumb-item" [class.active]="activePreviewIndex === -1"
                 [style.background]="product.thumbnailUrl ? 'none' : getGradient()"
                 [style.backgroundImage]="product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : 'none'"
@@ -65,9 +66,25 @@ import { Product } from '../../models/marketplace.models';
               <div class="thumb-item" *ngFor="let img of product.previewImages; let i = index" [class.active]="activePreviewIndex === i" [style.backgroundImage]="'url(' + img + ')'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = i"></div>
             </div>
             
-            <a *ngIf="product.demoUrl" [href]="product.demoUrl" target="_blank" class="pm-btn pm-btn-outline pm-btn-lg" style="margin: 16px; margin-top: 0; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);">
-               🌐 Live Demo
-            </a>
+            <!-- Dynamic Demo Hub -->
+            <div class="demo-hub" *ngIf="product.liveDemos?.length || product.demoUrl">
+              <div class="demo-links-grid">
+                <ng-container *ngIf="product.liveDemos && product.liveDemos.length > 0; else singleDemo">
+                  <a *ngFor="let demo of product.liveDemos" [href]="demo.url" target="_blank" class="demo-link-card">
+                    <div class="demo-thumb" *ngIf="demo.thumbnailUrl" [style.backgroundImage]="'url(' + demo.thumbnailUrl + ')'"></div>
+                    <div class="demo-info">
+                      <span class="demo-label">{{ demo.label }}</span>
+                      <span class="demo-action">View Live Demo →</span>
+                    </div>
+                  </a>
+                </ng-container>
+                <ng-template #singleDemo>
+                  <a *ngIf="product.demoUrl" [href]="product.demoUrl" target="_blank" class="pm-btn pm-btn-outline pm-btn-lg" style="width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);">
+                    🌐 Live Demo
+                  </a>
+                </ng-template>
+              </div>
+            </div>
           </div>
 
           <!-- Tabs & Guide Section -->
@@ -460,6 +477,61 @@ import { Product } from '../../models/marketplace.models';
     .thumb-item.active { border-color: var(--ion-color-primary); }
     .thumb-item:hover { opacity: 0.8; }
 
+    .pm-gallery-strip {
+      display: flex;
+      gap: 12px;
+      padding: 16px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--pm-border) transparent;
+      scroll-behavior: smooth;
+    }
+    .pm-gallery-strip::-webkit-scrollbar { height: 4px; }
+    .pm-gallery-strip::-webkit-scrollbar-thumb { background: var(--pm-border); border-radius: 4px; }
+    .pm-gallery-strip .thumb-item {
+      flex: 0 0 80px;
+      height: 60px;
+      box-shadow: var(--pm-shadow-sm);
+    }
+
+    /* Demo Hub */
+    .demo-hub {
+      padding: 0 16px 16px;
+    }
+    .demo-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .demo-link-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: var(--pm-surface-muted);
+      border: 1px solid var(--pm-border-light);
+      border-radius: var(--pm-radius-md);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .demo-link-card:hover {
+      background: white;
+      border-color: var(--ion-color-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--pm-shadow-sm);
+    }
+    .demo-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--pm-radius-sm);
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+    .demo-info { flex: 1; min-width: 0; }
+    .demo-label { display: block; font-weight: 700; font-size: 0.85rem; color: var(--pm-text-primary); }
+    .demo-action { font-size: 0.75rem; color: var(--ion-color-primary); font-weight: 500; }
+
     /* Tabs */
     .detail-tabs {
       display: flex;
@@ -818,15 +890,25 @@ export class ProductDetailComponent implements OnInit {
 
         // Set safe youtube URL
         if (this.product.youtubeUrl) {
-          let embedUrl = this.product.youtubeUrl;
-          if (embedUrl.includes('watch?v=')) {
-            embedUrl = embedUrl.replace('watch?v=', 'embed/');
-          }
-          this.safeYoutubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+          this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
         }
       }
     });
   }
+
+  getYoutubeEmbedUrl(url: string): SafeResourceUrl | undefined {
+    // Robust Regex for various YouTube formats: standard, shorts, mobile, youtu.be
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    if (match && match[2].length === 11) {
+      const videoId = match[2];
+      const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&shere=0`;
+      return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+    }
+    return undefined;
+  }
+
 
   getRawPreviewUrl(): string | null {
     if (!this.product) return null;

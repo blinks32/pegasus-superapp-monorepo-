@@ -2,6 +2,12 @@
  * Pegasus Market — Data Models
  */
 
+export interface LiveDemo {
+  label: string;
+  url: string;
+  thumbnailUrl?: string;
+}
+
 export interface Product {
   id: string;
   title: string;
@@ -15,6 +21,7 @@ export interface Product {
   thumbnailUrl: string;
   previewImages: string[];
   demoUrl?: string;
+  liveDemos?: LiveDemo[];
   youtubeUrl?: string;
   rating: number;
   totalRatings: number;
@@ -116,6 +123,7 @@ export interface AdminProject {
   hasReskinService: boolean;
   reskinPrice?: number;
   demoUrl?: string;
+  liveDemos?: LiveDemo[];
   youtubeUrl?: string;
   status: 'draft' | 'pending' | 'published' | 'rejected';
   thumbnailFile?: File;

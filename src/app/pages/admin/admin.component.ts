@@ -379,7 +379,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           </div>
           <div style="display:flex; gap:16px;">
             <div class="form-group" style="flex:1">
-              <label>Demo URL</label>
+              <label>Fallback Demo URL (Legacy)</label>
               <input type="url" [(ngModel)]="editForm.demoUrl" class="form-input" placeholder="https://..." />
             </div>
             <div class="form-group" style="flex:1">
@@ -387,6 +387,29 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               <input type="url" [(ngModel)]="editForm.youtubeUrl" class="form-input" placeholder="https://youtube.com/watch?v=..." />
             </div>
           </div>
+
+          <!-- Multi-Demo Manager -->
+          <div class="form-section" style="margin: 0 0 20px 0">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+              <label style="margin-bottom:0; font-weight:700">🌐 Live Demos</label>
+              <button class="pm-btn pm-btn-ghost pm-btn-sm" (click)="addEditDemo()">+ Add Demo Link</button>
+            </div>
+            <div class="demo-edit-list" style="display:flex; flex-direction:column; gap:12px;">
+              <div *ngFor="let demo of editForm.liveDemos; let i = index" class="demo-edit-item" style="display:flex; gap:12px; align-items:flex-start; background:var(--pm-surface-muted); padding:12px; border-radius:8px; border:1px solid var(--pm-border); position:relative;">
+                <div class="demo-edit-thumb" style="width:60px; height:60px; background:#e2e8f0; border-radius:8px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; flex-shrink:0;">
+                  <div *ngIf="demo.thumbnailUrl" class="thumb-preview" [style.backgroundImage]="'url(' + demo.thumbnailUrl + ')'" style="position:absolute; inset:0; background-size:cover; background-position:center;"></div>
+                  <input type="file" (change)="onDemoThumbnailSelect($event, i)" style="position:absolute; inset:0; opacity:0; cursor:pointer;" title="Change demo thumbnail" />
+                  <span *ngIf="!demo.thumbnailUrl" style="font-size:20px;">📸</span>
+                </div>
+                <div class="demo-edit-fields" style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                  <input type="text" [(ngModel)]="demo.label" placeholder="Demo Name (e.g. Admin Panel)" class="form-input" style="padding:8px 12px;" />
+                  <input type="url" [(ngModel)]="demo.url" placeholder="Demo URL" class="form-input" style="padding:8px 12px;" />
+                </div>
+                <button (click)="removeEditDemo(i)" style="background:none; border:none; color:#EF4444; font-size:24px; cursor:pointer; padding:0 4px; line-height:1;">&times;</button>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
             <label>Tags (comma separated)</label>
             <input type="text" [(ngModel)]="editForm.tagsStr" class="form-input" />
@@ -409,7 +432,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             <input type="file" accept="image/*" (change)="onEditThumbnailSelect($event)" class="form-input" />
           </div>
           <div class="form-group">
-            <label>Screenshots (up to 5)</label>
+            <label>Screenshots (Unlimited)</label>
             <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px" *ngIf="editForm.screenshotPreviews?.length > 0">
               <div *ngFor="let img of editForm.screenshotPreviews; let i = index" style="position:relative">
                 <img [src]="img" style="width:100px;height:70px;border-radius:6px;object-fit:cover" />
@@ -1160,6 +1183,7 @@ export class AdminComponent implements OnInit {
       newThumbnailData: null,
       screenshotPreviews: [...(product.previewImages || [])],
       newScreenshotData: [] as string[],
+      liveDemos: product.liveDemos ? [...product.liveDemos] : [],
     };
     this.showEditModal = true;
   }
@@ -1204,6 +1228,10 @@ export class AdminComponent implements OnInit {
     if (this.editForm.screenshotPreviews?.length > 0) {
       updates.previewImages = this.editForm.screenshotPreviews;
     }
+    // Live Demos
+    if (this.editForm.liveDemos) {
+      updates.liveDemos = this.editForm.liveDemos;
+    }
     try {
       await this.marketplace.updateProduct(this.editingProductId, updates);
       this.closeEditModal();
@@ -1242,7 +1270,6 @@ export class AdminComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files) {
       Array.from(input.files).forEach(file => {
-        if (this.editForm.screenshotPreviews.length >= 5) return;
         const reader = new FileReader();
         reader.onload = (e) => {
           this.editForm.screenshotPreviews.push(e.target?.result as string);
@@ -1254,6 +1281,26 @@ export class AdminComponent implements OnInit {
 
   removeEditScreenshot(index: number) {
     this.editForm.screenshotPreviews = this.editForm.screenshotPreviews.filter((_: any, i: number) => i !== index);
+  }
+
+  // Live Demo Management
+  addEditDemo() {
+    this.editForm.liveDemos.push({ label: '', url: '', thumbnailUrl: '' });
+  }
+
+  removeEditDemo(index: number) {
+    this.editForm.liveDemos.splice(index, 1);
+  }
+
+  onDemoThumbnailSelect(event: Event, index: number) {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.editForm.liveDemos[index].thumbnailUrl = e.target?.result as string;
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
   }
 
   // Blog Management Methods

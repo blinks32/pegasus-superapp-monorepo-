@@ -178,11 +178,38 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
             <div class="form-row">
               <div class="form-group">
                 <label for="fileSize">File Size</label>
-                  <input id="fileSize" type="text" [(ngModel)]="project.fileSize" name="fileSize" placeholder="File size" class="form-input" />
+                  <input id="fileSize" type="text" [(ngModel)]="project.fileSize" name="fileSize" placeholder="e.g. 150MB" class="form-input" />
               </div>
               <div class="form-group">
-                <label for="demoUrl">Demo URL (optional)</label>
-                  <input id="demoUrl" type="url" [(ngModel)]="project.demoUrl" name="demoUrl" placeholder="Demo URL (optional)" class="form-input" />
+                <label for="youtubeUrl">YouTube Video URL</label>
+                  <input id="youtubeUrl" type="url" [(ngModel)]="project.youtubeUrl" name="youtubeUrl" placeholder="https://youtube.com/watch?v=..." class="form-input" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+                <label style="margin-bottom:0">🌐 Live Demo Hub (Multiple Links)</label>
+                <button type="button" class="pm-btn pm-btn-ghost pm-btn-sm" (click)="addDemoLink()">+ Add Demo</button>
+              </div>
+              
+              <div class="demo-links-list" style="display:flex; flex-direction:column; gap:12px;">
+                <div *ngFor="let demo of project.liveDemos; let i = index" class="demo-item" style="display:flex; gap:12px; padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid var(--pm-border); position:relative;">
+                  <div class="demo-thumb-upload" (click)="dThumb.click()" style="width:50px; height:50px; background:#e2e8f0; border-radius:6px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; flex-shrink:0;">
+                    <img *ngIf="demo.thumbnailUrl" [src]="demo.thumbnailUrl" style="width:100%; height:100%; object-fit:cover;" />
+                    <span *ngIf="!demo.thumbnailUrl">📸</span>
+                    <input #dThumb type="file" hidden (change)="onDemoThumbSelect($event, i)" />
+                  </div>
+                  <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                    <input type="text" [(ngModel)]="demo.label" [name]="'demoLabel'+i" placeholder="Demo Name (Admin, User, etc)" class="form-input" style="padding:8px;" />
+                    <input type="url" [(ngModel)]="demo.url" [name]="'demoUrl'+i" placeholder="Demo URL" class="form-input" style="padding:8px;" />
+                  </div>
+                  <button type="button" (click)="removeDemoLink(i)" style="background:none; border:none; color:#EF4444; font-size:20px; cursor:pointer;">&times;</button>
+                </div>
+                
+                <div class="form-group" style="margin-top:8px">
+                  <label for="demoUrlLegacy">Fallback Demo URL (Legacy)</label>
+                  <input id="demoUrlLegacy" type="url" [(ngModel)]="project.demoUrl" name="demoUrl" placeholder="Primary demo link" class="form-input" />
+                </div>
               </div>
             </div>
           </div>
@@ -217,7 +244,7 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
                 <div class="upload-content" *ngIf="screenshotNames.length === 0">
                   <span class="upload-icon">📸</span>
                   <strong>Upload preview screenshots</strong>
-                  <span>Select up to 5 images. PNG, JPG up to 5MB each</span>
+                  <span>Upload unlimited images. PNG, JPG up to 5MB each</span>
                 </div>
                 <div class="upload-content selected" *ngIf="screenshotNames.length > 0">
                   <span class="upload-icon">✅</span>
@@ -532,6 +559,8 @@ export class SubmitProjectComponent {
     license: 'regular',
     hasReskinService: false,
     status: 'pending',
+    liveDemos: [],
+    youtubeUrl: '',
   };
 
   tagsInput = '';
@@ -586,13 +615,10 @@ export class SubmitProjectComponent {
     if (input.files) {
       if (!this.project.previewData) this.project.previewData = [];
       Array.from(input.files).forEach(file => {
-        if (this.screenshotNames.length >= 5) return;
         this.screenshotNames.push(file.name);
         const reader = new FileReader();
         reader.onload = (e) => {
-          if (this.project.previewData!.length < 5) {
-            this.project.previewData!.push(e.target?.result as string);
-          }
+          this.project.previewData!.push(e.target?.result as string);
         };
         reader.readAsDataURL(file);
       });
@@ -609,6 +635,29 @@ export class SubmitProjectComponent {
   onSourceSelect(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files?.length) this.sourceName = input.files[0].name;
+  }
+
+  // Live Demo Management
+  addDemoLink() {
+    if (!this.project.liveDemos) this.project.liveDemos = [];
+    this.project.liveDemos.push({ label: '', url: '', thumbnailUrl: '' });
+  }
+
+  removeDemoLink(index: number) {
+    this.project.liveDemos?.splice(index, 1);
+  }
+
+  onDemoThumbSelect(event: Event, index: number) {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (this.project.liveDemos) {
+          this.project.liveDemos[index].thumbnailUrl = e.target?.result as string;
+        }
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
   }
 
   async saveDraft() {
