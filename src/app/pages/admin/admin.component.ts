@@ -1546,6 +1546,8 @@ export class AdminComponent implements OnInit {
     } finally {
       this.isGenerating.set(false);
     }
+  }
+
   getRandomPastDate(daysMax = 60) {
     const date = new Date();
     date.setDate(date.getDate() - Math.floor(Math.random() * daysMax));

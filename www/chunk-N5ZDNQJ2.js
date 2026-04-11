@@ -1788,7 +1788,7 @@ var AdminComponent = class _AdminComponent {
               // 4 or 5 stars
               title: reviewTemplate.title,
               comment: reviewTemplate.text,
-              date: /* @__PURE__ */ new Date(),
+              date: this.getRandomPastDate(),
               helpful: Math.floor(Math.random() * 25),
               verified: true
             });
@@ -1813,7 +1813,7 @@ var AdminComponent = class _AdminComponent {
             yield addDoc(commentsRef, {
               userName: name,
               text,
-              date: /* @__PURE__ */ new Date()
+              date: this.getRandomPastDate()
             });
           }
         }
@@ -1825,6 +1825,11 @@ var AdminComponent = class _AdminComponent {
         this.isGenerating.set(false);
       }
     });
+  }
+  getRandomPastDate(daysMax = 60) {
+    const date = /* @__PURE__ */ new Date();
+    date.setDate(date.getDate() - Math.floor(Math.random() * daysMax));
+    return date;
   }
   static {
     this.\u0275fac = function AdminComponent_Factory(__ngFactoryType__) {
@@ -1921,4 +1926,4 @@ var AdminComponent = class _AdminComponent {
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-M5E7DEOD.js.map
+//# sourceMappingURL=chunk-N5ZDNQJ2.js.map
