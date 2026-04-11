@@ -1,6 +1,6 @@
 import {
   SeoService
-} from "./chunk-7E7VDJA3.js";
+} from "./chunk-UEFJWUXG.js";
 import {
   ANIMATION_MODULE_TYPE,
   BrowserModule,
@@ -28,6 +28,7 @@ import {
   provideAuth,
   provideFirebaseApp,
   provideFirestore,
+  provideHttpClient,
   provideRouter,
   setClassMetadata,
   withInMemoryScrolling,
@@ -40,7 +41,7 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-QET7PT5I.js";
+} from "./chunk-VAWGWNLY.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -4561,39 +4562,43 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-XVZNKB7G.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-R6PJIM3E.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-MIBQEMO5.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-RHYC4PN6.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-WED2R5XQ.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-RKQDYESQ.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-TIWH24PT.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-BU6YUJNN.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-FZ3W3ZSD.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-MEIYSU53.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-CW5NGB4M.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-Y4XXDYBU.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-IVYCUIMG.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-YWJMPGES.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-7WO3RXQN.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-YUR2FEYM.js").then((m) => m.ProfileComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-Z44VWR6T.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-HPC2JAUD.js").then((m) => m.StaticPageComponent)
+  },
+  {
+    path: "guide",
+    loadComponent: () => import("./chunk-3WN5GW3D.js").then((m) => m.GuideComponent)
   },
   {
     path: "**",
@@ -4620,6 +4625,7 @@ var appConfig = {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules), withInMemoryScrolling({ scrollPositionRestoration: "enabled", anchorScrolling: "enabled" })),
     provideAnimations(),
+    provideHttpClient(),
     Title,
     Meta,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

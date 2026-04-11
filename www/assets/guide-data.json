@@ -1,0 +1,73 @@
+{
+  "setupSteps": [
+    {
+      "id": "clone",
+      "title": "Establish Connection",
+      "subtitle": "Clone the repository",
+      "description": "Initialize your local environment by cloning the Pegasus LMS monorepo. This brings all micro-services and libraries to your workstation.",
+      "code": "git clone https://github.com/repository/pegasus-monorepo.git",
+      "icon": "terminal-outline"
+    },
+    {
+      "id": "install",
+      "title": "Nexus Integration",
+      "subtitle": "Install Dependencies",
+      "description": "Sync your workspace with the required packages. We use npm/yarn to manage our high-performance dependencies.",
+      "code": "npm install",
+      "icon": "download-outline"
+    },
+    {
+      "id": "firebase",
+      "title": "Neural Linkage",
+      "subtitle": "Firebase Configuration",
+      "description": "Connect your application to the Firebase ecosystem. Initialize Firestore and Auth to enable real-time marketplace capabilities.",
+      "code": "firebase login\nfirebase init",
+      "icon": "flame-outline"
+    },
+    {
+      "id": "env",
+      "title": "Core Alignment",
+      "subtitle": "Environment Keys",
+      "description": "Configure your API keys in `src/environments/environment.ts`. This aligns your frontend with the backend infrastructure.",
+      "code": "export const environment = {\n  firebase: {\n    apiKey: 'YOUR_KEY_HERE',\n    ...\n  }\n};",
+      "icon": "key-outline"
+    },
+    {
+      "id": "launch",
+      "title": "System Ignition",
+      "subtitle": "Start Development",
+      "description": "Launch the Pegasus LMS engine. Your application will be available at http://localhost:8100/ for local debugging and testing.",
+      "code": "ionic serve",
+      "icon": "rocket-outline"
+    }
+  ],
+  "usageSteps": [
+    {
+      "id": "admin",
+      "title": "Command Center",
+      "subtitle": "Admin Dashboard",
+      "description": "Access the high-level management console at `/admin`. Authorized agents can monitor sales and manage platform assets.",
+      "icon": "shield-checkmark-outline"
+    },
+    {
+      "id": "marketplace",
+      "title": "Asset Deployment",
+      "subtitle": "Submit Products",
+      "description": "Navigate to the submission portal to upload new SaaS boilerplates or EdTech systems to the global marketplace.",
+      "icon": "cloud-upload-outline"
+    },
+    {
+      "id": "global",
+      "title": "Neural Network",
+      "subtitle": "Configure Settings",
+      "description": "Fine-tune platform parameters, including SEO metadata, commission rates, and real-time notification streams.",
+      "icon": "settings-outline"
+    }
+  ],
+  "lastRefreshed": "11/04/2026, 15:22:41",
+  "projectInfo": {
+    "name": "Pegasus LMS",
+    "version": "1.0.0",
+    "id": "io.pegasus.lms"
+  }
+}
