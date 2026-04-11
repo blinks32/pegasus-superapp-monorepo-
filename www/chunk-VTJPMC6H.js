@@ -19,7 +19,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-N4X3KQAG.js";
+} from "./chunk-IFCTW2PK.js";
 import {
   CommonModule,
   NgForOf,
@@ -1022,8 +1022,9 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
       this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
       this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
       this.project.status = "draft";
+      const cleanedProject = this.marketplace.cleanForFirestore(this.project);
       try {
-        yield this.marketplace.submitProject(this.project);
+        yield this.marketplace.submitProject(cleanedProject);
         alert("Draft saved successfully!");
       } catch (error) {
         console.error("Error saving draft:", error);
@@ -1038,8 +1039,9 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
       this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
       this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
       this.project.status = "published";
+      const cleanedProject = this.marketplace.cleanForFirestore(this.project);
       try {
-        yield this.marketplace.submitProject(this.project);
+        yield this.marketplace.submitProject(cleanedProject);
         this.submitted.set(true);
       } catch (error) {
         console.error("Error submitting project:", error);
@@ -1114,4 +1116,4 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
 export {
   SubmitProjectComponent
 };
-//# sourceMappingURL=chunk-Y4XXDYBU.js.map
+//# sourceMappingURL=chunk-VTJPMC6H.js.map

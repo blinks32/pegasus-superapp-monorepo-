@@ -14,7 +14,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-N4X3KQAG.js";
+} from "./chunk-IFCTW2PK.js";
 import {
   CommonModule,
   DatePipe,
@@ -1309,7 +1309,7 @@ var AdminComponent = class _AdminComponent {
         revenues.push(0);
       }
       for (const p of products) {
-        const createdAt = this.parseDate(p.createdAt);
+        const createdAt = p.createdAt;
         if (!createdAt)
           continue;
         const diffDays = Math.floor((createdAt.getTime() - start.getTime()) / 864e5);
@@ -1326,7 +1326,7 @@ var AdminComponent = class _AdminComponent {
         revenues.push(0);
       }
       for (const p of products) {
-        const createdAt = this.parseDate(p.createdAt);
+        const createdAt = p.createdAt;
         if (!createdAt)
           continue;
         const idx = (createdAt.getFullYear() - start.getFullYear()) * 12 + (createdAt.getMonth() - start.getMonth());
@@ -1347,7 +1347,7 @@ var AdminComponent = class _AdminComponent {
         revenues.push(0);
       }
       for (const p of products) {
-        const createdAt = this.parseDate(p.createdAt);
+        const createdAt = p.createdAt;
         if (!createdAt)
           continue;
         const diffDays = Math.floor((createdAt.getTime() - start.getTime()) / 864e5);
@@ -1364,14 +1364,6 @@ var AdminComponent = class _AdminComponent {
       value,
       pct: maxRevenue > 0 ? value / maxRevenue * 100 : 0
     }));
-  }
-  parseDate(value) {
-    if (!value)
-      return null;
-    if (value instanceof Date)
-      return value;
-    const d = new Date(value);
-    return isNaN(d.getTime()) ? null : d;
   }
   formatViews(v) {
     if (v >= 1e6)
@@ -1517,8 +1509,9 @@ var AdminComponent = class _AdminComponent {
       if (this.editForm.liveDemos) {
         updates.liveDemos = this.editForm.liveDemos;
       }
+      const cleanedUpdates = this.marketplace.cleanForFirestore(updates);
       try {
-        yield this.marketplace.updateProduct(this.editingProductId, updates);
+        yield this.marketplace.updateProduct(this.editingProductId, cleanedUpdates);
         this.closeEditModal();
         alert("Product updated successfully!");
       } catch (error) {
@@ -1766,4 +1759,4 @@ var AdminComponent = class _AdminComponent {
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-MEIYSU53.js.map
+//# sourceMappingURL=chunk-XPP6ER7W.js.map

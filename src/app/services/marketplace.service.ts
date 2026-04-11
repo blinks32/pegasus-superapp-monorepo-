@@ -99,7 +99,12 @@ export class MarketplaceService {
     this._isLoadingProducts.set(true);
 
     collectionData(q, { idField: 'id' }).subscribe((data: any) => {
-      this._products.set(data as Product[]);
+      const transformed = data.map((p: any) => ({
+        ...p,
+        createdAt: this.parseFirestoreDate(p.createdAt),
+        lastUpdated: this.parseFirestoreDate(p.lastUpdated),
+      }));
+      this._products.set(transformed as Product[]);
       // Important: Only flip loading states after we have at least one emission
       this._isLoadingProducts.set(false);
       this._initialLoadComplete.set(true);
@@ -381,6 +386,38 @@ export class MarketplaceService {
       console.error('Error deleting product:', error);
       throw error;
     }
+  }
+
+  /* ═══════════ Helpers ═══════════ */
+
+  private parseFirestoreDate(value: any): Date {
+    if (!value) return new Date();
+    if (value instanceof Date) return value;
+    if (value.toDate && typeof value.toDate === 'function') return value.toDate();
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? new Date() : d;
+  }
+
+  /**
+   * Recursively removes undefined values and cleans objects for Firestore.
+   * Firestore throws errors if it finds 'undefined' in nested arrays/objects.
+   */
+  cleanForFirestore(data: any): any {
+    if (Array.isArray(data)) {
+      return data.map(item => this.cleanForFirestore(item));
+    } else if (data !== null && typeof data === 'object' && !(data instanceof Date)) {
+      const cleaned: any = {};
+      Object.keys(data).forEach(key => {
+        const value = data[key];
+        if (value !== undefined) {
+          cleaned[key] = this.cleanForFirestore(value);
+        } else {
+          cleaned[key] = ''; // Default for undefined
+        }
+      });
+      return cleaned;
+    }
+    return data;
   }
 
 }

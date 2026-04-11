@@ -16,7 +16,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-N4X3KQAG.js";
+} from "./chunk-IFCTW2PK.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -1402,4 +1402,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-RKQDYESQ.js.map
+//# sourceMappingURL=chunk-ZDO77TKE.js.map

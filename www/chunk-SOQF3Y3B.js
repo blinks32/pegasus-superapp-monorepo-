@@ -2,7 +2,7 @@ import {
   AuthService,
   FooterComponent,
   HeaderComponent
-} from "./chunk-N4X3KQAG.js";
+} from "./chunk-IFCTW2PK.js";
 import {
   CommonModule,
   DatePipe,
@@ -211,4 +211,4 @@ var ProfileComponent = class _ProfileComponent {
 export {
   ProfileComponent
 };
-//# sourceMappingURL=chunk-YUR2FEYM.js.map
+//# sourceMappingURL=chunk-SOQF3Y3B.js.map

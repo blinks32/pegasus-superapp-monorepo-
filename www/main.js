@@ -4562,43 +4562,43 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-R6PJIM3E.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-P3EA5QCS.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-RHYC4PN6.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-H4WZRJSU.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-RKQDYESQ.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-ZDO77TKE.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-BU6YUJNN.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-FIZBJZWK.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-MEIYSU53.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-XPP6ER7W.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-Y4XXDYBU.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-VTJPMC6H.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-YWJMPGES.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-5RLE6NF5.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-YUR2FEYM.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-SOQF3Y3B.js").then((m) => m.ProfileComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-HPC2JAUD.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-EH55VCJI.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-3WN5GW3D.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-SLFD2R2C.js").then((m) => m.GuideComponent)
   },
   {
     path: "**",

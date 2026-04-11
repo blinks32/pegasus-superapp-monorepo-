@@ -667,8 +667,11 @@ export class SubmitProjectComponent {
     this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
     this.project.status = 'draft';
     
+    // Sanitize for Firestore
+    const cleanedProject = this.marketplace.cleanForFirestore(this.project);
+    
     try {
-      await this.marketplace.submitProject(this.project);
+      await this.marketplace.submitProject(cleanedProject);
       alert('Draft saved successfully!');
     } catch (error) {
       console.error('Error saving draft:', error);
@@ -683,8 +686,11 @@ export class SubmitProjectComponent {
     this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
     this.project.status = 'published';
     
+    // Sanitize for Firestore
+    const cleanedProject = this.marketplace.cleanForFirestore(this.project);
+    
     try {
-      await this.marketplace.submitProject(this.project);
+      await this.marketplace.submitProject(cleanedProject);
       this.submitted.set(true);
     } catch (error) {
       console.error('Error submitting project:', error);

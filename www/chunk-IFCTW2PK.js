@@ -152,7 +152,11 @@ var MarketplaceService = class _MarketplaceService {
     const q = query(productsRef, orderBy("createdAt", "desc"));
     this._isLoadingProducts.set(true);
     collectionData(q, { idField: "id" }).subscribe((data) => {
-      this._products.set(data);
+      const transformed = data.map((p) => __spreadProps(__spreadValues({}, p), {
+        createdAt: this.parseFirestoreDate(p.createdAt),
+        lastUpdated: this.parseFirestoreDate(p.lastUpdated)
+      }));
+      this._products.set(transformed);
       this._isLoadingProducts.set(false);
       this._initialLoadComplete.set(true);
     });
@@ -411,6 +415,38 @@ var MarketplaceService = class _MarketplaceService {
         throw error;
       }
     });
+  }
+  /* ═══════════ Helpers ═══════════ */
+  parseFirestoreDate(value) {
+    if (!value)
+      return /* @__PURE__ */ new Date();
+    if (value instanceof Date)
+      return value;
+    if (value.toDate && typeof value.toDate === "function")
+      return value.toDate();
+    const d = new Date(value);
+    return isNaN(d.getTime()) ? /* @__PURE__ */ new Date() : d;
+  }
+  /**
+   * Recursively removes undefined values and cleans objects for Firestore.
+   * Firestore throws errors if it finds 'undefined' in nested arrays/objects.
+   */
+  cleanForFirestore(data) {
+    if (Array.isArray(data)) {
+      return data.map((item) => this.cleanForFirestore(item));
+    } else if (data !== null && typeof data === "object" && !(data instanceof Date)) {
+      const cleaned = {};
+      Object.keys(data).forEach((key) => {
+        const value = data[key];
+        if (value !== void 0) {
+          cleaned[key] = this.cleanForFirestore(value);
+        } else {
+          cleaned[key] = "";
+        }
+      });
+      return cleaned;
+    }
+    return data;
   }
   static {
     this.\u0275fac = function MarketplaceService_Factory(__ngFactoryType__) {
@@ -956,4 +992,4 @@ export {
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-N4X3KQAG.js.map
+//# sourceMappingURL=chunk-IFCTW2PK.js.map

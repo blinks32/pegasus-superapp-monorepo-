@@ -1012,7 +1012,7 @@ export class AdminComponent implements OnInit {
       }
 
       for (const p of products) {
-        const createdAt = this.parseDate(p.createdAt);
+        const createdAt = p.createdAt;
         if (!createdAt) continue;
         const diffDays = Math.floor((createdAt.getTime() - start.getTime()) / 86400000);
         if (diffDays < 0 || diffDays >= 7) continue;
@@ -1028,7 +1028,7 @@ export class AdminComponent implements OnInit {
       }
 
       for (const p of products) {
-        const createdAt = this.parseDate(p.createdAt);
+        const createdAt = p.createdAt;
         if (!createdAt) continue;
         const idx =
           (createdAt.getFullYear() - start.getFullYear()) * 12 +
@@ -1052,7 +1052,7 @@ export class AdminComponent implements OnInit {
       }
 
       for (const p of products) {
-        const createdAt = this.parseDate(p.createdAt);
+        const createdAt = p.createdAt;
         if (!createdAt) continue;
         const diffDays = Math.floor((createdAt.getTime() - start.getTime()) / 86400000);
         if (diffDays < 0) continue;
@@ -1068,13 +1068,6 @@ export class AdminComponent implements OnInit {
       value,
       pct: maxRevenue > 0 ? (value / maxRevenue) * 100 : 0,
     }));
-  }
-
-  private parseDate(value: any): Date | null {
-    if (!value) return null;
-    if (value instanceof Date) return value;
-    const d = new Date(value);
-    return isNaN(d.getTime()) ? null : d;
   }
 
   formatViews(v: number): string {
@@ -1232,8 +1225,12 @@ export class AdminComponent implements OnInit {
     if (this.editForm.liveDemos) {
       updates.liveDemos = this.editForm.liveDemos;
     }
+    
+    // Sanitize for Firestore
+    const cleanedUpdates = this.marketplace.cleanForFirestore(updates);
+    
     try {
-      await this.marketplace.updateProduct(this.editingProductId, updates);
+      await this.marketplace.updateProduct(this.editingProductId, cleanedUpdates);
       this.closeEditModal();
       alert('Product updated successfully!');
     } catch (error) {
