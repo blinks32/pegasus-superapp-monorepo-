@@ -4,7 +4,7 @@
       "id": "clone",
       "title": "Establish Connection",
       "subtitle": "Clone the repository",
-      "description": "Initialize your local environment by cloning the Pegasus Superapp monorepo. This brings all micro-services and libraries to your workstation.",
+      "description": "Initialize your local environment by cloning the Pegasus LMS monorepo. This brings all micro-services and libraries to your workstation.",
       "code": "git clone https://github.com/repository/pegasus-monorepo.git",
       "icon": "terminal-outline"
     },
@@ -36,7 +36,7 @@
       "id": "launch",
       "title": "System Ignition",
       "subtitle": "Start Development",
-      "description": "Launch the Pegasus engine. Your application will be available at http://localhost:8100/ for local debugging and testing.",
+      "description": "Launch the Pegasus LMS engine. Your application will be available at http://localhost:8100/ for local debugging and testing.",
       "code": "ionic serve",
       "icon": "rocket-outline"
     }
@@ -63,5 +63,11 @@
       "description": "Fine-tune platform parameters, including SEO metadata, commission rates, and real-time notification streams.",
       "icon": "settings-outline"
     }
-  ]
+  ],
+  "lastRefreshed": "11/04/2026, 14:00:14",
+  "projectInfo": {
+    "name": "Pegasus LMS",
+    "version": "1.0.0",
+    "id": "io.pegasus.lms"
+  }
 }

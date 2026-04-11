@@ -4,8 +4,9 @@
   "description": "Topic-Based Learning Management System",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "sync:guide": "node src/scripts/sync-guide.js",
+    "start": "npm run sync:guide && ng serve",
+    "build": "npm run sync:guide && ng build",
     "test": "ng test"
   },
   "private": true,
