@@ -1,4 +1,5 @@
-import { ApplicationConfig } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withPreloading, PreloadAllModules, withInMemoryScrolling } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { Title, Meta } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })
     ),
     provideAnimations(),
+    provideHttpClient(),
     Title,
     Meta,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

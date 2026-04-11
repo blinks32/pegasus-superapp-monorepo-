@@ -51,6 +51,11 @@ export const routes: Routes = [
       import('./pages/static-page/static-page.component').then((m) => m.StaticPageComponent),
   },
   {
+    path: 'guide',
+    loadComponent: () =>
+      import('./pages/guide/guide.component').then((m) => m.GuideComponent),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
