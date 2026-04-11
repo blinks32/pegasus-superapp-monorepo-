@@ -7,7 +7,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { AuthService } from '../../services/auth.service';
 import { ImageUploadService } from '../../services/image-upload.service';
-import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, deleteDoc, addDoc, query, orderBy, serverTimestamp } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, deleteDoc, addDoc, query, orderBy, serverTimestamp, increment } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-admin',
@@ -28,6 +28,13 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             <button (click)="activeTab = 'Blogs'" [class.active]="activeTab === 'Blogs'" class="tab-btn">Blogs</button>
             <button (click)="activeTab = 'analytics'; loadAnalytics()" [class.active]="activeTab === 'analytics'" class="tab-btn">Analytics</button>
             <button (click)="activeTab = 'settings'" [class.active]="activeTab === 'settings'" class="tab-btn">Settings</button>
+            <button
+              (click)="generateSiteActivity()"
+              [disabled]="isGenerating()"
+              class="pm-btn pm-btn-ghost pm-btn-sm"
+              style="border-color: var(--pm-border); margin-right: 8px;">
+              {{ isGenerating() ? '⌛ Generating...' : '✨ Generate Activity' }}
+            </button>
             <a routerLink="/admin/submit" class="pm-btn pm-btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
               Submit Project
@@ -1433,6 +1440,102 @@ export class AdminComponent implements OnInit {
         console.error('Error deleting blog:', error);
         alert('Failed to delete blog post. Please check your Firestore rules.');
       }
+    }
+  }
+
+  isGenerating = signal(false);
+
+  async generateSiteActivity() {
+    if (this.isGenerating()) return;
+    if (!confirm('This will generate random views, reviews, and comments for ALL published projects. Proceed?')) return;
+
+    this.isGenerating.set(true);
+    try {
+      const projects = this.marketplace.products().filter(p => !p.status || p.status === 'published');
+      
+      const names = ["Alex Rivers", "Sarah Chen", "Marcus Thorne", "Elena Gomez", "David Wu", "Sophie Martin", "James Wilson", "Aria Knight", "Lucas Gray", "Isabella Vane"];
+      const reviewsPool = [
+        { title: "Amazing quality!", text: "The code structure is very clean and easy to follow. Saved me weeks of development time." },
+        { title: "Highly recommended", text: "Great documentation and the UI is beautiful. Worth every penny for our agency." },
+        { title: "Solid architecture", text: "Impressive work on the backend logic. Scales perfectly even with high traffic." },
+        { title: "Excellent support", text: "Had a small issue with setup and the team helped me immediately. 5-star service!" },
+        { title: "Perfect for my startup", text: "Used this to launch my MVP in record time. Users love the interface and speed." },
+        { title: "Clean & Professional", text: "Exactly what I was looking for. No bloat, just high-quality professional code." },
+        { title: "Game changer", text: "This has completely transformed our workflow. The components are modular and robust." }
+      ];
+      const commentsPool = [
+        "Does this support multi-tenant setup out of the box?",
+        "Is there a live demo available for the admin dashboard features?",
+        "Excellent work on the design! Looking forward to future updates.",
+        "Just purchased! How can I access the private Discord community?",
+        "The performance on mobile devices is fantastic. Very smooth.",
+        "Could you please add support for Stripe Connect in the next version?",
+        "Is this compatible with the latest version of Angular?",
+        "Loving the clean code. Keep it up!"
+      ];
+
+      for (const product of projects) {
+        // 1. Generate Views
+        const extraViews = Math.floor(Math.random() * 40) + 15;
+        const productRef = doc(this.firestore, `products/${product.id}`);
+        
+        // 2. Generate Reviews
+        const numReviews = Math.floor(Math.random() * 3) + 2; // 2 to 4 reviews
+        const newReviews = [];
+        for (let i = 0; i < numReviews; i++) {
+          const name = names[Math.floor(Math.random() * names.length)];
+          const reviewTemplate = reviewsPool[Math.floor(Math.random() * reviewsPool.length)];
+          newReviews.push({
+            id: 'gen_' + Math.random().toString(36).substr(2, 9),
+            userId: 'user_' + Math.random().toString(36).substr(2, 5),
+            userName: name,
+            userAvatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`,
+            rating: Math.floor(Math.random() * 2) + 4, // 4 or 5 stars
+            title: reviewTemplate.title,
+            comment: reviewTemplate.text,
+            date: new Date(),
+            helpful: Math.floor(Math.random() * 15),
+            verified: true
+          });
+        }
+
+        // Combine with existing reviews (ensure it's an array)
+        const existingReviews = Array.isArray(product.reviews) ? product.reviews : [];
+        const combinedReviews = [...newReviews, ...existingReviews];
+        
+        // Ensure ratings is safe
+        const totalRatings = combinedReviews.length;
+        const sumRatings = combinedReviews.reduce((s, r) => s + (r.rating || 5), 0);
+        const avgRating = totalRatings > 0 ? sumRatings / totalRatings : 5;
+
+        // Update Project doc
+        await updateDoc(productRef, {
+          totalVisits: increment(extraViews),
+          reviews: combinedReviews,
+          rating: Math.round(avgRating * 10) / 10,
+          totalRatings: totalRatings
+        });
+
+        // 3. Generate Comments
+        const numComments = Math.floor(Math.random() * 3) + 2; // 2 to 4 comments
+        for (let i = 0; i < numComments; i++) {
+          const name = names[Math.floor(Math.random() * names.length)];
+          const text = commentsPool[Math.floor(Math.random() * commentsPool.length)];
+          const commentsRef = collection(this.firestore, `products/${product.id}/comments`);
+          await addDoc(commentsRef, {
+            userName: name,
+            text: text,
+            date: new Date()
+          });
+        }
+      }
+
+      alert(`Success! Generated activity for ${projects.length} live projects. Views, reviews, and comments have been updated.`);
+    } catch (e) {
+      console.error('Activity generation failed', e);
+      alert('Failed to generate activity. Check the browser console for details.');
+    } finally {
+      this.isGenerating.set(false);
     }
   }
 }
