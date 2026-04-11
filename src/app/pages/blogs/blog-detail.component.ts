@@ -53,7 +53,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
             <div class="share-info">
               <h3>Enjoyed this article?</h3>
               <p>Follow us on Twitter for more insights and project releases.</p>
-              <a href="https://twitter.com/selljustcode" target="_blank" class="pm-btn pm-btn-outline pm-btn-sm">Follow @selljustcode</a>
+              <a href="https://twitter.com/selljustcode" target="_blank" class="pm-btn pm-btn-outline pm-btn-sm">Follow &#64;selljustcode</a>
             </div>
           </footer>
         </article>

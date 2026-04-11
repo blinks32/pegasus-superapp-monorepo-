@@ -64135,6 +64135,7 @@ export {
   query2 as query,
   serverTimestamp2 as serverTimestamp,
   setDoc2 as setDoc,
-  updateDoc2 as updateDoc
+  updateDoc2 as updateDoc,
+  where2 as where
 };
-//# sourceMappingURL=chunk-A3WHKVNR.js.map
+//# sourceMappingURL=chunk-PLEPB4GM.js.map

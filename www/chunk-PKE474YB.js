@@ -13,7 +13,7 @@ import {
   registerVersion,
   ɵɵdefineInjectable,
   ɵɵinject
-} from "./chunk-A3WHKVNR.js";
+} from "./chunk-PLEPB4GM.js";
 
 // node_modules/@firebase/storage/dist/index.esm2017.js
 var DEFAULT_HOST = "firebasestorage.googleapis.com";
@@ -1637,7 +1637,7 @@ var ImageUploadService = class _ImageUploadService {
         return downloadUrl;
       } catch (e) {
         console.error("Upload Error:", e);
-        return data;
+        throw e;
       }
     });
   }
@@ -1686,4 +1686,4 @@ var ImageUploadService = class _ImageUploadService {
 export {
   ImageUploadService
 };
-//# sourceMappingURL=chunk-OOBTAQA2.js.map
+//# sourceMappingURL=chunk-PKE474YB.js.map

@@ -1,7 +1,7 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-BZ7Z3MH7.js";
+} from "./chunk-BQ6R7HPJ.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -18,7 +18,7 @@ import {
   ɵɵsanitizeHtml,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-A3WHKVNR.js";
+} from "./chunk-PLEPB4GM.js";
 
 // src/app/pages/static-page/static-page.component.ts
 var StaticPageComponent = class _StaticPageComponent {
@@ -44,13 +44,6 @@ var StaticPageComponent = class _StaticPageComponent {
         <p>Join the <strong>selljustcode</strong> team. We're a fully remote, globally distributed group of developers, designers, and creators.</p>
         <h2>Open Positions</h2>
         <p>There are currently no open positions. Please check back later or subscribe to our newsletter for updates!</p>
-      `
-      },
-      "blog": {
-        title: "Developer Blog",
-        html: `
-        <p>Welcome to the <strong>selljustcode</strong> blog. We regularly post tutorials, industry news, and tips for optimizing your SaaS and B2B platforms.</p>
-        <p><em>Check back soon for our first article!</em></p>
       `
       },
       "affiliate": {
@@ -215,4 +208,4 @@ var StaticPageComponent = class _StaticPageComponent {
 export {
   StaticPageComponent
 };
-//# sourceMappingURL=chunk-R6A5XU7P.js.map
+//# sourceMappingURL=chunk-ZGSZM7Y3.js.map

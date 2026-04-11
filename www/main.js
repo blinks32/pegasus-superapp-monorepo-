@@ -1,6 +1,6 @@
 import {
   SeoService
-} from "./chunk-WXC7DDYQ.js";
+} from "./chunk-JZOLBTDT.js";
 import {
   ANIMATION_MODULE_TYPE,
   BrowserModule,
@@ -41,7 +41,7 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-A3WHKVNR.js";
+} from "./chunk-PLEPB4GM.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -4562,43 +4562,51 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-AWZWYAQP.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-774G3KKE.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-5PZBZ4B2.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-KAPE6RG2.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-ZIRD5MMV.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-ZTKSSBCD.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-NDYZ4Z5W.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-D2RUTCQW.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-EOQZ3WPO.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-MPAOLEAK.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-EMLFQXDP.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-LMFYI7BK.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-I73D2IO3.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-5LV7PME6.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-STF6RTHS.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-QH55OWZY.js").then((m) => m.ProfileComponent)
+  },
+  {
+    path: "blogs",
+    loadComponent: () => import("./chunk-4TI7HMLH.js").then((m) => m.BlogsComponent)
+  },
+  {
+    path: "blog/:id",
+    loadComponent: () => import("./chunk-3EMMQUXH.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-R6A5XU7P.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-ZGSZM7Y3.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-UHJVGNTA.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-PGM7SKAX.js").then((m) => m.GuideComponent)
   },
   {
     path: "**",

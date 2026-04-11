@@ -2,7 +2,7 @@ import {
   AuthService,
   FooterComponent,
   HeaderComponent
-} from "./chunk-BZ7Z3MH7.js";
+} from "./chunk-BQ6R7HPJ.js";
 import {
   CommonModule,
   DatePipe,
@@ -20,7 +20,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-A3WHKVNR.js";
+} from "./chunk-PLEPB4GM.js";
 
 // src/app/pages/profile/profile.component.ts
 var ProfileComponent = class _ProfileComponent {
@@ -211,4 +211,4 @@ var ProfileComponent = class _ProfileComponent {
 export {
   ProfileComponent
 };
-//# sourceMappingURL=chunk-STF6RTHS.js.map
+//# sourceMappingURL=chunk-QH55OWZY.js.map
