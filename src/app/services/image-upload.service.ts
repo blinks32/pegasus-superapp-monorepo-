@@ -52,8 +52,8 @@ export class ImageUploadService {
       return downloadUrl;
     } catch (e) {
       console.error('Upload Error:', e);
-      // Fallback to original data if upload fails (though this may cause Firestore errors if too large)
-      return data;
+      // Do NOT fallback to original data if it's base64, as it will likely exceed Firestore limits
+      throw e;
     }
   }
 
