@@ -7,7 +7,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { AuthService } from '../../services/auth.service';
 import { ImageUploadService } from '../../services/image-upload.service';
-import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, deleteDoc, addDoc, query, orderBy, serverTimestamp, increment } from '@angular/fire/firestore';
+import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, deleteDoc, addDoc, query, orderBy, serverTimestamp, increment, where, getDocs } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-admin',
@@ -34,6 +34,13 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               class="pm-btn pm-btn-ghost pm-btn-sm"
               style="border-color: var(--pm-border); margin-right: 8px;">
               {{ isGenerating() ? '⌛ Generating...' : '✨ Generate Activity' }}
+            </button>
+            <button
+              (click)="resetGeneratedActivity()"
+              [disabled]="isGenerating()"
+              class="pm-btn pm-btn-ghost pm-btn-sm"
+              style="border-color: #EF4444; color: #EF4444; margin-right: 8px;">
+              🗑️ Reset Generated
             </button>
             <a routerLink="/admin/submit" class="pm-btn pm-btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
@@ -1443,6 +1450,50 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  async resetGeneratedActivity() {
+    if (this.isGenerating()) return;
+    if (!confirm('This will remove ALL generated reviews and comments. REAL user data will be preserved. Proceed?')) return;
+
+    this.isGenerating.set(true);
+    try {
+      const projects = this.marketplace.products().filter(p => !p.status || p.status === 'published');
+      
+      for (const product of projects) {
+        const productRef = doc(this.firestore, `products/${product.id}`);
+        
+        // 1. Reset Reviews
+        const existingReviews = Array.isArray(product.reviews) ? product.reviews : [];
+        const filteredReviews = existingReviews.filter(r => !r.id.startsWith('gen_') && !r.isGenerated);
+        
+        const totalRatings = filteredReviews.length;
+        const sumRatings = filteredReviews.reduce((s, r) => s + (r.rating || 5), 0);
+        const avgRating = totalRatings > 0 ? sumRatings / totalRatings : 0;
+
+        await updateDoc(productRef, {
+          reviews: filteredReviews,
+          rating: Math.round(avgRating * 10) / 10,
+          totalRatings: totalRatings
+        });
+
+        // 2. Clear Generated Comments
+        const commentsRef = collection(this.firestore, `products/${product.id}/comments`);
+        const q = query(commentsRef, where('isGenerated', '==', true));
+        const snap = await getDocs(q);
+        
+        for (const d of snap.docs) {
+          await deleteDoc(doc(this.firestore, `products/${product.id}/comments/${d.id}`));
+        }
+      }
+
+      alert('Reset complete! All generated activity has been removed.');
+    } catch (e) {
+      console.error('Reset failed', e);
+      alert('Failed to reset activity.');
+    } finally {
+      this.isGenerating.set(false);
+    }
+  }
+
   isGenerating = signal(false);
 
   async generateSiteActivity() {
@@ -1462,23 +1513,27 @@ export class AdminComponent implements OnInit {
         "Hugo Blackwood", "Sienna Castel", "Arthur Pendragon", "Isabella d'Este"
       ];
       const reviewsPool = [
-        { title: "Enterprise-grade solution", text: "The architectural patterns applied here are world-class. Successfully integrated into our production environment." },
-        { title: "Exceptional engineering", text: "The codebase is a masterclass in clean architecture. Highly scalable and extremely robust." },
-        { title: "Strategic investment", text: "This has significantly accelerated our time-to-market. The components are modular and well-documented." },
-        { title: "Professional excellence", text: "The attention to detail in the UI and performance optimization is remarkable." },
-        { title: "Business critical asset", text: "A robust foundation for any B2B system. The security features are top-notch." },
-        { title: "Market-leading quality", text: "Setting a new bar for SaaS boilerplates. Documentation is exhaustive and very clear." },
-        { title: "Industrial strength", text: "Built for scale. We've stress-tested this and it performs flawlessly under heavy load." }
+        { title: "Great work!", text: "The quality of this project is exceptional. Very satisfied with the purchase." },
+        { title: "Highly recommend", text: "Clean code and very well organized. A great professional asset." },
+        { title: "Outstanding", text: "Everything works as expected. The design is clean and modern." },
+        { title: "Very useful", text: "This saved me a lot of effort. Highly recommend for any professional setup." },
+        { title: "Excellent quality", text: "A top-tier project. The attention to detail is remarkable." },
+        { title: "Impressive", text: "Very smooth implementation and great documentation. 5 stars!" }
       ];
       const commentsPool = [
-        "What is the recommended infrastructure for horizontal scaling?",
-        "Does the architecture support microservices migration in the future?",
-        "Impressive commitment to DRY principles in the codebase.",
-        "How is the data isolation handled in the multi-tenant module?",
-        "The automated test coverage is very reassuring for enterprise use.",
-        "Could you provide a deep-dive into the state management strategy?",
-        "Is there an Extended License available for white-labeling?",
-        "Brilliant execution on the API design. Very intuitive."
+        "Is there a detailed documentation included with the download?",
+        "Does this project receive regular updates?",
+        "Is there a community or Discord for support?",
+        "Great job on this! Does it support mobile responsiveness?",
+        "Could you clarify the license for commercial redistribution?",
+        "Very clean implementation. Do you have a roadmap for future features?"
+      ];
+      const adminReplies = [
+        "Thank you for the kind words! We strive for excellence.",
+        "Glad you found it useful! Let us know if you need anything else.",
+        "We appreciate the support. Updates are coming soon!",
+        "Thank you! Your feedback is what keeps us improving.",
+        "Happy to help! Feel free to reach out for any specific questions."
       ];
 
       for (const product of projects) {
@@ -1503,7 +1558,13 @@ export class AdminComponent implements OnInit {
             comment: reviewTemplate.text,
             date: this.getRandomPastDate(),
             helpful: Math.floor(Math.random() * 25),
-            verified: true
+            verified: true,
+            isGenerated: true,
+            reply: {
+              authorName: 'Admin',
+              comment: adminReplies[Math.floor(Math.random() * adminReplies.length)],
+              date: new Date()
+            }
           });
         }
 
@@ -1530,11 +1591,23 @@ export class AdminComponent implements OnInit {
         for (let i = 0; i < numComments; i++) {
           const name = names[Math.floor(Math.random() * names.length)];
           const text = commentsPool[Math.floor(Math.random() * commentsPool.length)];
+          const commentDate = this.getRandomPastDate();
           const commentsRef = collection(this.firestore, `products/${product.id}/comments`);
+          
+          // User Comment
           await addDoc(commentsRef, {
             userName: name,
             text: text,
-            date: this.getRandomPastDate()
+            date: commentDate,
+            isGenerated: true
+          });
+
+          // Admin Response
+          await addDoc(commentsRef, {
+            userName: 'Admin',
+            text: adminReplies[Math.floor(Math.random() * adminReplies.length)],
+            date: new Date(),
+            isGenerated: true
           });
         }
       }

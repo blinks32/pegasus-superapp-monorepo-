@@ -4578,7 +4578,7 @@ var routes = [
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-N5ZDNQJ2.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-INHHRVTG.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",

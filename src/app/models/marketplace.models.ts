@@ -83,6 +83,7 @@ export interface Review {
   date: Date;
   helpful: number;
   verified: boolean;
+  isGenerated?: boolean;
   reply?: {
     authorName: string;
     comment: string;
