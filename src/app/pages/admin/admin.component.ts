@@ -1501,7 +1501,7 @@ export class AdminComponent implements OnInit {
             rating: Math.floor(Math.random() * 2) + 4, // 4 or 5 stars
             title: reviewTemplate.title,
             comment: reviewTemplate.text,
-            date: new Date(),
+            date: this.getRandomPastDate(),
             helpful: Math.floor(Math.random() * 25),
             verified: true
           });
@@ -1534,7 +1534,7 @@ export class AdminComponent implements OnInit {
           await addDoc(commentsRef, {
             userName: name,
             text: text,
-            date: new Date()
+            date: this.getRandomPastDate()
           });
         }
       }
@@ -1546,5 +1546,9 @@ export class AdminComponent implements OnInit {
     } finally {
       this.isGenerating.set(false);
     }
+  getRandomPastDate(daysMax = 60) {
+    const date = new Date();
+    date.setDate(date.getDate() - Math.floor(Math.random() * daysMax));
+    return date;
   }
 }

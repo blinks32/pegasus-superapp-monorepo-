@@ -39,6 +39,32 @@ import { Product } from '../../models/marketplace.models';
         <span class="current">{{ product.title }}</span>
       </nav>
 
+      <!-- Stats Strip -->
+      <div class="stats-strip shadow-premium">
+        <div class="stat-pill">
+          <span class="pill-label">Rating</span>
+          <div class="pill-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-val">{{ product.rating }}</span>
+          </div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <span class="pill-label">Total Sales</span>
+          <span class="pill-value">{{ product.totalSales | number }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <span class="pill-label">Total Views</span>
+          <span class="pill-value">{{ product.totalVisits | number }}</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <span class="pill-label">Last Updated</span>
+          <span class="pill-value">{{ product.lastUpdated | date:'mediumDate' }}</span>
+        </div>
+      </div>
+
       <div class="detail-layout">
         <!-- Left Column -->
         <div class="detail-main">
@@ -65,7 +91,6 @@ import { Product } from '../../models/marketplace.models';
               <div class="thumb-item" *ngFor="let img of product.previewImages; let i = index" [class.active]="activePreviewIndex === i" [style.backgroundImage]="'url(' + img + ')'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = i"></div>
             </div>
             
-            <!-- Dynamic Demo Hub -->
             <div class="demo-hub" *ngIf="product.liveDemos?.length || product.demoUrl">
               <div class="demo-links-grid">
                 <ng-container *ngIf="product.liveDemos && product.liveDemos.length > 0; else singleDemo">
@@ -86,6 +111,32 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
 
+          <!-- Description & Features (Permanently Visible) -->
+          <div class="main-content-card shadow-premium">
+            <div class="content-section">
+              <h2 class="section-title">Overview</h2>
+              <p class="section-text">{{ product.shortDescription }}</p>
+            </div>
+
+            <!-- YouTube Video Section -->
+            <div *ngIf="safeYoutubeUrl" class="content-section">
+              <h2 class="section-title">Video Overview</h2>
+              <div class="video-container">
+                <iframe [src]="safeYoutubeUrl" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+
+            <div class="content-section">
+              <h2 class="section-title">Key Features</h2>
+              <div class="features-grid">
+                <div class="feature-item" *ngFor="let f of product.features">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>{{ f }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Tabs & Guide Section -->
           <div class="tabs-layout">
             <div class="tabs-main">
@@ -99,40 +150,27 @@ import { Product } from '../../models/marketplace.models';
                 </button>
               </div>
 
-          <!-- Description Tab -->
+          <!-- Technical Specs Tab -->
           <div class="tab-content" *ngIf="activeTab === 'description'">
             <div class="desc-card">
-              <!-- YouTube Video Section -->
-              <div *ngIf="safeYoutubeUrl" style="margin-bottom: 24px;">
-                <h2 style="margin-top:0">Video Overview</h2>
-                <div class="video-container">
-                  <iframe [src]="safeYoutubeUrl" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+              <div class="content-section">
+                <h3 class="section-subtitle">Tech Stack</h3>
+                <div class="tags-row">
+                  <span class="tech-tag" *ngFor="let t of product.techStack">{{ t }}</span>
                 </div>
               </div>
 
-              <h2>Overview</h2>
-              <p>{{ product.shortDescription }}</p>
-
-              <h2>Key Features</h2>
-              <div class="features-grid">
-                <div class="feature-item" *ngFor="let f of product.features">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                  {{ f }}
+              <div class="content-section" style="margin-top: 32px">
+                <h3 class="section-subtitle">Compatibility</h3>
+                <div class="tags-row">
+                  <span class="compat-tag" *ngFor="let c of product.compatibility">{{ c }}</span>
                 </div>
               </div>
 
-              <h2>Tech Stack</h2>
-              <div class="tags-row">
-                <span class="tech-tag" *ngFor="let t of product.techStack">{{ t }}</span>
+              <div class="content-section" style="margin-top: 32px">
+                <h3 class="section-subtitle">Documentation & Support</h3>
+                <p class="section-text">Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.</p>
               </div>
-
-              <h2>Compatibility</h2>
-              <div class="tags-row">
-                <span class="compat-tag" *ngFor="let c of product.compatibility">{{ c }}</span>
-              </div>
-
-              <h2>Support</h2>
-              <p>Includes 6 months of premium support and lifetime updates. Our team responds within 24 hours.</p>
             </div>
           </div>
 
@@ -361,7 +399,45 @@ import { Product } from '../../models/marketplace.models';
     .detail-main { flex: 1; min-width: 0; }
     .detail-sidebar { width: 360px; flex-shrink: 0; }
 
+    /* Stats Strip */
+    .stats-strip {
+      display: flex;
+      align-items: center;
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-md);
+      padding: 20px 32px;
+      margin-bottom: 24px;
+      border: 1px solid var(--pm-border-light);
+    }
+    .stat-pill {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pill-label { font-size: 0.75rem; color: var(--pm-text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .pill-value { font-size: 1.15rem; font-weight: 800; color: var(--pm-text-primary); }
+    .pill-rating { display: flex; align-items: center; gap: 8px; }
+    .pill-rating .stars { color: #F59E0B; font-size: 1rem; }
+    .pill-rating .rating-val { font-weight: 800; font-size: 1.15rem; }
+    .stat-divider { width: 1px; height: 32px; background: var(--pm-border-light); margin: 0 24px; }
+
+    /* Main Content Card */
+    .main-content-card {
+      background: var(--pm-surface);
+      border-radius: var(--pm-radius-lg);
+      padding: 40px;
+      margin-bottom: 24px;
+      border: 1px solid var(--pm-border-light);
+    }
+    .content-section { margin-bottom: 40px; }
+    .content-section:last-child { margin-bottom: 0; }
+    .section-title { font-size: 1.75rem; font-weight: 900; margin-bottom: 16px; color: var(--pm-text-primary); letter-spacing: -0.02em; }
+    .section-subtitle { font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; color: var(--pm-text-primary); }
+    .section-text { font-size: 1.05rem; line-height: 1.8; color: var(--pm-text-secondary); }
+
     .tabs-layout {
+      margin-top: 40px;
       display: flex;
       gap: 0;
       align-items: flex-start;
@@ -815,7 +891,7 @@ export class ProductDetailComponent implements OnInit {
 
   product?: Product;
   relatedProducts: Product[] = [];
-  activeTab = 'description';
+  activeTab = 'reviews';
   selectedLicense: 'regular' | 'extended' = 'regular';
   addReskin = false;
   isInCart = false;
@@ -828,9 +904,9 @@ export class ProductDetailComponent implements OnInit {
   comments: Array<{userName: string; text: string; date: Date}> = [];
 
   tabs = [
-    { id: 'description', label: '📝 Description' },
-    { id: 'reviews', label: '⭐ Reviews' },
-    { id: 'comments', label: '💬 Comments' }
+    { id: 'reviews', label: '⭐ Customer Reviews' },
+    { id: 'comments', label: '💬 Discussion' },
+    { id: 'description', label: '⚙️ Technical Specs' }
   ];
 
   ratingBars = [
