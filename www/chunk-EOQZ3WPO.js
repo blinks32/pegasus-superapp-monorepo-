@@ -1,4 +1,7 @@
 import {
+  ImageUploadService
+} from "./chunk-OOBTAQA2.js";
+import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
@@ -8,13 +11,13 @@ import {
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-RRC5LBPZ.js";
+} from "./chunk-NJH3IML7.js";
 import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-IFCTW2PK.js";
+} from "./chunk-BZ7Z3MH7.js";
 import {
   CommonModule,
   DatePipe,
@@ -38,6 +41,7 @@ import {
   orderBy,
   query,
   serverTimestamp,
+  signal,
   updateDoc,
   ɵsetClassDebugInfo,
   ɵɵStandaloneFeature,
@@ -75,7 +79,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/pages/admin/admin.component.ts
 var _c0 = (a0) => ["/product", a0];
@@ -782,7 +786,7 @@ function AdminComponent_div_27_Template(rf, ctx) {
 }
 function AdminComponent_div_28_option_38_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "option", 154);
+    \u0275\u0275elementStart(0, "option", 155);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -795,7 +799,7 @@ function AdminComponent_div_28_option_38_Template(rf, ctx) {
 }
 function AdminComponent_div_28_div_67_div_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "div", 164);
+    \u0275\u0275element(0, "div", 165);
   }
   if (rf & 2) {
     const demo_r17 = \u0275\u0275nextContext().$implicit;
@@ -804,7 +808,7 @@ function AdminComponent_div_28_div_67_div_2_Template(rf, ctx) {
 }
 function AdminComponent_div_28_div_67_span_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 165);
+    \u0275\u0275elementStart(0, "span", 166);
     \u0275\u0275text(1, "\u{1F4F8}");
     \u0275\u0275elementEnd();
   }
@@ -812,32 +816,32 @@ function AdminComponent_div_28_div_67_span_4_Template(rf, ctx) {
 function AdminComponent_div_28_div_67_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 155)(1, "div", 156);
-    \u0275\u0275template(2, AdminComponent_div_28_div_67_div_2_Template, 1, 2, "div", 157);
-    \u0275\u0275elementStart(3, "input", 158);
+    \u0275\u0275elementStart(0, "div", 156)(1, "div", 157);
+    \u0275\u0275template(2, AdminComponent_div_28_div_67_div_2_Template, 1, 2, "div", 158);
+    \u0275\u0275elementStart(3, "input", 159);
     \u0275\u0275listener("change", function AdminComponent_div_28_div_67_Template_input_change_3_listener($event) {
       const i_r18 = \u0275\u0275restoreView(_r16).index;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.onDemoThumbnailSelect($event, i_r18));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(4, AdminComponent_div_28_div_67_span_4_Template, 2, 0, "span", 159);
+    \u0275\u0275template(4, AdminComponent_div_28_div_67_span_4_Template, 2, 0, "span", 160);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 160)(6, "input", 161);
+    \u0275\u0275elementStart(5, "div", 161)(6, "input", 162);
     \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_28_div_67_Template_input_ngModelChange_6_listener($event) {
       const demo_r17 = \u0275\u0275restoreView(_r16).$implicit;
       \u0275\u0275twoWayBindingSet(demo_r17.label, $event) || (demo_r17.label = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "input", 162);
+    \u0275\u0275elementStart(7, "input", 163);
     \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_28_div_67_Template_input_ngModelChange_7_listener($event) {
       const demo_r17 = \u0275\u0275restoreView(_r16).$implicit;
       \u0275\u0275twoWayBindingSet(demo_r17.url, $event) || (demo_r17.url = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "button", 163);
+    \u0275\u0275elementStart(8, "button", 164);
     \u0275\u0275listener("click", function AdminComponent_div_28_div_67_Template_button_click_8_listener() {
       const i_r18 = \u0275\u0275restoreView(_r16).index;
       const ctx_r2 = \u0275\u0275nextContext(2);
@@ -860,8 +864,8 @@ function AdminComponent_div_28_div_67_Template(rf, ctx) {
 }
 function AdminComponent_div_28_div_83_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 166);
-    \u0275\u0275element(1, "img", 167);
+    \u0275\u0275elementStart(0, "div", 167);
+    \u0275\u0275element(1, "img", 168);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -873,9 +877,9 @@ function AdminComponent_div_28_div_83_Template(rf, ctx) {
 function AdminComponent_div_28_div_88_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r19 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 170);
-    \u0275\u0275element(1, "img", 171);
-    \u0275\u0275elementStart(2, "button", 172);
+    \u0275\u0275elementStart(0, "div", 171);
+    \u0275\u0275element(1, "img", 172);
+    \u0275\u0275elementStart(2, "button", 173);
     \u0275\u0275listener("click", function AdminComponent_div_28_div_88_div_1_Template_button_click_2_listener() {
       const i_r20 = \u0275\u0275restoreView(_r19).index;
       const ctx_r2 = \u0275\u0275nextContext(3);
@@ -892,8 +896,8 @@ function AdminComponent_div_28_div_88_div_1_Template(rf, ctx) {
 }
 function AdminComponent_div_28_div_88_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 168);
-    \u0275\u0275template(1, AdminComponent_div_28_div_88_div_1_Template, 4, 1, "div", 169);
+    \u0275\u0275elementStart(0, "div", 169);
+    \u0275\u0275template(1, AdminComponent_div_28_div_88_div_1_Template, 4, 1, "div", 170);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1148,7 +1152,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275text(99, " New ");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(100, "div", 124)(101, "button", 125);
+    \u0275\u0275elementStart(100, "div", 124)(101, "button", 154);
     \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_101_listener() {
       \u0275\u0275restoreView(_r14);
       const ctx_r2 = \u0275\u0275nextContext();
@@ -1162,7 +1166,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.saveEditProduct());
     });
-    \u0275\u0275text(104, " \u{1F4BE} Save Changes ");
+    \u0275\u0275text(104);
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
@@ -1207,8 +1211,12 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.editForm.isBestseller);
     \u0275\u0275advance(3);
     \u0275\u0275twoWayProperty("ngModel", ctx_r2.editForm.isNew);
-    \u0275\u0275advance(5);
-    \u0275\u0275property("disabled", !ctx_r2.editForm.title);
+    \u0275\u0275advance(3);
+    \u0275\u0275property("disabled", ctx_r2.isSaving());
+    \u0275\u0275advance(2);
+    \u0275\u0275property("disabled", !ctx_r2.editForm.title || ctx_r2.isSaving());
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate1(" ", ctx_r2.isSaving() ? "\u231B Saving Assets..." : "\u{1F4BE} Save Changes", " ");
   }
 }
 var AdminComponent = class _AdminComponent {
@@ -1216,9 +1224,11 @@ var AdminComponent = class _AdminComponent {
     this.marketplace = inject(MarketplaceService);
     this.authService = inject(AuthService);
     this.firestore = inject(Firestore);
+    this.imageUpload = inject(ImageUploadService);
     this.activeTab = "dashboard";
     this.chartPeriod = "30d";
     this.projectTab = "all";
+    this.isSaving = signal(false);
     this.dashboardStats = [];
     this.chartData = [];
     this.chartTotalRevenue = 0;
@@ -1494,29 +1504,56 @@ var AdminComponent = class _AdminComponent {
         updates.originalPrice = Number(this.editForm.originalPrice);
         updates.discountPercent = Math.round((1 - updates.price / updates.originalPrice) * 100);
       }
-      if (this.editForm.demoUrl) {
-        updates.demoUrl = this.editForm.demoUrl;
-      }
-      if (this.editForm.youtubeUrl) {
-        updates.youtubeUrl = this.editForm.youtubeUrl;
-      }
-      if (this.editForm.newThumbnailData) {
-        updates.thumbnailUrl = this.editForm.newThumbnailData;
-      }
-      if (this.editForm.screenshotPreviews?.length > 0) {
-        updates.previewImages = this.editForm.screenshotPreviews;
-      }
-      if (this.editForm.liveDemos) {
-        updates.liveDemos = this.editForm.liveDemos;
-      }
-      const cleanedUpdates = this.marketplace.cleanForFirestore(updates);
+      if (!this.editingProductId)
+        return;
+      this.isSaving.set(true);
       try {
+        let thumbnailUrl = this.editForm.thumbnailPreview;
+        if (thumbnailUrl && thumbnailUrl.startsWith("data:")) {
+          thumbnailUrl = yield this.imageUpload.upload(thumbnailUrl, "products/thumbnails");
+        }
+        const previewImages = [];
+        for (const img of this.editForm.screenshotPreviews) {
+          if (img.startsWith("data:")) {
+            const uploadedUrl = yield this.imageUpload.upload(img, "products/screenshots");
+            previewImages.push(uploadedUrl);
+          } else {
+            previewImages.push(img);
+          }
+        }
+        const liveDemos = [];
+        if (this.editForm.liveDemos) {
+          for (const demo of this.editForm.liveDemos) {
+            let demoThumb = demo.thumbnailUrl;
+            if (demoThumb && demoThumb.startsWith("data:")) {
+              demoThumb = yield this.imageUpload.upload(demoThumb, "products/demos");
+            }
+            liveDemos.push(__spreadProps(__spreadValues({}, demo), { thumbnailUrl: demoThumb }));
+          }
+        }
+        const updates2 = {
+          title: this.editForm.title,
+          shortDescription: this.editForm.shortDescription,
+          category: this.editForm.category,
+          price: this.editForm.price,
+          originalPrice: this.editForm.originalPrice,
+          tags: this.editForm.tagsStr.split(",").map((t) => t.trim()).filter((t) => t),
+          features: this.editForm.featuresStr.split("\n").filter((f) => f.trim()),
+          techStack: this.editForm.techStackStr.split(",").map((t) => t.trim()).filter((t) => t),
+          thumbnailUrl,
+          previewImages,
+          liveDemos,
+          youtubeUrl: this.editForm.youtubeUrl || ""
+        };
+        const cleanedUpdates = this.marketplace.cleanForFirestore(updates2);
         yield this.marketplace.updateProduct(this.editingProductId, cleanedUpdates);
         this.closeEditModal();
-        alert("Product updated successfully!");
+        alert("Product updated successfully! All assets moved to cloud storage.");
       } catch (error) {
         console.error("Error updating product:", error);
-        alert("Failed to update product.");
+        alert("Failed to update product assets. Check console for details.");
+      } finally {
+        this.isSaving.set(false);
       }
     });
   }
@@ -1680,7 +1717,7 @@ var AdminComponent = class _AdminComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AdminComponent, selectors: [["app-admin"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 30, vars: 14, consts: [[1, "admin-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "hero-actions"], [1, "tab-btn", 3, "click"], ["routerLink", "/admin/submit", 1, "pm-btn", "pm-btn-primary"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M12 5v14M5 12h14"], [1, "pm-container", "admin-content"], ["class", "fade-in", 4, "ngIf"], ["class", "modal-overlay", 3, "click", 4, "ngIf"], [1, "fade-in"], [1, "stats-grid", "stagger-children"], ["class", "stat-card", 4, "ngFor", "ngForOf"], [1, "chart-card"], [1, "chart-header"], [1, "chart-tabs"], [3, "click"], [1, "chart-body"], [1, "chart-bars"], ["class", "chart-bar", 3, "height", 4, "ngFor", "ngForOf"], ["class", "empty-chart", 4, "ngIf"], [1, "chart-labels"], [4, "ngFor", "ngForOf"], [1, "projects-card"], [1, "card-header"], [1, "header-tabs"], ["style", "padding: 40px; text-align: center; color: var(--pm-text-muted);", 4, "ngIf"], [4, "ngIf"], [1, "stat-card"], [1, "stat-card-icon"], [1, "stat-card-info"], [1, "stat-card-value"], [1, "stat-card-label"], ["class", "stat-card-change positive", 4, "ngIf"], [1, "stat-card-change", "positive"], [1, "chart-bar"], [1, "bar-tooltip"], [1, "empty-chart"], [2, "padding", "40px", "text-align", "center", "color", "var(--pm-text-muted)"], [1, "loading-spinner", 2, "margin-bottom", "12px"], ["class", "project-row", 4, "ngFor", "ngForOf"], ["class", "empty-projects", 4, "ngIf"], [1, "project-row"], [1, "project-thumb"], [1, "project-info"], [1, "project-title"], [1, "project-desc"], [1, "project-status"], [1, "status-badge"], [1, "project-price"], [1, "project-date"], [1, "project-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "routerLink"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], ["width", "14", "height", "14", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"], ["d", "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "color", "#EF4444", 3, "click"], ["d", "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"], [1, "empty-projects"], ["routerLink", "/admin/submit"], [1, "settings-card"], [1, "settings-header"], [1, "settings-form"], [1, "form-section"], [1, "section-desc"], [1, "form-group-row"], ["type", "email", "placeholder", "Admin email", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], [1, "pm-divider"], [1, "form-grid"], [1, "form-group"], ["type", "password", "placeholder", "Enter current password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Enter new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Repeat new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "mt-16", 3, "click", "disabled"], [1, "blog-management"], [1, "blog-actions"], [1, "pm-btn", "pm-btn-primary", 3, "click"], ["class", "blogs-list", 4, "ngIf"], ["class", "empty-state", 4, "ngIf"], [1, "blogs-list"], ["class", "blog-item", 4, "ngFor", "ngForOf"], [1, "blog-item"], [1, "blog-item-content"], [1, "blog-item-header"], [1, "pm-btn", "pm-btn-sm", "pm-btn-ghost", 3, "click"], [1, "pm-btn", "pm-btn-sm", "pm-btn-danger", 3, "click"], [1, "blog-excerpt"], [1, "blog-meta"], [1, "blog-status"], [1, "blog-date"], [1, "empty-state"], ["width", "48", "height", "48", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "1.5"], ["d", "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"], ["points", "14 2 14 8 20 8"], ["x1", "16", "y1", "13", "x2", "8", "y2", "13"], ["x1", "16", "y1", "17", "x2", "8", "y2", "17"], ["points", "10 9 9 9 8 9"], [2, "overflow-x", "auto"], [1, "pm-table", 2, "width", "100%", "border-collapse", "collapse", "text-align", "left"], [2, "border-bottom", "2px solid var(--pm-border-light)"], [2, "padding", "12px", "color", "var(--pm-text-muted)"], ["style", "border-bottom: 1px solid var(--pm-border-light);", 4, "ngFor", "ngForOf"], [2, "border-bottom", "1px solid var(--pm-border-light)"], [2, "padding", "12px", "white-space", "nowrap"], [2, "padding", "12px"], [2, "padding", "12px", "font-size", "0.8rem", "color", "var(--pm-text-secondary)", "max-width", "250px", "overflow", "hidden", "text-overflow", "ellipsis", "white-space", "nowrap", 3, "title"], [1, "modal-overlay", 3, "click"], [1, "modal-content", 3, "click"], [1, "modal-header"], [1, "modal-close", 3, "click"], [1, "modal-body"], ["for", "blogTitle"], ["id", "blogTitle", "type", "text", "placeholder", "Enter blog title", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogExcerpt"], ["id", "blogExcerpt", "placeholder", "Short description (appears in listings)", "rows", "3", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogContent"], ["id", "blogContent", "placeholder", "Full blog content (supports HTML)", "rows", "10", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "modal-footer"], [1, "pm-btn", "pm-btn-ghost", 3, "click"], [1, "modal-content", 2, "max-width", "700px", 3, "click"], [1, "modal-body", 2, "max-height", "70vh", "overflow-y", "auto"], ["type", "text", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "2", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "gap", "16px"], [1, "form-group", 2, "flex", "1"], ["type", "number", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value", 4, "ngFor", "ngForOf"], ["value", "published"], ["value", "draft"], ["value", "pending"], ["value", "rejected"], ["type", "url", "placeholder", "https://...", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-section", 2, "margin", "0 0 20px 0"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0", "font-weight", "700"], [1, "demo-edit-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-edit-item", "style", "display:flex; gap:12px; align-items:flex-start; background:var(--pm-surface-muted); padding:12px; border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], ["rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], ["style", "margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", 1, "form-input", 3, "change"], ["style", "display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", 1, "form-input", 3, "change"], [2, "display", "flex", "gap", "12px", "align-items", "center", "margin-top", "8px"], [2, "display", "flex", "align-items", "center", "gap", "8px", "cursor", "pointer"], [3, "value"], [1, "demo-edit-item", 2, "display", "flex", "gap", "12px", "align-items", "flex-start", "background", "var(--pm-surface-muted)", "padding", "12px", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-edit-thumb", 2, "width", "60px", "height", "60px", "background", "#e2e8f0", "border-radius", "8px", "display", "flex", "align-items", "center", "justify-content", "center", "position", "relative", "overflow", "hidden", "flex-shrink", "0"], ["class", "thumb-preview", "style", "position:absolute; inset:0; background-size:cover; background-position:center;", 3, "backgroundImage", 4, "ngIf"], ["type", "file", "title", "Change demo thumbnail", 2, "position", "absolute", "inset", "0", "opacity", "0", "cursor", "pointer", 3, "change"], ["style", "font-size:20px;", 4, "ngIf"], [1, "demo-edit-fields", 2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (e.g. Admin Panel)", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], [2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "24px", "cursor", "pointer", "padding", "0 4px", "line-height", "1", 3, "click"], [1, "thumb-preview", 2, "position", "absolute", "inset", "0", "background-size", "cover", "background-position", "center"], [2, "font-size", "20px"], [2, "margin-bottom", "8px"], [2, "max-width", "200px", "max-height", "120px", "border-radius", "8px", "object-fit", "cover", 3, "src"], [2, "display", "flex", "gap", "8px", "flex-wrap", "wrap", "margin-bottom", "8px"], ["style", "position:relative", 4, "ngFor", "ngForOf"], [2, "position", "relative"], [2, "width", "100px", "height", "70px", "border-radius", "6px", "object-fit", "cover", 3, "src"], [2, "position", "absolute", "top", "-6px", "right", "-6px", "width", "20px", "height", "20px", "border-radius", "50%", "background", "#EF4444", "color", "white", "border", "none", "font-size", "12px", "cursor", "pointer", "display", "flex", "align-items", "center", "justify-content", "center", 3, "click"]], template: function AdminComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AdminComponent, selectors: [["app-admin"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 30, vars: 14, consts: [[1, "admin-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "hero-actions"], [1, "tab-btn", 3, "click"], ["routerLink", "/admin/submit", 1, "pm-btn", "pm-btn-primary"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M12 5v14M5 12h14"], [1, "pm-container", "admin-content"], ["class", "fade-in", 4, "ngIf"], ["class", "modal-overlay", 3, "click", 4, "ngIf"], [1, "fade-in"], [1, "stats-grid", "stagger-children"], ["class", "stat-card", 4, "ngFor", "ngForOf"], [1, "chart-card"], [1, "chart-header"], [1, "chart-tabs"], [3, "click"], [1, "chart-body"], [1, "chart-bars"], ["class", "chart-bar", 3, "height", 4, "ngFor", "ngForOf"], ["class", "empty-chart", 4, "ngIf"], [1, "chart-labels"], [4, "ngFor", "ngForOf"], [1, "projects-card"], [1, "card-header"], [1, "header-tabs"], ["style", "padding: 40px; text-align: center; color: var(--pm-text-muted);", 4, "ngIf"], [4, "ngIf"], [1, "stat-card"], [1, "stat-card-icon"], [1, "stat-card-info"], [1, "stat-card-value"], [1, "stat-card-label"], ["class", "stat-card-change positive", 4, "ngIf"], [1, "stat-card-change", "positive"], [1, "chart-bar"], [1, "bar-tooltip"], [1, "empty-chart"], [2, "padding", "40px", "text-align", "center", "color", "var(--pm-text-muted)"], [1, "loading-spinner", 2, "margin-bottom", "12px"], ["class", "project-row", 4, "ngFor", "ngForOf"], ["class", "empty-projects", 4, "ngIf"], [1, "project-row"], [1, "project-thumb"], [1, "project-info"], [1, "project-title"], [1, "project-desc"], [1, "project-status"], [1, "status-badge"], [1, "project-price"], [1, "project-date"], [1, "project-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "routerLink"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], ["width", "14", "height", "14", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"], ["d", "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "color", "#EF4444", 3, "click"], ["d", "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"], [1, "empty-projects"], ["routerLink", "/admin/submit"], [1, "settings-card"], [1, "settings-header"], [1, "settings-form"], [1, "form-section"], [1, "section-desc"], [1, "form-group-row"], ["type", "email", "placeholder", "Admin email", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], [1, "pm-divider"], [1, "form-grid"], [1, "form-group"], ["type", "password", "placeholder", "Enter current password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Enter new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], ["type", "password", "placeholder", "Repeat new password", 1, "pm-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "mt-16", 3, "click", "disabled"], [1, "blog-management"], [1, "blog-actions"], [1, "pm-btn", "pm-btn-primary", 3, "click"], ["class", "blogs-list", 4, "ngIf"], ["class", "empty-state", 4, "ngIf"], [1, "blogs-list"], ["class", "blog-item", 4, "ngFor", "ngForOf"], [1, "blog-item"], [1, "blog-item-content"], [1, "blog-item-header"], [1, "pm-btn", "pm-btn-sm", "pm-btn-ghost", 3, "click"], [1, "pm-btn", "pm-btn-sm", "pm-btn-danger", 3, "click"], [1, "blog-excerpt"], [1, "blog-meta"], [1, "blog-status"], [1, "blog-date"], [1, "empty-state"], ["width", "48", "height", "48", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "1.5"], ["d", "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"], ["points", "14 2 14 8 20 8"], ["x1", "16", "y1", "13", "x2", "8", "y2", "13"], ["x1", "16", "y1", "17", "x2", "8", "y2", "17"], ["points", "10 9 9 9 8 9"], [2, "overflow-x", "auto"], [1, "pm-table", 2, "width", "100%", "border-collapse", "collapse", "text-align", "left"], [2, "border-bottom", "2px solid var(--pm-border-light)"], [2, "padding", "12px", "color", "var(--pm-text-muted)"], ["style", "border-bottom: 1px solid var(--pm-border-light);", 4, "ngFor", "ngForOf"], [2, "border-bottom", "1px solid var(--pm-border-light)"], [2, "padding", "12px", "white-space", "nowrap"], [2, "padding", "12px"], [2, "padding", "12px", "font-size", "0.8rem", "color", "var(--pm-text-secondary)", "max-width", "250px", "overflow", "hidden", "text-overflow", "ellipsis", "white-space", "nowrap", 3, "title"], [1, "modal-overlay", 3, "click"], [1, "modal-content", 3, "click"], [1, "modal-header"], [1, "modal-close", 3, "click"], [1, "modal-body"], ["for", "blogTitle"], ["id", "blogTitle", "type", "text", "placeholder", "Enter blog title", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogExcerpt"], ["id", "blogExcerpt", "placeholder", "Short description (appears in listings)", "rows", "3", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogContent"], ["id", "blogContent", "placeholder", "Full blog content (supports HTML)", "rows", "10", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "modal-footer"], [1, "pm-btn", "pm-btn-ghost", 3, "click"], [1, "modal-content", 2, "max-width", "700px", 3, "click"], [1, "modal-body", 2, "max-height", "70vh", "overflow-y", "auto"], ["type", "text", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "2", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "gap", "16px"], [1, "form-group", 2, "flex", "1"], ["type", "number", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value", 4, "ngFor", "ngForOf"], ["value", "published"], ["value", "draft"], ["value", "pending"], ["value", "rejected"], ["type", "url", "placeholder", "https://...", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-section", 2, "margin", "0 0 20px 0"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0", "font-weight", "700"], [1, "demo-edit-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-edit-item", "style", "display:flex; gap:12px; align-items:flex-start; background:var(--pm-surface-muted); padding:12px; border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], ["rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], ["style", "margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", 1, "form-input", 3, "change"], ["style", "display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", 1, "form-input", 3, "change"], [2, "display", "flex", "gap", "12px", "align-items", "center", "margin-top", "8px"], [2, "display", "flex", "align-items", "center", "gap", "8px", "cursor", "pointer"], [1, "pm-btn", "pm-btn-ghost", 3, "click", "disabled"], [3, "value"], [1, "demo-edit-item", 2, "display", "flex", "gap", "12px", "align-items", "flex-start", "background", "var(--pm-surface-muted)", "padding", "12px", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-edit-thumb", 2, "width", "60px", "height", "60px", "background", "#e2e8f0", "border-radius", "8px", "display", "flex", "align-items", "center", "justify-content", "center", "position", "relative", "overflow", "hidden", "flex-shrink", "0"], ["class", "thumb-preview", "style", "position:absolute; inset:0; background-size:cover; background-position:center;", 3, "backgroundImage", 4, "ngIf"], ["type", "file", "title", "Change demo thumbnail", 2, "position", "absolute", "inset", "0", "opacity", "0", "cursor", "pointer", 3, "change"], ["style", "font-size:20px;", 4, "ngIf"], [1, "demo-edit-fields", 2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (e.g. Admin Panel)", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], [2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "24px", "cursor", "pointer", "padding", "0 4px", "line-height", "1", 3, "click"], [1, "thumb-preview", 2, "position", "absolute", "inset", "0", "background-size", "cover", "background-position", "center"], [2, "font-size", "20px"], [2, "margin-bottom", "8px"], [2, "max-width", "200px", "max-height", "120px", "border-radius", "8px", "object-fit", "cover", 3, "src"], [2, "display", "flex", "gap", "8px", "flex-wrap", "wrap", "margin-bottom", "8px"], ["style", "position:relative", 4, "ngFor", "ngForOf"], [2, "position", "relative"], [2, "width", "100px", "height", "70px", "border-radius", "6px", "object-fit", "cover", 3, "src"], [2, "position", "absolute", "top", "-6px", "right", "-6px", "width", "20px", "height", "20px", "border-radius", "50%", "background", "#EF4444", "color", "white", "border", "none", "font-size", "12px", "cursor", "pointer", "display", "flex", "align-items", "center", "justify-content", "center", 3, "click"]], template: function AdminComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "section", 0)(2, "div", 1)(3, "div", 2)(4, "div")(5, "h1", 3);
@@ -1725,7 +1762,7 @@ var AdminComponent = class _AdminComponent {
         \u0275\u0275elementStart(22, "div", 10);
         \u0275\u0275template(23, AdminComponent_div_23_Template, 35, 21, "div", 11)(24, AdminComponent_div_24_Template, 38, 7, "div", 11)(25, AdminComponent_div_25_Template, 15, 2, "div", 11)(26, AdminComponent_div_26_Template, 24, 2, "div", 11);
         \u0275\u0275elementEnd();
-        \u0275\u0275template(27, AdminComponent_div_27_Template, 30, 7, "div", 12)(28, AdminComponent_div_28_Template, 105, 21, "div", 12);
+        \u0275\u0275template(27, AdminComponent_div_27_Template, 30, 7, "div", 12)(28, AdminComponent_div_28_Template, 105, 23, "div", 12);
         \u0275\u0275element(29, "app-footer");
       }
       if (rf & 2) {
@@ -1754,9 +1791,9 @@ var AdminComponent = class _AdminComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 907 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 908 });
 })();
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-XPP6ER7W.js.map
+//# sourceMappingURL=chunk-EOQZ3WPO.js.map

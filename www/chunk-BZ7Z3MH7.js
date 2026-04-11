@@ -62,7 +62,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/services/marketplace.service.ts
 var MarketplaceService = class _MarketplaceService {
@@ -992,4 +992,4 @@ export {
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-IFCTW2PK.js.map
+//# sourceMappingURL=chunk-BZ7Z3MH7.js.map

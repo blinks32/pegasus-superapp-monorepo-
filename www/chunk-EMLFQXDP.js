@@ -1,4 +1,7 @@
 import {
+  ImageUploadService
+} from "./chunk-OOBTAQA2.js";
+import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
@@ -14,12 +17,12 @@ import {
   SelectControlValueAccessor,
   ɵNgNoValidate,
   ɵNgSelectMultipleOption
-} from "./chunk-RRC5LBPZ.js";
+} from "./chunk-NJH3IML7.js";
 import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-IFCTW2PK.js";
+} from "./chunk-BZ7Z3MH7.js";
 import {
   CommonModule,
   NgForOf,
@@ -53,7 +56,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/pages/admin/submit-project/submit-project.component.ts
 function SubmitProjectComponent_div_10_Template(rf, ctx) {
@@ -823,8 +826,14 @@ function SubmitProjectComponent_form_11_button_10_Template(rf, ctx) {
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.saveDraft());
     });
-    \u0275\u0275text(1, " \u{1F4BE} Save as Draft ");
+    \u0275\u0275text(1);
     \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext(2);
+    \u0275\u0275property("disabled", ctx_r1.isUploading());
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate1(" ", ctx_r1.isUploading() ? "\u231B Saving Assets..." : "\u{1F4BE} Save as Draft", " ");
   }
 }
 function SubmitProjectComponent_form_11_button_11_Template(rf, ctx) {
@@ -841,18 +850,20 @@ function SubmitProjectComponent_form_11_button_11_Template(rf, ctx) {
   }
   if (rf & 2) {
     const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("disabled", !ctx_r1.isStepValid());
+    \u0275\u0275property("disabled", !ctx_r1.isStepValid() || ctx_r1.isUploading());
   }
 }
 function SubmitProjectComponent_form_11_button_12_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "button", 119);
-    \u0275\u0275text(1, " \u{1F680} Submit for Review ");
+    \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275property("disabled", !ctx_r1.isFormValid());
+    \u0275\u0275property("disabled", !ctx_r1.isFormValid() || ctx_r1.isUploading());
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate1(" ", ctx_r1.isUploading() ? "\u{1F680} Uploading..." : "\u{1F680} Submit for Review", " ");
   }
 }
 function SubmitProjectComponent_form_11_Template(rf, ctx) {
@@ -871,7 +882,7 @@ function SubmitProjectComponent_form_11_Template(rf, ctx) {
     \u0275\u0275elementStart(7, "div", 21);
     \u0275\u0275template(8, SubmitProjectComponent_form_11_button_8_Template, 2, 0, "button", 22);
     \u0275\u0275element(9, "div", 23);
-    \u0275\u0275template(10, SubmitProjectComponent_form_11_button_10_Template, 2, 0, "button", 24)(11, SubmitProjectComponent_form_11_button_11_Template, 2, 1, "button", 25)(12, SubmitProjectComponent_form_11_button_12_Template, 2, 1, "button", 26);
+    \u0275\u0275template(10, SubmitProjectComponent_form_11_button_10_Template, 2, 2, "button", 24)(11, SubmitProjectComponent_form_11_button_11_Template, 2, 1, "button", 25)(12, SubmitProjectComponent_form_11_button_12_Template, 2, 2, "button", 26);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -899,9 +910,11 @@ function SubmitProjectComponent_form_11_Template(rf, ctx) {
 var SubmitProjectComponent = class _SubmitProjectComponent {
   constructor() {
     this.marketplace = inject(MarketplaceService);
+    this.imageUpload = inject(ImageUploadService);
     this.router = inject(Router);
     this.currentStep = signal(0);
     this.submitted = signal(false);
+    this.isUploading = signal(false);
     this.steps = ["Basic Info", "Pricing", "Details", "Files"];
     this.project = {
       title: "",
@@ -1017,35 +1030,89 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
   }
   saveDraft() {
     return __async(this, null, function* () {
-      this.project.tags = this.parseTags();
-      this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
-      this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
-      this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
-      this.project.status = "draft";
-      const cleanedProject = this.marketplace.cleanForFirestore(this.project);
+      this.isUploading.set(true);
       try {
+        if (this.project.thumbnailData && this.project.thumbnailData.startsWith("data:")) {
+          this.project.thumbnailUrl = yield this.imageUpload.upload(this.project.thumbnailData, "products/thumbnails");
+          delete this.project.thumbnailData;
+        }
+        if (this.project.previewData && this.project.previewData.length > 0) {
+          if (!this.project.previewImages)
+            this.project.previewImages = [];
+          for (const img of this.project.previewData) {
+            if (img.startsWith("data:")) {
+              const url = yield this.imageUpload.upload(img, "products/screenshots");
+              this.project.previewImages.push(url);
+            } else {
+              this.project.previewImages.push(img);
+            }
+          }
+          delete this.project.previewData;
+        }
+        if (this.project.liveDemos) {
+          for (const demo of this.project.liveDemos) {
+            if (demo.thumbnailUrl && demo.thumbnailUrl.startsWith("data:")) {
+              demo.thumbnailUrl = yield this.imageUpload.upload(demo.thumbnailUrl, "products/demos");
+            }
+          }
+        }
+        this.project.tags = this.parseTags();
+        this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
+        this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
+        this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
+        this.project.status = "draft";
+        const cleanedProject = this.marketplace.cleanForFirestore(this.project);
         yield this.marketplace.submitProject(cleanedProject);
-        alert("Draft saved successfully!");
+        alert("Draft saved successfully! All images moved to cloud storage.");
       } catch (error) {
         console.error("Error saving draft:", error);
-        alert("Failed to save draft. Please check your Firestore rules and try again.");
+        alert("Failed to save draft. Check console for details.");
+      } finally {
+        this.isUploading.set(false);
       }
     });
   }
   onSubmit() {
     return __async(this, null, function* () {
-      this.project.tags = this.parseTags();
-      this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
-      this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
-      this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
-      this.project.status = "published";
-      const cleanedProject = this.marketplace.cleanForFirestore(this.project);
+      this.isUploading.set(true);
       try {
+        if (this.project.thumbnailData && this.project.thumbnailData.startsWith("data:")) {
+          this.project.thumbnailUrl = yield this.imageUpload.upload(this.project.thumbnailData, "products/thumbnails");
+          delete this.project.thumbnailData;
+        }
+        if (this.project.previewData && this.project.previewData.length > 0) {
+          if (!this.project.previewImages)
+            this.project.previewImages = [];
+          for (const img of this.project.previewData) {
+            if (img.startsWith("data:")) {
+              const url = yield this.imageUpload.upload(img, "products/screenshots");
+              this.project.previewImages.push(url);
+            } else {
+              this.project.previewImages.push(img);
+            }
+          }
+          delete this.project.previewData;
+        }
+        if (this.project.liveDemos) {
+          for (const demo of this.project.liveDemos) {
+            if (demo.thumbnailUrl && demo.thumbnailUrl.startsWith("data:")) {
+              demo.thumbnailUrl = yield this.imageUpload.upload(demo.thumbnailUrl, "products/demos");
+            }
+          }
+        }
+        this.project.tags = this.parseTags();
+        this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
+        this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
+        this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
+        this.project.status = "published";
+        const cleanedProject = this.marketplace.cleanForFirestore(this.project);
         yield this.marketplace.submitProject(cleanedProject);
         this.submitted.set(true);
       } catch (error) {
         console.error("Error submitting project:", error);
-        alert("Failed to submit project. Please check your Firestore rules and try again.");
+        alert("Failed to submit project. Check console for details.");
+      } finally {
+        this.isUploading.set(false);
       }
     });
   }
@@ -1084,7 +1151,7 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SubmitProjectComponent, selectors: [["app-submit-project"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 2, consts: [["dThumb", ""], ["thumbInput", ""], ["screenshotInput", ""], ["sourceInput", ""], [1, "submit-hero"], [1, "pm-container"], ["routerLink", "/admin", 1, "back-link"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "submit-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/admin", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-outline", 3, "click", 4, "ngIf"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "Project title", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description (features, tech stack, usage)", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "Version", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "Price", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "Original price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", "name", "reskin", 3, "ngModelChange", "ngModel"], ["class", "form-group", 4, "ngIf"], ["for", "reskinPrice"], ["id", "reskinPrice", "type", "number", "name", "reskinPrice", "placeholder", "Reskin service price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "Tags (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Enter key features, one per line.", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Tech stack (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "compat"], ["id", "compat", "type", "text", "name", "compat", "placeholder", "Supported platforms (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "e.g. 150MB", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "youtubeUrl"], ["id", "youtubeUrl", "type", "url", "name", "youtubeUrl", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], [1, "demo-links-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-item", "style", "display:flex; gap:12px; padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], [1, "form-group", 2, "margin-top", "8px"], ["for", "demoUrlLegacy"], ["id", "demoUrlLegacy", "type", "url", "name", "demoUrl", "placeholder", "Primary demo link", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "demo-item", 2, "display", "flex", "gap", "12px", "padding", "12px", "background", "rgba(0,0,0,0.02)", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-thumb-upload", 2, "width", "50px", "height", "50px", "background", "#e2e8f0", "border-radius", "6px", "display", "flex", "align-items", "center", "justify-content", "center", "cursor", "pointer", "overflow", "hidden", "flex-shrink", "0", 3, "click"], ["style", "width:100%; height:100%; object-fit:cover;", 3, "src", 4, "ngIf"], [4, "ngIf"], ["type", "file", "hidden", "", 3, "change"], [2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (Admin, User, etc)", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "button", 2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "20px", "cursor", "pointer", 3, "click"], [2, "width", "100%", "height", "100%", "object-fit", "cover", 3, "src"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], ["class", "selected-files", 4, "ngIf"], ["type", "file", "accept", ".zip,.rar,.7z", "hidden", "", 3, "change"], [1, "guidelines-box"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], [1, "selected-files"], ["class", "selected-file", 4, "ngFor", "ngForOf"], [1, "selected-file"], ["class", "preview-thumb", 4, "ngIf"], [1, "file-name"], ["type", "button", 1, "remove-file", 3, "click"], [1, "preview-thumb"], ["alt", "preview", 2, "height", "40px", "border-radius", "4px", 3, "src"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-outline", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SubmitProjectComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SubmitProjectComponent, selectors: [["app-submit-project"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 2, consts: [["dThumb", ""], ["thumbInput", ""], ["screenshotInput", ""], ["sourceInput", ""], [1, "submit-hero"], [1, "pm-container"], ["routerLink", "/admin", 1, "back-link"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "submit-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/admin", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-outline", 3, "disabled", "click", 4, "ngIf"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "Project title", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description (features, tech stack, usage)", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "Version", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "Price", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "Original price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", "name", "reskin", 3, "ngModelChange", "ngModel"], ["class", "form-group", 4, "ngIf"], ["for", "reskinPrice"], ["id", "reskinPrice", "type", "number", "name", "reskinPrice", "placeholder", "Reskin service price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "Tags (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Enter key features, one per line.", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Tech stack (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "compat"], ["id", "compat", "type", "text", "name", "compat", "placeholder", "Supported platforms (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "e.g. 150MB", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "youtubeUrl"], ["id", "youtubeUrl", "type", "url", "name", "youtubeUrl", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], [1, "demo-links-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-item", "style", "display:flex; gap:12px; padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], [1, "form-group", 2, "margin-top", "8px"], ["for", "demoUrlLegacy"], ["id", "demoUrlLegacy", "type", "url", "name", "demoUrl", "placeholder", "Primary demo link", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "demo-item", 2, "display", "flex", "gap", "12px", "padding", "12px", "background", "rgba(0,0,0,0.02)", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-thumb-upload", 2, "width", "50px", "height", "50px", "background", "#e2e8f0", "border-radius", "6px", "display", "flex", "align-items", "center", "justify-content", "center", "cursor", "pointer", "overflow", "hidden", "flex-shrink", "0", 3, "click"], ["style", "width:100%; height:100%; object-fit:cover;", 3, "src", 4, "ngIf"], [4, "ngIf"], ["type", "file", "hidden", "", 3, "change"], [2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (Admin, User, etc)", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "button", 2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "20px", "cursor", "pointer", 3, "click"], [2, "width", "100%", "height", "100%", "object-fit", "cover", 3, "src"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], ["class", "selected-files", 4, "ngIf"], ["type", "file", "accept", ".zip,.rar,.7z", "hidden", "", 3, "change"], [1, "guidelines-box"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], [1, "selected-files"], ["class", "selected-file", 4, "ngFor", "ngForOf"], [1, "selected-file"], ["class", "preview-thumb", 4, "ngIf"], [1, "file-name"], ["type", "button", 1, "remove-file", 3, "click"], [1, "preview-thumb"], ["alt", "preview", 2, "height", "40px", "border-radius", "4px", 3, "src"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-outline", 3, "click", "disabled"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SubmitProjectComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "section", 4)(2, "div", 5)(3, "a", 6);
@@ -1111,9 +1178,9 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SubmitProjectComponent, { className: "SubmitProjectComponent", filePath: "src\\app\\pages\\admin\\submit-project\\submit-project.component.ts", lineNumber: 538 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SubmitProjectComponent, { className: "SubmitProjectComponent", filePath: "src\\app\\pages\\admin\\submit-project\\submit-project.component.ts", lineNumber: 539 });
 })();
 export {
   SubmitProjectComponent
 };
-//# sourceMappingURL=chunk-VTJPMC6H.js.map
+//# sourceMappingURL=chunk-EMLFQXDP.js.map

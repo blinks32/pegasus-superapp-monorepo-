@@ -64095,6 +64095,16 @@ export {
   provideRouter,
   withInMemoryScrolling,
   withPreloading,
+  getDefaultEmulatorHostnameAndPort,
+  createMockUserToken,
+  FirebaseError,
+  getModularInstance,
+  Component2 as Component,
+  _registerComponent,
+  _getProvider,
+  SDK_VERSION,
+  getApp,
+  registerVersion,
   provideFirebaseApp,
   initializeApp2 as initializeApp,
   EmailAuthProvider,
@@ -64127,4 +64137,4 @@ export {
   setDoc2 as setDoc,
   updateDoc2 as updateDoc
 };
-//# sourceMappingURL=chunk-VAWGWNLY.js.map
+//# sourceMappingURL=chunk-A3WHKVNR.js.map

@@ -2,7 +2,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-IFCTW2PK.js";
+} from "./chunk-BZ7Z3MH7.js";
 import {
   CommonModule,
   DecimalPipe,
@@ -34,7 +34,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/pages/cart/cart.component.ts
 var _c0 = (a0) => ["/product", a0];
@@ -325,4 +325,4 @@ var CartComponent = class _CartComponent {
 export {
   CartComponent
 };
-//# sourceMappingURL=chunk-FIZBJZWK.js.map
+//# sourceMappingURL=chunk-NDYZ4Z5W.js.map

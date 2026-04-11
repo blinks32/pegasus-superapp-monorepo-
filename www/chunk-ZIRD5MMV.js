@@ -1,22 +1,22 @@
 import {
   ProductCardComponent
-} from "./chunk-FVBXFITX.js";
+} from "./chunk-MRL6F657.js";
 import {
   SeoService
-} from "./chunk-UEFJWUXG.js";
+} from "./chunk-WXC7DDYQ.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
   NgControlStatus,
   NgModel
-} from "./chunk-RRC5LBPZ.js";
+} from "./chunk-NJH3IML7.js";
 import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-IFCTW2PK.js";
+} from "./chunk-BZ7Z3MH7.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -68,7 +68,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/components/guide-widget/guide-widget.component.ts
 function GuideWidgetComponent_span_7_Template(rf, ctx) {
@@ -1402,4 +1402,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-ZDO77TKE.js.map
+//# sourceMappingURL=chunk-ZIRD5MMV.js.map

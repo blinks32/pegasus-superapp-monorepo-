@@ -1,7 +1,7 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-IFCTW2PK.js";
+} from "./chunk-BZ7Z3MH7.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -18,7 +18,7 @@ import {
   ɵɵsanitizeHtml,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/pages/static-page/static-page.component.ts
 var StaticPageComponent = class _StaticPageComponent {
@@ -215,4 +215,4 @@ var StaticPageComponent = class _StaticPageComponent {
 export {
   StaticPageComponent
 };
-//# sourceMappingURL=chunk-EH55VCJI.js.map
+//# sourceMappingURL=chunk-R6A5XU7P.js.map

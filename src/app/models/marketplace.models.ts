@@ -130,7 +130,9 @@ export interface AdminProject {
   previewFiles?: File[];
   sourceFile?: File;
   thumbnailData?: string;
+  thumbnailUrl?: string;
   previewData?: string[];
+  previewImages?: string[];
   createdAt?: Date;
   updatedAt?: Date;
 }

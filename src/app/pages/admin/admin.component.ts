@@ -6,6 +6,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
 import { AuthService } from '../../services/auth.service';
+import { ImageUploadService } from '../../services/image-upload.service';
 import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, deleteDoc, addDoc, query, orderBy, serverTimestamp } from '@angular/fire/firestore';
 
 @Component({
@@ -455,9 +456,9 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           </div>
         </div>
         <div class="modal-footer">
-          <button class="pm-btn pm-btn-ghost" (click)="closeEditModal()">Cancel</button>
-          <button class="pm-btn pm-btn-primary" (click)="saveEditProduct()" [disabled]="!editForm.title">
-            💾 Save Changes
+          <button class="pm-btn pm-btn-ghost" (click)="closeEditModal()" [disabled]="isSaving()">Cancel</button>
+          <button class="pm-btn pm-btn-primary" (click)="saveEditProduct()" [disabled]="!editForm.title || isSaving()">
+            {{ isSaving() ? '⌛ Saving Assets...' : '💾 Save Changes' }}
           </button>
         </div>
       </div>
@@ -908,10 +909,12 @@ export class AdminComponent implements OnInit {
   marketplace = inject(MarketplaceService);
   authService = inject(AuthService);
   firestore = inject(Firestore);
+  imageUpload = inject(ImageUploadService);
 
   activeTab = 'dashboard';
   chartPeriod = '30d';
   projectTab = 'all';
+  isSaving = signal(false);
 
   // Real Data State
   dashboardStats: any[] = [];
@@ -1208,34 +1211,67 @@ export class AdminComponent implements OnInit {
       updates.originalPrice = Number(this.editForm.originalPrice);
       updates.discountPercent = Math.round((1 - updates.price / updates.originalPrice) * 100);
     }
-    if (this.editForm.demoUrl) {
-      updates.demoUrl = this.editForm.demoUrl;
-    }
-    if (this.editForm.youtubeUrl) {
-      updates.youtubeUrl = this.editForm.youtubeUrl;
-    }
-    // Image updates
-    if (this.editForm.newThumbnailData) {
-      updates.thumbnailUrl = this.editForm.newThumbnailData;
-    }
-    if (this.editForm.screenshotPreviews?.length > 0) {
-      updates.previewImages = this.editForm.screenshotPreviews;
-    }
-    // Live Demos
-    if (this.editForm.liveDemos) {
-      updates.liveDemos = this.editForm.liveDemos;
-    }
-    
-    // Sanitize for Firestore
-    const cleanedUpdates = this.marketplace.cleanForFirestore(updates);
-    
+    if (!this.editingProductId) return;
+
+    this.isSaving.set(true);
+
     try {
+      // 1. Upload Thumbnail if it's new (base64)
+      let thumbnailUrl = this.editForm.thumbnailPreview;
+      if (thumbnailUrl && thumbnailUrl.startsWith('data:')) {
+        thumbnailUrl = await this.imageUpload.upload(thumbnailUrl, 'products/thumbnails');
+      }
+
+      // 2. Upload Screenshots if they are new
+      const previewImages: string[] = [];
+      for (const img of this.editForm.screenshotPreviews) {
+        if (img.startsWith('data:')) {
+          const uploadedUrl = await this.imageUpload.upload(img, 'products/screenshots');
+          previewImages.push(uploadedUrl);
+        } else {
+          previewImages.push(img);
+        }
+      }
+
+      // 3. Upload Live Demo Thumbnails
+      const liveDemos = [];
+      if (this.editForm.liveDemos) {
+        for (const demo of this.editForm.liveDemos) {
+          let demoThumb = demo.thumbnailUrl;
+          if (demoThumb && demoThumb.startsWith('data:')) {
+            demoThumb = await this.imageUpload.upload(demoThumb, 'products/demos');
+          }
+          liveDemos.push({ ...demo, thumbnailUrl: demoThumb });
+        }
+      }
+
+      const updates: any = {
+        title: this.editForm.title,
+        shortDescription: this.editForm.shortDescription,
+        category: this.editForm.category,
+        price: this.editForm.price,
+        originalPrice: this.editForm.originalPrice,
+        tags: this.editForm.tagsStr.split(',').map((t: string) => t.trim()).filter((t: string) => t),
+        features: this.editForm.featuresStr.split('\n').filter((f: string) => f.trim()),
+        techStack: this.editForm.techStackStr.split(',').map((t: string) => t.trim()).filter((t: string) => t),
+        thumbnailUrl: thumbnailUrl,
+        previewImages: previewImages,
+        liveDemos: liveDemos,
+        youtubeUrl: this.editForm.youtubeUrl || ''
+      };
+
+      // Sanitize for Firestore (handles undefined etc)
+      const cleanedUpdates = this.marketplace.cleanForFirestore(updates);
+      
       await this.marketplace.updateProduct(this.editingProductId, cleanedUpdates);
+      
       this.closeEditModal();
-      alert('Product updated successfully!');
+      alert('Product updated successfully! All assets moved to cloud storage.');
     } catch (error) {
       console.error('Error updating product:', error);
-      alert('Failed to update product.');
+      alert('Failed to update product assets. Check console for details.');
+    } finally {
+      this.isSaving.set(false);
     }
   }
 

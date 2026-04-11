@@ -22,7 +22,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/components/product-card/product-card.component.ts
 var _c0 = (a0) => ["/product", a0];
@@ -265,4 +265,4 @@ var ProductCardComponent = class _ProductCardComponent {
 export {
   ProductCardComponent
 };
-//# sourceMappingURL=chunk-FVBXFITX.js.map
+//# sourceMappingURL=chunk-MRL6F657.js.map

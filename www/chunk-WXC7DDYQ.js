@@ -7,7 +7,7 @@ import {
   filter,
   inject,
   ɵɵdefineInjectable
-} from "./chunk-VAWGWNLY.js";
+} from "./chunk-A3WHKVNR.js";
 
 // src/app/services/seo.service.ts
 var SeoService = class _SeoService {
@@ -162,4 +162,4 @@ var SeoService = class _SeoService {
 export {
   SeoService
 };
-//# sourceMappingURL=chunk-UEFJWUXG.js.map
+//# sourceMappingURL=chunk-WXC7DDYQ.js.map

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
 import { MarketplaceService } from '../../../services/marketplace.service';
+import { ImageUploadService } from '../../../services/image-upload.service';
 import { AdminProject, ProductCategory } from '../../../models/marketplace.models';
 
 @Component({
@@ -301,14 +302,14 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
             ← Previous
           </button>
           <div class="nav-spacer"></div>
-          <button type="button" class="pm-btn pm-btn-outline" (click)="saveDraft()" *ngIf="currentStep() === 3">
-            💾 Save as Draft
+          <button type="button" class="pm-btn pm-btn-outline" (click)="saveDraft()" *ngIf="currentStep() === 3" [disabled]="isUploading()">
+            {{ isUploading() ? '⌛ Saving Assets...' : '💾 Save as Draft' }}
           </button>
-          <button type="button" class="pm-btn pm-btn-primary" *ngIf="currentStep() < 3" (click)="nextStep()" [disabled]="!isStepValid()">
+          <button type="button" class="pm-btn pm-btn-primary" *ngIf="currentStep() < 3" (click)="nextStep()" [disabled]="!isStepValid() || isUploading()">
             Next Step →
           </button>
-          <button type="submit" class="pm-btn pm-btn-success pm-btn-lg" *ngIf="currentStep() === 3" [disabled]="!isFormValid()">
-            🚀 Submit for Review
+          <button type="submit" class="pm-btn pm-btn-success pm-btn-lg" *ngIf="currentStep() === 3" [disabled]="!isFormValid() || isUploading()">
+            {{ isUploading() ? '🚀 Uploading...' : '🚀 Submit for Review' }}
           </button>
         </div>
       </form>
@@ -537,10 +538,12 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
 })
 export class SubmitProjectComponent {
   marketplace = inject(MarketplaceService);
+  imageUpload = inject(ImageUploadService);
   private router = inject(Router);
 
   currentStep = signal(0);
   submitted = signal(false);
+  isUploading = signal(false);
 
   steps = ['Basic Info', 'Pricing', 'Details', 'Files'];
 
@@ -661,42 +664,107 @@ export class SubmitProjectComponent {
   }
 
   async saveDraft() {
-    this.project.tags = this.parseTags();
-    this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
-    this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
-    this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
-    this.project.status = 'draft';
-    
-    // Sanitize for Firestore
-    const cleanedProject = this.marketplace.cleanForFirestore(this.project);
-    
+    this.isUploading.set(true);
     try {
+      // 1. Upload Thumbnail
+      if (this.project.thumbnailData && this.project.thumbnailData.startsWith('data:')) {
+        this.project.thumbnailUrl = await this.imageUpload.upload(this.project.thumbnailData, 'products/thumbnails');
+        delete this.project.thumbnailData;
+      }
+
+      // 2. Upload Screenshots
+      if (this.project.previewData && this.project.previewData.length > 0) {
+        if (!this.project.previewImages) this.project.previewImages = [];
+        for (const img of this.project.previewData) {
+          if (img.startsWith('data:')) {
+            const url = await this.imageUpload.upload(img, 'products/screenshots');
+            this.project.previewImages.push(url);
+          } else {
+            this.project.previewImages.push(img);
+          }
+        }
+        delete this.project.previewData;
+      }
+
+      // 3. Upload Demo Hub Icons
+      if (this.project.liveDemos) {
+        for (const demo of this.project.liveDemos) {
+          if (demo.thumbnailUrl && demo.thumbnailUrl.startsWith('data:')) {
+            demo.thumbnailUrl = await this.imageUpload.upload(demo.thumbnailUrl, 'products/demos');
+          }
+        }
+      }
+
+      this.project.tags = this.parseTags();
+      this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
+      this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
+      this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
+      this.project.status = 'draft';
+      
+      // Sanitize for Firestore
+      const cleanedProject = this.marketplace.cleanForFirestore(this.project);
+      
       await this.marketplace.submitProject(cleanedProject);
-      alert('Draft saved successfully!');
+      alert('Draft saved successfully! All images moved to cloud storage.');
     } catch (error) {
       console.error('Error saving draft:', error);
-      alert('Failed to save draft. Please check your Firestore rules and try again.');
+      alert('Failed to save draft. Check console for details.');
+    } finally {
+      this.isUploading.set(false);
     }
   }
 
   async onSubmit() {
-    this.project.tags = this.parseTags();
-    this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
-    this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
-    this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
-    this.project.status = 'published';
-    
-    // Sanitize for Firestore
-    const cleanedProject = this.marketplace.cleanForFirestore(this.project);
-    
+    this.isUploading.set(true);
     try {
+      // 1. Upload Thumbnail
+      if (this.project.thumbnailData && this.project.thumbnailData.startsWith('data:')) {
+        this.project.thumbnailUrl = await this.imageUpload.upload(this.project.thumbnailData, 'products/thumbnails');
+        delete this.project.thumbnailData;
+      }
+
+      // 2. Upload Screenshots
+      if (this.project.previewData && this.project.previewData.length > 0) {
+        if (!this.project.previewImages) this.project.previewImages = [];
+        for (const img of this.project.previewData) {
+           if (img.startsWith('data:')) {
+             const url = await this.imageUpload.upload(img, 'products/screenshots');
+             this.project.previewImages.push(url);
+           } else {
+             this.project.previewImages.push(img);
+           }
+        }
+        delete this.project.previewData;
+      }
+
+      // 3. Upload Demo Hub Icons
+      if (this.project.liveDemos) {
+        for (const demo of this.project.liveDemos) {
+          if (demo.thumbnailUrl && demo.thumbnailUrl.startsWith('data:')) {
+            demo.thumbnailUrl = await this.imageUpload.upload(demo.thumbnailUrl, 'products/demos');
+          }
+        }
+      }
+
+      this.project.tags = this.parseTags();
+      this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
+      this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
+      this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
+      this.project.status = 'published';
+      
+      // Sanitize for Firestore
+      const cleanedProject = this.marketplace.cleanForFirestore(this.project);
+      
       await this.marketplace.submitProject(cleanedProject);
       this.submitted.set(true);
     } catch (error) {
       console.error('Error submitting project:', error);
-      alert('Failed to submit project. Please check your Firestore rules and try again.');
+      alert('Failed to submit project. Check console for details.');
+    } finally {
+      this.isUploading.set(false);
     }
   }
+
 
   resetForm() {
     this.submitted.set(false);
