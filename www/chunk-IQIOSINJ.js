@@ -30,6 +30,7 @@ import {
   __async,
   __spreadProps,
   __spreadValues,
+  effect,
   inject,
   signal,
   ɵsetClassDebugInfo,
@@ -1353,36 +1354,46 @@ var ProductDetailComponent = class _ProductDetailComponent {
       "edtech-lms": "\u{1F393}",
       "pvp-games": "\u{1F3AE}"
     };
+    this.currentProductId = null;
+    effect(() => {
+      const all = this.marketplace.allProducts();
+      if (this.currentProductId && !this.product && all.length > 0) {
+        this.loadProduct(this.currentProductId);
+      }
+    });
   }
   ngOnInit() {
     this.route.params.subscribe((params) => {
-      const id = params["id"];
-      this.product = this.marketplace.getProductById(id);
-      if (this.product) {
-        this.marketplace.trackUniqueVisit(id);
-        this.relatedProducts = this.marketplace.getRelatedProducts(this.product);
-        this.isInCart = this.marketplace.isInCart(id);
-        this.ratingBars = this.computeRatingBars();
-        this.marketplace.getComments(id).then((c) => this.comments = c);
-        this.seo.updateTitle(this.product.title);
-        this.seo.updateDescription(this.product.shortDescription);
-        this.seo.updateImage(this.product.thumbnailUrl);
-        this.seo.setProductSchema({
-          name: this.product.title,
-          description: this.product.shortDescription,
-          price: this.product.price,
-          image: this.product.thumbnailUrl,
-          url: `https://selljustcode.com/product/${this.product.id}`,
-          rating: this.product.rating,
-          ratingCount: this.product.totalRatings,
-          seller: this.product.author?.name,
-          category: this.product.category
-        });
-        if (this.product.youtubeUrl) {
-          this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
-        }
-      }
+      this.currentProductId = params["id"];
+      this.loadProduct(this.currentProductId);
     });
+  }
+  loadProduct(id) {
+    this.product = this.marketplace.getProductById(id);
+    if (this.product) {
+      this.marketplace.trackUniqueVisit(id);
+      this.relatedProducts = this.marketplace.getRelatedProducts(this.product);
+      this.isInCart = this.marketplace.isInCart(id);
+      this.ratingBars = this.computeRatingBars();
+      this.marketplace.getComments(id).then((c) => this.comments = c);
+      this.seo.updateTitle(this.product.title);
+      this.seo.updateDescription(this.product.shortDescription);
+      this.seo.updateImage(this.product.thumbnailUrl);
+      this.seo.setProductSchema({
+        name: this.product.title,
+        description: this.product.shortDescription,
+        price: this.product.price,
+        image: this.product.thumbnailUrl,
+        url: `https://selljustcode.com/product/${this.product.id}`,
+        rating: this.product.rating,
+        ratingCount: this.product.totalRatings,
+        seller: this.product.author?.name,
+        category: this.product.category
+      });
+      if (this.product.youtubeUrl) {
+        this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
+      }
+    }
   }
   getYoutubeEmbedUrl(url) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
@@ -1496,4 +1507,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-CW22SVBA.js.map
+//# sourceMappingURL=chunk-IQIOSINJ.js.map

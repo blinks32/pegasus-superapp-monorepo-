@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, effect } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -1006,43 +1006,59 @@ export class ProductDetailComponent implements OnInit {
     'saas-boilerplates': '🚀', 'b2b-systems': '🏢', 'super-apps': '📱', 'edtech-lms': '🎓', 'pvp-games': '🎮'
   };
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.product = this.marketplace.getProductById(id);
-      if (this.product) {
-        // Unique view tracking (once per session per product)
-        this.marketplace.trackUniqueVisit(id);
+  currentProductId: string | null = null;
 
-        this.relatedProducts = this.marketplace.getRelatedProducts(this.product);
-        this.isInCart = this.marketplace.isInCart(id);
-        this.ratingBars = this.computeRatingBars();
-
-        // Load comments
-        this.marketplace.getComments(id).then(c => this.comments = c);
-
-        // SEO: Dynamic meta tags + Product schema
-        this.seo.updateTitle(this.product.title);
-        this.seo.updateDescription(this.product.shortDescription);
-        this.seo.updateImage(this.product.thumbnailUrl);
-        this.seo.setProductSchema({
-          name: this.product.title,
-          description: this.product.shortDescription,
-          price: this.product.price,
-          image: this.product.thumbnailUrl,
-          url: `https://selljustcode.com/product/${this.product.id}`,
-          rating: this.product.rating,
-          ratingCount: this.product.totalRatings,
-          seller: this.product.author?.name,
-          category: this.product.category,
-        });
-
-        // Set safe youtube URL
-        if (this.product.youtubeUrl) {
-          this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
-        }
+  constructor() {
+    effect(() => {
+      const all = this.marketplace.allProducts();
+      // Reactive retry if the product hasn't loaded yet and the service finishes fetching
+      if (this.currentProductId && !this.product && all.length > 0) {
+        this.loadProduct(this.currentProductId);
       }
     });
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.currentProductId = params['id'];
+      this.loadProduct(this.currentProductId!);
+    });
+  }
+
+  loadProduct(id: string) {
+    this.product = this.marketplace.getProductById(id);
+    if (this.product) {
+      // Unique view tracking (once per session per product)
+      this.marketplace.trackUniqueVisit(id);
+
+      this.relatedProducts = this.marketplace.getRelatedProducts(this.product);
+      this.isInCart = this.marketplace.isInCart(id);
+      this.ratingBars = this.computeRatingBars();
+
+      // Load comments
+      this.marketplace.getComments(id).then(c => this.comments = c);
+
+      // SEO: Dynamic meta tags + Product schema
+      this.seo.updateTitle(this.product.title);
+      this.seo.updateDescription(this.product.shortDescription);
+      this.seo.updateImage(this.product.thumbnailUrl);
+      this.seo.setProductSchema({
+        name: this.product.title,
+        description: this.product.shortDescription,
+        price: this.product.price,
+        image: this.product.thumbnailUrl,
+        url: `https://selljustcode.com/product/${this.product.id}`,
+        rating: this.product.rating,
+        ratingCount: this.product.totalRatings,
+        seller: this.product.author?.name,
+        category: this.product.category,
+      });
+
+      // Set safe youtube URL
+      if (this.product.youtubeUrl) {
+        this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
+      }
+    }
   }
 
   getYoutubeEmbedUrl(url: string): SafeResourceUrl | undefined {
