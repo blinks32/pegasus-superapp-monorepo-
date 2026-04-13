@@ -45,6 +45,13 @@ export interface Product {
   hasReskinService: boolean;
   reskinPrice?: number;
   status?: 'draft' | 'pending' | 'published' | 'rejected';
+  deploymentGuide?: string;
+  submittedBy?: {
+    uid: string;
+    displayName: string;
+    email: string;
+  };
+  rejectionReason?: string;
 }
 
 export type ProductCategory = string;
@@ -136,6 +143,13 @@ export interface AdminProject {
   previewImages?: string[];
   createdAt?: Date;
   updatedAt?: Date;
+  deploymentGuide?: string;
+  submittedBy?: {
+    uid: string;
+    displayName: string;
+    email: string;
+  };
+  rejectionReason?: string;
 }
 
 export interface SearchFilters {

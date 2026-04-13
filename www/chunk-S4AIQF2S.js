@@ -68,18 +68,20 @@ import {
 var MarketplaceService = class _MarketplaceService {
   constructor() {
     this.firestore = inject(Firestore);
-    this._products = signal([]);
+    this._allProducts = signal([]);
     this._isLoadingProducts = signal(true);
     this._initialLoadComplete = signal(false);
     this._cart = signal([]);
     this._searchFilters = signal({ query: "", sortBy: "bestselling" });
     this._adminProjects = signal([]);
-    this.products = this._products.asReadonly();
+    this.products = computed(() => this._allProducts().filter((p) => !p.status || p.status === "published"));
+    this.allProducts = this._allProducts.asReadonly();
     this.isLoadingProducts = this._isLoadingProducts.asReadonly();
     this.initialLoadComplete = this._initialLoadComplete.asReadonly();
     this.cart = this._cart.asReadonly();
     this.searchFilters = this._searchFilters.asReadonly();
     this.adminProjects = this._adminProjects.asReadonly();
+    this.pendingProducts = computed(() => this._allProducts().filter((p) => p.status === "pending"));
     this.cartTotal = computed(() => this._cart().reduce((sum, item) => {
       let price = item.license === "extended" ? item.product.price * 3 : item.product.price;
       if (item.addReskin && item.product.reskinPrice)
@@ -88,7 +90,7 @@ var MarketplaceService = class _MarketplaceService {
     }, 0));
     this.cartCount = computed(() => this._cart().reduce((sum, item) => sum + item.quantity, 0));
     this.filteredProducts = computed(() => {
-      const products = this._products();
+      const products = this.products();
       if (!products)
         return [];
       const filters = this._searchFilters();
@@ -128,15 +130,15 @@ var MarketplaceService = class _MarketplaceService {
       return result;
     });
     this.featuredProducts = computed(() => {
-      const products = this._products();
+      const products = this.products();
       return products ? products.filter((p) => p.isFeatured) : [];
     });
     this.bestsellerProducts = computed(() => {
-      const products = this._products();
+      const products = this.products();
       return products ? [...products].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8) : [];
     });
     this.newestProducts = computed(() => {
-      const products = this._products();
+      const products = this.products();
       return products ? [...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8) : [];
     });
     this.categories = [
@@ -156,7 +158,7 @@ var MarketplaceService = class _MarketplaceService {
         createdAt: this.parseFirestoreDate(p.createdAt),
         lastUpdated: this.parseFirestoreDate(p.lastUpdated)
       }));
-      this._products.set(transformed);
+      this._allProducts.set(transformed);
       this._isLoadingProducts.set(false);
       this._initialLoadComplete.set(true);
     });
@@ -170,25 +172,25 @@ var MarketplaceService = class _MarketplaceService {
   }
   /* ═══════════ Product CRUD ═══════════ */
   getProductById(id) {
-    const products = this._products();
+    const products = this._allProducts();
     if (!products)
       return void 0;
     return products.find((p) => p.id === id);
   }
   getProductBySlug(slug) {
-    const products = this._products();
+    const products = this._allProducts();
     if (!products)
       return void 0;
     return products.find((p) => p.slug === slug);
   }
   getProductsByCategory(cat) {
-    const products = this._products();
+    const products = this.products();
     if (!products)
       return [];
     return products.filter((p) => p.category === cat);
   }
   getRelatedProducts(product, limit = 4) {
-    const products = this._products();
+    const products = this.products();
     if (!products)
       return [];
     return products.filter((p) => p.id !== product.id && (p.category === product.category || p.tags.some((t) => product.tags.includes(t)))).slice(0, limit);
@@ -224,7 +226,7 @@ var MarketplaceService = class _MarketplaceService {
   }
   /* ═══════════ Reviews ═══════════ */
   addReview(productId, review) {
-    this._products.update((products) => {
+    this._allProducts.update((products) => {
       if (!products)
         return products;
       return products.map((p) => {
@@ -238,11 +240,42 @@ var MarketplaceService = class _MarketplaceService {
     });
   }
   incrementVisit(productId) {
-    this._products.update((products) => {
+    this._allProducts.update((products) => {
       if (!products)
         return products;
       return products.map((p) => p.id === productId ? __spreadProps(__spreadValues({}, p), { totalVisits: p.totalVisits + 1 }) : p);
     });
+  }
+  /* ═══════════ Admin Review Queue ═══════════ */
+  approveProduct(productId) {
+    return __async(this, null, function* () {
+      try {
+        const productRef = doc(this.firestore, `products/${productId}`);
+        yield updateDoc(productRef, { status: "published", lastUpdated: /* @__PURE__ */ new Date() });
+        console.log("Product approved:", productId);
+      } catch (error) {
+        console.error("Error approving product:", error);
+        throw error;
+      }
+    });
+  }
+  rejectProduct(productId, reason) {
+    return __async(this, null, function* () {
+      try {
+        const productRef = doc(this.firestore, `products/${productId}`);
+        yield updateDoc(productRef, { status: "rejected", rejectionReason: reason, lastUpdated: /* @__PURE__ */ new Date() });
+        console.log("Product rejected:", productId);
+      } catch (error) {
+        console.error("Error rejecting product:", error);
+        throw error;
+      }
+    });
+  }
+  getUserProducts(uid) {
+    const products = this._allProducts();
+    if (!products)
+      return [];
+    return products.filter((p) => p.submittedBy?.uid === uid);
   }
   /**
    * Track a unique visit per product. Uses localStorage to prevent
@@ -313,6 +346,27 @@ var MarketplaceService = class _MarketplaceService {
       const id = "prod_" + Date.now();
       const slug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
       const now = /* @__PURE__ */ new Date();
+      const authorInfo = project.submittedBy ? {
+        id: project.submittedBy.uid,
+        name: project.submittedBy.displayName,
+        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(project.submittedBy.displayName)}&background=6366F1&color=fff`,
+        bio: "Marketplace Seller",
+        totalSales: 0,
+        rating: 0,
+        memberSince: now,
+        badges: [],
+        verified: false
+      } : {
+        id: "admin",
+        name: "Admin",
+        avatar: "https://ui-avatars.com/api/?name=Admin&background=6366F1&color=fff",
+        bio: "Platform Administrator",
+        totalSales: 0,
+        rating: 0,
+        memberSince: now,
+        badges: [],
+        verified: true
+      };
       const newProduct = {
         id,
         title: project.title,
@@ -335,17 +389,7 @@ var MarketplaceService = class _MarketplaceService {
         createdAt: now,
         version: project.version,
         fileSize: project.fileSize,
-        author: {
-          id: "admin",
-          name: "Admin",
-          avatar: "https://ui-avatars.com/api/?name=Admin&background=6366F1&color=fff",
-          bio: "Platform Administrator",
-          totalSales: 0,
-          rating: 0,
-          memberSince: now,
-          badges: [],
-          verified: true
-        },
+        author: authorInfo,
         reviews: [],
         isFeatured: false,
         isNew: true,
@@ -355,6 +399,12 @@ var MarketplaceService = class _MarketplaceService {
         hasReskinService: project.hasReskinService,
         status: project.status || "published"
       };
+      if (project.deploymentGuide) {
+        newProduct.deploymentGuide = project.deploymentGuide;
+      }
+      if (project.submittedBy) {
+        newProduct.submittedBy = project.submittedBy;
+      }
       if (project.originalPrice) {
         newProduct.originalPrice = project.originalPrice;
         newProduct.discountPercent = Math.round((1 - project.price / project.originalPrice) * 100);
@@ -596,7 +646,7 @@ var AuthService = class _AuthService {
 var _c0 = () => ({ register: true });
 function HeaderComponent_span_22_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 23);
+    \u0275\u0275elementStart(0, "span", 24);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -606,16 +656,23 @@ function HeaderComponent_span_22_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r0.marketplace.cartCount());
   }
 }
-function HeaderComponent_ng_container_23_Template(rf, ctx) {
+function HeaderComponent_a_23_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "a", 25);
+    \u0275\u0275text(1, " \u{1F4B0} Sell ");
+    \u0275\u0275elementEnd();
+  }
+}
+function HeaderComponent_ng_container_24_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275element(1, "div", 24);
+    \u0275\u0275element(1, "div", 26);
     \u0275\u0275elementContainerEnd();
   }
 }
-function HeaderComponent_ng_container_24_ng_container_1_img_3_Template(rf, ctx) {
+function HeaderComponent_ng_container_25_ng_container_1_img_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "img", 30);
+    \u0275\u0275element(0, "img", 32);
   }
   if (rf & 2) {
     let tmp_5_0;
@@ -623,9 +680,9 @@ function HeaderComponent_ng_container_24_ng_container_1_img_3_Template(rf, ctx) 
     \u0275\u0275property("src", (tmp_5_0 = ctx_r0.auth.userProfile()) == null ? null : tmp_5_0.photoURL, \u0275\u0275sanitizeUrl);
   }
 }
-function HeaderComponent_ng_container_24_ng_container_1_ng_template_4_Template(rf, ctx) {
+function HeaderComponent_ng_container_25_ng_container_1_ng_template_4_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 31);
+    \u0275\u0275elementStart(0, "div", 33);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -636,34 +693,34 @@ function HeaderComponent_ng_container_24_ng_container_1_ng_template_4_Template(r
     \u0275\u0275textInterpolate(((tmp_5_0 = ctx_r0.auth.userProfile()) == null ? null : tmp_5_0.displayName == null ? null : tmp_5_0.displayName.charAt(0)) || "U");
   }
 }
-function HeaderComponent_ng_container_24_ng_container_1_div_6_Template(rf, ctx) {
+function HeaderComponent_ng_container_25_ng_container_1_div_6_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 32)(1, "div", 33)(2, "strong");
+    \u0275\u0275elementStart(0, "div", 34)(1, "div", 35)(2, "strong");
     \u0275\u0275text(3);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
     \u0275\u0275element(6, "hr");
-    \u0275\u0275elementStart(7, "a", 34);
+    \u0275\u0275elementStart(7, "a", 36);
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(8, "svg", 35);
-    \u0275\u0275element(9, "path", 36)(10, "circle", 37);
+    \u0275\u0275elementStart(8, "svg", 37);
+    \u0275\u0275element(9, "path", 38)(10, "circle", 39);
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(11, "span");
     \u0275\u0275text(12, "My Profile");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(13, "a", 38);
-    \u0275\u0275listener("click", function HeaderComponent_ng_container_24_ng_container_1_div_6_Template_a_click_13_listener() {
+    \u0275\u0275elementStart(13, "a", 40);
+    \u0275\u0275listener("click", function HeaderComponent_ng_container_25_ng_container_1_div_6_Template_a_click_13_listener() {
       \u0275\u0275restoreView(_r3);
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.auth.logout());
     });
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(14, "svg", 35);
-    \u0275\u0275element(15, "path", 39)(16, "polyline", 40)(17, "line", 41);
+    \u0275\u0275elementStart(14, "svg", 37);
+    \u0275\u0275element(15, "path", 41)(16, "polyline", 42)(17, "line", 43);
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(18, "span");
@@ -680,24 +737,24 @@ function HeaderComponent_ng_container_24_ng_container_1_div_6_Template(rf, ctx) 
     \u0275\u0275textInterpolate((tmp_6_0 = ctx_r0.auth.userProfile()) == null ? null : tmp_6_0.email);
   }
 }
-function HeaderComponent_ng_container_24_ng_container_1_Template(rf, ctx) {
+function HeaderComponent_ng_container_25_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r2 = \u0275\u0275getCurrentView();
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "div", 26);
-    \u0275\u0275listener("mouseenter", function HeaderComponent_ng_container_24_ng_container_1_Template_div_mouseenter_1_listener() {
+    \u0275\u0275elementStart(1, "div", 28);
+    \u0275\u0275listener("mouseenter", function HeaderComponent_ng_container_25_ng_container_1_Template_div_mouseenter_1_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.showProfileDropdown.set(true));
-    })("mouseleave", function HeaderComponent_ng_container_24_ng_container_1_Template_div_mouseleave_1_listener() {
+    })("mouseleave", function HeaderComponent_ng_container_25_ng_container_1_Template_div_mouseleave_1_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.showProfileDropdown.set(false));
     });
-    \u0275\u0275elementStart(2, "button", 27);
-    \u0275\u0275template(3, HeaderComponent_ng_container_24_ng_container_1_img_3_Template, 1, 1, "img", 28)(4, HeaderComponent_ng_container_24_ng_container_1_ng_template_4_Template, 2, 1, "ng-template", null, 1, \u0275\u0275templateRefExtractor);
+    \u0275\u0275elementStart(2, "button", 29);
+    \u0275\u0275template(3, HeaderComponent_ng_container_25_ng_container_1_img_3_Template, 1, 1, "img", 30)(4, HeaderComponent_ng_container_25_ng_container_1_ng_template_4_Template, 2, 1, "ng-template", null, 1, \u0275\u0275templateRefExtractor);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(6, HeaderComponent_ng_container_24_ng_container_1_div_6_Template, 20, 2, "div", 29);
+    \u0275\u0275template(6, HeaderComponent_ng_container_25_ng_container_1_div_6_Template, 20, 2, "div", 31);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
@@ -711,12 +768,12 @@ function HeaderComponent_ng_container_24_ng_container_1_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r0.showProfileDropdown());
   }
 }
-function HeaderComponent_ng_container_24_ng_template_2_Template(rf, ctx) {
+function HeaderComponent_ng_container_25_ng_template_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 42);
+    \u0275\u0275elementStart(0, "a", 44);
     \u0275\u0275text(1, "Login");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(2, "a", 43);
+    \u0275\u0275elementStart(2, "a", 45);
     \u0275\u0275text(3, " Create Account ");
     \u0275\u0275elementEnd();
   }
@@ -725,10 +782,10 @@ function HeaderComponent_ng_container_24_ng_template_2_Template(rf, ctx) {
     \u0275\u0275property("queryParams", \u0275\u0275pureFunction0(1, _c0));
   }
 }
-function HeaderComponent_ng_container_24_Template(rf, ctx) {
+function HeaderComponent_ng_container_25_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, HeaderComponent_ng_container_24_ng_container_1_Template, 7, 3, "ng-container", 25)(2, HeaderComponent_ng_container_24_ng_template_2_Template, 4, 2, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
+    \u0275\u0275template(1, HeaderComponent_ng_container_25_ng_container_1_Template, 7, 3, "ng-container", 27)(2, HeaderComponent_ng_container_25_ng_template_2_Template, 4, 2, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -757,7 +814,7 @@ var HeaderComponent = class _HeaderComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HeaderComponent, selectors: [["app-header"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 26, vars: 5, consts: [["loggedOut", ""], ["initials", ""], [1, "pm-header"], [1, "pm-container", "header-inner"], ["routerLink", "/", 1, "logo"], [1, "logo-icon"], ["width", "32", "height", "32", "viewBox", "0 0 32 32", "fill", "none"], ["id", "logoGrad", "x1", "0", "y1", "0", "x2", "32", "y2", "32"], ["offset", "0%", "stop-color", "#6366F1"], ["offset", "100%", "stop-color", "#A855F7"], ["width", "32", "height", "32", "rx", "8", "fill", "url(#logoGrad)"], ["x", "16", "y", "24", "font-family", "Plus Jakarta Sans, sans-serif", "font-size", "22", "font-weight", "800", "text-anchor", "middle", "fill", "white"], [1, "logo-text"], [1, "logo-accent"], [1, "header-actions"], ["routerLink", "/cart", "title", "Shopping Cart", 1, "cart-btn"], ["width", "22", "height", "22", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["cx", "9", "cy", "21", "r", "1"], ["cx", "20", "cy", "21", "r", "1"], ["d", "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"], ["class", "cart-badge", 4, "ngIf"], [4, "ngIf"], [1, "header-spacer"], [1, "cart-badge"], [1, "skeleton-avatar", 2, "width", "40px", "height", "40px", "border-radius", "50%", "background", "var(--pm-surface-muted)", "animation", "pulse 1.5s infinite"], [4, "ngIf", "ngIfElse"], [1, "user-profile", 3, "mouseenter", "mouseleave"], [1, "profile-btn"], ["class", "avatar-img", 3, "src", 4, "ngIf", "ngIfElse"], ["class", "dropdown-menu profile-dropdown", 4, "ngIf"], [1, "avatar-img", 3, "src"], [1, "avatar-initials"], [1, "dropdown-menu", "profile-dropdown"], [1, "profile-header"], ["routerLink", "/profile", 1, "dropdown-item"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["d", "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"], ["cx", "12", "cy", "7", "r", "4"], [1, "dropdown-item", 3, "click"], ["d", "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"], ["points", "16 17 21 12 16 7"], ["x1", "21", "y1", "12", "x2", "9", "y2", "12"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", "auth-btn"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-primary", "pm-btn-sm", "auth-btn", "auth-btn-create", 3, "queryParams"]], template: function HeaderComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _HeaderComponent, selectors: [["app-header"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 27, vars: 6, consts: [["loggedOut", ""], ["initials", ""], [1, "pm-header"], [1, "pm-container", "header-inner"], ["routerLink", "/", 1, "logo"], [1, "logo-icon"], ["width", "32", "height", "32", "viewBox", "0 0 32 32", "fill", "none"], ["id", "logoGrad", "x1", "0", "y1", "0", "x2", "32", "y2", "32"], ["offset", "0%", "stop-color", "#6366F1"], ["offset", "100%", "stop-color", "#A855F7"], ["width", "32", "height", "32", "rx", "8", "fill", "url(#logoGrad)"], ["x", "16", "y", "24", "font-family", "Plus Jakarta Sans, sans-serif", "font-size", "22", "font-weight", "800", "text-anchor", "middle", "fill", "white"], [1, "logo-text"], [1, "logo-accent"], [1, "header-actions"], ["routerLink", "/cart", "title", "Shopping Cart", 1, "cart-btn"], ["width", "22", "height", "22", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["cx", "9", "cy", "21", "r", "1"], ["cx", "20", "cy", "21", "r", "1"], ["d", "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"], ["class", "cart-badge", 4, "ngIf"], ["routerLink", "/sell", "class", "sell-link", "title", "Sell Your Product", 4, "ngIf"], [4, "ngIf"], [1, "header-spacer"], [1, "cart-badge"], ["routerLink", "/sell", "title", "Sell Your Product", 1, "sell-link"], [1, "skeleton-avatar", 2, "width", "40px", "height", "40px", "border-radius", "50%", "background", "var(--pm-surface-muted)", "animation", "pulse 1.5s infinite"], [4, "ngIf", "ngIfElse"], [1, "user-profile", 3, "mouseenter", "mouseleave"], [1, "profile-btn"], ["class", "avatar-img", 3, "src", 4, "ngIf", "ngIfElse"], ["class", "dropdown-menu profile-dropdown", 4, "ngIf"], [1, "avatar-img", 3, "src"], [1, "avatar-initials"], [1, "dropdown-menu", "profile-dropdown"], [1, "profile-header"], ["routerLink", "/profile", 1, "dropdown-item"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2", "stroke-linecap", "round", "stroke-linejoin", "round"], ["d", "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"], ["cx", "12", "cy", "7", "r", "4"], [1, "dropdown-item", 3, "click"], ["d", "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"], ["points", "16 17 21 12 16 7"], ["x1", "21", "y1", "12", "x2", "9", "y2", "12"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", "auth-btn"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-primary", "pm-btn-sm", "auth-btn", "auth-btn-create", 3, "queryParams"]], template: function HeaderComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275elementStart(0, "header", 2)(1, "div", 3)(2, "a", 4)(3, "span", 5);
         \u0275\u0275namespaceSVG();
@@ -781,25 +838,27 @@ var HeaderComponent = class _HeaderComponent {
         \u0275\u0275elementEnd();
         \u0275\u0275template(22, HeaderComponent_span_22_Template, 2, 1, "span", 20);
         \u0275\u0275elementEnd();
-        \u0275\u0275template(23, HeaderComponent_ng_container_23_Template, 2, 0, "ng-container", 21)(24, HeaderComponent_ng_container_24_Template, 4, 2, "ng-container", 21);
+        \u0275\u0275template(23, HeaderComponent_a_23_Template, 2, 0, "a", 21)(24, HeaderComponent_ng_container_24_Template, 2, 0, "ng-container", 22)(25, HeaderComponent_ng_container_25_Template, 4, 2, "ng-container", 22);
         \u0275\u0275elementEnd()()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275element(25, "div", 22);
+        \u0275\u0275element(26, "div", 23);
       }
       if (rf & 2) {
         \u0275\u0275classProp("scrolled", ctx.isScrolled());
         \u0275\u0275advance(22);
         \u0275\u0275property("ngIf", ctx.marketplace.cartCount() > 0);
         \u0275\u0275advance();
+        \u0275\u0275property("ngIf", ctx.auth.currentUser());
+        \u0275\u0275advance();
         \u0275\u0275property("ngIf", !ctx.auth.isAuthLoaded());
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.auth.isAuthLoaded());
       }
-    }, dependencies: [CommonModule, NgIf, RouterLink], styles: ["\n\n.pm-header[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 1000;\n  background: rgba(255, 255, 255, 0.85);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border-bottom: 1px solid transparent;\n  transition: all var(--pm-transition-base);\n}\n.pm-header.scrolled[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.95);\n  border-bottom-color: var(--pm-border);\n  box-shadow: var(--pm-shadow-sm);\n}\n.header-inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 64px;\n  gap: 32px;\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  flex-shrink: 0;\n}\n.logo-text[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.logo-accent[_ngcontent-%COMP%] {\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n.nav-links[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%]:hover, \n.nav-links[_ngcontent-%COMP%]    > a.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.nav-dropdown[_ngcontent-%COMP%] {\n  position: relative;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  font-family: inherit;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.dropdown-menu[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  min-width: 260px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-xl);\n  padding: 8px;\n  animation: _ngcontent-%COMP%_scaleIn 0.2s ease;\n  z-index: 100;\n}\n.dropdown-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px 12px;\n  border-radius: var(--pm-radius-sm);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n}\n.cat-icon[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.cat-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n}\n.cat-count[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.header-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex-shrink: 0;\n}\n.cart-btn[_ngcontent-%COMP%] {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-sm);\n  color: var(--pm-text-secondary);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.cart-btn[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: var(--ion-color-primary);\n}\n.cart-badge[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  width: 18px;\n  height: 18px;\n  background: var(--pm-gradient-warm);\n  color: white;\n  font-size: 0.65rem;\n  font-weight: 700;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.upload-btn[_ngcontent-%COMP%] {\n  text-decoration: none;\n}\n.header-spacer[_ngcontent-%COMP%] {\n  height: 64px;\n}\n.user-profile[_ngcontent-%COMP%] {\n  position: relative;\n}\n.profile-btn[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  padding: 0;\n  margin-left: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n}\n.avatar-img[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  object-fit: cover;\n  border: 2px solid var(--pm-border-light);\n}\n.avatar-initials[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: var(--pm-gradient-primary);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.profile-dropdown[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0;\n  left: auto;\n  width: 240px;\n  padding: 8px 0;\n  top: calc(100% + 4px);\n  background: white;\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-lg);\n  border: 1px solid var(--pm-border);\n  z-index: 1001;\n}\n.profile-header[_ngcontent-%COMP%] {\n  padding: 12px 16px;\n  display: flex;\n  flex-direction: column;\n}\n.profile-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 0.95rem;\n  color: var(--pm-text-primary);\n}\n.profile-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.profile-dropdown[_ngcontent-%COMP%]   hr[_ngcontent-%COMP%] {\n  border: none;\n  border-top: 1px solid var(--pm-border-light);\n  margin: 4px 0;\n}\n.profile-dropdown[_ngcontent-%COMP%]   .dropdown-item[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.profile-dropdown[_ngcontent-%COMP%]   .dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: #EF4444;\n}\n@media (max-width: 768px) {\n  .nav-links[_ngcontent-%COMP%] {\n    display: none;\n    position: fixed;\n    top: 64px;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: var(--pm-surface);\n    flex-direction: column;\n    padding: 24px;\n    gap: 8px;\n    z-index: 999;\n  }\n  .nav-links.mobile-open[_ngcontent-%COMP%] {\n    display: flex;\n  }\n  .nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n    font-size: 1.1rem;\n    padding: 14px 16px;\n    width: 100%;\n  }\n  .nav-dropdown[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .nav-dropdown-trigger[_ngcontent-%COMP%] {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 14px 16px;\n  }\n  .dropdown-menu[_ngcontent-%COMP%] {\n    position: static;\n    box-shadow: none;\n    border: none;\n    padding-left: 20px;\n  }\n  .upload-btn[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .header-inner[_ngcontent-%COMP%] {\n    gap: 16px;\n  }\n  .header-actions[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .auth-btn-create[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n@keyframes _ngcontent-%COMP%_scaleIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95) translateY(-4px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n/*# sourceMappingURL=header.component.css.map */"] });
+    }, dependencies: [CommonModule, NgIf, RouterLink], styles: ["\n\n.pm-header[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 1000;\n  background: rgba(255, 255, 255, 0.85);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border-bottom: 1px solid transparent;\n  transition: all var(--pm-transition-base);\n}\n.pm-header.scrolled[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.95);\n  border-bottom-color: var(--pm-border);\n  box-shadow: var(--pm-shadow-sm);\n}\n.header-inner[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  height: 64px;\n  gap: 32px;\n}\n.logo[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  flex-shrink: 0;\n}\n.logo-text[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.logo-accent[_ngcontent-%COMP%] {\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n.nav-links[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%]:hover, \n.nav-links[_ngcontent-%COMP%]    > a.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.nav-dropdown[_ngcontent-%COMP%] {\n  position: relative;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 8px 16px;\n  font-size: 0.9rem;\n  font-weight: 500;\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n  font-family: inherit;\n}\n.nav-dropdown-trigger[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.06);\n}\n.dropdown-menu[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 100%;\n  left: 0;\n  min-width: 260px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-xl);\n  padding: 8px;\n  animation: _ngcontent-%COMP%_scaleIn 0.2s ease;\n  z-index: 100;\n}\n.dropdown-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px 12px;\n  border-radius: var(--pm-radius-sm);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n}\n.cat-icon[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  width: 36px;\n  height: 36px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.cat-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n}\n.cat-count[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.header-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex-shrink: 0;\n}\n.cart-btn[_ngcontent-%COMP%] {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-sm);\n  color: var(--pm-text-secondary);\n  transition: all var(--pm-transition-fast);\n  text-decoration: none;\n}\n.cart-btn[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: var(--ion-color-primary);\n}\n.cart-badge[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 2px;\n  right: 2px;\n  width: 18px;\n  height: 18px;\n  background: var(--pm-gradient-warm);\n  color: white;\n  font-size: 0.65rem;\n  font-weight: 700;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.upload-btn[_ngcontent-%COMP%] {\n  text-decoration: none;\n}\n.sell-link[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: #059669;\n  background: rgba(16, 185, 129, 0.08);\n  text-decoration: none;\n  transition: all 0.2s;\n  white-space: nowrap;\n}\n.sell-link[_ngcontent-%COMP%]:hover {\n  background: rgba(16, 185, 129, 0.15);\n  color: #047857;\n}\n.header-spacer[_ngcontent-%COMP%] {\n  height: 64px;\n}\n.user-profile[_ngcontent-%COMP%] {\n  position: relative;\n}\n.profile-btn[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  padding: 0;\n  margin-left: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n}\n.avatar-img[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  object-fit: cover;\n  border: 2px solid var(--pm-border-light);\n}\n.avatar-initials[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: var(--pm-gradient-primary);\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.profile-dropdown[_ngcontent-%COMP%] {\n  position: absolute;\n  right: 0;\n  left: auto;\n  width: 240px;\n  padding: 8px 0;\n  top: calc(100% + 4px);\n  background: white;\n  border-radius: var(--pm-radius-md);\n  box-shadow: var(--pm-shadow-lg);\n  border: 1px solid var(--pm-border);\n  z-index: 1001;\n}\n.profile-header[_ngcontent-%COMP%] {\n  padding: 12px 16px;\n  display: flex;\n  flex-direction: column;\n}\n.profile-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  font-size: 0.95rem;\n  color: var(--pm-text-primary);\n}\n.profile-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.profile-dropdown[_ngcontent-%COMP%]   hr[_ngcontent-%COMP%] {\n  border: none;\n  border-top: 1px solid var(--pm-border-light);\n  margin: 4px 0;\n}\n.profile-dropdown[_ngcontent-%COMP%]   .dropdown-item[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n  text-decoration: none;\n}\n.profile-dropdown[_ngcontent-%COMP%]   .dropdown-item[_ngcontent-%COMP%]:hover {\n  background: var(--pm-surface-muted);\n  color: #EF4444;\n}\n@media (max-width: 768px) {\n  .nav-links[_ngcontent-%COMP%] {\n    display: none;\n    position: fixed;\n    top: 64px;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: var(--pm-surface);\n    flex-direction: column;\n    padding: 24px;\n    gap: 8px;\n    z-index: 999;\n  }\n  .nav-links.mobile-open[_ngcontent-%COMP%] {\n    display: flex;\n  }\n  .nav-links[_ngcontent-%COMP%]    > a[_ngcontent-%COMP%] {\n    font-size: 1.1rem;\n    padding: 14px 16px;\n    width: 100%;\n  }\n  .nav-dropdown[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .nav-dropdown-trigger[_ngcontent-%COMP%] {\n    width: 100%;\n    font-size: 1.1rem;\n    padding: 14px 16px;\n  }\n  .dropdown-menu[_ngcontent-%COMP%] {\n    position: static;\n    box-shadow: none;\n    border: none;\n    padding-left: 20px;\n  }\n  .upload-btn[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .header-inner[_ngcontent-%COMP%] {\n    gap: 16px;\n  }\n  .header-actions[_ngcontent-%COMP%] {\n    gap: 8px;\n  }\n  .auth-btn-create[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n@keyframes _ngcontent-%COMP%_scaleIn {\n  from {\n    opacity: 0;\n    transform: scale(0.95) translateY(-4px);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1) translateY(0);\n  }\n}\n/*# sourceMappingURL=header.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HeaderComponent, { className: "HeaderComponent", filePath: "src\\app\\components\\header\\header.component.ts", lineNumber: 399 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(HeaderComponent, { className: "HeaderComponent", filePath: "src\\app\\components\\header\\header.component.ts", lineNumber: 412 });
 })();
 
 // src/app/components/footer/footer.component.ts
@@ -992,4 +1051,4 @@ export {
   HeaderComponent,
   FooterComponent
 };
-//# sourceMappingURL=chunk-BQ6R7HPJ.js.map
+//# sourceMappingURL=chunk-S4AIQF2S.js.map

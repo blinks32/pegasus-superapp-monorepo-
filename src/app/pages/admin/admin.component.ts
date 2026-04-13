@@ -25,6 +25,10 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           </div>
           <div class="hero-actions">
             <button (click)="activeTab = 'dashboard'" [class.active]="activeTab === 'dashboard'" class="tab-btn">Dashboard</button>
+            <button (click)="activeTab = 'review'" [class.active]="activeTab === 'review'" class="tab-btn">
+              Review Queue
+              <span class="pending-badge" *ngIf="marketplace.pendingProducts().length > 0">{{ marketplace.pendingProducts().length }}</span>
+            </button>
             <button (click)="activeTab = 'Blogs'" [class.active]="activeTab === 'Blogs'" class="tab-btn">Blogs</button>
             <button (click)="activeTab = 'analytics'; loadAnalytics()" [class.active]="activeTab === 'analytics'" class="tab-btn">Analytics</button>
             <button (click)="activeTab = 'settings'" [class.active]="activeTab === 'settings'" class="tab-btn">Settings</button>
@@ -146,6 +150,66 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               <p>No projects submitted yet. <a routerLink="/admin/submit">Submit your first project →</a></p>
             </div>
           </ng-container>
+        </div>
+      </div>
+
+      <!-- Review Queue View -->
+      <div *ngIf="activeTab === 'review'" class="fade-in">
+        <div class="settings-card">
+          <div class="settings-header">
+            <h3>🔍 Review Queue</h3>
+            <p>Review and approve or reject seller submissions before they go live.</p>
+          </div>
+
+          <div *ngIf="marketplace.pendingProducts().length === 0" class="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <h4>All clear!</h4>
+            <p>No pending submissions to review.</p>
+          </div>
+
+          <div class="review-item" *ngFor="let p of marketplace.pendingProducts()">
+            <div class="review-item-header">
+              <div class="review-thumb"
+                [style.backgroundImage]="p.thumbnailUrl ? 'url(' + p.thumbnailUrl + ')' : 'none'"
+                [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
+                <span *ngIf="!p.thumbnailUrl">📦</span>
+              </div>
+              <div class="review-info">
+                <h4>{{ p.title }}</h4>
+                <p>{{ p.shortDescription }}</p>
+                <div class="review-meta-row">
+                  <span class="meta-tag">💰 \${{ p.price }}</span>
+                  <span class="meta-tag">📁 {{ p.category }}</span>
+                  <span class="meta-tag" *ngIf="p.submittedBy">👤 {{ p.submittedBy.displayName }}</span>
+                  <span class="meta-tag">📅 {{ p.createdAt | date:'mediumDate' }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Deployment Guide Preview -->
+            <div class="guide-preview-mini" *ngIf="p.deploymentGuide">
+              <div class="gpm-header" (click)="toggleGuidePreview(p.id)">
+                <span>📖 Deployment Guide</span>
+                <span>{{ expandedGuides[p.id] ? '▲' : '▼' }}</span>
+              </div>
+              <pre class="gpm-content" *ngIf="expandedGuides[p.id]">{{ p.deploymentGuide }}</pre>
+            </div>
+            <div class="no-guide-tag" *ngIf="!p.deploymentGuide">
+              ⚠️ No deployment guide submitted
+            </div>
+
+            <div class="review-actions-row">
+              <a [routerLink]="['/product', p.id]" class="pm-btn pm-btn-ghost pm-btn-sm">👁️ Preview</a>
+              <button class="pm-btn pm-btn-sm" style="background:#10B981; color:white; border:none;" (click)="approveProduct(p.id)">
+                ✅ Approve
+              </button>
+              <button class="pm-btn pm-btn-sm" style="background:#EF4444; color:white; border:none;" (click)="openRejectModal(p.id, p.title)">
+                ❌ Reject
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -473,6 +537,29 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           <button class="pm-btn pm-btn-ghost" (click)="closeEditModal()" [disabled]="isSaving()">Cancel</button>
           <button class="pm-btn pm-btn-primary" (click)="saveEditProduct()" [disabled]="!editForm.title || isSaving()">
             {{ isSaving() ? '⌛ Saving Assets...' : '💾 Save Changes' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rejection Modal -->
+    <div class="modal-overlay" *ngIf="showRejectModal" (click)="closeRejectModal()">
+      <div class="modal-content" style="max-width:500px;" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h3>❌ Reject Submission</h3>
+          <button class="modal-close" (click)="closeRejectModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="color:var(--pm-text-secondary); margin:0 0 16px;">Rejecting: <strong>{{ rejectingTitle }}</strong></p>
+          <div class="form-group">
+            <label for="rejectReason">Reason for Rejection *</label>
+            <textarea id="rejectReason" [(ngModel)]="rejectionReason" placeholder="Explain why this submission is being rejected..." class="form-input" rows="4"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="pm-btn pm-btn-ghost" (click)="closeRejectModal()">Cancel</button>
+          <button class="pm-btn" style="background:#EF4444; color:white; border:none;" (click)="confirmReject()" [disabled]="!rejectionReason">
+            Confirm Rejection
           </button>
         </div>
       </div>
@@ -917,6 +1004,56 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
       .blog-item-header { flex-direction: column; align-items: flex-start; gap: 12px; }
       .blog-item-header .blog-actions { width: 100%; justify-content: flex-start; }
     }
+
+    /* Review Queue */
+    .pending-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 20px; height: 20px; padding: 0 6px;
+      background: #EF4444; color: white; border-radius: 10px;
+      font-size: 0.7rem; font-weight: 700; margin-left: 6px;
+    }
+    .review-item {
+      padding: 24px; margin-bottom: 16px;
+      background: var(--pm-surface); border: 1px solid var(--pm-border-light);
+      border-radius: var(--pm-radius-lg); transition: all 0.2s;
+    }
+    .review-item:hover { border-color: var(--ion-color-primary); box-shadow: var(--pm-shadow-sm); }
+    .review-item-header { display: flex; gap: 16px; margin-bottom: 16px; }
+    .review-thumb {
+      width: 80px; height: 60px; border-radius: var(--pm-radius-sm);
+      background: var(--pm-surface-muted); display: flex;
+      align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;
+    }
+    .review-info { flex: 1; min-width: 0; }
+    .review-info h4 { margin: 0 0 4px; font-size: 1rem; }
+    .review-info p { margin: 0 0 8px; font-size: 0.85rem; color: var(--pm-text-secondary); }
+    .review-meta-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .meta-tag {
+      padding: 3px 10px; background: var(--pm-surface-muted);
+      border-radius: var(--pm-radius-full); font-size: 0.75rem;
+      color: var(--pm-text-secondary); font-weight: 500;
+    }
+    .guide-preview-mini {
+      background: var(--pm-surface-muted); border: 1px solid var(--pm-border-light);
+      border-radius: var(--pm-radius-md); margin-bottom: 16px; overflow: hidden;
+    }
+    .gpm-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 16px; cursor: pointer; font-size: 0.85rem; font-weight: 600;
+    }
+    .gpm-header:hover { background: rgba(0,0,0,0.02); }
+    .gpm-content {
+      padding: 16px; margin: 0; font-size: 0.8rem; line-height: 1.6;
+      color: var(--pm-text-secondary); white-space: pre-wrap; font-family: inherit;
+      max-height: 200px; overflow-y: auto;
+      border-top: 1px solid var(--pm-border-light);
+    }
+    .no-guide-tag {
+      padding: 10px 16px; background: rgba(245,158,11,0.06);
+      border: 1px solid rgba(245,158,11,0.15); border-radius: var(--pm-radius-md);
+      font-size: 0.82rem; color: #D97706; margin-bottom: 16px;
+    }
+    .review-actions-row { display: flex; gap: 8px; justify-content: flex-end; }
   `],
 })
 export class AdminComponent implements OnInit {
@@ -958,6 +1095,13 @@ export class AdminComponent implements OnInit {
   showEditModal = false;
   editingProductId: string | null = null;
   editForm: any = {};
+
+  // Review Queue
+  showRejectModal = false;
+  rejectingProductId: string | null = null;
+  rejectingTitle = '';
+  rejectionReason = '';
+  expandedGuides: Record<string, boolean> = {};
 
   constructor() {
     // Reactively update stats when products change
@@ -1625,5 +1769,48 @@ export class AdminComponent implements OnInit {
     const date = new Date();
     date.setDate(date.getDate() - Math.floor(Math.random() * daysMax));
     return date;
+  }
+
+  /* ═══════════ Review Queue Methods ═══════════ */
+
+  toggleGuidePreview(productId: string) {
+    this.expandedGuides[productId] = !this.expandedGuides[productId];
+  }
+
+  async approveProduct(productId: string) {
+    if (!confirm('Approve this product? It will be published to the marketplace.')) return;
+    try {
+      await this.marketplace.approveProduct(productId);
+      alert('Product approved and published!');
+    } catch (e) {
+      console.error('Error approving:', e);
+      alert('Failed to approve product.');
+    }
+  }
+
+  openRejectModal(productId: string, title: string) {
+    this.rejectingProductId = productId;
+    this.rejectingTitle = title;
+    this.rejectionReason = '';
+    this.showRejectModal = true;
+  }
+
+  closeRejectModal() {
+    this.showRejectModal = false;
+    this.rejectingProductId = null;
+    this.rejectingTitle = '';
+    this.rejectionReason = '';
+  }
+
+  async confirmReject() {
+    if (!this.rejectingProductId || !this.rejectionReason) return;
+    try {
+      await this.marketplace.rejectProduct(this.rejectingProductId, this.rejectionReason);
+      this.closeRejectModal();
+      alert('Product rejected.');
+    } catch (e) {
+      console.error('Error rejecting:', e);
+      alert('Failed to reject product.');
+    }
   }
 }

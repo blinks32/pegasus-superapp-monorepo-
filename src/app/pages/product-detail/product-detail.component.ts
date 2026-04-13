@@ -137,6 +137,20 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
 
+          <!-- Deployment Guide Section -->
+          <div class="deploy-guide-card shadow-premium" *ngIf="product.deploymentGuide">
+            <div class="dg-header" (click)="guideExpanded = !guideExpanded">
+              <div class="dg-title">
+                <span class="dg-icon">📖</span>
+                <h2 class="section-title" style="margin:0">Deployment Guide</h2>
+              </div>
+              <span class="dg-toggle">{{ guideExpanded ? '▲ Collapse' : '▼ Expand' }}</span>
+            </div>
+            <div class="dg-body" *ngIf="guideExpanded">
+              <pre class="dg-content">{{ product.deploymentGuide }}</pre>
+            </div>
+          </div>
+
           <!-- Tabs & Guide Section -->
           <div class="tabs-layout">
             <div class="tabs-main">
@@ -879,6 +893,51 @@ import { Product } from '../../models/marketplace.models';
       .features-grid { grid-template-columns: 1fr; }
       .reviews-summary { flex-direction: column; }
       .related-grid { grid-template-columns: 1fr; }
+      .stats-strip {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 12px; padding: 16px;
+      }
+      .stat-divider { display: none; }
+      .stat-pill { text-align: center; }
+      .preview-image { height: 240px; }
+      .main-content-card { padding: 24px; }
+      .section-title { font-size: 1.3rem; }
+      .detail-tabs { overflow-x: auto; flex-wrap: nowrap; }
+      .tab-btn { white-space: nowrap; min-width: max-content; padding: 10px 14px; font-size: 0.8rem; }
+      .breadcrumb { font-size: 0.75rem; padding: 12px 0; }
+      .desc-card { padding: 20px; }
+      .review-card, .comment-card { padding: 14px; }
+      .purchase-card, .author-card, .tags-card { padding: 18px; }
+      .pm-gallery-strip .thumb-item { flex: 0 0 64px; height: 48px; }
+      .demo-links-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Deployment Guide Card */
+    .deploy-guide-card {
+      background: var(--pm-surface); border-radius: var(--pm-radius-lg);
+      border: 1px solid var(--pm-border-light); margin-bottom: 24px; overflow: hidden;
+    }
+    .dg-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 32px; cursor: pointer; transition: background 0.2s;
+    }
+    .dg-header:hover { background: rgba(99,102,241,0.02); }
+    .dg-title { display: flex; align-items: center; gap: 12px; }
+    .dg-icon { font-size: 1.5rem; }
+    .dg-toggle {
+      font-size: 0.82rem; font-weight: 600; color: var(--ion-color-primary);
+    }
+    .dg-body {
+      border-top: 1px solid var(--pm-border-light); padding: 24px 32px;
+      max-height: 500px; overflow-y: auto;
+    }
+    .dg-content {
+      margin: 0; font-size: 0.88rem; line-height: 1.8;
+      color: var(--pm-text-secondary); white-space: pre-wrap; font-family: inherit;
+    }
+    @media (max-width: 768px) {
+      .dg-header { padding: 16px 20px; }
+      .dg-body { padding: 16px 20px; }
     }
   `],
 })
@@ -899,14 +958,15 @@ export class ProductDetailComponent implements OnInit {
 
   maximizedImage: string | null = null;
   safeYoutubeUrl?: SafeResourceUrl;
+  guideExpanded = false;
 
   newCommentText = '';
   comments: Array<{userName: string; text: string; date: Date}> = [];
 
   tabs = [
-    { id: 'reviews', label: '⭐ Customer Reviews' },
+    { id: 'reviews', label: '⭐ Reviews' },
     { id: 'comments', label: '💬 Discussion' },
-    { id: 'description', label: '⚙️ Technical Specs' }
+    { id: 'description', label: '⚙️ Tech Specs' }
   ];
 
   ratingBars = [

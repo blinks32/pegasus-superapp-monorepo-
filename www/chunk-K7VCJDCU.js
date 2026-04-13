@@ -1,7 +1,7 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-BQ6R7HPJ.js";
+} from "./chunk-S4AIQF2S.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -208,4 +208,4 @@ var StaticPageComponent = class _StaticPageComponent {
 export {
   StaticPageComponent
 };
-//# sourceMappingURL=chunk-ZGSZM7Y3.js.map
+//# sourceMappingURL=chunk-K7VCJDCU.js.map

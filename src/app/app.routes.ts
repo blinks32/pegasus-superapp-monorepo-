@@ -68,6 +68,16 @@ export const routes: Routes = [
       import('./pages/guide/guide.component').then((m) => m.GuideComponent),
   },
   {
+    path: 'sell',
+    loadComponent: () =>
+      import('./pages/sell/sell.component').then((m) => m.SellComponent),
+  },
+  {
+    path: 'sell/dashboard',
+    loadComponent: () =>
+      import('./pages/sell/seller-dashboard.component').then((m) => m.SellerDashboardComponent),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

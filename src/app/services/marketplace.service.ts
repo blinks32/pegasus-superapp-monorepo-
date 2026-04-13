@@ -8,19 +8,25 @@ export class MarketplaceService {
   private firestore = inject(Firestore);
 
   /* ═══════════ State Signals ═══════════ */
-  private _products = signal<Product[]>([]); // Initialized as empty array
+  private _allProducts = signal<Product[]>([]); // ALL products from Firestore
   private _isLoadingProducts = signal<boolean>(true);
   private _initialLoadComplete = signal<boolean>(false);
   private _cart = signal<CartItem[]>([]);
   private _searchFilters = signal<SearchFilters>({ query: '', sortBy: 'bestselling' });
   private _adminProjects = signal<AdminProject[]>([]);
 
-  products = this._products.asReadonly();
+  // Public marketplace only shows published products
+  products = computed(() => this._allProducts().filter(p => !p.status || p.status === 'published'));
+  // Admin access to ALL products regardless of status
+  allProducts = this._allProducts.asReadonly();
   isLoadingProducts = this._isLoadingProducts.asReadonly();
   initialLoadComplete = this._initialLoadComplete.asReadonly();
   cart = this._cart.asReadonly();
   searchFilters = this._searchFilters.asReadonly();
   adminProjects = this._adminProjects.asReadonly();
+
+  // Pending products for admin review queue
+  pendingProducts = computed(() => this._allProducts().filter(p => p.status === 'pending'));
 
   cartTotal = computed(() =>
     this._cart().reduce((sum, item) => {
@@ -33,7 +39,7 @@ export class MarketplaceService {
   cartCount = computed(() => this._cart().reduce((sum, item) => sum + item.quantity, 0));
 
   filteredProducts = computed(() => {
-    const products = this._products();
+    const products = this.products();
     if (!products) return [];
 
     const filters = this._searchFilters();
@@ -64,17 +70,17 @@ export class MarketplaceService {
   });
 
   featuredProducts = computed(() => {
-    const products = this._products();
+    const products = this.products();
     return products ? products.filter(p => p.isFeatured) : [];
   });
 
   bestsellerProducts = computed(() => {
-    const products = this._products();
+    const products = this.products();
     return products ? [...products].sort((a, b) => b.totalSales - a.totalSales).slice(0, 8) : [];
   });
 
   newestProducts = computed(() => {
-    const products = this._products();
+    const products = this.products();
     return products ? [...products].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 8) : [];
   });
 
@@ -104,7 +110,7 @@ export class MarketplaceService {
         createdAt: this.parseFirestoreDate(p.createdAt),
         lastUpdated: this.parseFirestoreDate(p.lastUpdated),
       }));
-      this._products.set(transformed as Product[]);
+      this._allProducts.set(transformed as Product[]);
       // Important: Only flip loading states after we have at least one emission
       this._isLoadingProducts.set(false);
       this._initialLoadComplete.set(true);
@@ -120,25 +126,26 @@ export class MarketplaceService {
   /* ═══════════ Product CRUD ═══════════ */
 
   getProductById(id: string): Product | undefined {
-    const products = this._products();
+    // Search ALL products (including pending) so product detail works for admin/owner
+    const products = this._allProducts();
     if (!products) return undefined;
     return products.find(p => p.id === id);
   }
 
   getProductBySlug(slug: string): Product | undefined {
-    const products = this._products();
+    const products = this._allProducts();
     if (!products) return undefined;
     return products.find(p => p.slug === slug);
   }
 
   getProductsByCategory(cat: ProductCategory): Product[] {
-    const products = this._products();
+    const products = this.products();
     if (!products) return [];
     return products.filter(p => p.category === cat);
   }
 
   getRelatedProducts(product: Product, limit = 4): Product[] {
-    const products = this._products();
+    const products = this.products();
     if (!products) return [];
     return products.filter(p => p.id !== product.id && (p.category === product.category || p.tags.some(t => product.tags.includes(t)))).slice(0, limit);
   }
@@ -181,7 +188,7 @@ export class MarketplaceService {
   /* ═══════════ Reviews ═══════════ */
 
   addReview(productId: string, review: Omit<Review, 'id' | 'date' | 'helpful'>) {
-    this._products.update(products => {
+    this._allProducts.update(products => {
       if (!products) return products;
       return products.map(p => {
         if (p.id !== productId) return p;
@@ -194,10 +201,40 @@ export class MarketplaceService {
   }
 
   incrementVisit(productId: string) {
-    this._products.update(products => {
+    this._allProducts.update(products => {
       if (!products) return products;
       return products.map(p => p.id === productId ? { ...p, totalVisits: p.totalVisits + 1 } : p);
     });
+  }
+
+  /* ═══════════ Admin Review Queue ═══════════ */
+
+  async approveProduct(productId: string) {
+    try {
+      const productRef = doc(this.firestore, `products/${productId}`);
+      await updateDoc(productRef, { status: 'published', lastUpdated: new Date() });
+      console.log('Product approved:', productId);
+    } catch (error) {
+      console.error('Error approving product:', error);
+      throw error;
+    }
+  }
+
+  async rejectProduct(productId: string, reason: string) {
+    try {
+      const productRef = doc(this.firestore, `products/${productId}`);
+      await updateDoc(productRef, { status: 'rejected', rejectionReason: reason, lastUpdated: new Date() });
+      console.log('Product rejected:', productId);
+    } catch (error) {
+      console.error('Error rejecting product:', error);
+      throw error;
+    }
+  }
+
+  getUserProducts(uid: string): Product[] {
+    const products = this._allProducts();
+    if (!products) return [];
+    return products.filter(p => p.submittedBy?.uid === uid);
   }
 
   /**
@@ -276,6 +313,28 @@ export class MarketplaceService {
       .replace(/(^-|-$)/g, '');
 
     const now = new Date();
+    const authorInfo = project.submittedBy ? {
+      id: project.submittedBy.uid,
+      name: project.submittedBy.displayName,
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(project.submittedBy.displayName)}&background=6366F1&color=fff`,
+      bio: 'Marketplace Seller',
+      totalSales: 0,
+      rating: 0,
+      memberSince: now,
+      badges: [],
+      verified: false
+    } : {
+      id: 'admin',
+      name: 'Admin',
+      avatar: 'https://ui-avatars.com/api/?name=Admin&background=6366F1&color=fff',
+      bio: 'Platform Administrator',
+      totalSales: 0,
+      rating: 0,
+      memberSince: now,
+      badges: [],
+      verified: true
+    };
+
     const newProduct: any = {
       id,
       title: project.title,
@@ -298,17 +357,7 @@ export class MarketplaceService {
       createdAt: now,
       version: project.version,
       fileSize: project.fileSize,
-      author: {
-        id: 'admin',
-        name: 'Admin',
-        avatar: 'https://ui-avatars.com/api/?name=Admin&background=6366F1&color=fff',
-        bio: 'Platform Administrator',
-        totalSales: 0,
-        rating: 0,
-        memberSince: now,
-        badges: [],
-        verified: true
-      },
+      author: authorInfo,
       reviews: [],
       isFeatured: false,
       isNew: true,
@@ -318,6 +367,16 @@ export class MarketplaceService {
       hasReskinService: project.hasReskinService,
       status: project.status || 'published'
     };
+
+    // Include deployment guide if provided
+    if (project.deploymentGuide) {
+      newProduct.deploymentGuide = project.deploymentGuide;
+    }
+
+    // Include submitter info
+    if (project.submittedBy) {
+      newProduct.submittedBy = project.submittedBy;
+    }
 
     // Only include fields that have values
     if (project.originalPrice) {

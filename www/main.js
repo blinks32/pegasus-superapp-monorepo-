@@ -4562,51 +4562,59 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-774G3KKE.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-XI42BRVD.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-KAPE6RG2.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-3XMEKO3R.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-XQRGPTG4.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-Q545YTSY.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-D2RUTCQW.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-MH24WXTS.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-INHHRVTG.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-5OPSP3WX.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
-    loadComponent: () => import("./chunk-LMFYI7BK.js").then((m) => m.SubmitProjectComponent)
+    loadComponent: () => import("./chunk-QUWI2ZI6.js").then((m) => m.SubmitProjectComponent)
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-5LV7PME6.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-2QQHHDZP.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-QH55OWZY.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-X3CHBNMF.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-4TI7HMLH.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-4AA4MMFO.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-3EMMQUXH.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-3UBCQ4NP.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-ZGSZM7Y3.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-K7VCJDCU.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-PGM7SKAX.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-QWKZ5DZB.js").then((m) => m.GuideComponent)
+  },
+  {
+    path: "sell",
+    loadComponent: () => import("./chunk-OSPNRV5V.js").then((m) => m.SellComponent)
+  },
+  {
+    path: "sell/dashboard",
+    loadComponent: () => import("./chunk-BDY7JCHI.js").then((m) => m.SellerDashboardComponent)
   },
   {
     path: "**",

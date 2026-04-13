@@ -39,7 +39,10 @@ import { AuthService } from '../../services/auth.service';
             </svg>
             <span class="cart-badge" *ngIf="marketplace.cartCount() > 0">{{ marketplace.cartCount() }}</span>
           </a>
-          
+
+          <a routerLink="/sell" class="sell-link" *ngIf="auth.currentUser()" title="Sell Your Product">
+            💰 Sell
+          </a>
           <ng-container *ngIf="!auth.isAuthLoaded()">
             <div class="skeleton-avatar" style="width: 40px; height: 40px; border-radius: 50%; background: var(--pm-surface-muted); animation: pulse 1.5s infinite"></div>
           </ng-container>
@@ -272,6 +275,16 @@ import { AuthService } from '../../services/auth.service';
     .upload-btn {
       text-decoration: none;
     }
+
+    .sell-link {
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 14px; border-radius: var(--pm-radius-sm);
+      font-size: 0.85rem; font-weight: 600;
+      color: #059669; background: rgba(16,185,129,0.08);
+      text-decoration: none; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .sell-link:hover { background: rgba(16,185,129,0.15); color: #047857; }
 
     .header-spacer {
       height: 64px;

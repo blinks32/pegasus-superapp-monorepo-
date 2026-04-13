@@ -22,7 +22,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-BQ6R7HPJ.js";
+} from "./chunk-S4AIQF2S.js";
 import {
   CommonModule,
   NgForOf,
@@ -1183,4 +1183,4 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
 export {
   SubmitProjectComponent
 };
-//# sourceMappingURL=chunk-LMFYI7BK.js.map
+//# sourceMappingURL=chunk-QUWI2ZI6.js.map

@@ -1,7 +1,7 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-BQ6R7HPJ.js";
+} from "./chunk-S4AIQF2S.js";
 import {
   CommonModule,
   DatePipe,
@@ -176,4 +176,4 @@ var BlogsComponent = class _BlogsComponent {
 export {
   BlogsComponent
 };
-//# sourceMappingURL=chunk-4TI7HMLH.js.map
+//# sourceMappingURL=chunk-4AA4MMFO.js.map

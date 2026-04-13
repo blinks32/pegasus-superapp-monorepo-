@@ -1,7 +1,7 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-BQ6R7HPJ.js";
+} from "./chunk-S4AIQF2S.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -165,4 +165,4 @@ var BlogDetailComponent = class _BlogDetailComponent {
 export {
   BlogDetailComponent
 };
-//# sourceMappingURL=chunk-3EMMQUXH.js.map
+//# sourceMappingURL=chunk-3UBCQ4NP.js.map
