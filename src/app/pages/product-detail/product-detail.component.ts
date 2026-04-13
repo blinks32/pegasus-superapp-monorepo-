@@ -111,6 +111,20 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
 
+          <!-- Deployment Guide Section -->
+          <div class="deploy-guide-card shadow-premium" *ngIf="product.deploymentGuide">
+            <div class="dg-header" (click)="guideExpanded = !guideExpanded">
+              <div class="dg-title">
+                <span class="dg-icon">📖</span>
+                <h2 class="section-title" style="margin:0">Deployment Guide</h2>
+              </div>
+              <span class="dg-toggle">{{ guideExpanded ? '▲ Collapse' : '▼ Expand' }}</span>
+            </div>
+            <div class="dg-body" *ngIf="guideExpanded">
+              <pre class="dg-content" [innerHTML]="formattedGuide"></pre>
+            </div>
+          </div>
+
           <!-- Description & Features (Permanently Visible) -->
           <div class="main-content-card shadow-premium">
             <div class="content-section">
@@ -137,19 +151,7 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
 
-          <!-- Deployment Guide Section -->
-          <div class="deploy-guide-card shadow-premium" *ngIf="product.deploymentGuide">
-            <div class="dg-header" (click)="guideExpanded = !guideExpanded">
-              <div class="dg-title">
-                <span class="dg-icon">📖</span>
-                <h2 class="section-title" style="margin:0">Deployment Guide</h2>
-              </div>
-              <span class="dg-toggle">{{ guideExpanded ? '▲ Collapse' : '▼ Expand' }}</span>
-            </div>
-            <div class="dg-body" *ngIf="guideExpanded">
-              <pre class="dg-content" [innerHTML]="formattedGuide"></pre>
-            </div>
-          </div>
+
 
           <!-- Tabs & Guide Section -->
           <div class="tabs-layout">

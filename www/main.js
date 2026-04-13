@@ -4570,7 +4570,7 @@ var routes = [
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-FLECHROT.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-CW22SVBA.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",

@@ -510,43 +510,10 @@ function ProductDetailComponent_div_1_div_56_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.product.liveDemos && ctx_r2.product.liveDemos.length > 0)("ngIfElse", singleDemo_r9);
   }
 }
-function ProductDetailComponent_div_1_div_63_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 28)(1, "h2", 29);
-    \u0275\u0275text(2, "Video Overview");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 92);
-    \u0275\u0275element(4, "iframe", 93);
-    \u0275\u0275elementEnd()();
-  }
-  if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275advance(4);
-    \u0275\u0275property("src", ctx_r2.safeYoutubeUrl, \u0275\u0275sanitizeResourceUrl);
-  }
-}
-function ProductDetailComponent_div_1_div_68_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 94);
-    \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(1, "svg", 95);
-    \u0275\u0275element(2, "polyline", 96);
-    \u0275\u0275elementEnd();
-    \u0275\u0275namespaceHTML();
-    \u0275\u0275elementStart(3, "span");
-    \u0275\u0275text(4);
-    \u0275\u0275elementEnd()();
-  }
-  if (rf & 2) {
-    const f_r10 = ctx.$implicit;
-    \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(f_r10);
-  }
-}
-function ProductDetailComponent_div_1_div_69_div_9_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 104);
-    \u0275\u0275element(1, "pre", 105);
+    \u0275\u0275elementStart(0, "div", 99);
+    \u0275\u0275element(1, "pre", 100);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -555,25 +522,25 @@ function ProductDetailComponent_div_1_div_69_div_9_Template(rf, ctx) {
     \u0275\u0275property("innerHTML", ctx_r2.formattedGuide, \u0275\u0275sanitizeHtml);
   }
 }
-function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_Template(rf, ctx) {
   if (rf & 1) {
-    const _r11 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 97)(1, "div", 98);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_69_Template_div_click_1_listener() {
-      \u0275\u0275restoreView(_r11);
+    const _r10 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 92)(1, "div", 93);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_57_Template_div_click_1_listener() {
+      \u0275\u0275restoreView(_r10);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.guideExpanded = !ctx_r2.guideExpanded);
     });
-    \u0275\u0275elementStart(2, "div", 99)(3, "span", 100);
+    \u0275\u0275elementStart(2, "div", 94)(3, "span", 95);
     \u0275\u0275text(4, "\u{1F4D6}");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "h2", 101);
+    \u0275\u0275elementStart(5, "h2", 96);
     \u0275\u0275text(6, "Deployment Guide");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "span", 102);
+    \u0275\u0275elementStart(7, "span", 97);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_69_div_9_Template, 2, 1, "div", 103);
+    \u0275\u0275template(9, ProductDetailComponent_div_1_div_57_div_9_Template, 2, 1, "div", 98);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -582,6 +549,39 @@ function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r2.guideExpanded ? "\u25B2 Collapse" : "\u25BC Expand");
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.guideExpanded);
+  }
+}
+function ProductDetailComponent_div_1_div_64_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 29)(1, "h2", 30);
+    \u0275\u0275text(2, "Video Overview");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "div", 101);
+    \u0275\u0275element(4, "iframe", 102);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext(2);
+    \u0275\u0275advance(4);
+    \u0275\u0275property("src", ctx_r2.safeYoutubeUrl, \u0275\u0275sanitizeResourceUrl);
+  }
+}
+function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 103);
+    \u0275\u0275namespaceSVG();
+    \u0275\u0275elementStart(1, "svg", 104);
+    \u0275\u0275element(2, "polyline", 105);
+    \u0275\u0275elementEnd();
+    \u0275\u0275namespaceHTML();
+    \u0275\u0275elementStart(3, "span");
+    \u0275\u0275text(4);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const f_r11 = ctx.$implicit;
+    \u0275\u0275advance(4);
+    \u0275\u0275textInterpolate(f_r11);
   }
 }
 function ProductDetailComponent_div_1_button_73_Template(rf, ctx) {
@@ -630,7 +630,7 @@ function ProductDetailComponent_div_1_div_74_span_11_Template(rf, ctx) {
 }
 function ProductDetailComponent_div_1_div_74_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 108)(2, "div", 28)(3, "h3", 109);
+    \u0275\u0275elementStart(0, "div", 107)(1, "div", 108)(2, "div", 29)(3, "h3", 109);
     \u0275\u0275text(4, "Tech Stack");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 110);
@@ -645,7 +645,7 @@ function ProductDetailComponent_div_1_div_74_Template(rf, ctx) {
     \u0275\u0275elementStart(12, "div", 112)(13, "h3", 109);
     \u0275\u0275text(14, "Documentation & Support");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "p", 30);
+    \u0275\u0275elementStart(15, "p", 31);
     \u0275\u0275text(16, "Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.");
     \u0275\u0275elementEnd()()()();
   }
@@ -1049,20 +1049,20 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275template(56, ProductDetailComponent_div_1_div_56_Template, 5, 2, "div", 26);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(57, "div", 27)(58, "div", 28)(59, "h2", 29);
-    \u0275\u0275text(60, "Overview");
+    \u0275\u0275template(57, ProductDetailComponent_div_1_div_57_Template, 10, 2, "div", 27);
+    \u0275\u0275elementStart(58, "div", 28)(59, "div", 29)(60, "h2", 30);
+    \u0275\u0275text(61, "Overview");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(61, "p", 30);
-    \u0275\u0275text(62);
+    \u0275\u0275elementStart(62, "p", 31);
+    \u0275\u0275text(63);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(63, ProductDetailComponent_div_1_div_63_Template, 5, 1, "div", 31);
-    \u0275\u0275elementStart(64, "div", 28)(65, "h2", 29);
-    \u0275\u0275text(66, "Key Features");
+    \u0275\u0275template(64, ProductDetailComponent_div_1_div_64_Template, 5, 1, "div", 32);
+    \u0275\u0275elementStart(65, "div", 29)(66, "h2", 30);
+    \u0275\u0275text(67, "Key Features");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(67, "div", 32);
-    \u0275\u0275template(68, ProductDetailComponent_div_1_div_68_Template, 5, 1, "div", 33);
+    \u0275\u0275elementStart(68, "div", 33);
+    \u0275\u0275template(69, ProductDetailComponent_div_1_div_69_Template, 5, 1, "div", 34);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(69, ProductDetailComponent_div_1_div_69_Template, 10, 2, "div", 34);
     \u0275\u0275elementStart(70, "div", 35)(71, "div", 36)(72, "div", 37);
     \u0275\u0275template(73, ProductDetailComponent_div_1_button_73_Template, 2, 3, "button", 38);
     \u0275\u0275elementEnd();
@@ -1227,14 +1227,14 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.product.previewImages);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", (ctx_r2.product.liveDemos == null ? null : ctx_r2.product.liveDemos.length) || ctx_r2.product.demoUrl);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r2.product.deploymentGuide);
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.shortDescription);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.safeYoutubeUrl);
     \u0275\u0275advance(5);
     \u0275\u0275property("ngForOf", ctx_r2.product.features);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.product.deploymentGuide);
     \u0275\u0275advance(4);
     \u0275\u0275property("ngForOf", ctx_r2.tabs);
     \u0275\u0275advance();
@@ -1477,7 +1477,7 @@ var ProductDetailComponent = class _ProductDetailComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 3, vars: 1, consts: [["singleDemo", ""], ["class", "pm-container page-enter", 4, "ngIf"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], [4, "ngIf"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], ["class", "content-section", 4, "ngIf"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "video-container"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 3, vars: 1, consts: [["singleDemo", ""], ["class", "pm-container page-enter", 4, "ngIf"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], [4, "ngIf"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], ["class", "content-section", 4, "ngIf"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "video-container"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275template(1, ProductDetailComponent_div_1_Template, 176, 89, "div", 1);
@@ -1491,9 +1491,9 @@ var ProductDetailComponent = class _ProductDetailComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 956 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 958 });
 })();
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-FLECHROT.js.map
+//# sourceMappingURL=chunk-CW22SVBA.js.map
