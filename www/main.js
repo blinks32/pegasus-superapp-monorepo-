@@ -4570,7 +4570,7 @@ var routes = [
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-WTG2LQGF.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-XXUHZNVG.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",

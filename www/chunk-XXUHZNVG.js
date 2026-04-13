@@ -356,19 +356,19 @@ var _c1 = (a0) => ({ q: a0 });
 function ProductDetailComponent_div_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r2 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 71);
+    \u0275\u0275elementStart(0, "div", 94);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_1_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = null);
     });
-    \u0275\u0275elementStart(1, "div", 72);
+    \u0275\u0275elementStart(1, "div", 95);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_1_Template_div_click_1_listener($event) {
       \u0275\u0275restoreView(_r2);
       return \u0275\u0275resetView($event.stopPropagation());
     });
-    \u0275\u0275element(2, "img", 73);
-    \u0275\u0275elementStart(3, "button", 74);
+    \u0275\u0275element(2, "img", 96);
+    \u0275\u0275elementStart(3, "button", 97);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_1_Template_button_click_3_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r2 = \u0275\u0275nextContext(2);
@@ -386,10 +386,10 @@ function ProductDetailComponent_div_1_div_1_Template(rf, ctx) {
 function ProductDetailComponent_div_1_ng_container_51_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "span", 75);
+    \u0275\u0275elementStart(1, "span", 98);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "span", 76);
+    \u0275\u0275elementStart(3, "span", 99);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
@@ -405,15 +405,15 @@ function ProductDetailComponent_div_1_ng_container_51_Template(rf, ctx) {
 function ProductDetailComponent_div_1_button_52_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 77);
+    \u0275\u0275elementStart(0, "button", 100);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_button_52_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r4);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = ctx_r2.getRawPreviewUrl());
     });
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(1, "svg", 78);
-    \u0275\u0275element(2, "path", 79);
+    \u0275\u0275elementStart(1, "svg", 101);
+    \u0275\u0275element(2, "path", 102);
     \u0275\u0275elementEnd()();
   }
 }
@@ -438,7 +438,7 @@ function ProductDetailComponent_div_1_div_55_Template(rf, ctx) {
 }
 function ProductDetailComponent_div_1_div_56_ng_container_2_a_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "div", 89);
+    \u0275\u0275element(0, "div", 112);
   }
   if (rf & 2) {
     const demo_r8 = \u0275\u0275nextContext().$implicit;
@@ -447,12 +447,12 @@ function ProductDetailComponent_div_1_div_56_ng_container_2_a_1_div_1_Template(r
 }
 function ProductDetailComponent_div_1_div_56_ng_container_2_a_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 84);
-    \u0275\u0275template(1, ProductDetailComponent_div_1_div_56_ng_container_2_a_1_div_1_Template, 1, 2, "div", 85);
-    \u0275\u0275elementStart(2, "div", 86)(3, "span", 87);
+    \u0275\u0275elementStart(0, "a", 107);
+    \u0275\u0275template(1, ProductDetailComponent_div_1_div_56_ng_container_2_a_1_div_1_Template, 1, 2, "div", 108);
+    \u0275\u0275elementStart(2, "div", 109)(3, "span", 110);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 88);
+    \u0275\u0275elementStart(5, "span", 111);
     \u0275\u0275text(6, "View Live Demo \u2192");
     \u0275\u0275elementEnd()()();
   }
@@ -468,7 +468,7 @@ function ProductDetailComponent_div_1_div_56_ng_container_2_a_1_Template(rf, ctx
 function ProductDetailComponent_div_1_div_56_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, ProductDetailComponent_div_1_div_56_ng_container_2_a_1_Template, 7, 3, "a", 83);
+    \u0275\u0275template(1, ProductDetailComponent_div_1_div_56_ng_container_2_a_1_Template, 7, 3, "a", 106);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -479,7 +479,7 @@ function ProductDetailComponent_div_1_div_56_ng_container_2_Template(rf, ctx) {
 }
 function ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 91);
+    \u0275\u0275elementStart(0, "a", 114);
     \u0275\u0275text(1, " \u{1F310} Live Demo ");
     \u0275\u0275elementEnd();
   }
@@ -490,7 +490,7 @@ function ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template(rf, ctx)
 }
 function ProductDetailComponent_div_1_div_56_ng_template_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template, 2, 1, "a", 90);
+    \u0275\u0275template(0, ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template, 2, 1, "a", 113);
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext(3);
@@ -499,8 +499,8 @@ function ProductDetailComponent_div_1_div_56_ng_template_3_Template(rf, ctx) {
 }
 function ProductDetailComponent_div_1_div_56_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 80)(1, "div", 81);
-    \u0275\u0275template(2, ProductDetailComponent_div_1_div_56_ng_container_2_Template, 2, 1, "ng-container", 82)(3, ProductDetailComponent_div_1_div_56_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
+    \u0275\u0275elementStart(0, "div", 103)(1, "div", 104);
+    \u0275\u0275template(2, ProductDetailComponent_div_1_div_56_ng_container_2_Template, 2, 1, "ng-container", 105)(3, ProductDetailComponent_div_1_div_56_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -515,8 +515,8 @@ function ProductDetailComponent_div_1_div_63_Template(rf, ctx) {
     \u0275\u0275elementStart(0, "div", 28)(1, "h2", 29);
     \u0275\u0275text(2, "Video Overview");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 92);
-    \u0275\u0275element(4, "iframe", 93);
+    \u0275\u0275elementStart(3, "div", 115);
+    \u0275\u0275element(4, "iframe", 116);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -527,10 +527,10 @@ function ProductDetailComponent_div_1_div_63_Template(rf, ctx) {
 }
 function ProductDetailComponent_div_1_div_68_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 94);
+    \u0275\u0275elementStart(0, "div", 117);
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(1, "svg", 95);
-    \u0275\u0275element(2, "polyline", 96);
+    \u0275\u0275elementStart(1, "svg", 118);
+    \u0275\u0275element(2, "polyline", 119);
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(3, "span");
@@ -543,10 +543,133 @@ function ProductDetailComponent_div_1_div_68_Template(rf, ctx) {
     \u0275\u0275textInterpolate(f_r10);
   }
 }
-function ProductDetailComponent_div_1_div_69_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_77_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 104);
-    \u0275\u0275element(1, "pre", 105);
+    \u0275\u0275elementStart(0, "span", 120);
+    \u0275\u0275text(1);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const t_r11 = ctx.$implicit;
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate(t_r11);
+  }
+}
+function ProductDetailComponent_div_1_span_82_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 121);
+    \u0275\u0275text(1);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const c_r12 = ctx.$implicit;
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate(c_r12);
+  }
+}
+function ProductDetailComponent_div_1_span_96_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275element(0, "span");
+  }
+  if (rf & 2) {
+    const s_r13 = ctx.$implicit;
+    \u0275\u0275classMap(s_r13);
+  }
+}
+function ProductDetailComponent_div_1_div_101_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 122)(1, "span", 123);
+    \u0275\u0275text(2);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "div", 124);
+    \u0275\u0275element(4, "div", 125);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(5, "span", 126);
+    \u0275\u0275text(6);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const bar_r14 = ctx.$implicit;
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("", bar_r14.stars, "\u2605");
+    \u0275\u0275advance(2);
+    \u0275\u0275styleProp("width", bar_r14.pct, "%");
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(bar_r14.count);
+  }
+}
+function ProductDetailComponent_div_1_div_108_span_9_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "span", 140);
+    \u0275\u0275text(1, "\u2713 Verified Purchase");
+    \u0275\u0275elementEnd();
+  }
+}
+function ProductDetailComponent_div_1_div_108_span_12_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275element(0, "span", 141);
+  }
+  if (rf & 2) {
+    const s_r15 = ctx.$implicit;
+    \u0275\u0275classMap(s_r15);
+  }
+}
+function ProductDetailComponent_div_1_div_108_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 127)(1, "div", 128)(2, "div", 129)(3, "div", 130)(4, "div", 131);
+    \u0275\u0275text(5);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(6, "div")(7, "strong");
+    \u0275\u0275text(8);
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(9, ProductDetailComponent_div_1_div_108_span_9_Template, 2, 0, "span", 132);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(10, "div", 133)(11, "div", 134);
+    \u0275\u0275template(12, ProductDetailComponent_div_1_div_108_span_12_Template, 1, 2, "span", 135);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(13, "span", 136);
+    \u0275\u0275text(14);
+    \u0275\u0275pipe(15, "date");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(16, "p", 137);
+    \u0275\u0275text(17);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(18, "div", 138)(19, "button", 139);
+    \u0275\u0275text(20);
+    \u0275\u0275elementEnd()()()();
+  }
+  if (rf & 2) {
+    const review_r16 = ctx.$implicit;
+    const ctx_r2 = \u0275\u0275nextContext(2);
+    \u0275\u0275advance(4);
+    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(review_r16.userName));
+    \u0275\u0275advance();
+    \u0275\u0275textInterpolate(review_r16.userName.charAt(0));
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(review_r16.userName);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", review_r16.verified);
+    \u0275\u0275advance(3);
+    \u0275\u0275property("ngForOf", ctx_r2.getStars(review_r16.rating));
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, review_r16.date, "mediumDate"));
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(review_r16.comment);
+    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate1("\u{1F44D} Helpful (", review_r16.helpful, ")");
+  }
+}
+function ProductDetailComponent_div_1_div_109_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 142)(1, "p");
+    \u0275\u0275text(2, "No reviews yet. Be the first buyer to leave a review!");
+    \u0275\u0275elementEnd()();
+  }
+}
+function ProductDetailComponent_div_1_div_110_div_9_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 150);
+    \u0275\u0275element(1, "pre", 151);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -555,25 +678,25 @@ function ProductDetailComponent_div_1_div_69_div_9_Template(rf, ctx) {
     \u0275\u0275property("innerHTML", ctx_r2.formattedGuide, \u0275\u0275sanitizeHtml);
   }
 }
-function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_110_Template(rf, ctx) {
   if (rf & 1) {
-    const _r11 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 97)(1, "div", 98);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_69_Template_div_click_1_listener() {
-      \u0275\u0275restoreView(_r11);
+    const _r17 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 143)(1, "div", 144);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_110_Template_div_click_1_listener() {
+      \u0275\u0275restoreView(_r17);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.guideExpanded = !ctx_r2.guideExpanded);
     });
-    \u0275\u0275elementStart(2, "div", 99)(3, "span", 100);
+    \u0275\u0275elementStart(2, "div", 145)(3, "span", 146);
     \u0275\u0275text(4, "\u{1F4D6}");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "h2", 101);
+    \u0275\u0275elementStart(5, "h2", 147);
     \u0275\u0275text(6, "Deployment Guide");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "span", 102);
+    \u0275\u0275elementStart(7, "span", 148);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_69_div_9_Template, 2, 1, "div", 103);
+    \u0275\u0275template(9, ProductDetailComponent_div_1_div_110_div_9_Template, 2, 1, "div", 149);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -584,302 +707,47 @@ function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.guideExpanded);
   }
 }
-function ProductDetailComponent_div_1_button_73_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_119_Template(rf, ctx) {
   if (rf & 1) {
-    const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 106);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_button_73_Template_button_click_0_listener() {
-      const tab_r13 = \u0275\u0275restoreView(_r12).$implicit;
-      const ctx_r2 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r2.activeTab = tab_r13.id);
-    });
-    \u0275\u0275text(1);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const tab_r13 = ctx.$implicit;
-    const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275classProp("active", ctx_r2.activeTab === tab_r13.id);
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", tab_r13.label, " ");
-  }
-}
-function ProductDetailComponent_div_1_div_74_span_6_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 114);
-    \u0275\u0275text(1);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const t_r14 = ctx.$implicit;
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate(t_r14);
-  }
-}
-function ProductDetailComponent_div_1_div_74_span_11_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 115);
-    \u0275\u0275text(1);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const c_r15 = ctx.$implicit;
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate(c_r15);
-  }
-}
-function ProductDetailComponent_div_1_div_74_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 108)(2, "div", 28)(3, "h3", 109);
-    \u0275\u0275text(4, "Tech Stack");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 110);
-    \u0275\u0275template(6, ProductDetailComponent_div_1_div_74_span_6_Template, 2, 1, "span", 111);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "div", 112)(8, "h3", 109);
-    \u0275\u0275text(9, "Compatibility");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(10, "div", 110);
-    \u0275\u0275template(11, ProductDetailComponent_div_1_div_74_span_11_Template, 2, 1, "span", 113);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "div", 112)(13, "h3", 109);
-    \u0275\u0275text(14, "Documentation & Support");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "p", 30);
-    \u0275\u0275text(16, "Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.");
-    \u0275\u0275elementEnd()()()();
-  }
-  if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275advance(6);
-    \u0275\u0275property("ngForOf", ctx_r2.product.techStack);
-    \u0275\u0275advance(5);
-    \u0275\u0275property("ngForOf", ctx_r2.product.compatibility);
-  }
-}
-function ProductDetailComponent_div_1_div_75_span_6_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275element(0, "span");
-  }
-  if (rf & 2) {
-    const s_r16 = ctx.$implicit;
-    \u0275\u0275classMap(s_r16);
-  }
-}
-function ProductDetailComponent_div_1_div_75_div_11_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 130)(1, "span", 131);
-    \u0275\u0275text(2);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 132);
-    \u0275\u0275element(4, "div", 133);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 134);
-    \u0275\u0275text(6);
-    \u0275\u0275elementEnd()();
-  }
-  if (rf & 2) {
-    const bar_r17 = ctx.$implicit;
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("", bar_r17.stars, "\u2605");
-    \u0275\u0275advance(2);
-    \u0275\u0275styleProp("width", bar_r17.pct, "%");
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(bar_r17.count);
-  }
-}
-function ProductDetailComponent_div_1_div_75_div_18_span_9_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 148);
-    \u0275\u0275text(1, "\u2713 Verified Purchase");
-    \u0275\u0275elementEnd();
-  }
-}
-function ProductDetailComponent_div_1_div_75_div_18_span_12_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275element(0, "span", 149);
-  }
-  if (rf & 2) {
-    const s_r18 = ctx.$implicit;
-    \u0275\u0275classMap(s_r18);
-  }
-}
-function ProductDetailComponent_div_1_div_75_div_18_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 135)(1, "div", 136)(2, "div", 137)(3, "div", 138)(4, "div", 139);
-    \u0275\u0275text(5);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "div")(7, "strong");
-    \u0275\u0275text(8);
-    \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_75_div_18_span_9_Template, 2, 0, "span", 140);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "div", 141)(11, "div", 142);
-    \u0275\u0275template(12, ProductDetailComponent_div_1_div_75_div_18_span_12_Template, 1, 2, "span", 143);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "span", 144);
-    \u0275\u0275text(14);
-    \u0275\u0275pipe(15, "date");
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(16, "p", 145);
-    \u0275\u0275text(17);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(18, "div", 146)(19, "button", 147);
-    \u0275\u0275text(20);
-    \u0275\u0275elementEnd()()()();
-  }
-  if (rf & 2) {
-    const review_r19 = ctx.$implicit;
-    const ctx_r2 = \u0275\u0275nextContext(3);
-    \u0275\u0275advance(4);
-    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(review_r19.userName));
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate(review_r19.userName.charAt(0));
-    \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(review_r19.userName);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", review_r19.verified);
-    \u0275\u0275advance(3);
-    \u0275\u0275property("ngForOf", ctx_r2.getStars(review_r19.rating));
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, review_r19.date, "mediumDate"));
-    \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(review_r19.comment);
-    \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate1("\u{1F44D} Helpful (", review_r19.helpful, ")");
-  }
-}
-function ProductDetailComponent_div_1_div_75_div_19_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 150)(1, "p");
-    \u0275\u0275text(2, "No reviews yet. Be the first buyer to leave a review!");
-    \u0275\u0275elementEnd()();
-  }
-}
-function ProductDetailComponent_div_1_div_75_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 116)(2, "div", 117)(3, "span", 118);
-    \u0275\u0275text(4);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 119);
-    \u0275\u0275template(6, ProductDetailComponent_div_1_div_75_span_6_Template, 1, 2, "span", 120);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "span", 121);
-    \u0275\u0275text(8);
-    \u0275\u0275pipe(9, "number");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "div", 122);
-    \u0275\u0275template(11, ProductDetailComponent_div_1_div_75_div_11_Template, 7, 4, "div", 123);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "div", 124);
-    \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(13, "svg", 125);
-    \u0275\u0275element(14, "circle", 126)(15, "path", 127);
-    \u0275\u0275elementEnd();
-    \u0275\u0275namespaceHTML();
-    \u0275\u0275elementStart(16, "span");
-    \u0275\u0275text(17, "Only verified buyers can leave reviews after purchase.");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275template(18, ProductDetailComponent_div_1_div_75_div_18_Template, 21, 12, "div", 128)(19, ProductDetailComponent_div_1_div_75_div_19_Template, 3, 0, "div", 129);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(ctx_r2.product.rating);
-    \u0275\u0275advance(2);
-    \u0275\u0275property("ngForOf", ctx_r2.getStars(ctx_r2.product.rating));
-    \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind1(9, 6, ctx_r2.product.totalRatings), " ratings");
-    \u0275\u0275advance(3);
-    \u0275\u0275property("ngForOf", ctx_r2.ratingBars);
-    \u0275\u0275advance(7);
-    \u0275\u0275property("ngForOf", ctx_r2.product.reviews);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.product.reviews.length === 0);
-  }
-}
-function ProductDetailComponent_div_1_div_76_div_8_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 156)(1, "div", 137)(2, "div", 138)(3, "div", 139);
+    \u0275\u0275elementStart(0, "div", 152)(1, "div", 129)(2, "div", 130)(3, "div", 131);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div")(6, "strong");
     \u0275\u0275text(7);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(8, "span", 144);
+    \u0275\u0275elementStart(8, "span", 136);
     \u0275\u0275text(9);
     \u0275\u0275pipe(10, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "p", 145);
+    \u0275\u0275elementStart(11, "p", 137);
     \u0275\u0275text(12);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const c_r21 = ctx.$implicit;
-    const ctx_r2 = \u0275\u0275nextContext(3);
+    const c_r18 = ctx.$implicit;
+    const ctx_r2 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(3);
-    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(c_r21.userName));
+    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(c_r18.userName));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(c_r21.userName.charAt(0));
+    \u0275\u0275textInterpolate(c_r18.userName.charAt(0));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(c_r21.userName);
+    \u0275\u0275textInterpolate(c_r18.userName);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, c_r21.date, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, c_r18.date, "mediumDate"));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(c_r21.text);
+    \u0275\u0275textInterpolate(c_r18.text);
   }
 }
-function ProductDetailComponent_div_1_div_76_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_120_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 150)(1, "p");
+    \u0275\u0275elementStart(0, "div", 142)(1, "p");
     \u0275\u0275text(2, "No comments yet. Start the conversation!");
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_1_div_76_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_127_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 151)(2, "h3");
-    \u0275\u0275text(3, "\u{1F4AC} Leave a Comment");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "textarea", 152);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_div_76_Template_textarea_ngModelChange_4_listener($event) {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r2 = \u0275\u0275nextContext(2);
-      \u0275\u0275twoWayBindingSet(ctx_r2.newCommentText, $event) || (ctx_r2.newCommentText = $event);
-      return \u0275\u0275resetView($event);
-    });
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "button", 153);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_76_Template_button_click_5_listener() {
-      \u0275\u0275restoreView(_r20);
-      const ctx_r2 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r2.submitComment());
-    });
-    \u0275\u0275text(6, " Post Comment ");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "div", 154);
-    \u0275\u0275template(8, ProductDetailComponent_div_1_div_76_div_8_Template, 13, 9, "div", 155);
-    \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_76_div_9_Template, 3, 0, "div", 129);
-    \u0275\u0275elementEnd();
-  }
-  if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275advance(4);
-    \u0275\u0275twoWayProperty("ngModel", ctx_r2.newCommentText);
-    \u0275\u0275advance();
-    \u0275\u0275property("disabled", !ctx_r2.newCommentText);
-    \u0275\u0275advance(3);
-    \u0275\u0275property("ngForOf", ctx_r2.comments);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.comments.length === 0);
-  }
-}
-function ProductDetailComponent_div_1_span_83_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 157);
+    \u0275\u0275elementStart(0, "span", 153);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -889,9 +757,9 @@ function ProductDetailComponent_div_1_span_83_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("$", ctx_r2.product.originalPrice, "");
   }
 }
-function ProductDetailComponent_div_1_span_84_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_128_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 158);
+    \u0275\u0275elementStart(0, "span", 154);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -901,12 +769,12 @@ function ProductDetailComponent_div_1_span_84_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("-", ctx_r2.product.discountPercent, "%");
   }
 }
-function ProductDetailComponent_div_1_div_104_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_148_Template(rf, ctx) {
   if (rf & 1) {
-    const _r22 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 159)(1, "label", 160)(2, "input", 161);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_div_104_Template_input_ngModelChange_2_listener($event) {
-      \u0275\u0275restoreView(_r22);
+    const _r19 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 155)(1, "label", 156)(2, "input", 157);
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_div_148_Template_input_ngModelChange_2_listener($event) {
+      \u0275\u0275restoreView(_r19);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.addReskin, $event) || (ctx_r2.addReskin = $event);
       return \u0275\u0275resetView($event);
@@ -927,53 +795,53 @@ function ProductDetailComponent_div_1_div_104_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("Professional rebranding (+$", ctx_r2.product.reskinPrice, ")");
   }
 }
-function ProductDetailComponent_div_1_a_107_Template(rf, ctx) {
+function ProductDetailComponent_div_1_a_151_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 162);
+    \u0275\u0275elementStart(0, "a", 158);
     \u0275\u0275text(1, " View Cart \u2192 ");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_1_span_144_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_188_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 163);
+    \u0275\u0275elementStart(0, "span", 159);
     \u0275\u0275text(1, "\u2713 Verified Author");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_1_span_165_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_209_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 164);
+    \u0275\u0275elementStart(0, "span", 160);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const b_r23 = ctx.$implicit;
+    const b_r20 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2("", ctx_r2.getBadgeIcon(b_r23), " ", ctx_r2.formatBadge(b_r23), "");
+    \u0275\u0275textInterpolate2("", ctx_r2.getBadgeIcon(b_r20), " ", ctx_r2.formatBadge(b_r20), "");
   }
 }
-function ProductDetailComponent_div_1_a_170_Template(rf, ctx) {
+function ProductDetailComponent_div_1_a_214_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 165);
+    \u0275\u0275elementStart(0, "a", 161);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const tag_r24 = ctx.$implicit;
-    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(2, _c1, tag_r24));
+    const tag_r21 = ctx.$implicit;
+    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(2, _c1, tag_r21));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(tag_r24);
+    \u0275\u0275textInterpolate(tag_r21);
   }
 }
-function ProductDetailComponent_div_1_app_product_card_175_Template(rf, ctx) {
+function ProductDetailComponent_div_1_app_product_card_219_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "app-product-card", 166);
+    \u0275\u0275element(0, "app-product-card", 162);
   }
   if (rf & 2) {
-    const p_r25 = ctx.$implicit;
-    \u0275\u0275property("product", p_r25);
+    const p_r22 = ctx.$implicit;
+    \u0275\u0275property("product", p_r22);
   }
 }
 function ProductDetailComponent_div_1_Template(rf, ctx) {
@@ -1062,146 +930,214 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275elementStart(67, "div", 32);
     \u0275\u0275template(68, ProductDetailComponent_div_1_div_68_Template, 5, 1, "div", 33);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(69, ProductDetailComponent_div_1_div_69_Template, 10, 2, "div", 34);
-    \u0275\u0275elementStart(70, "div", 35)(71, "div", 36)(72, "div", 37);
-    \u0275\u0275template(73, ProductDetailComponent_div_1_button_73_Template, 2, 3, "button", 38);
+    \u0275\u0275elementStart(69, "div", 34)(70, "h2", 29);
+    \u0275\u0275text(71, "Technical Specifications");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(74, ProductDetailComponent_div_1_div_74_Template, 17, 2, "div", 39)(75, ProductDetailComponent_div_1_div_75_Template, 20, 8, "div", 39)(76, ProductDetailComponent_div_1_div_76_Template, 10, 4, "div", 39);
+    \u0275\u0275elementStart(72, "div", 35)(73, "div", 36)(74, "h3", 37);
+    \u0275\u0275text(75, "Tech Stack");
     \u0275\u0275elementEnd();
-    \u0275\u0275element(77, "app-guide-widget");
+    \u0275\u0275elementStart(76, "div", 38);
+    \u0275\u0275template(77, ProductDetailComponent_div_1_span_77_Template, 2, 1, "span", 39);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(78, "aside", 40)(79, "div", 41)(80, "div", 42)(81, "span", 43);
-    \u0275\u0275text(82);
+    \u0275\u0275elementStart(78, "div", 36)(79, "h3", 37);
+    \u0275\u0275text(80, "Compatibility");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(83, ProductDetailComponent_div_1_span_83_Template, 2, 1, "span", 44)(84, ProductDetailComponent_div_1_span_84_Template, 2, 1, "span", 45);
+    \u0275\u0275elementStart(81, "div", 38);
+    \u0275\u0275template(82, ProductDetailComponent_div_1_span_82_Template, 2, 1, "span", 40);
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(83, "div", 41)(84, "h3", 37);
+    \u0275\u0275text(85, "Documentation & Support");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(85, "div", 46)(86, "label", 47);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_86_listener() {
+    \u0275\u0275elementStart(86, "p", 30);
+    \u0275\u0275text(87, "Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(88, "div", 42)(89, "h2", 29);
+    \u0275\u0275text(90, "Customer Reviews");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(91, "div", 43)(92, "div", 44)(93, "span", 45);
+    \u0275\u0275text(94);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(95, "div", 46);
+    \u0275\u0275template(96, ProductDetailComponent_div_1_span_96_Template, 1, 2, "span", 47);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(97, "span", 48);
+    \u0275\u0275text(98);
+    \u0275\u0275pipe(99, "number");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(100, "div", 49);
+    \u0275\u0275template(101, ProductDetailComponent_div_1_div_101_Template, 7, 4, "div", 50);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(102, "div", 51);
+    \u0275\u0275namespaceSVG();
+    \u0275\u0275elementStart(103, "svg", 52);
+    \u0275\u0275element(104, "circle", 53)(105, "path", 54);
+    \u0275\u0275elementEnd();
+    \u0275\u0275namespaceHTML();
+    \u0275\u0275elementStart(106, "span");
+    \u0275\u0275text(107, "Only verified buyers can leave reviews after purchase.");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275template(108, ProductDetailComponent_div_1_div_108_Template, 21, 12, "div", 55)(109, ProductDetailComponent_div_1_div_109_Template, 3, 0, "div", 56);
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(110, ProductDetailComponent_div_1_div_110_Template, 10, 2, "div", 57);
+    \u0275\u0275elementStart(111, "div", 42)(112, "h2", 29);
+    \u0275\u0275text(113, "Discussion & Q&A");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(114, "div", 58)(115, "textarea", 59);
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_Template_textarea_ngModelChange_115_listener($event) {
+      \u0275\u0275restoreView(_r1);
+      const ctx_r2 = \u0275\u0275nextContext();
+      \u0275\u0275twoWayBindingSet(ctx_r2.newCommentText, $event) || (ctx_r2.newCommentText = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(116, "button", 60);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_button_click_116_listener() {
+      \u0275\u0275restoreView(_r1);
+      const ctx_r2 = \u0275\u0275nextContext();
+      return \u0275\u0275resetView(ctx_r2.submitComment());
+    });
+    \u0275\u0275text(117, " Post Comment ");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(118, "div", 61);
+    \u0275\u0275template(119, ProductDetailComponent_div_1_div_119_Template, 13, 9, "div", 62);
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(120, ProductDetailComponent_div_1_div_120_Template, 3, 0, "div", 56);
+    \u0275\u0275elementEnd();
+    \u0275\u0275element(121, "app-guide-widget");
+    \u0275\u0275elementStart(122, "aside", 63)(123, "div", 64)(124, "div", 65)(125, "span", 66);
+    \u0275\u0275text(126);
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(127, ProductDetailComponent_div_1_span_127_Template, 2, 1, "span", 67)(128, ProductDetailComponent_div_1_span_128_Template, 2, 1, "span", 68);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(129, "div", 69)(130, "label", 70);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_130_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "regular");
     });
-    \u0275\u0275element(87, "input", 48);
-    \u0275\u0275elementStart(88, "div")(89, "strong");
-    \u0275\u0275text(90, "Regular License");
+    \u0275\u0275element(131, "input", 71);
+    \u0275\u0275elementStart(132, "div")(133, "strong");
+    \u0275\u0275text(134, "Regular License");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(91, "span");
-    \u0275\u0275text(92, "Use in a single end product");
+    \u0275\u0275elementStart(135, "span");
+    \u0275\u0275text(136, "Use in a single end product");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(93, "span", 49);
-    \u0275\u0275text(94);
+    \u0275\u0275elementStart(137, "span", 72);
+    \u0275\u0275text(138);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(95, "label", 47);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_95_listener() {
+    \u0275\u0275elementStart(139, "label", 70);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_139_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "extended");
     });
-    \u0275\u0275element(96, "input", 50);
-    \u0275\u0275elementStart(97, "div")(98, "strong");
-    \u0275\u0275text(99, "Extended License");
+    \u0275\u0275element(140, "input", 73);
+    \u0275\u0275elementStart(141, "div")(142, "strong");
+    \u0275\u0275text(143, "Extended License");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(100, "span");
-    \u0275\u0275text(101, "Use in unlimited projects");
+    \u0275\u0275elementStart(144, "span");
+    \u0275\u0275text(145, "Use in unlimited projects");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(102, "span", 49);
-    \u0275\u0275text(103);
+    \u0275\u0275elementStart(146, "span", 72);
+    \u0275\u0275text(147);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(104, ProductDetailComponent_div_1_div_104_Template, 8, 2, "div", 51);
-    \u0275\u0275elementStart(105, "button", 52);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_button_click_105_listener() {
+    \u0275\u0275template(148, ProductDetailComponent_div_1_div_148_Template, 8, 2, "div", 74);
+    \u0275\u0275elementStart(149, "button", 75);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_button_click_149_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.addToCart());
     });
-    \u0275\u0275text(106);
-    \u0275\u0275elementEnd();
-    \u0275\u0275template(107, ProductDetailComponent_div_1_a_107_Template, 2, 0, "a", 53);
-    \u0275\u0275elementStart(108, "div", 54)(109, "div", 55)(110, "span");
-    \u0275\u0275text(111, "\u{1F4B0} Sales");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(112, "strong");
-    \u0275\u0275text(113);
-    \u0275\u0275pipe(114, "number");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(115, "div", 55)(116, "span");
-    \u0275\u0275text(117, "\u{1F441}\uFE0F Views");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(118, "strong");
-    \u0275\u0275text(119);
-    \u0275\u0275pipe(120, "number");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(121, "div", 55)(122, "span");
-    \u0275\u0275text(123, "\u{1F4C5} Last Updated");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(124, "strong");
-    \u0275\u0275text(125);
-    \u0275\u0275pipe(126, "date");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(127, "div", 55)(128, "span");
-    \u0275\u0275text(129, "\u{1F4E6} Version");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(130, "strong");
-    \u0275\u0275text(131);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(132, "div", 55)(133, "span");
-    \u0275\u0275text(134, "\u{1F4C1} File Size");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(135, "strong");
-    \u0275\u0275text(136);
-    \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(137, "div", 56)(138, "div", 57)(139, "div", 58);
-    \u0275\u0275text(140);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(141, "div")(142, "strong");
-    \u0275\u0275text(143);
-    \u0275\u0275elementEnd();
-    \u0275\u0275template(144, ProductDetailComponent_div_1_span_144_Template, 2, 0, "span", 59);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(145, "p", 60);
-    \u0275\u0275text(146);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(147, "div", 61)(148, "div")(149, "strong");
     \u0275\u0275text(150);
-    \u0275\u0275pipe(151, "number");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(152, "span");
-    \u0275\u0275text(153, "Sales");
+    \u0275\u0275template(151, ProductDetailComponent_div_1_a_151_Template, 2, 0, "a", 76);
+    \u0275\u0275elementStart(152, "div", 77)(153, "div", 78)(154, "span");
+    \u0275\u0275text(155, "\u{1F4B0} Sales");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(156, "strong");
+    \u0275\u0275text(157);
+    \u0275\u0275pipe(158, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(154, "div")(155, "strong");
-    \u0275\u0275text(156);
+    \u0275\u0275elementStart(159, "div", 78)(160, "span");
+    \u0275\u0275text(161, "\u{1F441}\uFE0F Views");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(157, "span");
-    \u0275\u0275text(158, "Rating");
+    \u0275\u0275elementStart(162, "strong");
+    \u0275\u0275text(163);
+    \u0275\u0275pipe(164, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(159, "div")(160, "strong");
-    \u0275\u0275text(161);
+    \u0275\u0275elementStart(165, "div", 78)(166, "span");
+    \u0275\u0275text(167, "\u{1F4C5} Last Updated");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(162, "span");
-    \u0275\u0275text(163, "Badges");
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(164, "div", 62);
-    \u0275\u0275template(165, ProductDetailComponent_div_1_span_165_Template, 2, 2, "span", 63);
+    \u0275\u0275elementStart(168, "strong");
+    \u0275\u0275text(169);
+    \u0275\u0275pipe(170, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(166, "div", 64)(167, "h4");
-    \u0275\u0275text(168, "Tags");
+    \u0275\u0275elementStart(171, "div", 78)(172, "span");
+    \u0275\u0275text(173, "\u{1F4E6} Version");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(169, "div", 65);
-    \u0275\u0275template(170, ProductDetailComponent_div_1_a_170_Template, 2, 4, "a", 66);
+    \u0275\u0275elementStart(174, "strong");
+    \u0275\u0275text(175);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(176, "div", 78)(177, "span");
+    \u0275\u0275text(178, "\u{1F4C1} File Size");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(179, "strong");
+    \u0275\u0275text(180);
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(171, "section", 67)(172, "h2", 68);
-    \u0275\u0275text(173, "Related Products");
+    \u0275\u0275elementStart(181, "div", 79)(182, "div", 80)(183, "div", 81);
+    \u0275\u0275text(184);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(174, "div", 69);
-    \u0275\u0275template(175, ProductDetailComponent_div_1_app_product_card_175_Template, 1, 1, "app-product-card", 70);
+    \u0275\u0275elementStart(185, "div")(186, "strong");
+    \u0275\u0275text(187);
+    \u0275\u0275elementEnd();
+    \u0275\u0275template(188, ProductDetailComponent_div_1_span_188_Template, 2, 0, "span", 82);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(189, "p", 83);
+    \u0275\u0275text(190);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(191, "div", 84)(192, "div")(193, "strong");
+    \u0275\u0275text(194);
+    \u0275\u0275pipe(195, "number");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(196, "span");
+    \u0275\u0275text(197, "Sales");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(198, "div")(199, "strong");
+    \u0275\u0275text(200);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(201, "span");
+    \u0275\u0275text(202, "Rating");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(203, "div")(204, "strong");
+    \u0275\u0275text(205);
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(206, "span");
+    \u0275\u0275text(207, "Badges");
     \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(208, "div", 85);
+    \u0275\u0275template(209, ProductDetailComponent_div_1_span_209_Template, 2, 2, "span", 86);
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(210, "div", 87)(211, "h4");
+    \u0275\u0275text(212, "Tags");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(213, "div", 88);
+    \u0275\u0275template(214, ProductDetailComponent_div_1_a_214_Template, 2, 4, "a", 89);
+    \u0275\u0275elementEnd()()()();
+    \u0275\u0275elementStart(215, "section", 90)(216, "h2", 91);
+    \u0275\u0275text(217, "Related Products");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(218, "div", 92);
+    \u0275\u0275template(219, ProductDetailComponent_div_1_app_product_card_219_Template, 1, 1, "app-product-card", 93);
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275element(220, "app-footer");
+    \u0275\u0275elementEnd();
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext();
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.maximizedImage);
     \u0275\u0275advance(10);
-    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(87, _c0, ctx_r2.product.category));
+    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(97, _c0, ctx_r2.product.category));
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r2.getCategoryLabel());
     \u0275\u0275advance(4);
@@ -1209,11 +1145,11 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275advance(9);
     \u0275\u0275textInterpolate(ctx_r2.product.rating);
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(32, 71, ctx_r2.product.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(32, 79, ctx_r2.product.totalSales));
     \u0275\u0275advance(7);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(39, 73, ctx_r2.product.totalVisits));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(39, 81, ctx_r2.product.totalVisits));
     \u0275\u0275advance(7);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(46, 75, ctx_r2.product.lastUpdated, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(46, 83, ctx_r2.product.lastUpdated, "mediumDate"));
     \u0275\u0275advance(5);
     \u0275\u0275styleProp("background", ctx_r2.activePreviewIndex === -1 ? ctx_r2.product.thumbnailUrl ? "none" : ctx_r2.getGradient() : "none")("background-image", ctx_r2.activePreviewIndex === -1 && ctx_r2.product.thumbnailUrl ? "url(" + ctx_r2.product.thumbnailUrl + ")" : ctx_r2.activePreviewIndex >= 0 ? "url(" + ctx_r2.product.previewImages[ctx_r2.activePreviewIndex] + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
@@ -1233,16 +1169,32 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.safeYoutubeUrl);
     \u0275\u0275advance(5);
     \u0275\u0275property("ngForOf", ctx_r2.product.features);
+    \u0275\u0275advance(9);
+    \u0275\u0275property("ngForOf", ctx_r2.product.techStack);
+    \u0275\u0275advance(5);
+    \u0275\u0275property("ngForOf", ctx_r2.product.compatibility);
+    \u0275\u0275advance(12);
+    \u0275\u0275textInterpolate(ctx_r2.product.rating);
+    \u0275\u0275advance(2);
+    \u0275\u0275property("ngForOf", ctx_r2.getStars(ctx_r2.product.rating));
+    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind1(99, 86, ctx_r2.product.totalRatings), " ratings");
+    \u0275\u0275advance(3);
+    \u0275\u0275property("ngForOf", ctx_r2.ratingBars);
+    \u0275\u0275advance(7);
+    \u0275\u0275property("ngForOf", ctx_r2.product.reviews);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r2.product.reviews.length === 0);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.product.deploymentGuide);
-    \u0275\u0275advance(4);
-    \u0275\u0275property("ngForOf", ctx_r2.tabs);
+    \u0275\u0275advance(5);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r2.newCommentText);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.activeTab === "description");
+    \u0275\u0275property("disabled", !ctx_r2.newCommentText);
+    \u0275\u0275advance(3);
+    \u0275\u0275property("ngForOf", ctx_r2.comments);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.activeTab === "reviews");
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.activeTab === "comments");
+    \u0275\u0275property("ngIf", ctx_r2.comments.length === 0);
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate1("$", ctx_r2.product.price, "");
     \u0275\u0275advance();
@@ -1270,11 +1222,11 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.isInCart);
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(114, 78, ctx_r2.product.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(158, 88, ctx_r2.product.totalSales));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(120, 80, ctx_r2.product.totalVisits));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(164, 90, ctx_r2.product.totalVisits));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(126, 82, ctx_r2.product.lastUpdated, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(170, 92, ctx_r2.product.lastUpdated, "mediumDate"));
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.version);
     \u0275\u0275advance(5);
@@ -1290,7 +1242,7 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx_r2.product.author.bio);
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(151, 85, ctx_r2.product.author.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(195, 95, ctx_r2.product.author.totalSales));
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.author.rating);
     \u0275\u0275advance(5);
@@ -1311,7 +1263,6 @@ var ProductDetailComponent = class _ProductDetailComponent {
     this.seo = inject(SeoService);
     this.sanitizer = inject(DomSanitizer);
     this.relatedProducts = [];
-    this.activeTab = "reviews";
     this.selectedLicense = "regular";
     this.addReskin = false;
     this.isInCart = false;
@@ -1320,11 +1271,6 @@ var ProductDetailComponent = class _ProductDetailComponent {
     this.guideExpanded = false;
     this.newCommentText = "";
     this.comments = [];
-    this.tabs = [
-      { id: "reviews", label: "\u2B50 Reviews" },
-      { id: "comments", label: "\u{1F4AC} Discussion" },
-      { id: "description", label: "\u2699\uFE0F Tech Specs" }
-    ];
     this.ratingBars = [
       { stars: 5, pct: 72, count: 245 },
       { stars: 4, pct: 18, count: 61 },
@@ -1477,11 +1423,10 @@ var ProductDetailComponent = class _ProductDetailComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 3, vars: 1, consts: [["singleDemo", ""], ["class", "pm-container page-enter", 4, "ngIf"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], [4, "ngIf"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], ["class", "content-section", 4, "ngIf"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "video-container"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 2, vars: 1, consts: [["singleDemo", ""], ["class", "pm-container page-enter", 4, "ngIf"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], [4, "ngIf"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], ["class", "content-section", 4, "ngIf"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], [1, "desc-card", "content-section", 2, "margin-top", "32px"], [1, "form-row", 2, "display", "flex", "gap", "24px"], [2, "flex", "1"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [2, "margin-top", "24px"], [1, "content-section", 2, "margin-top", "48px"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], ["class", "deploy-guide-card shadow-premium", "style", "margin-top: 48px;", 4, "ngIf"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 2, "margin-top", "12px", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "video-container"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "tech-tag"], [1, "compat-tag"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "deploy-guide-card", "shadow-premium", 2, "margin-top", "48px"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
-        \u0275\u0275template(1, ProductDetailComponent_div_1_Template, 176, 89, "div", 1);
-        \u0275\u0275element(2, "app-footer");
+        \u0275\u0275template(1, ProductDetailComponent_div_1_Template, 221, 99, "div", 1);
       }
       if (rf & 2) {
         \u0275\u0275advance();
@@ -1491,9 +1436,9 @@ var ProductDetailComponent = class _ProductDetailComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 956 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 940 });
 })();
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-WTG2LQGF.js.map
+//# sourceMappingURL=chunk-XXUHZNVG.js.map
