@@ -147,7 +147,7 @@ import { Product } from '../../models/marketplace.models';
               <span class="dg-toggle">{{ guideExpanded ? '▲ Collapse' : '▼ Expand' }}</span>
             </div>
             <div class="dg-body" *ngIf="guideExpanded">
-              <pre class="dg-content">{{ product.deploymentGuide }}</pre>
+              <pre class="dg-content" [innerHTML]="formattedGuide"></pre>
             </div>
           </div>
 
@@ -935,6 +935,18 @@ import { Product } from '../../models/marketplace.models';
       margin: 0; font-size: 0.88rem; line-height: 1.8;
       color: var(--pm-text-secondary); white-space: pre-wrap; font-family: inherit;
     }
+    .guide-screenshot-marker {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.1);
+      color: #059669;
+      border: 1px dashed #10B981;
+      padding: 2px 8px;
+      border-radius: var(--pm-radius-sm);
+      font-weight: 600;
+      margin: 2px 0;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
     @media (max-width: 768px) {
       .dg-header { padding: 16px 20px; }
       .dg-body { padding: 16px 20px; }
@@ -1067,6 +1079,14 @@ export class ProductDetailComponent implements OnInit {
     if (half) stars.push('pm-star-half');
     while (stars.length < 5) stars.push('pm-star-empty');
     return stars;
+  }
+
+  get formattedGuide() {
+    if (!this.product?.deploymentGuide) return '';
+    // Basic escape to prevent XSS from raw user input
+    let esc = this.product.deploymentGuide.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // Highlight screenshot markers
+    return esc.replace(/\[📸(.*?)\]/g, '<span class="guide-screenshot-marker">📸 $1</span>');
   }
 
   getReviewColor(name: string): string {

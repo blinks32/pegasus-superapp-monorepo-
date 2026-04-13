@@ -228,11 +228,11 @@ import { AdminProject, ProductCategory } from '../../models/marketplace.models';
                   id="deployGuide"
                   [(ngModel)]="project.deploymentGuide"
                   name="deployGuide"
-                  placeholder="Paste your deployment guide here...&#10;&#10;## Prerequisites&#10;- Node.js 18+&#10;- npm or yarn&#10;&#10;## Installation&#10;1. Clone the repository&#10;2. Run npm install&#10;3. Configure environment variables..."
+                  placeholder="Paste your AI-generated deployment guide here...&#10;&#10;## Prerequisites&#10;- Node.js 18+&#10;- npm or yarn&#10;&#10;## Installation&#10;1. Clone the repository...&#10;&#10;[📸 Insert Screenshot here: Output of successful install]..."
                   class="form-input guide-textarea"
                   rows="16"
                   required></textarea>
-                <span class="form-hint">Supports plain text formatting. Include prerequisites, installation steps, environment setup, and deployment instructions.</span>
+                <span class="form-hint">Paste the AI generated text here. Leave the [📸 ...] markers so buyers know exactly where to reference your preview screenshots!</span>
               </div>
 
               <!-- Guide Preview -->
@@ -546,19 +546,23 @@ export class SellComponent {
 
   steps = ['Basic Info', 'Pricing', 'Details', 'Deploy Guide', 'Files'];
 
-  aiPromptTemplate = `Generate a comprehensive deployment guide for my project called "[YOUR PROJECT NAME]" built with [YOUR TECH STACK].
+  aiPromptTemplate = `Generate a comprehensive, beginner-friendly deployment guide for my project called "[YOUR PROJECT NAME]" built with [YOUR TECH STACK].
+
+CRITICAL INSTRUCTIONS:
+- Whenever a step is complex or visual, insert a placeholder marker exactly like this: [📸 Insert Screenshot here: Describe exactly what the screenshot should show]
+- End the guide with a mandatory "Common Issues & Troubleshooting" section listing 3-5 possible errors buyers might face and exact fixes.
 
 Include these sections:
 1. Prerequisites (required software, versions, accounts)
-2. Installation steps (clone, install dependencies)
-3. Environment variables setup (list all required env vars)
+2. Installation steps (clone, install dependencies) - use [📸] markers here
+3. Environment variables setup (list all required env vars) - use [📸] markers here
 4. Database setup (if applicable)
 5. Running locally (dev server commands)
 6. Building for production
 7. Deployment instructions (hosting platforms)
-8. Troubleshooting common issues
+8. Common Issues & Troubleshooting (minimum 3 issues with fixes)
 
-Make it clear, step-by-step, and beginner-friendly.`;
+Make it clear, step-by-step, and highly visual.`;
 
   project: AdminProject = {
     title: '',

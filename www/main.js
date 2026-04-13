@@ -4562,7 +4562,7 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-XI42BRVD.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-ZIAF2DAP.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
@@ -4570,7 +4570,7 @@ var routes = [
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-Q545YTSY.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-WTG2LQGF.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
@@ -4610,7 +4610,7 @@ var routes = [
   },
   {
     path: "sell",
-    loadComponent: () => import("./chunk-OSPNRV5V.js").then((m) => m.SellComponent)
+    loadComponent: () => import("./chunk-WCUMGUSV.js").then((m) => m.SellComponent)
   },
   {
     path: "sell/dashboard",

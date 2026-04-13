@@ -113,7 +113,7 @@ var HomeComponent = class _HomeComponent {
   }
   ngOnInit() {
     this.seo.updateTitle("");
-    this.seo.updateDescription("selljustcode is the leading marketplace for complete business solutions, B2B ride booking systems, parcel delivery super apps, PvP games, SaaS boilerplates, and EdTech LMS curriculums tested by Legends of Learning.");
+    this.seo.updateDescription("selljustcode is a new modern marketplace for complete business solutions. We don't just sell premium source code\u2014we ensure you can launch it with the world's best AI-assisted deployment guides.");
   }
   goSearch() {
     if (this.searchQuery.trim()) {
@@ -133,7 +133,7 @@ var HomeComponent = class _HomeComponent {
         \u0275\u0275text(6, "selljustcode");
         \u0275\u0275elementEnd()();
         \u0275\u0275elementStart(7, "p", 5);
-        \u0275\u0275text(8, " Buy and sell complete business solutions, B2B super apps, SaaS boilerplates & EdTech LMS. ");
+        \u0275\u0275text(8, " We don't just sell code\u2014we ensure you can launch it. Buy and sell complete business solutions with the world's most comprehensive, AI-assisted deployment guides. ");
         \u0275\u0275elementEnd();
         \u0275\u0275elementStart(9, "div", 6);
         \u0275\u0275namespaceSVG();
@@ -188,4 +188,4 @@ var HomeComponent = class _HomeComponent {
 export {
   HomeComponent
 };
-//# sourceMappingURL=chunk-XI42BRVD.js.map
+//# sourceMappingURL=chunk-ZIAF2DAP.js.map

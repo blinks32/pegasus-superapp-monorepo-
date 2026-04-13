@@ -22,7 +22,7 @@ import { SeoService } from '../../services/seo.service';
           <span class="hero-gradient-text">selljustcode</span>
         </h1>
         <p class="hero-subtitle fade-in-up">
-          Buy and sell complete business solutions, B2B super apps, SaaS boilerplates & EdTech LMS.
+          We don't just sell code—we ensure you can launch it. Buy and sell complete business solutions with the world's most comprehensive, AI-assisted deployment guides.
         </p>
 
         <!-- Search Bar -->
@@ -200,7 +200,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.seo.updateTitle('');
-    this.seo.updateDescription('selljustcode is the leading marketplace for complete business solutions, B2B ride booking systems, parcel delivery super apps, PvP games, SaaS boilerplates, and EdTech LMS curriculums tested by Legends of Learning.');
+    this.seo.updateDescription("selljustcode is a new modern marketplace for complete business solutions. We don't just sell premium source code—we ensure you can launch it with the world's best AI-assisted deployment guides.");
   }
 
   goSearch() {
