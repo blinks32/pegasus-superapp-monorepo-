@@ -137,32 +137,59 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
 
-          <!-- Technical Specs -->
-          <div class="desc-card content-section" style="margin-top: 32px">
-            <h2 class="section-title">Technical Specifications</h2>
-            <div class="form-row" style="display:flex; gap: 24px;">
-              <div style="flex:1;">
+          <!-- Deployment Guide Section -->
+          <div class="deploy-guide-card shadow-premium" *ngIf="product.deploymentGuide">
+            <div class="dg-header" (click)="guideExpanded = !guideExpanded">
+              <div class="dg-title">
+                <span class="dg-icon">📖</span>
+                <h2 class="section-title" style="margin:0">Deployment Guide</h2>
+              </div>
+              <span class="dg-toggle">{{ guideExpanded ? '▲ Collapse' : '▼ Expand' }}</span>
+            </div>
+            <div class="dg-body" *ngIf="guideExpanded">
+              <pre class="dg-content" [innerHTML]="formattedGuide"></pre>
+            </div>
+          </div>
+
+          <!-- Tabs & Guide Section -->
+          <div class="tabs-layout">
+            <div class="tabs-main">
+              <!-- Tabs -->
+              <div class="detail-tabs">
+                <button *ngFor="let tab of tabs" 
+                        class="tab-btn" 
+                        [class.active]="activeTab === tab.id"
+                        (click)="activeTab = tab.id">
+                  {{ tab.label }}
+                </button>
+              </div>
+
+          <!-- Technical Specs Tab -->
+          <div class="tab-content" *ngIf="activeTab === 'description'">
+            <div class="desc-card">
+              <div class="content-section">
                 <h3 class="section-subtitle">Tech Stack</h3>
                 <div class="tags-row">
                   <span class="tech-tag" *ngFor="let t of product.techStack">{{ t }}</span>
                 </div>
               </div>
-              <div style="flex:1;">
+
+              <div class="content-section" style="margin-top: 32px">
                 <h3 class="section-subtitle">Compatibility</h3>
                 <div class="tags-row">
                   <span class="compat-tag" *ngFor="let c of product.compatibility">{{ c }}</span>
                 </div>
               </div>
-            </div>
-            <div style="margin-top: 24px">
-              <h3 class="section-subtitle">Documentation & Support</h3>
-              <p class="section-text">Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.</p>
+
+              <div class="content-section" style="margin-top: 32px">
+                <h3 class="section-subtitle">Documentation & Support</h3>
+                <p class="section-text">Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.</p>
+              </div>
             </div>
           </div>
 
-          <!-- Reviews Section -->
-          <div class="content-section" style="margin-top: 48px">
-            <h2 class="section-title">Customer Reviews</h2>
+          <!-- Reviews Tab -->
+          <div class="tab-content" *ngIf="activeTab === 'reviews'">
             <div class="reviews-summary">
               <div class="rating-big">
                 <span class="rating-number">{{ product.rating }}</span>
@@ -216,26 +243,12 @@ import { Product } from '../../models/marketplace.models';
             </div>
           </div>
 
-          <!-- Deployment Guide Section (Below Reviews) -->
-          <div class="deploy-guide-card shadow-premium" *ngIf="product.deploymentGuide" style="margin-top: 48px;">
-            <div class="dg-header" (click)="guideExpanded = !guideExpanded">
-              <div class="dg-title">
-                <span class="dg-icon">📖</span>
-                <h2 class="section-title" style="margin:0">Deployment Guide</h2>
-              </div>
-              <span class="dg-toggle">{{ guideExpanded ? '▲ Collapse' : '▼ Expand' }}</span>
-            </div>
-            <div class="dg-body" *ngIf="guideExpanded">
-              <pre class="dg-content" [innerHTML]="formattedGuide"></pre>
-            </div>
-          </div>
-
-          <!-- Comments Section -->
-          <div class="content-section" style="margin-top: 48px">
-            <h2 class="section-title">Discussion & Q&A</h2>
+          <!-- Comments Tab -->
+          <div class="tab-content" *ngIf="activeTab === 'comments'">
             <div class="write-review">
+              <h3>💬 Leave a Comment</h3>
               <textarea placeholder="Ask a question or share your thoughts..." [(ngModel)]="newCommentText" class="filter-input" rows="3"></textarea>
-              <button class="pm-btn pm-btn-primary pm-btn-sm" style="margin-top: 12px" (click)="submitComment()" [disabled]="!newCommentText">
+              <button class="pm-btn pm-btn-primary pm-btn-sm" (click)="submitComment()" [disabled]="!newCommentText">
                 Post Comment
               </button>
             </div>
@@ -259,6 +272,8 @@ import { Product } from '../../models/marketplace.models';
               <p>No comments yet. Start the conversation!</p>
             </div>
           </div>
+        </div>
+      </div>
 
         <app-guide-widget></app-guide-widget>
 
@@ -946,6 +961,7 @@ export class ProductDetailComponent implements OnInit {
 
   product?: Product;
   relatedProducts: Product[] = [];
+  activeTab = 'reviews';
   selectedLicense: 'regular' | 'extended' = 'regular';
   addReskin = false;
   isInCart = false;
@@ -957,6 +973,12 @@ export class ProductDetailComponent implements OnInit {
 
   newCommentText = '';
   comments: Array<{userName: string; text: string; date: Date}> = [];
+
+  tabs = [
+    { id: 'reviews', label: '⭐ Reviews' },
+    { id: 'comments', label: '💬 Discussion' },
+    { id: 'description', label: '⚙️ Tech Specs' }
+  ];
 
   ratingBars = [
     { stars: 5, pct: 72, count: 245 },
