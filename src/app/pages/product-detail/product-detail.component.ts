@@ -72,22 +72,43 @@ import { Product } from '../../models/marketplace.models';
           <div class="preview-card">
             <div class="preview-image"
               [style.background]="activePreviewIndex === -1 ? (product.thumbnailUrl ? 'none' : getGradient()) : 'none'"
-              [style.backgroundImage]="activePreviewIndex === -1 && product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : activePreviewIndex >= 0 ? 'url(' + product.previewImages[activePreviewIndex] + ')' : 'none'"
+              [style.backgroundImage]="activePreviewIndex === -1 && product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : (activePreviewIndex !== -1 && activePreviewIndex !== 'youtube' ? 'url(' + product.previewImages[$any(activePreviewIndex)] + ')' : 'none')"
               [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'">
-              <ng-container *ngIf="activePreviewIndex === -1 && !product.thumbnailUrl">
-                <span class="preview-icon">{{ getCategoryIcon() }}</span>
-                <span class="preview-title">{{ product.title.split('—')[0] }}</span>
+              
+              <!-- Youtube embed overlay -->
+              <div *ngIf="activePreviewIndex === 'youtube'" style="width:100%; height:100%; border-radius: inherit; overflow:hidden;">
+                <iframe [src]="safeYoutubeUrl" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+              </div>
+
+              <ng-container *ngIf="activePreviewIndex !== 'youtube'">
+                <ng-container *ngIf="activePreviewIndex === -1 && !product.thumbnailUrl">
+                  <span class="preview-icon">{{ getCategoryIcon() }}</span>
+                  <span class="preview-title">{{ product.title.split('—')[0] }}</span>
+                </ng-container>
+                <!-- Maximize Button -->
+                <button class="maximize-btn" *ngIf="getRawPreviewUrl()" (click)="maximizedImage = getRawPreviewUrl()">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                </button>
               </ng-container>
-              <!-- Maximize Button -->
-              <button class="maximize-btn" *ngIf="getRawPreviewUrl()" (click)="maximizedImage = getRawPreviewUrl()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              </button>
             </div>
             <div class="preview-thumbnails pm-gallery-strip">
+              <!-- Feature Image Thumbnail -->
               <div class="thumb-item" [class.active]="activePreviewIndex === -1"
                 [style.background]="product.thumbnailUrl ? 'none' : getGradient()"
                 [style.backgroundImage]="product.thumbnailUrl ? 'url(' + product.thumbnailUrl + ')' : 'none'"
                 [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = -1"></div>
+
+              <!-- YouTube Thumbnail -->
+              <div class="thumb-item" *ngIf="safeYoutubeUrl" 
+                   [class.active]="activePreviewIndex === 'youtube'" 
+                   [style.backgroundImage]="'url(' + getYoutubeThumbnailUrl() + ')'" 
+                   [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" 
+                   (click)="activePreviewIndex = 'youtube'"
+                   style="position: relative; display: flex; align-items: center; justify-content: center; background-color: #000;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); pointer-events: none;"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+
+              <!-- Other Images -->
               <div class="thumb-item" *ngFor="let img of product.previewImages; let i = index" [class.active]="activePreviewIndex === i" [style.backgroundImage]="'url(' + img + ')'" [style.backgroundSize]="'cover'" [style.backgroundPosition]="'center'" (click)="activePreviewIndex = i"></div>
             </div>
             
@@ -132,13 +153,7 @@ import { Product } from '../../models/marketplace.models';
               <p class="section-text">{{ product.shortDescription }}</p>
             </div>
 
-            <!-- YouTube Video Section -->
-            <div *ngIf="safeYoutubeUrl" class="content-section">
-              <h2 class="section-title">Video Overview</h2>
-              <div class="video-container">
-                <iframe [src]="safeYoutubeUrl" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
-              </div>
-            </div>
+
 
             <div class="content-section">
               <h2 class="section-title">Key Features</h2>
@@ -276,8 +291,6 @@ import { Product } from '../../models/marketplace.models';
           </div>
         </div>
       </div>
-
-        <app-guide-widget></app-guide-widget>
       </div>
 
         <!-- Right Sidebar -->
@@ -968,7 +981,7 @@ export class ProductDetailComponent implements OnInit {
   selectedLicense: 'regular' | 'extended' = 'regular';
   addReskin = false;
   isInCart = false;
-  activePreviewIndex = -1;
+  activePreviewIndex: number | 'youtube' = -1;
 
   maximizedImage: string | null = null;
   safeYoutubeUrl?: SafeResourceUrl;
@@ -1080,7 +1093,18 @@ export class ProductDetailComponent implements OnInit {
     if (this.activePreviewIndex === -1) {
       return this.product.thumbnailUrl || null;
     }
-    return this.product.previewImages[this.activePreviewIndex] || null;
+    if (this.activePreviewIndex === 'youtube') return null;
+    return this.product.previewImages[this.activePreviewIndex as number] || null;
+  }
+
+  getYoutubeThumbnailUrl(): string {
+    if (!this.product?.youtubeUrl) return '';
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+    const match = this.product.youtubeUrl.match(regExp);
+    if (match && match[2].length === 11) {
+      return `https://img.youtube.com/vi/${match[2]}/hqdefault.jpg`;
+    }
+    return '';
   }
 
   getGradient(): string {
@@ -1101,10 +1125,29 @@ export class ProductDetailComponent implements OnInit {
 
   get formattedGuide() {
     if (!this.product?.deploymentGuide) return '';
+    
     // Basic escape to prevent XSS from raw user input
     let esc = this.product.deploymentGuide.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    // Highlight screenshot markers
-    return esc.replace(/\[📸(.*?)\]/g, '<span class="guide-screenshot-marker">📸 $1</span>');
+    
+    // Markdown Parsing mapping
+    esc = esc.replace(/^###\s*(.*)$/gim, '<h3 style="margin-top:20px; color:var(--pm-text-primary); font-size:1.1rem">$1</h3>');
+    esc = esc.replace(/^##\s*(.*)$/gim, '<h2 style="margin-top:24px; color:var(--pm-text-primary); font-size:1.3rem; border-bottom:1px solid var(--pm-border-light); padding-bottom:4px">$1</h2>');
+    esc = esc.replace(/^#\s*(.*)$/gim, '<h1 style="margin-top:28px; color:var(--pm-text-primary); font-size:1.6rem">$1</h1>');
+    
+    // Bold and Italic
+    esc = esc.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--pm-text-primary)">$1</strong>');
+    esc = esc.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    
+    // Inline code
+    esc = esc.replace(/`(.*?)`/g, '<code style="background:var(--pm-surface-variant); padding:2px 6px; border-radius:4px; font-family:monospace; color:var(--ion-color-primary)">$1</code>');
+    
+    // Links
+    esc = esc.replace(/\[([^\]]+)\]\(([^\]]+)\)/g, '<a href="$2" target="_blank" style="color:var(--ion-color-primary); text-decoration:none">$1</a>');
+
+    // Screenshot markers
+    esc = esc.replace(/\[📸(.*?)\]/g, '<span class="guide-screenshot-marker">📸 $1</span>');
+    
+    return esc;
   }
 
   getReviewColor(name: string): string {

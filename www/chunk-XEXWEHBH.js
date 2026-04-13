@@ -384,92 +384,138 @@ function ProductDetailComponent_div_1_div_1_Template(rf, ctx) {
     \u0275\u0275property("src", ctx_r2.maximizedImage, \u0275\u0275sanitizeUrl);
   }
 }
-function ProductDetailComponent_div_1_ng_container_51_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_51_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "div", 75);
+    \u0275\u0275element(1, "iframe", 76);
+    \u0275\u0275elementEnd();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext(2);
+    \u0275\u0275advance();
+    \u0275\u0275property("src", ctx_r2.safeYoutubeUrl, \u0275\u0275sanitizeResourceUrl);
+  }
+}
+function ProductDetailComponent_div_1_ng_container_52_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275elementStart(1, "span", 75);
+    \u0275\u0275elementStart(1, "span", 78);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "span", 76);
+    \u0275\u0275elementStart(3, "span", 79);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext(2);
+    const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx_r2.getCategoryIcon());
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx_r2.product.title.split("\u2014")[0]);
   }
 }
-function ProductDetailComponent_div_1_button_52_Template(rf, ctx) {
+function ProductDetailComponent_div_1_ng_container_52_button_2_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 77);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_button_52_Template_button_click_0_listener() {
+    \u0275\u0275elementStart(0, "button", 80);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_ng_container_52_button_2_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r4);
-      const ctx_r2 = \u0275\u0275nextContext(2);
+      const ctx_r2 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = ctx_r2.getRawPreviewUrl());
     });
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(1, "svg", 78);
-    \u0275\u0275element(2, "path", 79);
+    \u0275\u0275elementStart(1, "svg", 81);
+    \u0275\u0275element(2, "path", 82);
     \u0275\u0275elementEnd()();
+  }
+}
+function ProductDetailComponent_div_1_ng_container_52_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementContainerStart(0);
+    \u0275\u0275template(1, ProductDetailComponent_div_1_ng_container_52_ng_container_1_Template, 5, 2, "ng-container", 22)(2, ProductDetailComponent_div_1_ng_container_52_button_2_Template, 3, 0, "button", 77);
+    \u0275\u0275elementContainerEnd();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext(2);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r2.activePreviewIndex === -1 && !ctx_r2.product.thumbnailUrl);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r2.getRawPreviewUrl());
   }
 }
 function ProductDetailComponent_div_1_div_55_Template(rf, ctx) {
   if (rf & 1) {
     const _r5 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 24);
+    \u0275\u0275elementStart(0, "div", 83);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_55_Template_div_click_0_listener() {
-      const i_r6 = \u0275\u0275restoreView(_r5).index;
+      \u0275\u0275restoreView(_r5);
       const ctx_r2 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r2.activePreviewIndex = i_r6);
+      return \u0275\u0275resetView(ctx_r2.activePreviewIndex = "youtube");
+    });
+    \u0275\u0275namespaceSVG();
+    \u0275\u0275elementStart(1, "svg", 84);
+    \u0275\u0275element(2, "path", 85);
+    \u0275\u0275elementEnd()();
+  }
+  if (rf & 2) {
+    const ctx_r2 = \u0275\u0275nextContext(2);
+    \u0275\u0275styleProp("background-image", "url(" + ctx_r2.getYoutubeThumbnailUrl() + ")")("background-size", "cover")("background-position", "center");
+    \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === "youtube");
+  }
+}
+function ProductDetailComponent_div_1_div_56_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r6 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 24);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_56_Template_div_click_0_listener() {
+      const i_r7 = \u0275\u0275restoreView(_r6).index;
+      const ctx_r2 = \u0275\u0275nextContext(2);
+      return \u0275\u0275resetView(ctx_r2.activePreviewIndex = i_r7);
     });
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const img_r7 = ctx.$implicit;
-    const i_r6 = ctx.index;
+    const img_r8 = ctx.$implicit;
+    const i_r7 = ctx.index;
     const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275styleProp("background-image", "url(" + img_r7 + ")")("background-size", "cover")("background-position", "center");
-    \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === i_r6);
+    \u0275\u0275styleProp("background-image", "url(" + img_r8 + ")")("background-size", "cover")("background-position", "center");
+    \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === i_r7);
   }
 }
-function ProductDetailComponent_div_1_div_56_ng_container_2_a_1_div_1_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_ng_container_2_a_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "div", 89);
+    \u0275\u0275element(0, "div", 95);
   }
   if (rf & 2) {
-    const demo_r8 = \u0275\u0275nextContext().$implicit;
-    \u0275\u0275styleProp("background-image", "url(" + demo_r8.thumbnailUrl + ")");
+    const demo_r9 = \u0275\u0275nextContext().$implicit;
+    \u0275\u0275styleProp("background-image", "url(" + demo_r9.thumbnailUrl + ")");
   }
 }
-function ProductDetailComponent_div_1_div_56_ng_container_2_a_1_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_ng_container_2_a_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 84);
-    \u0275\u0275template(1, ProductDetailComponent_div_1_div_56_ng_container_2_a_1_div_1_Template, 1, 2, "div", 85);
-    \u0275\u0275elementStart(2, "div", 86)(3, "span", 87);
+    \u0275\u0275elementStart(0, "a", 90);
+    \u0275\u0275template(1, ProductDetailComponent_div_1_div_57_ng_container_2_a_1_div_1_Template, 1, 2, "div", 91);
+    \u0275\u0275elementStart(2, "div", 92)(3, "span", 93);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 88);
+    \u0275\u0275elementStart(5, "span", 94);
     \u0275\u0275text(6, "View Live Demo \u2192");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
-    const demo_r8 = ctx.$implicit;
-    \u0275\u0275property("href", demo_r8.url, \u0275\u0275sanitizeUrl);
+    const demo_r9 = ctx.$implicit;
+    \u0275\u0275property("href", demo_r9.url, \u0275\u0275sanitizeUrl);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", demo_r8.thumbnailUrl);
+    \u0275\u0275property("ngIf", demo_r9.thumbnailUrl);
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(demo_r8.label);
+    \u0275\u0275textInterpolate(demo_r9.label);
   }
 }
-function ProductDetailComponent_div_1_div_56_ng_container_2_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, ProductDetailComponent_div_1_div_56_ng_container_2_a_1_Template, 7, 3, "a", 83);
+    \u0275\u0275template(1, ProductDetailComponent_div_1_div_57_ng_container_2_a_1_Template, 7, 3, "a", 89);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -478,9 +524,9 @@ function ProductDetailComponent_div_1_div_56_ng_container_2_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.product.liveDemos);
   }
 }
-function ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_ng_template_3_a_0_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 91);
+    \u0275\u0275elementStart(0, "a", 97);
     \u0275\u0275text(1, " \u{1F310} Live Demo ");
     \u0275\u0275elementEnd();
   }
@@ -489,32 +535,32 @@ function ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template(rf, ctx)
     \u0275\u0275property("href", ctx_r2.product.demoUrl, \u0275\u0275sanitizeUrl);
   }
 }
-function ProductDetailComponent_div_1_div_56_ng_template_3_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_ng_template_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, ProductDetailComponent_div_1_div_56_ng_template_3_a_0_Template, 2, 1, "a", 90);
+    \u0275\u0275template(0, ProductDetailComponent_div_1_div_57_ng_template_3_a_0_Template, 2, 1, "a", 96);
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275property("ngIf", ctx_r2.product.demoUrl);
   }
 }
-function ProductDetailComponent_div_1_div_56_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_57_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 80)(1, "div", 81);
-    \u0275\u0275template(2, ProductDetailComponent_div_1_div_56_ng_container_2_Template, 2, 1, "ng-container", 82)(3, ProductDetailComponent_div_1_div_56_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
+    \u0275\u0275elementStart(0, "div", 86)(1, "div", 87);
+    \u0275\u0275template(2, ProductDetailComponent_div_1_div_57_ng_container_2_Template, 2, 1, "ng-container", 88)(3, ProductDetailComponent_div_1_div_57_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const singleDemo_r9 = \u0275\u0275reference(4);
+    const singleDemo_r10 = \u0275\u0275reference(4);
     const ctx_r2 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngIf", ctx_r2.product.liveDemos && ctx_r2.product.liveDemos.length > 0)("ngIfElse", singleDemo_r9);
+    \u0275\u0275property("ngIf", ctx_r2.product.liveDemos && ctx_r2.product.liveDemos.length > 0)("ngIfElse", singleDemo_r10);
   }
 }
-function ProductDetailComponent_div_1_div_57_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_58_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 99);
-    \u0275\u0275element(1, "pre", 100);
+    \u0275\u0275elementStart(0, "div", 105);
+    \u0275\u0275element(1, "pre", 106);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -523,25 +569,25 @@ function ProductDetailComponent_div_1_div_57_div_9_Template(rf, ctx) {
     \u0275\u0275property("innerHTML", ctx_r2.formattedGuide, \u0275\u0275sanitizeHtml);
   }
 }
-function ProductDetailComponent_div_1_div_57_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_58_Template(rf, ctx) {
   if (rf & 1) {
-    const _r10 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 92)(1, "div", 93);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_57_Template_div_click_1_listener() {
-      \u0275\u0275restoreView(_r10);
+    const _r11 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 98)(1, "div", 99);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_58_Template_div_click_1_listener() {
+      \u0275\u0275restoreView(_r11);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.guideExpanded = !ctx_r2.guideExpanded);
     });
-    \u0275\u0275elementStart(2, "div", 94)(3, "span", 95);
+    \u0275\u0275elementStart(2, "div", 100)(3, "span", 101);
     \u0275\u0275text(4, "\u{1F4D6}");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "h2", 96);
+    \u0275\u0275elementStart(5, "h2", 102);
     \u0275\u0275text(6, "Deployment Guide");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "span", 97);
+    \u0275\u0275elementStart(7, "span", 103);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_57_div_9_Template, 2, 1, "div", 98);
+    \u0275\u0275template(9, ProductDetailComponent_div_1_div_58_div_9_Template, 2, 1, "div", 104);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -552,27 +598,12 @@ function ProductDetailComponent_div_1_div_57_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.guideExpanded);
   }
 }
-function ProductDetailComponent_div_1_div_64_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 29)(1, "h2", 30);
-    \u0275\u0275text(2, "Video Overview");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 101);
-    \u0275\u0275element(4, "iframe", 102);
-    \u0275\u0275elementEnd()();
-  }
-  if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275advance(4);
-    \u0275\u0275property("src", ctx_r2.safeYoutubeUrl, \u0275\u0275sanitizeResourceUrl);
-  }
-}
 function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 103);
+    \u0275\u0275elementStart(0, "div", 107);
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(1, "svg", 104);
-    \u0275\u0275element(2, "polyline", 105);
+    \u0275\u0275elementStart(1, "svg", 108);
+    \u0275\u0275element(2, "polyline", 109);
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(3, "span");
@@ -580,73 +611,73 @@ function ProductDetailComponent_div_1_div_69_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const f_r11 = ctx.$implicit;
+    const f_r12 = ctx.$implicit;
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(f_r11);
+    \u0275\u0275textInterpolate(f_r12);
   }
 }
 function ProductDetailComponent_div_1_button_73_Template(rf, ctx) {
   if (rf & 1) {
-    const _r12 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 106);
+    const _r13 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 110);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_button_73_Template_button_click_0_listener() {
-      const tab_r13 = \u0275\u0275restoreView(_r12).$implicit;
+      const tab_r14 = \u0275\u0275restoreView(_r13).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
-      return \u0275\u0275resetView(ctx_r2.activeTab = tab_r13.id);
+      return \u0275\u0275resetView(ctx_r2.activeTab = tab_r14.id);
     });
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const tab_r13 = ctx.$implicit;
+    const tab_r14 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(2);
-    \u0275\u0275classProp("active", ctx_r2.activeTab === tab_r13.id);
+    \u0275\u0275classProp("active", ctx_r2.activeTab === tab_r14.id);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", tab_r13.label, " ");
+    \u0275\u0275textInterpolate1(" ", tab_r14.label, " ");
   }
 }
 function ProductDetailComponent_div_1_div_74_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 114);
+    \u0275\u0275elementStart(0, "span", 118);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const t_r14 = ctx.$implicit;
+    const t_r15 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(t_r14);
+    \u0275\u0275textInterpolate(t_r15);
   }
 }
 function ProductDetailComponent_div_1_div_74_span_11_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 115);
+    \u0275\u0275elementStart(0, "span", 119);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const c_r15 = ctx.$implicit;
+    const c_r16 = ctx.$implicit;
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(c_r15);
+    \u0275\u0275textInterpolate(c_r16);
   }
 }
 function ProductDetailComponent_div_1_div_74_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 108)(2, "div", 29)(3, "h3", 109);
+    \u0275\u0275elementStart(0, "div", 111)(1, "div", 112)(2, "div", 30)(3, "h3", 113);
     \u0275\u0275text(4, "Tech Stack");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 110);
-    \u0275\u0275template(6, ProductDetailComponent_div_1_div_74_span_6_Template, 2, 1, "span", 111);
+    \u0275\u0275elementStart(5, "div", 114);
+    \u0275\u0275template(6, ProductDetailComponent_div_1_div_74_span_6_Template, 2, 1, "span", 115);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "div", 112)(8, "h3", 109);
+    \u0275\u0275elementStart(7, "div", 116)(8, "h3", 113);
     \u0275\u0275text(9, "Compatibility");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(10, "div", 110);
-    \u0275\u0275template(11, ProductDetailComponent_div_1_div_74_span_11_Template, 2, 1, "span", 113);
+    \u0275\u0275elementStart(10, "div", 114);
+    \u0275\u0275template(11, ProductDetailComponent_div_1_div_74_span_11_Template, 2, 1, "span", 117);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "div", 112)(13, "h3", 109);
+    \u0275\u0275elementStart(12, "div", 116)(13, "h3", 113);
     \u0275\u0275text(14, "Documentation & Support");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "p", 31);
+    \u0275\u0275elementStart(15, "p", 32);
     \u0275\u0275text(16, "Includes 6 months of premium support and lifetime updates. Comprehensive documentation is included in the download package. Our team typically responds within 24 hours.");
     \u0275\u0275elementEnd()()()();
   }
@@ -663,125 +694,125 @@ function ProductDetailComponent_div_1_div_75_span_6_Template(rf, ctx) {
     \u0275\u0275element(0, "span");
   }
   if (rf & 2) {
-    const s_r16 = ctx.$implicit;
-    \u0275\u0275classMap(s_r16);
+    const s_r17 = ctx.$implicit;
+    \u0275\u0275classMap(s_r17);
   }
 }
 function ProductDetailComponent_div_1_div_75_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 130)(1, "span", 131);
+    \u0275\u0275elementStart(0, "div", 134)(1, "span", 135);
     \u0275\u0275text(2);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 132);
-    \u0275\u0275element(4, "div", 133);
+    \u0275\u0275elementStart(3, "div", 136);
+    \u0275\u0275element(4, "div", 137);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "span", 134);
+    \u0275\u0275elementStart(5, "span", 138);
     \u0275\u0275text(6);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const bar_r17 = ctx.$implicit;
+    const bar_r18 = ctx.$implicit;
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("", bar_r17.stars, "\u2605");
+    \u0275\u0275textInterpolate1("", bar_r18.stars, "\u2605");
     \u0275\u0275advance(2);
-    \u0275\u0275styleProp("width", bar_r17.pct, "%");
+    \u0275\u0275styleProp("width", bar_r18.pct, "%");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(bar_r17.count);
+    \u0275\u0275textInterpolate(bar_r18.count);
   }
 }
 function ProductDetailComponent_div_1_div_75_div_18_span_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 148);
+    \u0275\u0275elementStart(0, "span", 152);
     \u0275\u0275text(1, "\u2713 Verified Purchase");
     \u0275\u0275elementEnd();
   }
 }
 function ProductDetailComponent_div_1_div_75_div_18_span_12_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "span", 149);
+    \u0275\u0275element(0, "span", 153);
   }
   if (rf & 2) {
-    const s_r18 = ctx.$implicit;
-    \u0275\u0275classMap(s_r18);
+    const s_r19 = ctx.$implicit;
+    \u0275\u0275classMap(s_r19);
   }
 }
 function ProductDetailComponent_div_1_div_75_div_18_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 135)(1, "div", 136)(2, "div", 137)(3, "div", 138)(4, "div", 139);
+    \u0275\u0275elementStart(0, "div", 139)(1, "div", 140)(2, "div", 141)(3, "div", 142)(4, "div", 143);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(6, "div")(7, "strong");
     \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_75_div_18_span_9_Template, 2, 0, "span", 140);
+    \u0275\u0275template(9, ProductDetailComponent_div_1_div_75_div_18_span_9_Template, 2, 0, "span", 144);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "div", 141)(11, "div", 142);
-    \u0275\u0275template(12, ProductDetailComponent_div_1_div_75_div_18_span_12_Template, 1, 2, "span", 143);
+    \u0275\u0275elementStart(10, "div", 145)(11, "div", 146);
+    \u0275\u0275template(12, ProductDetailComponent_div_1_div_75_div_18_span_12_Template, 1, 2, "span", 147);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "span", 144);
+    \u0275\u0275elementStart(13, "span", 148);
     \u0275\u0275text(14);
     \u0275\u0275pipe(15, "date");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(16, "p", 145);
+    \u0275\u0275elementStart(16, "p", 149);
     \u0275\u0275text(17);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(18, "div", 146)(19, "button", 147);
+    \u0275\u0275elementStart(18, "div", 150)(19, "button", 151);
     \u0275\u0275text(20);
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
-    const review_r19 = ctx.$implicit;
+    const review_r20 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275advance(4);
-    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(review_r19.userName));
+    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(review_r20.userName));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(review_r19.userName.charAt(0));
+    \u0275\u0275textInterpolate(review_r20.userName.charAt(0));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(review_r19.userName);
+    \u0275\u0275textInterpolate(review_r20.userName);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", review_r19.verified);
+    \u0275\u0275property("ngIf", review_r20.verified);
     \u0275\u0275advance(3);
-    \u0275\u0275property("ngForOf", ctx_r2.getStars(review_r19.rating));
+    \u0275\u0275property("ngForOf", ctx_r2.getStars(review_r20.rating));
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, review_r19.date, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, review_r20.date, "mediumDate"));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(review_r19.comment);
+    \u0275\u0275textInterpolate(review_r20.comment);
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate1("\u{1F44D} Helpful (", review_r19.helpful, ")");
+    \u0275\u0275textInterpolate1("\u{1F44D} Helpful (", review_r20.helpful, ")");
   }
 }
 function ProductDetailComponent_div_1_div_75_div_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 150)(1, "p");
+    \u0275\u0275elementStart(0, "div", 154)(1, "p");
     \u0275\u0275text(2, "No reviews yet. Be the first buyer to leave a review!");
     \u0275\u0275elementEnd()();
   }
 }
 function ProductDetailComponent_div_1_div_75_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 116)(2, "div", 117)(3, "span", 118);
+    \u0275\u0275elementStart(0, "div", 111)(1, "div", 120)(2, "div", 121)(3, "span", 122);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "div", 119);
-    \u0275\u0275template(6, ProductDetailComponent_div_1_div_75_span_6_Template, 1, 2, "span", 120);
+    \u0275\u0275elementStart(5, "div", 123);
+    \u0275\u0275template(6, ProductDetailComponent_div_1_div_75_span_6_Template, 1, 2, "span", 124);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "span", 121);
+    \u0275\u0275elementStart(7, "span", 125);
     \u0275\u0275text(8);
     \u0275\u0275pipe(9, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "div", 122);
-    \u0275\u0275template(11, ProductDetailComponent_div_1_div_75_div_11_Template, 7, 4, "div", 123);
+    \u0275\u0275elementStart(10, "div", 126);
+    \u0275\u0275template(11, ProductDetailComponent_div_1_div_75_div_11_Template, 7, 4, "div", 127);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(12, "div", 124);
+    \u0275\u0275elementStart(12, "div", 128);
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(13, "svg", 125);
-    \u0275\u0275element(14, "circle", 126)(15, "path", 127);
+    \u0275\u0275elementStart(13, "svg", 129);
+    \u0275\u0275element(14, "circle", 130)(15, "path", 131);
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(16, "span");
     \u0275\u0275text(17, "Only verified buyers can leave reviews after purchase.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(18, ProductDetailComponent_div_1_div_75_div_18_Template, 21, 12, "div", 128)(19, ProductDetailComponent_div_1_div_75_div_19_Template, 3, 0, "div", 129);
+    \u0275\u0275template(18, ProductDetailComponent_div_1_div_75_div_18_Template, 21, 12, "div", 132)(19, ProductDetailComponent_div_1_div_75_div_19_Template, 3, 0, "div", 133);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -802,68 +833,68 @@ function ProductDetailComponent_div_1_div_75_Template(rf, ctx) {
 }
 function ProductDetailComponent_div_1_div_76_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 156)(1, "div", 137)(2, "div", 138)(3, "div", 139);
+    \u0275\u0275elementStart(0, "div", 160)(1, "div", 141)(2, "div", 142)(3, "div", 143);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div")(6, "strong");
     \u0275\u0275text(7);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(8, "span", 144);
+    \u0275\u0275elementStart(8, "span", 148);
     \u0275\u0275text(9);
     \u0275\u0275pipe(10, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "p", 145);
+    \u0275\u0275elementStart(11, "p", 149);
     \u0275\u0275text(12);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const c_r21 = ctx.$implicit;
+    const c_r22 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275advance(3);
-    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(c_r21.userName));
+    \u0275\u0275styleProp("background", ctx_r2.getReviewColor(c_r22.userName));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(c_r21.userName.charAt(0));
+    \u0275\u0275textInterpolate(c_r22.userName.charAt(0));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(c_r21.userName);
+    \u0275\u0275textInterpolate(c_r22.userName);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, c_r21.date, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, c_r22.date, "mediumDate"));
     \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(c_r21.text);
+    \u0275\u0275textInterpolate(c_r22.text);
   }
 }
 function ProductDetailComponent_div_1_div_76_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 150)(1, "p");
+    \u0275\u0275elementStart(0, "div", 154)(1, "p");
     \u0275\u0275text(2, "No comments yet. Start the conversation!");
     \u0275\u0275elementEnd()();
   }
 }
 function ProductDetailComponent_div_1_div_76_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 107)(1, "div", 151)(2, "h3");
+    const _r21 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 111)(1, "div", 155)(2, "h3");
     \u0275\u0275text(3, "\u{1F4AC} Leave a Comment");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "textarea", 152);
+    \u0275\u0275elementStart(4, "textarea", 156);
     \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_div_76_Template_textarea_ngModelChange_4_listener($event) {
-      \u0275\u0275restoreView(_r20);
+      \u0275\u0275restoreView(_r21);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.newCommentText, $event) || (ctx_r2.newCommentText = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "button", 153);
+    \u0275\u0275elementStart(5, "button", 157);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_div_76_Template_button_click_5_listener() {
-      \u0275\u0275restoreView(_r20);
+      \u0275\u0275restoreView(_r21);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.submitComment());
     });
     \u0275\u0275text(6, " Post Comment ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "div", 154);
-    \u0275\u0275template(8, ProductDetailComponent_div_1_div_76_div_8_Template, 13, 9, "div", 155);
+    \u0275\u0275elementStart(7, "div", 158);
+    \u0275\u0275template(8, ProductDetailComponent_div_1_div_76_div_8_Template, 13, 9, "div", 159);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_1_div_76_div_9_Template, 3, 0, "div", 129);
+    \u0275\u0275template(9, ProductDetailComponent_div_1_div_76_div_9_Template, 3, 0, "div", 133);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -878,9 +909,9 @@ function ProductDetailComponent_div_1_div_76_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.comments.length === 0);
   }
 }
-function ProductDetailComponent_div_1_span_83_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_82_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 157);
+    \u0275\u0275elementStart(0, "span", 161);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -890,9 +921,9 @@ function ProductDetailComponent_div_1_span_83_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("$", ctx_r2.product.originalPrice, "");
   }
 }
-function ProductDetailComponent_div_1_span_84_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_83_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 158);
+    \u0275\u0275elementStart(0, "span", 162);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -902,12 +933,12 @@ function ProductDetailComponent_div_1_span_84_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("-", ctx_r2.product.discountPercent, "%");
   }
 }
-function ProductDetailComponent_div_1_div_104_Template(rf, ctx) {
+function ProductDetailComponent_div_1_div_103_Template(rf, ctx) {
   if (rf & 1) {
-    const _r22 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 159)(1, "label", 160)(2, "input", 161);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_div_104_Template_input_ngModelChange_2_listener($event) {
-      \u0275\u0275restoreView(_r22);
+    const _r23 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 163)(1, "label", 164)(2, "input", 165);
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_1_div_103_Template_input_ngModelChange_2_listener($event) {
+      \u0275\u0275restoreView(_r23);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.addReskin, $event) || (ctx_r2.addReskin = $event);
       return \u0275\u0275resetView($event);
@@ -928,53 +959,53 @@ function ProductDetailComponent_div_1_div_104_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("Professional rebranding (+$", ctx_r2.product.reskinPrice, ")");
   }
 }
-function ProductDetailComponent_div_1_a_107_Template(rf, ctx) {
+function ProductDetailComponent_div_1_a_106_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 162);
+    \u0275\u0275elementStart(0, "a", 166);
     \u0275\u0275text(1, " View Cart \u2192 ");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_1_span_144_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_143_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 163);
+    \u0275\u0275elementStart(0, "span", 167);
     \u0275\u0275text(1, "\u2713 Verified Author");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_1_span_165_Template(rf, ctx) {
+function ProductDetailComponent_div_1_span_164_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 164);
+    \u0275\u0275elementStart(0, "span", 168);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const b_r23 = ctx.$implicit;
+    const b_r24 = ctx.$implicit;
     const ctx_r2 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate2("", ctx_r2.getBadgeIcon(b_r23), " ", ctx_r2.formatBadge(b_r23), "");
+    \u0275\u0275textInterpolate2("", ctx_r2.getBadgeIcon(b_r24), " ", ctx_r2.formatBadge(b_r24), "");
   }
 }
-function ProductDetailComponent_div_1_a_170_Template(rf, ctx) {
+function ProductDetailComponent_div_1_a_169_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 165);
+    \u0275\u0275elementStart(0, "a", 169);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const tag_r24 = ctx.$implicit;
-    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(2, _c1, tag_r24));
+    const tag_r25 = ctx.$implicit;
+    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(2, _c1, tag_r25));
     \u0275\u0275advance();
-    \u0275\u0275textInterpolate(tag_r24);
+    \u0275\u0275textInterpolate(tag_r25);
   }
 }
-function ProductDetailComponent_div_1_app_product_card_175_Template(rf, ctx) {
+function ProductDetailComponent_div_1_app_product_card_174_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "app-product-card", 166);
+    \u0275\u0275element(0, "app-product-card", 170);
   }
   if (rf & 2) {
-    const p_r25 = ctx.$implicit;
-    \u0275\u0275property("product", p_r25);
+    const p_r26 = ctx.$implicit;
+    \u0275\u0275property("product", p_r26);
   }
 }
 function ProductDetailComponent_div_1_Template(rf, ctx) {
@@ -1037,7 +1068,7 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275pipe(46, "date");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(47, "div", 17)(48, "div", 18)(49, "div", 19)(50, "div", 20);
-    \u0275\u0275template(51, ProductDetailComponent_div_1_ng_container_51_Template, 5, 2, "ng-container", 21)(52, ProductDetailComponent_div_1_button_52_Template, 3, 0, "button", 22);
+    \u0275\u0275template(51, ProductDetailComponent_div_1_div_51_Template, 2, 1, "div", 21)(52, ProductDetailComponent_div_1_ng_container_52_Template, 3, 2, "ng-container", 22);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(53, "div", 23)(54, "div", 24);
     \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_div_click_54_listener() {
@@ -1046,19 +1077,18 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = -1);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(55, ProductDetailComponent_div_1_div_55_Template, 1, 8, "div", 25);
+    \u0275\u0275template(55, ProductDetailComponent_div_1_div_55_Template, 3, 8, "div", 25)(56, ProductDetailComponent_div_1_div_56_Template, 1, 8, "div", 26);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(56, ProductDetailComponent_div_1_div_56_Template, 5, 2, "div", 26);
+    \u0275\u0275template(57, ProductDetailComponent_div_1_div_57_Template, 5, 2, "div", 27);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(57, ProductDetailComponent_div_1_div_57_Template, 10, 2, "div", 27);
-    \u0275\u0275elementStart(58, "div", 28)(59, "div", 29)(60, "h2", 30);
-    \u0275\u0275text(61, "Overview");
+    \u0275\u0275template(58, ProductDetailComponent_div_1_div_58_Template, 10, 2, "div", 28);
+    \u0275\u0275elementStart(59, "div", 29)(60, "div", 30)(61, "h2", 31);
+    \u0275\u0275text(62, "Overview");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(62, "p", 31);
-    \u0275\u0275text(63);
+    \u0275\u0275elementStart(63, "p", 32);
+    \u0275\u0275text(64);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(64, ProductDetailComponent_div_1_div_64_Template, 5, 1, "div", 32);
-    \u0275\u0275elementStart(65, "div", 29)(66, "h2", 30);
+    \u0275\u0275elementStart(65, "div", 30)(66, "h2", 31);
     \u0275\u0275text(67, "Key Features");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(68, "div", 33);
@@ -1068,133 +1098,131 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275template(73, ProductDetailComponent_div_1_button_73_Template, 2, 3, "button", 38);
     \u0275\u0275elementEnd();
     \u0275\u0275template(74, ProductDetailComponent_div_1_div_74_Template, 17, 2, "div", 39)(75, ProductDetailComponent_div_1_div_75_Template, 20, 8, "div", 39)(76, ProductDetailComponent_div_1_div_76_Template, 10, 4, "div", 39);
-    \u0275\u0275elementEnd()();
-    \u0275\u0275element(77, "app-guide-widget");
+    \u0275\u0275elementEnd()()();
+    \u0275\u0275elementStart(77, "aside", 40)(78, "div", 41)(79, "div", 42)(80, "span", 43);
+    \u0275\u0275text(81);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(78, "aside", 40)(79, "div", 41)(80, "div", 42)(81, "span", 43);
-    \u0275\u0275text(82);
+    \u0275\u0275template(82, ProductDetailComponent_div_1_span_82_Template, 2, 1, "span", 44)(83, ProductDetailComponent_div_1_span_83_Template, 2, 1, "span", 45);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(83, ProductDetailComponent_div_1_span_83_Template, 2, 1, "span", 44)(84, ProductDetailComponent_div_1_span_84_Template, 2, 1, "span", 45);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(85, "div", 46)(86, "label", 47);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_86_listener() {
+    \u0275\u0275elementStart(84, "div", 46)(85, "label", 47);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_85_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "regular");
     });
-    \u0275\u0275element(87, "input", 48);
-    \u0275\u0275elementStart(88, "div")(89, "strong");
-    \u0275\u0275text(90, "Regular License");
+    \u0275\u0275element(86, "input", 48);
+    \u0275\u0275elementStart(87, "div")(88, "strong");
+    \u0275\u0275text(89, "Regular License");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(91, "span");
-    \u0275\u0275text(92, "Use in a single end product");
+    \u0275\u0275elementStart(90, "span");
+    \u0275\u0275text(91, "Use in a single end product");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(93, "span", 49);
-    \u0275\u0275text(94);
+    \u0275\u0275elementStart(92, "span", 49);
+    \u0275\u0275text(93);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(95, "label", 47);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_95_listener() {
+    \u0275\u0275elementStart(94, "label", 47);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_label_click_94_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "extended");
     });
-    \u0275\u0275element(96, "input", 50);
-    \u0275\u0275elementStart(97, "div")(98, "strong");
-    \u0275\u0275text(99, "Extended License");
+    \u0275\u0275element(95, "input", 50);
+    \u0275\u0275elementStart(96, "div")(97, "strong");
+    \u0275\u0275text(98, "Extended License");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(100, "span");
-    \u0275\u0275text(101, "Use in unlimited projects");
+    \u0275\u0275elementStart(99, "span");
+    \u0275\u0275text(100, "Use in unlimited projects");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(102, "span", 49);
-    \u0275\u0275text(103);
+    \u0275\u0275elementStart(101, "span", 49);
+    \u0275\u0275text(102);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(104, ProductDetailComponent_div_1_div_104_Template, 8, 2, "div", 51);
-    \u0275\u0275elementStart(105, "button", 52);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_button_click_105_listener() {
+    \u0275\u0275template(103, ProductDetailComponent_div_1_div_103_Template, 8, 2, "div", 51);
+    \u0275\u0275elementStart(104, "button", 52);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_1_Template_button_click_104_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.addToCart());
     });
-    \u0275\u0275text(106);
+    \u0275\u0275text(105);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(107, ProductDetailComponent_div_1_a_107_Template, 2, 0, "a", 53);
-    \u0275\u0275elementStart(108, "div", 54)(109, "div", 55)(110, "span");
-    \u0275\u0275text(111, "\u{1F4B0} Sales");
+    \u0275\u0275template(106, ProductDetailComponent_div_1_a_106_Template, 2, 0, "a", 53);
+    \u0275\u0275elementStart(107, "div", 54)(108, "div", 55)(109, "span");
+    \u0275\u0275text(110, "\u{1F4B0} Sales");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(112, "strong");
-    \u0275\u0275text(113);
-    \u0275\u0275pipe(114, "number");
+    \u0275\u0275elementStart(111, "strong");
+    \u0275\u0275text(112);
+    \u0275\u0275pipe(113, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(115, "div", 55)(116, "span");
-    \u0275\u0275text(117, "\u{1F441}\uFE0F Views");
+    \u0275\u0275elementStart(114, "div", 55)(115, "span");
+    \u0275\u0275text(116, "\u{1F441}\uFE0F Views");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(118, "strong");
-    \u0275\u0275text(119);
-    \u0275\u0275pipe(120, "number");
+    \u0275\u0275elementStart(117, "strong");
+    \u0275\u0275text(118);
+    \u0275\u0275pipe(119, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(121, "div", 55)(122, "span");
-    \u0275\u0275text(123, "\u{1F4C5} Last Updated");
+    \u0275\u0275elementStart(120, "div", 55)(121, "span");
+    \u0275\u0275text(122, "\u{1F4C5} Last Updated");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(124, "strong");
-    \u0275\u0275text(125);
-    \u0275\u0275pipe(126, "date");
+    \u0275\u0275elementStart(123, "strong");
+    \u0275\u0275text(124);
+    \u0275\u0275pipe(125, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(127, "div", 55)(128, "span");
-    \u0275\u0275text(129, "\u{1F4E6} Version");
+    \u0275\u0275elementStart(126, "div", 55)(127, "span");
+    \u0275\u0275text(128, "\u{1F4E6} Version");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(130, "strong");
-    \u0275\u0275text(131);
+    \u0275\u0275elementStart(129, "strong");
+    \u0275\u0275text(130);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(132, "div", 55)(133, "span");
-    \u0275\u0275text(134, "\u{1F4C1} File Size");
+    \u0275\u0275elementStart(131, "div", 55)(132, "span");
+    \u0275\u0275text(133, "\u{1F4C1} File Size");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(135, "strong");
-    \u0275\u0275text(136);
+    \u0275\u0275elementStart(134, "strong");
+    \u0275\u0275text(135);
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(137, "div", 56)(138, "div", 57)(139, "div", 58);
-    \u0275\u0275text(140);
+    \u0275\u0275elementStart(136, "div", 56)(137, "div", 57)(138, "div", 58);
+    \u0275\u0275text(139);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(141, "div")(142, "strong");
-    \u0275\u0275text(143);
+    \u0275\u0275elementStart(140, "div")(141, "strong");
+    \u0275\u0275text(142);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(144, ProductDetailComponent_div_1_span_144_Template, 2, 0, "span", 59);
+    \u0275\u0275template(143, ProductDetailComponent_div_1_span_143_Template, 2, 0, "span", 59);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(145, "p", 60);
-    \u0275\u0275text(146);
+    \u0275\u0275elementStart(144, "p", 60);
+    \u0275\u0275text(145);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(147, "div", 61)(148, "div")(149, "strong");
-    \u0275\u0275text(150);
-    \u0275\u0275pipe(151, "number");
+    \u0275\u0275elementStart(146, "div", 61)(147, "div")(148, "strong");
+    \u0275\u0275text(149);
+    \u0275\u0275pipe(150, "number");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(152, "span");
-    \u0275\u0275text(153, "Sales");
+    \u0275\u0275elementStart(151, "span");
+    \u0275\u0275text(152, "Sales");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(154, "div")(155, "strong");
-    \u0275\u0275text(156);
+    \u0275\u0275elementStart(153, "div")(154, "strong");
+    \u0275\u0275text(155);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(157, "span");
-    \u0275\u0275text(158, "Rating");
+    \u0275\u0275elementStart(156, "span");
+    \u0275\u0275text(157, "Rating");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(159, "div")(160, "strong");
-    \u0275\u0275text(161);
+    \u0275\u0275elementStart(158, "div")(159, "strong");
+    \u0275\u0275text(160);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(162, "span");
-    \u0275\u0275text(163, "Badges");
+    \u0275\u0275elementStart(161, "span");
+    \u0275\u0275text(162, "Badges");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(164, "div", 62);
-    \u0275\u0275template(165, ProductDetailComponent_div_1_span_165_Template, 2, 2, "span", 63);
+    \u0275\u0275elementStart(163, "div", 62);
+    \u0275\u0275template(164, ProductDetailComponent_div_1_span_164_Template, 2, 2, "span", 63);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(166, "div", 64)(167, "h4");
-    \u0275\u0275text(168, "Tags");
+    \u0275\u0275elementStart(165, "div", 64)(166, "h4");
+    \u0275\u0275text(167, "Tags");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(169, "div", 65);
-    \u0275\u0275template(170, ProductDetailComponent_div_1_a_170_Template, 2, 4, "a", 66);
+    \u0275\u0275elementStart(168, "div", 65);
+    \u0275\u0275template(169, ProductDetailComponent_div_1_a_169_Template, 2, 4, "a", 66);
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(171, "section", 67)(172, "h2", 68);
-    \u0275\u0275text(173, "Related Products");
+    \u0275\u0275elementStart(170, "section", 67)(171, "h2", 68);
+    \u0275\u0275text(172, "Related Products");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(174, "div", 69);
-    \u0275\u0275template(175, ProductDetailComponent_div_1_app_product_card_175_Template, 1, 1, "app-product-card", 70);
+    \u0275\u0275elementStart(173, "div", 69);
+    \u0275\u0275template(174, ProductDetailComponent_div_1_app_product_card_174_Template, 1, 1, "app-product-card", 70);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -1216,14 +1244,16 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275advance(7);
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(46, 75, ctx_r2.product.lastUpdated, "mediumDate"));
     \u0275\u0275advance(5);
-    \u0275\u0275styleProp("background", ctx_r2.activePreviewIndex === -1 ? ctx_r2.product.thumbnailUrl ? "none" : ctx_r2.getGradient() : "none")("background-image", ctx_r2.activePreviewIndex === -1 && ctx_r2.product.thumbnailUrl ? "url(" + ctx_r2.product.thumbnailUrl + ")" : ctx_r2.activePreviewIndex >= 0 ? "url(" + ctx_r2.product.previewImages[ctx_r2.activePreviewIndex] + ")" : "none")("background-size", "cover")("background-position", "center");
+    \u0275\u0275styleProp("background", ctx_r2.activePreviewIndex === -1 ? ctx_r2.product.thumbnailUrl ? "none" : ctx_r2.getGradient() : "none")("background-image", ctx_r2.activePreviewIndex === -1 && ctx_r2.product.thumbnailUrl ? "url(" + ctx_r2.product.thumbnailUrl + ")" : ctx_r2.activePreviewIndex !== -1 && ctx_r2.activePreviewIndex !== "youtube" ? "url(" + ctx_r2.product.previewImages[ctx_r2.activePreviewIndex] + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.activePreviewIndex === -1 && !ctx_r2.product.thumbnailUrl);
+    \u0275\u0275property("ngIf", ctx_r2.activePreviewIndex === "youtube");
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.getRawPreviewUrl());
+    \u0275\u0275property("ngIf", ctx_r2.activePreviewIndex !== "youtube");
     \u0275\u0275advance(2);
     \u0275\u0275styleProp("background", ctx_r2.product.thumbnailUrl ? "none" : ctx_r2.getGradient())("background-image", ctx_r2.product.thumbnailUrl ? "url(" + ctx_r2.product.thumbnailUrl + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === -1);
+    \u0275\u0275advance();
+    \u0275\u0275property("ngIf", ctx_r2.safeYoutubeUrl);
     \u0275\u0275advance();
     \u0275\u0275property("ngForOf", ctx_r2.product.previewImages);
     \u0275\u0275advance();
@@ -1232,8 +1262,6 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.product.deploymentGuide);
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.shortDescription);
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r2.safeYoutubeUrl);
     \u0275\u0275advance(5);
     \u0275\u0275property("ngForOf", ctx_r2.product.features);
     \u0275\u0275advance(4);
@@ -1244,7 +1272,7 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.activeTab === "reviews");
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.activeTab === "comments");
-    \u0275\u0275advance(6);
+    \u0275\u0275advance(5);
     \u0275\u0275textInterpolate1("$", ctx_r2.product.price, "");
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.product.originalPrice);
@@ -1271,11 +1299,11 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.isInCart);
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(114, 78, ctx_r2.product.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(113, 78, ctx_r2.product.totalSales));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(120, 80, ctx_r2.product.totalVisits));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(119, 80, ctx_r2.product.totalVisits));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(126, 82, ctx_r2.product.lastUpdated, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(125, 82, ctx_r2.product.lastUpdated, "mediumDate"));
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.version);
     \u0275\u0275advance(5);
@@ -1291,7 +1319,7 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx_r2.product.author.bio);
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(151, 85, ctx_r2.product.author.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(150, 85, ctx_r2.product.author.totalSales));
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.author.rating);
     \u0275\u0275advance(5);
@@ -1411,7 +1439,19 @@ var ProductDetailComponent = class _ProductDetailComponent {
     if (this.activePreviewIndex === -1) {
       return this.product.thumbnailUrl || null;
     }
+    if (this.activePreviewIndex === "youtube")
+      return null;
     return this.product.previewImages[this.activePreviewIndex] || null;
+  }
+  getYoutubeThumbnailUrl() {
+    if (!this.product?.youtubeUrl)
+      return "";
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
+    const match = this.product.youtubeUrl.match(regExp);
+    if (match && match[2].length === 11) {
+      return `https://img.youtube.com/vi/${match[2]}/hqdefault.jpg`;
+    }
+    return "";
   }
   getGradient() {
     return this.gradientMap[this.product?.category || ""] || "linear-gradient(135deg, #6366F1, #A855F7)";
@@ -1438,7 +1478,15 @@ var ProductDetailComponent = class _ProductDetailComponent {
     if (!this.product?.deploymentGuide)
       return "";
     let esc = this.product.deploymentGuide.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    return esc.replace(/\[📸(.*?)\]/g, '<span class="guide-screenshot-marker">\u{1F4F8} $1</span>');
+    esc = esc.replace(/^###\s*(.*)$/gim, '<h3 style="margin-top:20px; color:var(--pm-text-primary); font-size:1.1rem">$1</h3>');
+    esc = esc.replace(/^##\s*(.*)$/gim, '<h2 style="margin-top:24px; color:var(--pm-text-primary); font-size:1.3rem; border-bottom:1px solid var(--pm-border-light); padding-bottom:4px">$1</h2>');
+    esc = esc.replace(/^#\s*(.*)$/gim, '<h1 style="margin-top:28px; color:var(--pm-text-primary); font-size:1.6rem">$1</h1>');
+    esc = esc.replace(/\*\*(.*?)\*\*/g, '<strong style="color:var(--pm-text-primary)">$1</strong>');
+    esc = esc.replace(/\*(.*?)\*/g, "<em>$1</em>");
+    esc = esc.replace(/`(.*?)`/g, '<code style="background:var(--pm-surface-variant); padding:2px 6px; border-radius:4px; font-family:monospace; color:var(--ion-color-primary)">$1</code>');
+    esc = esc.replace(/\[([^\]]+)\]\(([^\]]+)\)/g, '<a href="$2" target="_blank" style="color:var(--ion-color-primary); text-decoration:none">$1</a>');
+    esc = esc.replace(/\[📸(.*?)\]/g, '<span class="guide-screenshot-marker">\u{1F4F8} $1</span>');
+    return esc;
   }
   getReviewColor(name) {
     const colors = ["#6366F1", "#EC4899", "#10B981", "#F97316", "#3B82F6"];
@@ -1488,23 +1536,23 @@ var ProductDetailComponent = class _ProductDetailComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 3, vars: 1, consts: [["singleDemo", ""], ["class", "pm-container page-enter", 4, "ngIf"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], [4, "ngIf"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], ["class", "content-section", 4, "ngIf"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "video-container"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 3, vars: 1, consts: [["singleDemo", ""], ["class", "pm-container page-enter", 4, "ngIf"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], ["style", "width:100%; height:100%; border-radius: inherit; overflow:hidden;", 4, "ngIf"], [4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", "style", "position: relative; display: flex; align-items: center; justify-content: center; background-color: #000;", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngIf"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [2, "width", "100%", "height", "100%", "border-radius", "inherit", "overflow", "hidden"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "thumb-item", 2, "position", "relative", "display", "flex", "align-items", "center", "justify-content", "center", "background-color", "#000", 3, "click"], ["width", "28", "height", "28", "viewBox", "0 0 24 24", "fill", "white", 2, "filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.5))", "pointer-events", "none"], ["d", "M8 5v14l11-7z"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
-        \u0275\u0275template(1, ProductDetailComponent_div_1_Template, 176, 89, "div", 1);
+        \u0275\u0275template(1, ProductDetailComponent_div_1_Template, 175, 89, "div", 1);
         \u0275\u0275element(2, "app-footer");
       }
       if (rf & 2) {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.product);
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterLink, FormsModule, DefaultValueAccessor, CheckboxControlValueAccessor, NgControlStatus, NgModel, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent], styles: ["\n\n.page-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_pageEnter 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_pageEnter {\n  from {\n    opacity: 0;\n    transform: translateY(16px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.breadcrumb[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 20px 0;\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  flex-wrap: wrap;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.breadcrumb[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  font-weight: 500;\n}\n.detail-layout[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding-bottom: 32px;\n}\n.detail-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.detail-sidebar[_ngcontent-%COMP%] {\n  width: 360px;\n  flex-shrink: 0;\n}\n.stats-strip[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  padding: 20px 32px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.stat-pill[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.pill-label[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n.pill-value[_ngcontent-%COMP%] {\n  font-size: 1.15rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n}\n.pill-rating[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pill-rating[_ngcontent-%COMP%]   .stars[_ngcontent-%COMP%] {\n  color: #F59E0B;\n  font-size: 1rem;\n}\n.pill-rating[_ngcontent-%COMP%]   .rating-val[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.15rem;\n}\n.stat-divider[_ngcontent-%COMP%] {\n  width: 1px;\n  height: 32px;\n  background: var(--pm-border-light);\n  margin: 0 24px;\n}\n.main-content-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 40px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.content-section[_ngcontent-%COMP%] {\n  margin-bottom: 40px;\n}\n.content-section[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 0;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 900;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.section-subtitle[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n}\n.section-text[_ngcontent-%COMP%] {\n  font-size: 1.05rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n}\n.tabs-layout[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  display: flex;\n  gap: 0;\n  align-items: flex-start;\n}\n.tabs-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.preview-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 24px;\n}\n.preview-image[_ngcontent-%COMP%] {\n  height: 360px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  position: relative;\n}\n.maximize-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  background: rgba(0, 0, 0, 0.5);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background var(--pm-transition-fast);\n  backdrop-filter: blur(4px);\n}\n.maximize-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.lightbox-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.9);\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.lightbox-content[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 90vw;\n  max-height: 90vh;\n}\n.lightbox-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 100%;\n  max-height: 90vh;\n  object-fit: contain;\n  border-radius: 8px;\n}\n.lightbox-close[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -40px;\n  right: 0px;\n  background: none;\n  border: none;\n  color: white;\n  font-size: 2rem;\n  cursor: pointer;\n}\n.video-container[_ngcontent-%COMP%] {\n  position: relative;\n  padding-bottom: 56.25%;\n  height: 0;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-sm);\n}\n.video-container[_ngcontent-%COMP%]   iframe[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.preview-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));\n}\n.preview-title[_ngcontent-%COMP%] {\n  color: white;\n  font-size: 1.1rem;\n  font-weight: 600;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 6px 20px;\n  border-radius: var(--pm-radius-full);\n  backdrop-filter: blur(4px);\n}\n.preview-thumbnails[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  padding: 12px;\n}\n.thumb-item[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  cursor: pointer;\n  border: 2px solid transparent;\n  transition: all var(--pm-transition-fast);\n}\n.thumb-item.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n}\n.thumb-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.8;\n}\n.pm-gallery-strip[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  padding: 16px;\n  overflow-x: auto;\n  scrollbar-width: thin;\n  scrollbar-color: var(--pm-border) transparent;\n  scroll-behavior: smooth;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: var(--pm-border);\n  border-radius: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n  flex: 0 0 80px;\n  height: 60px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-hub[_ngcontent-%COMP%] {\n  padding: 0 16px 16px;\n}\n.demo-links-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.demo-link-card[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px;\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  text-decoration: none;\n  transition: all 0.2s;\n}\n.demo-link-card[_ngcontent-%COMP%]:hover {\n  background: white;\n  border-color: var(--ion-color-primary);\n  transform: translateY(-2px);\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  background-size: cover;\n  background-position: center;\n  flex-shrink: 0;\n}\n.demo-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.demo-label[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 700;\n  font-size: 0.85rem;\n  color: var(--pm-text-primary);\n}\n.demo-action[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--ion-color-primary);\n  font-weight: 500;\n}\n.detail-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  margin-bottom: 24px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-md);\n  padding: 4px;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 12px 16px;\n  border: none;\n  background: transparent;\n  font-family: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.desc-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  margin: 24px 0 12px;\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  margin-top: 0;\n}\n.desc-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n}\n.features-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 10px;\n}\n.feature-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.tags-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tech-tag[_ngcontent-%COMP%], \n.compat-tag[_ngcontent-%COMP%] {\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  font-weight: 500;\n}\n.tech-tag[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.08);\n  color: #6366F1;\n}\n.compat-tag[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.08);\n  color: #059669;\n}\n.reviews-summary[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding: 24px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n}\n.rating-big[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 16px 32px;\n}\n.rating-number[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  display: block;\n}\n.rating-stars[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  color: #F59E0B;\n  margin: 4px 0;\n  display: flex;\n  gap: 2px;\n  justify-content: center;\n}\n.rating-total[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.rating-bars[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  justify-content: center;\n}\n.bar-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.bar-label[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 24px;\n}\n.bar-track[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 8px;\n  background: var(--pm-surface-muted);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.bar-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: #F59E0B;\n  border-radius: 4px;\n  transition: width 0.5s ease;\n}\n.bar-count[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 32px;\n  text-align: right;\n}\n.write-review[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.write-review[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\ntextarea.filter-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n}\n.purchase-notice[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  background: rgba(99, 102, 241, 0.06);\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 20px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.empty-reviews[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n}\n.comment-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 10px;\n}\n.review-user[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.review-avatar[_ngcontent-%COMP%] {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 0.8rem;\n}\n.review-user[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n}\n.verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n  font-weight: 500;\n}\n.review-meta[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.review-stars[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1px;\n  justify-content: flex-end;\n}\n.review-date[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.review-comment[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n  margin: 0 0 8px;\n}\n.purchase-card[_ngcontent-%COMP%], \n.author-card[_ngcontent-%COMP%], \n.tags-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 16px;\n}\n.price-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  margin-bottom: 16px;\n  flex-wrap: wrap;\n}\n.license-select[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.license-option[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-option.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-option[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-option[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.license-option[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-option[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.license-price[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.reskin-option[_ngcontent-%COMP%] {\n  margin-bottom: 4px;\n}\n.reskin-check[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  background:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.04),\n      rgba(168, 85, 247, 0.06));\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n}\n.reskin-check[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.reskin-check[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.reskin-check[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.pm-btn.added[_ngcontent-%COMP%] {\n  background: #10B981;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}\n.purchase-meta[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid var(--pm-border-light);\n}\n.meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  padding: 7px 0;\n  font-size: 0.8rem;\n}\n.meta-row[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.meta-row[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n}\n.author-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.author-av[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.author-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.9rem;\n}\n.author-verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n}\n.author-bio[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n  margin: 0 0 16px;\n}\n.author-stats[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  padding: 12px 0;\n  border-top: 1px solid var(--pm-border-light);\n  border-bottom: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.author-stats[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  text-align: center;\n  flex: 1;\n}\n.author-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.author-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.author-badges[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.a-badge[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.7rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.tags-card[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  font-size: 0.9rem;\n}\n.tags-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tag-link[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.tag-link[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.08);\n  color: var(--ion-color-primary);\n}\n.related-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 24px;\n}\n@media (max-width: 1024px) {\n  .detail-layout[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .detail-sidebar[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media (max-width: 768px) {\n  .features-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .reviews-summary[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .stats-strip[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    padding: 16px;\n  }\n  .stat-divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .stat-pill[_ngcontent-%COMP%] {\n    text-align: center;\n  }\n  .preview-image[_ngcontent-%COMP%] {\n    height: 240px;\n  }\n  .main-content-card[_ngcontent-%COMP%] {\n    padding: 24px;\n  }\n  .section-title[_ngcontent-%COMP%] {\n    font-size: 1.3rem;\n  }\n  .detail-tabs[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    flex-wrap: nowrap;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    white-space: nowrap;\n    min-width: max-content;\n    padding: 10px 14px;\n    font-size: 0.8rem;\n  }\n  .breadcrumb[_ngcontent-%COMP%] {\n    font-size: 0.75rem;\n    padding: 12px 0;\n  }\n  .desc-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .review-card[_ngcontent-%COMP%], \n   .comment-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .purchase-card[_ngcontent-%COMP%], \n   .author-card[_ngcontent-%COMP%], \n   .tags-card[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n    flex: 0 0 64px;\n    height: 48px;\n  }\n  .demo-links-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.deploy-guide-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  overflow: hidden;\n}\n.dg-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 32px;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.dg-header[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.02);\n}\n.dg-title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.dg-icon[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n}\n.dg-toggle[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.dg-body[_ngcontent-%COMP%] {\n  border-top: 1px solid var(--pm-border-light);\n  padding: 24px 32px;\n  max-height: 500px;\n  overflow-y: auto;\n}\n.dg-content[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 0.88rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n}\n.guide-screenshot-marker[_ngcontent-%COMP%] {\n  display: inline-block;\n  background: rgba(16, 185, 129, 0.1);\n  color: #059669;\n  border: 1px dashed #10B981;\n  padding: 2px 8px;\n  border-radius: var(--pm-radius-sm);\n  font-weight: 600;\n  margin: 2px 0;\n  font-family: inherit;\n  font-size: 0.85rem;\n}\n@media (max-width: 768px) {\n  .dg-header[_ngcontent-%COMP%] {\n    padding: 16px 20px;\n  }\n  .dg-body[_ngcontent-%COMP%] {\n    padding: 16px 20px;\n  }\n}\n/*# sourceMappingURL=product-detail.component.css.map */"] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterLink, FormsModule, DefaultValueAccessor, CheckboxControlValueAccessor, NgControlStatus, NgModel, HeaderComponent, FooterComponent, ProductCardComponent], styles: ["\n\n.page-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_pageEnter 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_pageEnter {\n  from {\n    opacity: 0;\n    transform: translateY(16px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.breadcrumb[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 20px 0;\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  flex-wrap: wrap;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.breadcrumb[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  font-weight: 500;\n}\n.detail-layout[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding-bottom: 32px;\n}\n.detail-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.detail-sidebar[_ngcontent-%COMP%] {\n  width: 360px;\n  flex-shrink: 0;\n}\n.stats-strip[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  padding: 20px 32px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.stat-pill[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.pill-label[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n.pill-value[_ngcontent-%COMP%] {\n  font-size: 1.15rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n}\n.pill-rating[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pill-rating[_ngcontent-%COMP%]   .stars[_ngcontent-%COMP%] {\n  color: #F59E0B;\n  font-size: 1rem;\n}\n.pill-rating[_ngcontent-%COMP%]   .rating-val[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.15rem;\n}\n.stat-divider[_ngcontent-%COMP%] {\n  width: 1px;\n  height: 32px;\n  background: var(--pm-border-light);\n  margin: 0 24px;\n}\n.main-content-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 40px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.content-section[_ngcontent-%COMP%] {\n  margin-bottom: 40px;\n}\n.content-section[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 0;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 900;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.section-subtitle[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n}\n.section-text[_ngcontent-%COMP%] {\n  font-size: 1.05rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n}\n.tabs-layout[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  display: flex;\n  gap: 0;\n  align-items: flex-start;\n}\n.tabs-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.preview-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 24px;\n}\n.preview-image[_ngcontent-%COMP%] {\n  height: 360px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  position: relative;\n}\n.maximize-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  background: rgba(0, 0, 0, 0.5);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background var(--pm-transition-fast);\n  backdrop-filter: blur(4px);\n}\n.maximize-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.lightbox-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.9);\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.lightbox-content[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 90vw;\n  max-height: 90vh;\n}\n.lightbox-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 100%;\n  max-height: 90vh;\n  object-fit: contain;\n  border-radius: 8px;\n}\n.lightbox-close[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -40px;\n  right: 0px;\n  background: none;\n  border: none;\n  color: white;\n  font-size: 2rem;\n  cursor: pointer;\n}\n.video-container[_ngcontent-%COMP%] {\n  position: relative;\n  padding-bottom: 56.25%;\n  height: 0;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-sm);\n}\n.video-container[_ngcontent-%COMP%]   iframe[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.preview-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));\n}\n.preview-title[_ngcontent-%COMP%] {\n  color: white;\n  font-size: 1.1rem;\n  font-weight: 600;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 6px 20px;\n  border-radius: var(--pm-radius-full);\n  backdrop-filter: blur(4px);\n}\n.preview-thumbnails[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  padding: 12px;\n}\n.thumb-item[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  cursor: pointer;\n  border: 2px solid transparent;\n  transition: all var(--pm-transition-fast);\n}\n.thumb-item.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n}\n.thumb-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.8;\n}\n.pm-gallery-strip[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  padding: 16px;\n  overflow-x: auto;\n  scrollbar-width: thin;\n  scrollbar-color: var(--pm-border) transparent;\n  scroll-behavior: smooth;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: var(--pm-border);\n  border-radius: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n  flex: 0 0 80px;\n  height: 60px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-hub[_ngcontent-%COMP%] {\n  padding: 0 16px 16px;\n}\n.demo-links-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.demo-link-card[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px;\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  text-decoration: none;\n  transition: all 0.2s;\n}\n.demo-link-card[_ngcontent-%COMP%]:hover {\n  background: white;\n  border-color: var(--ion-color-primary);\n  transform: translateY(-2px);\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  background-size: cover;\n  background-position: center;\n  flex-shrink: 0;\n}\n.demo-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.demo-label[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 700;\n  font-size: 0.85rem;\n  color: var(--pm-text-primary);\n}\n.demo-action[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--ion-color-primary);\n  font-weight: 500;\n}\n.detail-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  margin-bottom: 24px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-md);\n  padding: 4px;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 12px 16px;\n  border: none;\n  background: transparent;\n  font-family: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.desc-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  margin: 24px 0 12px;\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  margin-top: 0;\n}\n.desc-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n}\n.features-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 10px;\n}\n.feature-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.tags-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tech-tag[_ngcontent-%COMP%], \n.compat-tag[_ngcontent-%COMP%] {\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  font-weight: 500;\n}\n.tech-tag[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.08);\n  color: #6366F1;\n}\n.compat-tag[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.08);\n  color: #059669;\n}\n.reviews-summary[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding: 24px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n}\n.rating-big[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 16px 32px;\n}\n.rating-number[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  display: block;\n}\n.rating-stars[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  color: #F59E0B;\n  margin: 4px 0;\n  display: flex;\n  gap: 2px;\n  justify-content: center;\n}\n.rating-total[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.rating-bars[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  justify-content: center;\n}\n.bar-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.bar-label[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 24px;\n}\n.bar-track[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 8px;\n  background: var(--pm-surface-muted);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.bar-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: #F59E0B;\n  border-radius: 4px;\n  transition: width 0.5s ease;\n}\n.bar-count[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 32px;\n  text-align: right;\n}\n.write-review[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.write-review[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\ntextarea.filter-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n}\n.purchase-notice[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  background: rgba(99, 102, 241, 0.06);\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 20px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.empty-reviews[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n}\n.comment-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 10px;\n}\n.review-user[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.review-avatar[_ngcontent-%COMP%] {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 0.8rem;\n}\n.review-user[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n}\n.verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n  font-weight: 500;\n}\n.review-meta[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.review-stars[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1px;\n  justify-content: flex-end;\n}\n.review-date[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.review-comment[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n  margin: 0 0 8px;\n}\n.purchase-card[_ngcontent-%COMP%], \n.author-card[_ngcontent-%COMP%], \n.tags-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 16px;\n}\n.price-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  margin-bottom: 16px;\n  flex-wrap: wrap;\n}\n.license-select[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.license-option[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-option.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-option[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-option[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.license-option[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-option[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.license-price[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.reskin-option[_ngcontent-%COMP%] {\n  margin-bottom: 4px;\n}\n.reskin-check[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  background:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.04),\n      rgba(168, 85, 247, 0.06));\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n}\n.reskin-check[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.reskin-check[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.reskin-check[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.pm-btn.added[_ngcontent-%COMP%] {\n  background: #10B981;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}\n.purchase-meta[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid var(--pm-border-light);\n}\n.meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  padding: 7px 0;\n  font-size: 0.8rem;\n}\n.meta-row[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.meta-row[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n}\n.author-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.author-av[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.author-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.9rem;\n}\n.author-verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n}\n.author-bio[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n  margin: 0 0 16px;\n}\n.author-stats[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  padding: 12px 0;\n  border-top: 1px solid var(--pm-border-light);\n  border-bottom: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.author-stats[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  text-align: center;\n  flex: 1;\n}\n.author-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.author-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.author-badges[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.a-badge[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.7rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.tags-card[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  font-size: 0.9rem;\n}\n.tags-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tag-link[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.tag-link[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.08);\n  color: var(--ion-color-primary);\n}\n.related-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 24px;\n}\n@media (max-width: 1024px) {\n  .detail-layout[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .detail-sidebar[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media (max-width: 768px) {\n  .features-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .reviews-summary[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .stats-strip[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    padding: 16px;\n  }\n  .stat-divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .stat-pill[_ngcontent-%COMP%] {\n    text-align: center;\n  }\n  .preview-image[_ngcontent-%COMP%] {\n    height: 240px;\n  }\n  .main-content-card[_ngcontent-%COMP%] {\n    padding: 24px;\n  }\n  .section-title[_ngcontent-%COMP%] {\n    font-size: 1.3rem;\n  }\n  .detail-tabs[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    flex-wrap: nowrap;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    white-space: nowrap;\n    min-width: max-content;\n    padding: 10px 14px;\n    font-size: 0.8rem;\n  }\n  .breadcrumb[_ngcontent-%COMP%] {\n    font-size: 0.75rem;\n    padding: 12px 0;\n  }\n  .desc-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .review-card[_ngcontent-%COMP%], \n   .comment-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .purchase-card[_ngcontent-%COMP%], \n   .author-card[_ngcontent-%COMP%], \n   .tags-card[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n    flex: 0 0 64px;\n    height: 48px;\n  }\n  .demo-links-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.deploy-guide-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  overflow: hidden;\n}\n.dg-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 32px;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.dg-header[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.02);\n}\n.dg-title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.dg-icon[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n}\n.dg-toggle[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.dg-body[_ngcontent-%COMP%] {\n  border-top: 1px solid var(--pm-border-light);\n  padding: 24px 32px;\n  max-height: 500px;\n  overflow-y: auto;\n}\n.dg-content[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 0.88rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n}\n.guide-screenshot-marker[_ngcontent-%COMP%] {\n  display: inline-block;\n  background: rgba(16, 185, 129, 0.1);\n  color: #059669;\n  border: 1px dashed #10B981;\n  padding: 2px 8px;\n  border-radius: var(--pm-radius-sm);\n  font-weight: 600;\n  margin: 2px 0;\n  font-family: inherit;\n  font-size: 0.85rem;\n}\n@media (max-width: 768px) {\n  .dg-header[_ngcontent-%COMP%] {\n    padding: 16px 20px;\n  }\n  .dg-body[_ngcontent-%COMP%] {\n    padding: 16px 20px;\n  }\n}\n/*# sourceMappingURL=product-detail.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 958 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 971 });
 })();
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-IQIOSINJ.js.map
+//# sourceMappingURL=chunk-XEXWEHBH.js.map

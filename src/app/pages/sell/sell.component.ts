@@ -170,6 +170,10 @@ import { AdminProject, ProductCategory } from '../../models/marketplace.models';
                   <label for="demoUrl">Live Demo URL</label>
                   <input id="demoUrl" type="url" [(ngModel)]="project.demoUrl" name="demoUrl" placeholder="https://your-demo.com" class="form-input" />
                 </div>
+                <div class="form-group">
+                  <label for="youtubeUrl">YouTube Video URL</label>
+                  <input id="youtubeUrl" type="url" [(ngModel)]="project.youtubeUrl" name="youtubeUrl" placeholder="https://youtube.com/watch?v=..." class="form-input" />
+                </div>
               </div>
             </div>
           </div>
@@ -580,6 +584,7 @@ Make it clear, step-by-step, and highly visual.`;
     hasReskinService: false,
     status: 'pending',
     deploymentGuide: '',
+    youtubeUrl: '',
   };
 
   tagsInput = '';
@@ -714,7 +719,7 @@ Make it clear, step-by-step, and highly visual.`;
       title: '', shortDescription: '', fullDescription: '', category: '' as ProductCategory,
       price: 0, tags: [], features: [], techStack: [], compatibility: [],
       version: '', fileSize: '', license: 'regular', hasReskinService: false, status: 'pending',
-      deploymentGuide: '',
+      deploymentGuide: '', youtubeUrl: '',
     };
     this.tagsInput = '';
     this.featuresInput = '';

@@ -316,7 +316,7 @@ function SellComponent_ng_container_2_form_13_div_4_Template(rf, ctx) {
 }
 function SellComponent_ng_container_2_form_13_div_5_div_8_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 75);
+    \u0275\u0275elementStart(0, "span", 77);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -328,8 +328,8 @@ function SellComponent_ng_container_2_form_13_div_5_div_8_span_1_Template(rf, ct
 }
 function SellComponent_ng_container_2_form_13_div_5_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 73);
-    \u0275\u0275template(1, SellComponent_ng_container_2_form_13_div_5_div_8_span_1_Template, 2, 1, "span", 74);
+    \u0275\u0275elementStart(0, "div", 75);
+    \u0275\u0275template(1, SellComponent_ng_container_2_form_13_div_5_div_8_span_1_Template, 2, 1, "span", 76);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -400,6 +400,17 @@ function SellComponent_ng_container_2_form_13_div_5_Template(rf, ctx) {
       \u0275\u0275twoWayBindingSet(ctx_r1.project.demoUrl, $event) || (ctx_r1.project.demoUrl = $event);
       return \u0275\u0275resetView($event);
     });
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(26, "div", 35)(27, "label", 73);
+    \u0275\u0275text(28, "YouTube Video URL");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(29, "input", 74);
+    \u0275\u0275twoWayListener("ngModelChange", function SellComponent_ng_container_2_form_13_div_5_Template_input_ngModelChange_29_listener($event) {
+      \u0275\u0275restoreView(_r10);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      \u0275\u0275twoWayBindingSet(ctx_r1.project.youtubeUrl, $event) || (ctx_r1.project.youtubeUrl = $event);
+      return \u0275\u0275resetView($event);
+    });
     \u0275\u0275elementEnd()()()()();
   }
   if (rf & 2) {
@@ -416,14 +427,16 @@ function SellComponent_ng_container_2_form_13_div_5_Template(rf, ctx) {
     \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.fileSize);
     \u0275\u0275advance(4);
     \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.demoUrl);
+    \u0275\u0275advance(4);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.youtubeUrl);
   }
 }
 function SellComponent_ng_container_2_form_13_div_6_div_54_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 91)(1, "h4");
+    \u0275\u0275elementStart(0, "div", 93)(1, "h4");
     \u0275\u0275text(2, "\u{1F4C4} Preview");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 92)(4, "pre", 93);
+    \u0275\u0275elementStart(3, "div", 94)(4, "pre", 95);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()()();
   }
@@ -439,20 +452,20 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
     \u0275\u0275elementStart(0, "div", 33)(1, "div", 34)(2, "h3");
     \u0275\u0275text(3, "\u{1F4D6} Deployment Guide");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "p", 76);
+    \u0275\u0275elementStart(4, "p", 78);
     \u0275\u0275text(5, "A deployment guide is ");
     \u0275\u0275elementStart(6, "strong");
     \u0275\u0275text(7, "required");
     \u0275\u0275elementEnd();
     \u0275\u0275text(8, " for all submissions. It helps buyers set up your project successfully.");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "div", 77)(10, "div", 78)(11, "span", 79);
+    \u0275\u0275elementStart(9, "div", 79)(10, "div", 80)(11, "span", 81);
     \u0275\u0275text(12, "\u{1F916}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(13, "h4");
     \u0275\u0275text(14, "How to Create Your Deployment Guide");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(15, "div", 80)(16, "div", 81)(17, "span", 82);
+    \u0275\u0275elementStart(15, "div", 82)(16, "div", 83)(17, "span", 84);
     \u0275\u0275text(18, "1");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(19, "div")(20, "strong");
@@ -461,7 +474,7 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
     \u0275\u0275elementStart(22, "p");
     \u0275\u0275text(23, "Use ChatGPT, Gemini, or any AI tool to create a comprehensive deployment guide for your specific project.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(24, "div", 81)(25, "span", 82);
+    \u0275\u0275elementStart(24, "div", 83)(25, "span", 84);
     \u0275\u0275text(26, "2");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(27, "div")(28, "strong");
@@ -470,7 +483,7 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
     \u0275\u0275elementStart(30, "p");
     \u0275\u0275text(31, "Make sure the generated guide accurately reflects your project's setup process, dependencies, and configuration.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(32, "div", 81)(33, "span", 82);
+    \u0275\u0275elementStart(32, "div", 83)(33, "span", 84);
     \u0275\u0275text(34, "3");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(35, "div")(36, "strong");
@@ -479,10 +492,10 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
     \u0275\u0275elementStart(38, "p");
     \u0275\u0275text(39, "Copy the final guide and paste it into the text area. It will be displayed on your product's detail page.");
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(40, "div", 83)(41, "div", 84)(42, "span");
+    \u0275\u0275elementStart(40, "div", 85)(41, "div", 86)(42, "span");
     \u0275\u0275text(43, "\u{1F4CB} Example AI Prompt (click to copy)");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(44, "button", 85);
+    \u0275\u0275elementStart(44, "button", 87);
     \u0275\u0275listener("click", function SellComponent_ng_container_2_form_13_div_6_Template_button_click_44_listener() {
       \u0275\u0275restoreView(_r12);
       const ctx_r1 = \u0275\u0275nextContext(3);
@@ -490,13 +503,13 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
     });
     \u0275\u0275text(45);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(46, "pre", 86);
+    \u0275\u0275elementStart(46, "pre", 88);
     \u0275\u0275text(47);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(48, "div", 87)(49, "label", 88);
+    \u0275\u0275elementStart(48, "div", 89)(49, "label", 90);
     \u0275\u0275text(50, "Deployment Guide Content *");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(51, "textarea", 89);
+    \u0275\u0275elementStart(51, "textarea", 91);
     \u0275\u0275twoWayListener("ngModelChange", function SellComponent_ng_container_2_form_13_div_6_Template_textarea_ngModelChange_51_listener($event) {
       \u0275\u0275restoreView(_r12);
       const ctx_r1 = \u0275\u0275nextContext(3);
@@ -507,7 +520,7 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
     \u0275\u0275elementStart(52, "span", 38);
     \u0275\u0275text(53, "Paste the AI generated text here. Leave the [\u{1F4F8} ...] markers so buyers know exactly where to reference your preview screenshots!");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(54, SellComponent_ng_container_2_form_13_div_6_div_54_Template, 6, 1, "div", 90);
+    \u0275\u0275template(54, SellComponent_ng_container_2_form_13_div_6_div_54_Template, 6, 1, "div", 92);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -524,7 +537,7 @@ function SellComponent_ng_container_2_form_13_div_6_Template(rf, ctx) {
 }
 function SellComponent_ng_container_2_form_13_div_7_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 101)(1, "span", 102);
+    \u0275\u0275elementStart(0, "div", 103)(1, "span", 104);
     \u0275\u0275text(2, "\u{1F5BC}\uFE0F");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -537,7 +550,7 @@ function SellComponent_ng_container_2_form_13_div_7_div_10_Template(rf, ctx) {
 }
 function SellComponent_ng_container_2_form_13_div_7_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 103)(1, "span", 102);
+    \u0275\u0275elementStart(0, "div", 105)(1, "span", 104);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -555,7 +568,7 @@ function SellComponent_ng_container_2_form_13_div_7_div_11_Template(rf, ctx) {
 }
 function SellComponent_ng_container_2_form_13_div_7_div_18_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 101)(1, "span", 102);
+    \u0275\u0275elementStart(0, "div", 103)(1, "span", 104);
     \u0275\u0275text(2, "\u{1F4F8}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -568,7 +581,7 @@ function SellComponent_ng_container_2_form_13_div_7_div_18_Template(rf, ctx) {
 }
 function SellComponent_ng_container_2_form_13_div_7_div_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 103)(1, "span", 102);
+    \u0275\u0275elementStart(0, "div", 105)(1, "span", 104);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -593,40 +606,40 @@ function SellComponent_ng_container_2_form_13_div_7_Template(rf, ctx) {
     \u0275\u0275elementStart(4, "div", 35)(5, "label");
     \u0275\u0275text(6, "Thumbnail Image *");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "div", 94);
+    \u0275\u0275elementStart(7, "div", 96);
     \u0275\u0275listener("click", function SellComponent_ng_container_2_form_13_div_7_Template_div_click_7_listener() {
       \u0275\u0275restoreView(_r13);
       const thumbInput_r14 = \u0275\u0275reference(9);
       return \u0275\u0275resetView(thumbInput_r14.click());
     });
-    \u0275\u0275elementStart(8, "input", 95, 0);
+    \u0275\u0275elementStart(8, "input", 97, 0);
     \u0275\u0275listener("change", function SellComponent_ng_container_2_form_13_div_7_Template_input_change_8_listener($event) {
       \u0275\u0275restoreView(_r13);
       const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onThumbSelect($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(10, SellComponent_ng_container_2_form_13_div_7_div_10_Template, 7, 0, "div", 96)(11, SellComponent_ng_container_2_form_13_div_7_div_11_Template, 7, 1, "div", 97);
+    \u0275\u0275template(10, SellComponent_ng_container_2_form_13_div_7_div_10_Template, 7, 0, "div", 98)(11, SellComponent_ng_container_2_form_13_div_7_div_11_Template, 7, 1, "div", 99);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 35)(13, "label");
     \u0275\u0275text(14, "Preview Screenshots");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "div", 94);
+    \u0275\u0275elementStart(15, "div", 96);
     \u0275\u0275listener("click", function SellComponent_ng_container_2_form_13_div_7_Template_div_click_15_listener() {
       \u0275\u0275restoreView(_r13);
       const screenshotInput_r15 = \u0275\u0275reference(17);
       return \u0275\u0275resetView(screenshotInput_r15.click());
     });
-    \u0275\u0275elementStart(16, "input", 98, 1);
+    \u0275\u0275elementStart(16, "input", 100, 1);
     \u0275\u0275listener("change", function SellComponent_ng_container_2_form_13_div_7_Template_input_change_16_listener($event) {
       \u0275\u0275restoreView(_r13);
       const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onScreenshotsSelect($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(18, SellComponent_ng_container_2_form_13_div_7_div_18_Template, 7, 0, "div", 96)(19, SellComponent_ng_container_2_form_13_div_7_div_19_Template, 7, 1, "div", 97);
+    \u0275\u0275template(18, SellComponent_ng_container_2_form_13_div_7_div_18_Template, 7, 0, "div", 98)(19, SellComponent_ng_container_2_form_13_div_7_div_19_Template, 7, 1, "div", 99);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(20, "div", 99)(21, "h4");
+    \u0275\u0275elementStart(20, "div", 101)(21, "h4");
     \u0275\u0275text(22, "\u{1F4CB} Before You Submit");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(23, "ul")(24, "li");
@@ -643,7 +656,7 @@ function SellComponent_ng_container_2_form_13_div_7_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(32, "li");
     \u0275\u0275text(33, "You can track your submission status in ");
-    \u0275\u0275elementStart(34, "a", 100);
+    \u0275\u0275elementStart(34, "a", 102);
     \u0275\u0275text(35, "My Submissions");
     \u0275\u0275elementEnd()()()()()();
   }
@@ -662,7 +675,7 @@ function SellComponent_ng_container_2_form_13_div_7_Template(rf, ctx) {
 function SellComponent_ng_container_2_form_13_button_9_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 104);
+    \u0275\u0275elementStart(0, "button", 106);
     \u0275\u0275listener("click", function SellComponent_ng_container_2_form_13_button_9_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r1 = \u0275\u0275nextContext(3);
@@ -675,7 +688,7 @@ function SellComponent_ng_container_2_form_13_button_9_Template(rf, ctx) {
 function SellComponent_ng_container_2_form_13_button_11_Template(rf, ctx) {
   if (rf & 1) {
     const _r17 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 105);
+    \u0275\u0275elementStart(0, "button", 107);
     \u0275\u0275listener("click", function SellComponent_ng_container_2_form_13_button_11_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r17);
       const ctx_r1 = \u0275\u0275nextContext(3);
@@ -691,7 +704,7 @@ function SellComponent_ng_container_2_form_13_button_11_Template(rf, ctx) {
 }
 function SellComponent_ng_container_2_form_13_button_12_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "button", 106);
+    \u0275\u0275elementStart(0, "button", 108);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -714,7 +727,7 @@ function SellComponent_ng_container_2_form_13_Template(rf, ctx) {
     \u0275\u0275elementStart(1, "div", 23);
     \u0275\u0275template(2, SellComponent_ng_container_2_form_13_div_2_Template, 5, 6, "div", 24);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, SellComponent_ng_container_2_form_13_div_3_Template, 32, 6, "div", 25)(4, SellComponent_ng_container_2_form_13_div_4_Template, 39, 8, "div", 25)(5, SellComponent_ng_container_2_form_13_div_5_Template, 26, 6, "div", 25)(6, SellComponent_ng_container_2_form_13_div_6_Template, 55, 4, "div", 25)(7, SellComponent_ng_container_2_form_13_div_7_Template, 36, 4, "div", 25);
+    \u0275\u0275template(3, SellComponent_ng_container_2_form_13_div_3_Template, 32, 6, "div", 25)(4, SellComponent_ng_container_2_form_13_div_4_Template, 39, 8, "div", 25)(5, SellComponent_ng_container_2_form_13_div_5_Template, 30, 7, "div", 25)(6, SellComponent_ng_container_2_form_13_div_6_Template, 55, 4, "div", 25)(7, SellComponent_ng_container_2_form_13_div_7_Template, 36, 4, "div", 25);
     \u0275\u0275elementStart(8, "div", 26);
     \u0275\u0275template(9, SellComponent_ng_container_2_form_13_button_9_Template, 2, 0, "button", 27);
     \u0275\u0275element(10, "div", 28);
@@ -811,7 +824,8 @@ Make it clear, step-by-step, and highly visual.`;
       license: "regular",
       hasReskinService: false,
       status: "pending",
-      deploymentGuide: ""
+      deploymentGuide: "",
+      youtubeUrl: ""
     };
     this.tagsInput = "";
     this.featuresInput = "";
@@ -943,7 +957,8 @@ Make it clear, step-by-step, and highly visual.`;
       license: "regular",
       hasReskinService: false,
       status: "pending",
-      deploymentGuide: ""
+      deploymentGuide: "",
+      youtubeUrl: ""
     };
     this.tagsInput = "";
     this.featuresInput = "";
@@ -957,7 +972,7 @@ Make it clear, step-by-step, and highly visual.`;
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SellComponent, selectors: [["app-sell"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 4, vars: 2, consts: [["thumbInput", ""], ["screenshotInput", ""], ["class", "pm-container auth-gate", 4, "ngIf"], [4, "ngIf"], [1, "pm-container", "auth-gate"], [1, "auth-card"], [1, "auth-icon"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-primary", "pm-btn-lg"], [1, "sell-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], ["routerLink", "/sell/dashboard", 1, "pm-btn", "pm-btn-outline"], [1, "pm-container", "sell-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/sell/dashboard", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "e.g. SaaS Admin Dashboard \u2014 Angular + Firebase", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description of your project", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "e.g. 1.0.0", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "49", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "99", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "angular, firebase, saas, dashboard", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Real-time dashboard\nUser authentication\nPayment integration", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Angular, Firebase, Node.js", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "e.g. 150MB", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "demoUrl"], ["id", "demoUrl", "type", "url", "name", "demoUrl", "placeholder", "https://your-demo.com", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "section-desc"], [1, "guide-instructions"], [1, "guide-instructions-header"], [1, "gi-icon"], [1, "guide-steps-list"], [1, "gi-step"], [1, "gi-num"], [1, "prompt-box"], [1, "prompt-header"], ["type", "button", 1, "copy-btn", 3, "click"], [1, "prompt-text"], [1, "form-group", 2, "margin-top", "24px"], ["for", "deployGuide"], ["id", "deployGuide", "name", "deployGuide", "placeholder", "Paste your AI-generated deployment guide here...\n\n## Prerequisites\n- Node.js 18+\n- npm or yarn\n\n## Installation\n1. Clone the repository...\n\n[\u{1F4F8} Insert Screenshot here: Output of successful install]...", "rows", "16", "required", "", 1, "form-input", "guide-textarea", 3, "ngModelChange", "ngModel"], ["class", "guide-preview", 4, "ngIf"], [1, "guide-preview"], [1, "preview-content"], [1, "guide-rendered"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], [1, "guidelines-box"], ["routerLink", "/sell/dashboard"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SellComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SellComponent, selectors: [["app-sell"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 4, vars: 2, consts: [["thumbInput", ""], ["screenshotInput", ""], ["class", "pm-container auth-gate", 4, "ngIf"], [4, "ngIf"], [1, "pm-container", "auth-gate"], [1, "auth-card"], [1, "auth-icon"], ["routerLink", "/login", 1, "pm-btn", "pm-btn-primary", "pm-btn-lg"], [1, "sell-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], ["routerLink", "/sell/dashboard", 1, "pm-btn", "pm-btn-outline"], [1, "pm-container", "sell-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/sell/dashboard", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "e.g. SaaS Admin Dashboard \u2014 Angular + Firebase", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description of your project", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "e.g. 1.0.0", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "49", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "99", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "angular, firebase, saas, dashboard", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Real-time dashboard\nUser authentication\nPayment integration", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Angular, Firebase, Node.js", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "e.g. 150MB", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "demoUrl"], ["id", "demoUrl", "type", "url", "name", "demoUrl", "placeholder", "https://your-demo.com", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "youtubeUrl"], ["id", "youtubeUrl", "type", "url", "name", "youtubeUrl", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "section-desc"], [1, "guide-instructions"], [1, "guide-instructions-header"], [1, "gi-icon"], [1, "guide-steps-list"], [1, "gi-step"], [1, "gi-num"], [1, "prompt-box"], [1, "prompt-header"], ["type", "button", 1, "copy-btn", 3, "click"], [1, "prompt-text"], [1, "form-group", 2, "margin-top", "24px"], ["for", "deployGuide"], ["id", "deployGuide", "name", "deployGuide", "placeholder", "Paste your AI-generated deployment guide here...\n\n## Prerequisites\n- Node.js 18+\n- npm or yarn\n\n## Installation\n1. Clone the repository...\n\n[\u{1F4F8} Insert Screenshot here: Output of successful install]...", "rows", "16", "required", "", 1, "form-input", "guide-textarea", 3, "ngModelChange", "ngModel"], ["class", "guide-preview", 4, "ngIf"], [1, "guide-preview"], [1, "preview-content"], [1, "guide-rendered"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], [1, "guidelines-box"], ["routerLink", "/sell/dashboard"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SellComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275template(1, SellComponent_div_1_Template, 10, 0, "div", 2)(2, SellComponent_ng_container_2_Template, 14, 2, "ng-container", 3);
@@ -973,9 +988,9 @@ Make it clear, step-by-step, and highly visual.`;
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SellComponent, { className: "SellComponent", filePath: "src\\app\\pages\\sell\\sell.component.ts", lineNumber: 536 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SellComponent, { className: "SellComponent", filePath: "src\\app\\pages\\sell\\sell.component.ts", lineNumber: 540 });
 })();
 export {
   SellComponent
 };
-//# sourceMappingURL=chunk-WCUMGUSV.js.map
+//# sourceMappingURL=chunk-HGID4FO4.js.map
