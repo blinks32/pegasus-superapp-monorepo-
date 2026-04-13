@@ -276,6 +276,7 @@ import { Product } from '../../models/marketplace.models';
       </div>
 
         <app-guide-widget></app-guide-widget>
+      </div>
 
         <!-- Right Sidebar -->
         <aside class="detail-sidebar">
