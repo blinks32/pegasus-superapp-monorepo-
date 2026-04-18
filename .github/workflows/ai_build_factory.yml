@@ -1,0 +1,63 @@
+name: AI App Factory Pipeline
+
+on:
+  repository_dispatch:
+    types: [ai_build_factory]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Inject AI Configuration payload
+        run: |
+          mkdir -p libs/shared
+          echo '${{ github.event.client_payload.config_json }}' > libs/shared/app-config.json
+          echo "Configuration injected."
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Web Assets (Ionic/Angular)
+        run: npm run build --prod
+
+      - name: Sync Capacitor Android
+        run: npx cap sync android
+
+      - name: Build Android APK
+        working-directory: ./android
+        run: ./gradlew assembleDebug
+
+      # Upload to Cloudflare R2
+      - name: Upload APK to Cloudflare R2
+        uses: ryand56/r2-upload-action@v1.2
+        with:
+          r2-account-id: ${{ secrets.CF_ACCOUNT_ID }}
+          r2-access-key-id: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+          r2-secret-access-key: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+          r2-bucket: "build-factory"
+          source-dir: "android/app/build/outputs/apk/debug/"
+          destination-dir: "builds/${{ github.event.client_payload.user_id }}/"
+
+      # Notify Cloudflare Worker that build is ready
+      - name: Update Status in Worker
+        run: |
+          # Use your Cloudflare R2 public worker / domain URL
+          R2_URL="https://pub-your_r2_domain.r2.dev/builds/${{ github.event.client_payload.user_id }}/app-debug.apk"
+          
+          curl -X POST "https://ai-app-factory.pegasus.workers.dev/status-update" \
+          -H "Content-Type: application/json" \
+          -d "{\"user_id\": \"${{ github.event.client_payload.user_id }}\", \"status\": \"ready\", \"downloadUrl\": \"$R2_URL\"}"

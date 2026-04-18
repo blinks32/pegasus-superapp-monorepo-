@@ -1,0 +1,10 @@
+name = "ai-app-factory"
+main = "src/index.ts"
+compatibility_date = "2024-04-18"
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "BUILD_STATUS"
+id = "mock_kv_id"

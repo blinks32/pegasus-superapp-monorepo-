@@ -343,7 +343,7 @@ function SubmitProjectComponent_form_11_div_4_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_5_div_10_span_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "span", 86);
+    \u0275\u0275elementStart(0, "span", 91);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -355,8 +355,8 @@ function SubmitProjectComponent_form_11_div_5_div_10_span_1_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_5_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 84);
-    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_5_div_10_span_1_Template, 2, 1, "span", 85);
+    \u0275\u0275elementStart(0, "div", 89);
+    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_5_div_10_span_1_Template, 2, 1, "span", 90);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -367,7 +367,7 @@ function SubmitProjectComponent_form_11_div_5_div_10_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_5_div_39_img_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275element(0, "img", 96);
+    \u0275\u0275element(0, "img", 101);
   }
   if (rf & 2) {
     const demo_r15 = \u0275\u0275nextContext().$implicit;
@@ -384,35 +384,35 @@ function SubmitProjectComponent_form_11_div_5_div_39_span_3_Template(rf, ctx) {
 function SubmitProjectComponent_form_11_div_5_div_39_Template(rf, ctx) {
   if (rf & 1) {
     const _r13 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 87)(1, "div", 88);
+    \u0275\u0275elementStart(0, "div", 92)(1, "div", 93);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_5_div_39_Template_div_click_1_listener() {
       \u0275\u0275restoreView(_r13);
       const dThumb_r14 = \u0275\u0275reference(5);
       return \u0275\u0275resetView(dThumb_r14.click());
     });
-    \u0275\u0275template(2, SubmitProjectComponent_form_11_div_5_div_39_img_2_Template, 1, 1, "img", 89)(3, SubmitProjectComponent_form_11_div_5_div_39_span_3_Template, 2, 0, "span", 90);
-    \u0275\u0275elementStart(4, "input", 91, 0);
+    \u0275\u0275template(2, SubmitProjectComponent_form_11_div_5_div_39_img_2_Template, 1, 1, "img", 94)(3, SubmitProjectComponent_form_11_div_5_div_39_span_3_Template, 2, 0, "span", 95);
+    \u0275\u0275elementStart(4, "input", 96, 0);
     \u0275\u0275listener("change", function SubmitProjectComponent_form_11_div_5_div_39_Template_input_change_4_listener($event) {
       const i_r16 = \u0275\u0275restoreView(_r13).index;
       const ctx_r1 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r1.onDemoThumbSelect($event, i_r16));
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(6, "div", 92)(7, "input", 93);
+    \u0275\u0275elementStart(6, "div", 97)(7, "input", 98);
     \u0275\u0275twoWayListener("ngModelChange", function SubmitProjectComponent_form_11_div_5_div_39_Template_input_ngModelChange_7_listener($event) {
       const demo_r15 = \u0275\u0275restoreView(_r13).$implicit;
       \u0275\u0275twoWayBindingSet(demo_r15.label, $event) || (demo_r15.label = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(8, "input", 94);
+    \u0275\u0275elementStart(8, "input", 99);
     \u0275\u0275twoWayListener("ngModelChange", function SubmitProjectComponent_form_11_div_5_div_39_Template_input_ngModelChange_8_listener($event) {
       const demo_r15 = \u0275\u0275restoreView(_r13).$implicit;
       \u0275\u0275twoWayBindingSet(demo_r15.url, $event) || (demo_r15.url = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(9, "button", 95);
+    \u0275\u0275elementStart(9, "button", 100);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_5_div_39_Template_button_click_9_listener() {
       const i_r16 = \u0275\u0275restoreView(_r13).index;
       const ctx_r1 = \u0275\u0275nextContext(3);
@@ -434,6 +434,65 @@ function SubmitProjectComponent_form_11_div_5_div_39_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275twoWayProperty("ngModel", demo_r15.url);
     \u0275\u0275property("name", "demoUrl" + i_r16);
+  }
+}
+function SubmitProjectComponent_form_11_div_5_div_51_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r17 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 102)(1, "h4", 103);
+    \u0275\u0275text(2, "AI Factory Configuration");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(3, "div", 31)(4, "label", 104);
+    \u0275\u0275text(5, "Base JSON Schema (app-config.json) *");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(6, "textarea", 105);
+    \u0275\u0275twoWayListener("ngModelChange", function SubmitProjectComponent_form_11_div_5_div_51_Template_textarea_ngModelChange_6_listener($event) {
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      \u0275\u0275twoWayBindingSet(ctx_r1.project.aiBaseSchema, $event) || (ctx_r1.project.aiBaseSchema = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(7, "span", 34);
+    \u0275\u0275text(8, "The default JSON configuration the AI will modify based on user prompts.");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(9, "div", 31)(10, "label", 106);
+    \u0275\u0275text(11, "Forbidden Fields (comma separated)");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(12, "input", 107);
+    \u0275\u0275twoWayListener("ngModelChange", function SubmitProjectComponent_form_11_div_5_div_51_Template_input_ngModelChange_12_listener($event) {
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      \u0275\u0275twoWayBindingSet(ctx_r1.aiForbiddenFieldsInput, $event) || (ctx_r1.aiForbiddenFieldsInput = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(13, "span", 34);
+    \u0275\u0275text(14, "A list of JSON paths the AI is strictly prohibited from touching to prevent security breaches.");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(15, "div", 31)(16, "label", 108);
+    \u0275\u0275text(17, "AI Domain Guardrails *");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(18, "textarea", 109);
+    \u0275\u0275twoWayListener("ngModelChange", function SubmitProjectComponent_form_11_div_5_div_51_Template_textarea_ngModelChange_18_listener($event) {
+      \u0275\u0275restoreView(_r17);
+      const ctx_r1 = \u0275\u0275nextContext(3);
+      \u0275\u0275twoWayBindingSet(ctx_r1.project.aiGuardrails, $event) || (ctx_r1.project.aiGuardrails = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(19, "span", 34);
+    \u0275\u0275text(20, "Specific domain logic instructions to ensure the LLM generates valid, safe configurations.");
+    \u0275\u0275elementEnd()()();
+  }
+  if (rf & 2) {
+    const ctx_r1 = \u0275\u0275nextContext(3);
+    \u0275\u0275advance(6);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.aiBaseSchema);
+    \u0275\u0275advance(6);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.aiForbiddenFieldsInput);
+    \u0275\u0275advance(6);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.aiGuardrails);
   }
 }
 function SubmitProjectComponent_form_11_div_5_Template(rf, ctx) {
@@ -536,7 +595,23 @@ function SubmitProjectComponent_form_11_div_5_Template(rf, ctx) {
       \u0275\u0275twoWayBindingSet(ctx_r1.project.demoUrl, $event) || (ctx_r1.project.demoUrl = $event);
       return \u0275\u0275resetView($event);
     });
-    \u0275\u0275elementEnd()()()()()();
+    \u0275\u0275elementEnd()()()();
+    \u0275\u0275elementStart(44, "div", 84)(45, "label", 85)(46, "input", 86);
+    \u0275\u0275twoWayListener("ngModelChange", function SubmitProjectComponent_form_11_div_5_Template_input_ngModelChange_46_listener($event) {
+      \u0275\u0275restoreView(_r11);
+      const ctx_r1 = \u0275\u0275nextContext(2);
+      \u0275\u0275twoWayBindingSet(ctx_r1.project.aiDeploymentEnabled, $event) || (ctx_r1.project.aiDeploymentEnabled = $event);
+      return \u0275\u0275resetView($event);
+    });
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(47, "span");
+    \u0275\u0275text(48, "\u{1F916} Enable AI Deployment (Launch with AI)");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(49, "span", 87);
+    \u0275\u0275text(50, "Allow non-technical users to customize and deploy this app automatically using AI.");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275template(51, SubmitProjectComponent_form_11_div_5_div_51_Template, 21, 3, "div", 88);
+    \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
     const ctx_r1 = \u0275\u0275nextContext(2);
@@ -558,11 +633,15 @@ function SubmitProjectComponent_form_11_div_5_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r1.project.liveDemos);
     \u0275\u0275advance(4);
     \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.demoUrl);
+    \u0275\u0275advance(3);
+    \u0275\u0275twoWayProperty("ngModel", ctx_r1.project.aiDeploymentEnabled);
+    \u0275\u0275advance(5);
+    \u0275\u0275property("ngIf", ctx_r1.project.aiDeploymentEnabled);
   }
 }
 function SubmitProjectComponent_form_11_div_6_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 105)(1, "span", 106);
+    \u0275\u0275elementStart(0, "div", 118)(1, "span", 119);
     \u0275\u0275text(2, "\u{1F5BC}\uFE0F");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -575,7 +654,7 @@ function SubmitProjectComponent_form_11_div_6_div_10_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "span", 106);
+    \u0275\u0275elementStart(0, "div", 120)(1, "span", 119);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -593,7 +672,7 @@ function SubmitProjectComponent_form_11_div_6_div_11_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_18_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 105)(1, "span", 106);
+    \u0275\u0275elementStart(0, "div", 118)(1, "span", 119);
     \u0275\u0275text(2, "\u{1F4F8}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -606,7 +685,7 @@ function SubmitProjectComponent_form_11_div_6_div_18_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "span", 106);
+    \u0275\u0275elementStart(0, "div", 120)(1, "span", 119);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -624,48 +703,48 @@ function SubmitProjectComponent_form_11_div_6_div_19_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_20_div_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 114);
-    \u0275\u0275element(1, "img", 115);
+    \u0275\u0275elementStart(0, "div", 127);
+    \u0275\u0275element(1, "img", 128);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const i_r21 = \u0275\u0275nextContext().index;
+    const i_r22 = \u0275\u0275nextContext().index;
     const ctx_r1 = \u0275\u0275nextContext(4);
     \u0275\u0275advance();
-    \u0275\u0275property("src", ctx_r1.project.previewData[i_r21], \u0275\u0275sanitizeUrl);
+    \u0275\u0275property("src", ctx_r1.project.previewData[i_r22], \u0275\u0275sanitizeUrl);
   }
 }
 function SubmitProjectComponent_form_11_div_6_div_20_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    const _r20 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 110);
-    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_6_div_20_div_1_div_1_Template, 2, 1, "div", 111);
-    \u0275\u0275elementStart(2, "span", 112);
+    const _r21 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "div", 123);
+    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_6_div_20_div_1_div_1_Template, 2, 1, "div", 124);
+    \u0275\u0275elementStart(2, "span", 125);
     \u0275\u0275text(3);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "button", 113);
+    \u0275\u0275elementStart(4, "button", 126);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_div_20_div_1_Template_button_click_4_listener() {
-      const i_r21 = \u0275\u0275restoreView(_r20).index;
+      const i_r22 = \u0275\u0275restoreView(_r21).index;
       const ctx_r1 = \u0275\u0275nextContext(4);
-      return \u0275\u0275resetView(ctx_r1.removeScreenshot(i_r21));
+      return \u0275\u0275resetView(ctx_r1.removeScreenshot(i_r22));
     });
     \u0275\u0275text(5, "\xD7");
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const name_r22 = ctx.$implicit;
-    const i_r21 = ctx.index;
+    const name_r23 = ctx.$implicit;
+    const i_r22 = ctx.index;
     const ctx_r1 = \u0275\u0275nextContext(4);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.project.previewData && ctx_r1.project.previewData[i_r21]);
+    \u0275\u0275property("ngIf", ctx_r1.project.previewData && ctx_r1.project.previewData[i_r22]);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(name_r22);
+    \u0275\u0275textInterpolate(name_r23);
   }
 }
 function SubmitProjectComponent_form_11_div_6_div_20_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 108);
-    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_6_div_20_div_1_Template, 6, 2, "div", 109);
+    \u0275\u0275elementStart(0, "div", 121);
+    \u0275\u0275template(1, SubmitProjectComponent_form_11_div_6_div_20_div_1_Template, 6, 2, "div", 122);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -676,7 +755,7 @@ function SubmitProjectComponent_form_11_div_6_div_20_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_27_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 105)(1, "span", 106);
+    \u0275\u0275elementStart(0, "div", 118)(1, "span", 119);
     \u0275\u0275text(2, "\u{1F4C1}");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -689,7 +768,7 @@ function SubmitProjectComponent_form_11_div_6_div_27_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_div_28_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 107)(1, "span", 106);
+    \u0275\u0275elementStart(0, "div", 120)(1, "span", 119);
     \u0275\u0275text(2, "\u2705");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "strong");
@@ -707,67 +786,67 @@ function SubmitProjectComponent_form_11_div_6_div_28_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_div_6_Template(rf, ctx) {
   if (rf & 1) {
-    const _r17 = \u0275\u0275getCurrentView();
+    const _r18 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 29)(1, "div", 30)(2, "h3");
     \u0275\u0275text(3, "Files & Media");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "div", 31)(5, "label");
     \u0275\u0275text(6, "Thumbnail Image *");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "div", 97);
+    \u0275\u0275elementStart(7, "div", 110);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_Template_div_click_7_listener() {
-      \u0275\u0275restoreView(_r17);
-      const thumbInput_r18 = \u0275\u0275reference(9);
-      return \u0275\u0275resetView(thumbInput_r18.click());
+      \u0275\u0275restoreView(_r18);
+      const thumbInput_r19 = \u0275\u0275reference(9);
+      return \u0275\u0275resetView(thumbInput_r19.click());
     });
-    \u0275\u0275elementStart(8, "input", 98, 1);
+    \u0275\u0275elementStart(8, "input", 111, 1);
     \u0275\u0275listener("change", function SubmitProjectComponent_form_11_div_6_Template_input_change_8_listener($event) {
-      \u0275\u0275restoreView(_r17);
+      \u0275\u0275restoreView(_r18);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onThumbSelect($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(10, SubmitProjectComponent_form_11_div_6_div_10_Template, 7, 0, "div", 99)(11, SubmitProjectComponent_form_11_div_6_div_11_Template, 7, 1, "div", 100);
+    \u0275\u0275template(10, SubmitProjectComponent_form_11_div_6_div_10_Template, 7, 0, "div", 112)(11, SubmitProjectComponent_form_11_div_6_div_11_Template, 7, 1, "div", 113);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 31)(13, "label");
     \u0275\u0275text(14, "Preview Screenshots (up to 5)");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(15, "div", 97);
+    \u0275\u0275elementStart(15, "div", 110);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_Template_div_click_15_listener() {
-      \u0275\u0275restoreView(_r17);
-      const screenshotInput_r19 = \u0275\u0275reference(17);
-      return \u0275\u0275resetView(screenshotInput_r19.click());
+      \u0275\u0275restoreView(_r18);
+      const screenshotInput_r20 = \u0275\u0275reference(17);
+      return \u0275\u0275resetView(screenshotInput_r20.click());
     });
-    \u0275\u0275elementStart(16, "input", 101, 2);
+    \u0275\u0275elementStart(16, "input", 114, 2);
     \u0275\u0275listener("change", function SubmitProjectComponent_form_11_div_6_Template_input_change_16_listener($event) {
-      \u0275\u0275restoreView(_r17);
+      \u0275\u0275restoreView(_r18);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onScreenshotsSelect($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(18, SubmitProjectComponent_form_11_div_6_div_18_Template, 7, 0, "div", 99)(19, SubmitProjectComponent_form_11_div_6_div_19_Template, 7, 1, "div", 100);
+    \u0275\u0275template(18, SubmitProjectComponent_form_11_div_6_div_18_Template, 7, 0, "div", 112)(19, SubmitProjectComponent_form_11_div_6_div_19_Template, 7, 1, "div", 113);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(20, SubmitProjectComponent_form_11_div_6_div_20_Template, 2, 1, "div", 102);
+    \u0275\u0275template(20, SubmitProjectComponent_form_11_div_6_div_20_Template, 2, 1, "div", 115);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(21, "div", 31)(22, "label");
     \u0275\u0275text(23, "Source Code (ZIP) *");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(24, "div", 97);
+    \u0275\u0275elementStart(24, "div", 110);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_div_6_Template_div_click_24_listener() {
-      \u0275\u0275restoreView(_r17);
-      const sourceInput_r23 = \u0275\u0275reference(26);
-      return \u0275\u0275resetView(sourceInput_r23.click());
+      \u0275\u0275restoreView(_r18);
+      const sourceInput_r24 = \u0275\u0275reference(26);
+      return \u0275\u0275resetView(sourceInput_r24.click());
     });
-    \u0275\u0275elementStart(25, "input", 103, 3);
+    \u0275\u0275elementStart(25, "input", 116, 3);
     \u0275\u0275listener("change", function SubmitProjectComponent_form_11_div_6_Template_input_change_25_listener($event) {
-      \u0275\u0275restoreView(_r17);
+      \u0275\u0275restoreView(_r18);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.onSourceSelect($event));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(27, SubmitProjectComponent_form_11_div_6_div_27_Template, 7, 0, "div", 99)(28, SubmitProjectComponent_form_11_div_6_div_28_Template, 7, 1, "div", 100);
+    \u0275\u0275template(27, SubmitProjectComponent_form_11_div_6_div_27_Template, 7, 0, "div", 112)(28, SubmitProjectComponent_form_11_div_6_div_28_Template, 7, 1, "div", 113);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(29, "div", 104)(30, "h4");
+    \u0275\u0275elementStart(29, "div", 117)(30, "h4");
     \u0275\u0275text(31, "\u{1F4CB} Submission Guidelines");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(32, "ul")(33, "li");
@@ -806,10 +885,10 @@ function SubmitProjectComponent_form_11_div_6_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_8_Template(rf, ctx) {
   if (rf & 1) {
-    const _r24 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 116);
+    const _r25 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 129);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_button_8_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r24);
+      \u0275\u0275restoreView(_r25);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.prevStep());
     });
@@ -819,10 +898,10 @@ function SubmitProjectComponent_form_11_button_8_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_10_Template(rf, ctx) {
   if (rf & 1) {
-    const _r25 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 117);
+    const _r26 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 130);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_button_10_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r25);
+      \u0275\u0275restoreView(_r26);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.saveDraft());
     });
@@ -838,10 +917,10 @@ function SubmitProjectComponent_form_11_button_10_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_11_Template(rf, ctx) {
   if (rf & 1) {
-    const _r26 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "button", 118);
+    const _r27 = \u0275\u0275getCurrentView();
+    \u0275\u0275elementStart(0, "button", 131);
     \u0275\u0275listener("click", function SubmitProjectComponent_form_11_button_11_Template_button_click_0_listener() {
-      \u0275\u0275restoreView(_r26);
+      \u0275\u0275restoreView(_r27);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.nextStep());
     });
@@ -855,7 +934,7 @@ function SubmitProjectComponent_form_11_button_11_Template(rf, ctx) {
 }
 function SubmitProjectComponent_form_11_button_12_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "button", 119);
+    \u0275\u0275elementStart(0, "button", 132);
     \u0275\u0275text(1);
     \u0275\u0275elementEnd();
   }
@@ -878,7 +957,7 @@ function SubmitProjectComponent_form_11_Template(rf, ctx) {
     \u0275\u0275elementStart(1, "div", 18);
     \u0275\u0275template(2, SubmitProjectComponent_form_11_div_2_Template, 5, 6, "div", 19);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, SubmitProjectComponent_form_11_div_3_Template, 34, 6, "div", 20)(4, SubmitProjectComponent_form_11_div_4_Template, 45, 10, "div", 20)(5, SubmitProjectComponent_form_11_div_5_Template, 44, 9, "div", 20)(6, SubmitProjectComponent_form_11_div_6_Template, 43, 7, "div", 20);
+    \u0275\u0275template(3, SubmitProjectComponent_form_11_div_3_Template, 34, 6, "div", 20)(4, SubmitProjectComponent_form_11_div_4_Template, 45, 10, "div", 20)(5, SubmitProjectComponent_form_11_div_5_Template, 52, 11, "div", 20)(6, SubmitProjectComponent_form_11_div_6_Template, 43, 7, "div", 20);
     \u0275\u0275elementStart(7, "div", 21);
     \u0275\u0275template(8, SubmitProjectComponent_form_11_button_8_Template, 2, 0, "button", 22);
     \u0275\u0275element(9, "div", 23);
@@ -932,7 +1011,11 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
       hasReskinService: false,
       status: "pending",
       liveDemos: [],
-      youtubeUrl: ""
+      youtubeUrl: "",
+      aiDeploymentEnabled: false,
+      aiBaseSchema: "",
+      aiForbiddenFields: [],
+      aiGuardrails: ""
     };
     this.tagsInput = "";
     this.featuresInput = "";
@@ -941,6 +1024,7 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
     this.thumbnailName = "";
     this.screenshotNames = [];
     this.sourceName = "";
+    this.aiForbiddenFieldsInput = "";
   }
   parseTags() {
     return this.tagsInput.split(",").map((t) => t.trim()).filter((t) => t.length > 0);
@@ -1060,6 +1144,7 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
         this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
         this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
         this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
+        this.project.aiForbiddenFields = this.aiForbiddenFieldsInput.split(",").map((f) => f.trim()).filter((f) => f);
         this.project.status = "draft";
         const cleanedProject = this.marketplace.cleanForFirestore(this.project);
         yield this.marketplace.submitProject(cleanedProject);
@@ -1104,6 +1189,7 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
         this.project.features = this.featuresInput.split("\n").filter((f) => f.trim());
         this.project.techStack = this.techStackInput.split(",").map((t) => t.trim()).filter((t) => t);
         this.project.compatibility = this.compatInput.split(",").map((c) => c.trim()).filter((c) => c);
+        this.project.aiForbiddenFields = this.aiForbiddenFieldsInput.split(",").map((f) => f.trim()).filter((f) => f);
         this.project.status = "published";
         const cleanedProject = this.marketplace.cleanForFirestore(this.project);
         yield this.marketplace.submitProject(cleanedProject);
@@ -1135,12 +1221,17 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
       hasReskinService: false,
       status: "pending",
       thumbnailData: void 0,
-      previewData: []
+      previewData: [],
+      aiDeploymentEnabled: false,
+      aiBaseSchema: "",
+      aiForbiddenFields: [],
+      aiGuardrails: ""
     };
     this.tagsInput = "";
     this.featuresInput = "";
     this.techStackInput = "";
     this.compatInput = "";
+    this.aiForbiddenFieldsInput = "";
     this.thumbnailName = "";
     this.screenshotNames = [];
     this.sourceName = "";
@@ -1151,7 +1242,7 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SubmitProjectComponent, selectors: [["app-submit-project"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 2, consts: [["dThumb", ""], ["thumbInput", ""], ["screenshotInput", ""], ["sourceInput", ""], [1, "submit-hero"], [1, "pm-container"], ["routerLink", "/admin", 1, "back-link"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "submit-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/admin", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-outline", 3, "disabled", "click", 4, "ngIf"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "Project title", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description (features, tech stack, usage)", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "Version", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "Price", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "Original price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", "name", "reskin", 3, "ngModelChange", "ngModel"], ["class", "form-group", 4, "ngIf"], ["for", "reskinPrice"], ["id", "reskinPrice", "type", "number", "name", "reskinPrice", "placeholder", "Reskin service price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "Tags (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Enter key features, one per line.", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Tech stack (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "compat"], ["id", "compat", "type", "text", "name", "compat", "placeholder", "Supported platforms (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "e.g. 150MB", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "youtubeUrl"], ["id", "youtubeUrl", "type", "url", "name", "youtubeUrl", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], [1, "demo-links-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-item", "style", "display:flex; gap:12px; padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], [1, "form-group", 2, "margin-top", "8px"], ["for", "demoUrlLegacy"], ["id", "demoUrlLegacy", "type", "url", "name", "demoUrl", "placeholder", "Primary demo link", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "demo-item", 2, "display", "flex", "gap", "12px", "padding", "12px", "background", "rgba(0,0,0,0.02)", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-thumb-upload", 2, "width", "50px", "height", "50px", "background", "#e2e8f0", "border-radius", "6px", "display", "flex", "align-items", "center", "justify-content", "center", "cursor", "pointer", "overflow", "hidden", "flex-shrink", "0", 3, "click"], ["style", "width:100%; height:100%; object-fit:cover;", 3, "src", 4, "ngIf"], [4, "ngIf"], ["type", "file", "hidden", "", 3, "change"], [2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (Admin, User, etc)", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "button", 2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "20px", "cursor", "pointer", 3, "click"], [2, "width", "100%", "height", "100%", "object-fit", "cover", 3, "src"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], ["class", "selected-files", 4, "ngIf"], ["type", "file", "accept", ".zip,.rar,.7z", "hidden", "", 3, "change"], [1, "guidelines-box"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], [1, "selected-files"], ["class", "selected-file", 4, "ngFor", "ngForOf"], [1, "selected-file"], ["class", "preview-thumb", 4, "ngIf"], [1, "file-name"], ["type", "button", 1, "remove-file", 3, "click"], [1, "preview-thumb"], ["alt", "preview", 2, "height", "40px", "border-radius", "4px", 3, "src"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-outline", 3, "click", "disabled"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SubmitProjectComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _SubmitProjectComponent, selectors: [["app-submit-project"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 13, vars: 2, consts: [["dThumb", ""], ["thumbInput", ""], ["screenshotInput", ""], ["sourceInput", ""], [1, "submit-hero"], [1, "pm-container"], ["routerLink", "/admin", 1, "back-link"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "pm-container", "submit-layout"], ["class", "success-card", 4, "ngIf"], ["class", "submit-form", 3, "ngSubmit", 4, "ngIf"], [1, "success-card"], [1, "success-icon"], [1, "success-actions"], ["routerLink", "/admin", 1, "pm-btn", "pm-btn-primary"], [1, "pm-btn", "pm-btn-outline", 3, "click"], [1, "submit-form", 3, "ngSubmit"], [1, "progress-steps"], ["class", "step", 3, "active", "completed", "click", 4, "ngFor", "ngForOf"], ["class", "form-step", 4, "ngIf"], [1, "form-navigation"], ["type", "button", "class", "pm-btn pm-btn-ghost", 3, "click", 4, "ngIf"], [1, "nav-spacer"], ["type", "button", "class", "pm-btn pm-btn-outline", 3, "disabled", "click", 4, "ngIf"], ["type", "button", "class", "pm-btn pm-btn-primary", 3, "disabled", "click", 4, "ngIf"], ["type", "submit", "class", "pm-btn pm-btn-success pm-btn-lg", 3, "disabled", 4, "ngIf"], [1, "step", 3, "click"], [1, "step-num"], [1, "form-step"], [1, "form-card"], [1, "form-group"], ["for", "title"], ["id", "title", "type", "text", "name", "title", "placeholder", "Project title", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-hint"], ["for", "shortDesc"], ["id", "shortDesc", "name", "shortDesc", "placeholder", "Brief overview (1-2 sentences)", "rows", "3", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fullDesc"], ["id", "fullDesc", "name", "fullDesc", "placeholder", "Detailed description (features, tech stack, usage)", "rows", "8", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row"], ["for", "category"], ["id", "category", "name", "category", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["for", "version"], ["id", "version", "type", "text", "name", "version", "placeholder", "Version", "required", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value"], ["for", "price"], [1, "price-input-wrap"], [1, "price-symbol"], ["id", "price", "type", "number", "name", "price", "placeholder", "Price", "required", "", "min", "1", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "origPrice"], ["id", "origPrice", "type", "number", "name", "origPrice", "placeholder", "Original price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], [1, "license-options"], [1, "license-opt"], ["type", "radio", "name", "license", "value", "regular", 3, "ngModelChange", "ngModel"], [1, "license-opt-content"], ["type", "radio", "name", "license", "value", "extended", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", "name", "reskin", 3, "ngModelChange", "ngModel"], ["class", "form-group", 4, "ngIf"], ["for", "reskinPrice"], ["id", "reskinPrice", "type", "number", "name", "reskinPrice", "placeholder", "Reskin service price (optional)", 1, "form-input", "price-field", 3, "ngModelChange", "ngModel"], ["for", "tags"], ["id", "tags", "type", "text", "name", "tags", "placeholder", "Tags (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["class", "tag-preview", 4, "ngIf"], ["for", "features"], ["id", "features", "name", "features", "placeholder", "Enter key features, one per line.", "rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "techStack"], ["id", "techStack", "type", "text", "name", "techStack", "placeholder", "Tech stack (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "compat"], ["id", "compat", "type", "text", "name", "compat", "placeholder", "Supported platforms (comma separated)", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "fileSize"], ["id", "fileSize", "type", "text", "name", "fileSize", "placeholder", "e.g. 150MB", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "youtubeUrl"], ["id", "youtubeUrl", "type", "url", "name", "youtubeUrl", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], [1, "demo-links-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-item", "style", "display:flex; gap:12px; padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], [1, "form-group", 2, "margin-top", "8px"], ["for", "demoUrlLegacy"], ["id", "demoUrlLegacy", "type", "url", "name", "demoUrl", "placeholder", "Primary demo link", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-group", 2, "margin-top", "32px", "padding-top", "24px", "border-top", "1px solid var(--pm-border-light)"], [1, "checkbox-label", 2, "font-weight", "700", "font-size", "1.05rem", "color", "#8B5CF6"], ["type", "checkbox", "name", "aiDeployment", 3, "ngModelChange", "ngModel"], [1, "form-hint", 2, "margin-top", "8px", "margin-left", "28px"], ["class", "ai-config-box", "style", "background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); padding: 20px; border-radius: var(--pm-radius-md); margin-top: 16px;", 4, "ngIf"], [1, "tag-preview"], ["class", "preview-tag", 4, "ngFor", "ngForOf"], [1, "preview-tag"], [1, "demo-item", 2, "display", "flex", "gap", "12px", "padding", "12px", "background", "rgba(0,0,0,0.02)", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-thumb-upload", 2, "width", "50px", "height", "50px", "background", "#e2e8f0", "border-radius", "6px", "display", "flex", "align-items", "center", "justify-content", "center", "cursor", "pointer", "overflow", "hidden", "flex-shrink", "0", 3, "click"], ["style", "width:100%; height:100%; object-fit:cover;", 3, "src", 4, "ngIf"], [4, "ngIf"], ["type", "file", "hidden", "", 3, "change"], [2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (Admin, User, etc)", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px", 3, "ngModelChange", "ngModel", "name"], ["type", "button", 2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "20px", "cursor", "pointer", 3, "click"], [2, "width", "100%", "height", "100%", "object-fit", "cover", 3, "src"], [1, "ai-config-box", 2, "background", "rgba(139, 92, 246, 0.05)", "border", "1px solid rgba(139, 92, 246, 0.2)", "padding", "20px", "border-radius", "var(--pm-radius-md)", "margin-top", "16px"], [2, "margin", "0 0 16px", "color", "#6D28D9", "font-size", "0.95rem"], ["for", "aiBaseSchema"], ["id", "aiBaseSchema", "name", "aiBaseSchema", "placeholder", '{\n  "theme": {\n    "primary": "#000000"\n  }\n}', "rows", "8", 1, "form-input", 2, "font-family", "monospace", "font-size", "0.85rem", 3, "ngModelChange", "ngModel"], ["for", "aiForbiddenFields"], ["id", "aiForbiddenFields", "type", "text", "name", "aiForbiddenFields", "placeholder", "e.g. firebase.apiKey, services.stripe", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "aiGuardrails"], ["id", "aiGuardrails", "name", "aiGuardrails", "placeholder", "e.g. This is a food delivery app. The AI can adjust delivery fees, color themes, and vehicle types, but cannot remove the required 'Admin' role.", "rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "file-upload", 3, "click"], ["type", "file", "accept", "image/*", "hidden", "", 3, "change"], ["class", "upload-content", 4, "ngIf"], ["class", "upload-content selected", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", "hidden", "", 3, "change"], ["class", "selected-files", 4, "ngIf"], ["type", "file", "accept", ".zip,.rar,.7z", "hidden", "", 3, "change"], [1, "guidelines-box"], [1, "upload-content"], [1, "upload-icon"], [1, "upload-content", "selected"], [1, "selected-files"], ["class", "selected-file", 4, "ngFor", "ngForOf"], [1, "selected-file"], ["class", "preview-thumb", 4, "ngIf"], [1, "file-name"], ["type", "button", 1, "remove-file", 3, "click"], [1, "preview-thumb"], ["alt", "preview", 2, "height", "40px", "border-radius", "4px", 3, "src"], ["type", "button", 1, "pm-btn", "pm-btn-ghost", 3, "click"], ["type", "button", 1, "pm-btn", "pm-btn-outline", 3, "click", "disabled"], ["type", "button", 1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], ["type", "submit", 1, "pm-btn", "pm-btn-success", "pm-btn-lg", 3, "disabled"]], template: function SubmitProjectComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "section", 4)(2, "div", 5)(3, "a", 6);
@@ -1178,9 +1269,9 @@ var SubmitProjectComponent = class _SubmitProjectComponent {
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SubmitProjectComponent, { className: "SubmitProjectComponent", filePath: "src\\app\\pages\\admin\\submit-project\\submit-project.component.ts", lineNumber: 539 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SubmitProjectComponent, { className: "SubmitProjectComponent", filePath: "src\\app\\pages\\admin\\submit-project\\submit-project.component.ts", lineNumber: 566 });
 })();
 export {
   SubmitProjectComponent
 };
-//# sourceMappingURL=chunk-QUWI2ZI6.js.map
+//# sourceMappingURL=chunk-D3EGUG2H.js.map

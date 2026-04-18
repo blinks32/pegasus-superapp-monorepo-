@@ -334,11 +334,59 @@ import { Product } from '../../models/marketplace.models';
               </label>
             </div>
 
-            <button class="pm-btn pm-btn-success pm-btn-lg" style="width:100%; margin-top: 8px"
-                    (click)="addToCart()"
-                    [class.added]="isInCart">
-              {{ isInCart ? '✓ Added to Cart' : '🛒 Add to Cart' }}
-            </button>
+            <ng-container *ngIf="!showAiBuilder">
+              <button class="pm-btn pm-btn-success pm-btn-lg" style="width:100%; margin-top: 8px"
+                      (click)="addToCart()"
+                      [class.added]="isInCart">
+                {{ isInCart ? '✓ Added to Cart' : '🛒 Buy Source Code' }}
+              </button>
+
+              <button class="pm-btn pm-btn-lg" style="width:100%; margin-top: 8px; background: linear-gradient(135deg, #A855F7, #EC4899); color: white; border: none; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3);"
+                      *ngIf="product.aiDeploymentEnabled"
+                      (click)="showAiBuilder = true">
+                ✨ Launch with AI
+              </button>
+            </ng-container>
+
+            <!-- AI Builder Panel -->
+            <div *ngIf="showAiBuilder" class="ai-builder-panel" style="margin-top: 16px; background: rgba(236, 72, 153, 0.05); border: 1px solid rgba(236, 72, 153, 0.2); border-radius: var(--pm-radius-md); padding: 16px;">
+              <div class="ai-header" style="margin-bottom: 12px; border-bottom: 1px solid rgba(236, 72, 153, 0.2); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin:0; font-size: 1.05rem; color: #EC4899; display:flex; align-items: center; gap: 8px;">✨ AI App Factory</h3>
+                <button (click)="closeAiBuilder()" style="background:none; border:none; color: var(--pm-text-muted); cursor: pointer; font-size: 1.2rem;">&times;</button>
+              </div>
+
+              <!-- Input Phase -->
+              <div *ngIf="aiStatus === 'idle'">
+                <p style="font-size: 0.85rem; color: var(--pm-text-secondary); margin-bottom: 12px; line-height: 1.4;">Describe your customizations (theme, colors, basic rules, etc) for your deployed app.</p>
+                <textarea [(ngModel)]="aiPrompt" rows="4" style="width: 100%; padding: 8px; border: 1px solid var(--pm-border); border-radius: 4px; resize: vertical; font-family: inherit; margin-bottom: 12px; font-size: 0.85rem;" placeholder="e.g., Use a dark theme with neon green accents. Set the base delivery fee to $5."></textarea>
+                <button class="pm-btn pm-btn-lg" style="width: 100%; background: linear-gradient(135deg, #A855F7, #EC4899); color: white; border: none; font-size: 0.95rem; display: flex; justify-content: center; align-items: center;" (click)="submitAiPrompt()" [disabled]="!aiPrompt || isGeneratingAi">
+                  <span *ngIf="!isGeneratingAi">Build & Deploy 🚀</span>
+                  <span *ngIf="isGeneratingAi">Starting... ⏳</span>
+                </button>
+              </div>
+
+              <!-- Status Phase -->
+              <div *ngIf="aiStatus !== 'idle'">
+                <div class="status-steps" style="display: flex; flex-direction: column; gap: 10px; font-size:0.9rem;">
+                  <div class="status-item" [style.opacity]="(aiStatus === 'configuring' || aiStatus === 'compiling' || aiStatus === 'ready') ? '1' : '0.5'">
+                    <span>{{ aiStatus === 'configuring' ? '⏳' : '✅' }}</span>
+                    <strong style="margin-left:8px; color: var(--pm-text-primary)">AI Configuring...</strong>
+                  </div>
+                  <div class="status-item" [style.opacity]="(aiStatus === 'compiling' || aiStatus === 'ready') ? '1' : '0.5'">
+                    <span>{{ aiStatus === 'compiling' ? '⏳' : (aiStatus === 'ready' ? '✅' : '⚪') }}</span>
+                    <strong style="margin-left:8px; color: var(--pm-text-primary)">Compiling APK...</strong>
+                  </div>
+                  <div class="status-item" [style.opacity]="(aiStatus === 'ready') ? '1' : '0.5'">
+                    <span>{{ aiStatus === 'ready' ? '🎉' : '⚪' }}</span>
+                    <strong style="margin-left:8px; color: var(--pm-text-primary)">Ready for Download</strong>
+                  </div>
+                </div>
+
+                <div *ngIf="aiStatus === 'ready' && aiDownloadUrl" style="margin-top: 16px;">
+                  <a [href]="aiDownloadUrl" target="_blank" class="pm-btn pm-btn-success pm-btn-lg" style="width: 100%; text-align: center; display: block; text-decoration:none;">Download APK 📲</a>
+                </div>
+              </div>
+            </div>
 
             <a routerLink="/cart" class="pm-btn pm-btn-outline pm-btn-lg" style="width:100%; margin-top: 8px; text-align: center"
                *ngIf="isInCart">
@@ -987,6 +1035,13 @@ export class ProductDetailComponent implements OnInit {
   safeYoutubeUrl?: SafeResourceUrl;
   guideExpanded = false;
 
+  showAiBuilder = false;
+  aiPrompt = '';
+  aiStatus: 'idle' | 'configuring' | 'compiling' | 'ready' = 'idle';
+  aiDownloadUrl: string | null = null;
+  isGeneratingAi = false;
+  private statusPollInterval: any;
+
   newCommentText = '';
   comments: Array<{userName: string; text: string; date: Date}> = [];
 
@@ -1192,4 +1247,68 @@ export class ProductDetailComponent implements OnInit {
       return { stars, pct: (count / total) * 100, count };
     });
   }
+
+  closeAiBuilder() {
+    this.showAiBuilder = false;
+    if (this.statusPollInterval) {
+      clearInterval(this.statusPollInterval);
+    }
+  }
+
+  async submitAiPrompt() {
+    if (!this.product || !this.aiPrompt) return;
+    this.isGeneratingAi = true;
+    
+    try {
+      const user = this.auth.userProfile() || { uid: 'anonymous', displayName: 'Anonymous' };
+      const res = await fetch('https://ai-app-factory.pegasus.workers.dev/build', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          product_id: this.product.id,
+          user_id: user.uid,
+          user_prompt: this.aiPrompt,
+          base_schema: this.product.aiBaseSchema,
+          forbidden_fields: this.product.aiForbiddenFields,
+          guardrails: this.product.aiGuardrails
+        })
+      });
+
+      if (res.ok) {
+        this.aiStatus = 'configuring';
+        this.startPollingStatus(user.uid);
+      } else {
+        alert('Failed to start AI builder.');
+        this.aiStatus = 'idle';
+      }
+    } catch (e) {
+      console.error(e);
+      alert('Network error starting AI builder.');
+      this.aiStatus = 'idle';
+    } finally {
+      this.isGeneratingAi = false;
+    }
+  }
+
+  private startPollingStatus(userId: string) {
+    if (this.statusPollInterval) clearInterval(this.statusPollInterval);
+    
+    // Poll the worker endpoint every 3 seconds
+    this.statusPollInterval = setInterval(async () => {
+      try {
+        const res = await fetch(`https://ai-app-factory.pegasus.workers.dev/status?user_id=${userId}`);
+        if (res.ok) {
+          const data = await res.json();
+          this.aiStatus = data.status || 'configuring'; // configuring | compiling | ready
+          if (this.aiStatus === 'ready') {
+            this.aiDownloadUrl = data.downloadUrl;
+            clearInterval(this.statusPollInterval);
+          }
+        }
+      } catch (e) {
+        console.error('Error polling status', e);
+      }
+    }, 3000);
+  }
 }
+

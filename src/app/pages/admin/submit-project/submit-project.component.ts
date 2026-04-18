@@ -213,6 +213,33 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
                 </div>
               </div>
             </div>
+
+            <div class="form-group" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--pm-border-light);">
+              <label class="checkbox-label" style="font-weight: 700; font-size: 1.05rem; color: #8B5CF6;">
+                <input type="checkbox" [(ngModel)]="project.aiDeploymentEnabled" name="aiDeployment" />
+                <span>🤖 Enable AI Deployment (Launch with AI)</span>
+              </label>
+              <span class="form-hint" style="margin-top:8px; margin-left:28px;">Allow non-technical users to customize and deploy this app automatically using AI.</span>
+            </div>
+
+            <div *ngIf="project.aiDeploymentEnabled" class="ai-config-box" style="background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); padding: 20px; border-radius: var(--pm-radius-md); margin-top: 16px;">
+              <h4 style="margin: 0 0 16px; color: #6D28D9; font-size: 0.95rem;">AI Factory Configuration</h4>
+              <div class="form-group">
+                <label for="aiBaseSchema">Base JSON Schema (app-config.json) *</label>
+                <textarea id="aiBaseSchema" [(ngModel)]="project.aiBaseSchema" name="aiBaseSchema" placeholder='{\n  "theme": {\n    "primary": "#000000"\n  }\n}' class="form-input" rows="8" style="font-family: monospace; font-size: 0.85rem;"></textarea>
+                <span class="form-hint">The default JSON configuration the AI will modify based on user prompts.</span>
+              </div>
+              <div class="form-group">
+                <label for="aiForbiddenFields">Forbidden Fields (comma separated)</label>
+                <input id="aiForbiddenFields" type="text" [(ngModel)]="aiForbiddenFieldsInput" name="aiForbiddenFields" placeholder="e.g. firebase.apiKey, services.stripe" class="form-input" />
+                <span class="form-hint">A list of JSON paths the AI is strictly prohibited from touching to prevent security breaches.</span>
+              </div>
+              <div class="form-group">
+                <label for="aiGuardrails">AI Domain Guardrails *</label>
+                <textarea id="aiGuardrails" [(ngModel)]="project.aiGuardrails" name="aiGuardrails" placeholder="e.g. This is a food delivery app. The AI can adjust delivery fees, color themes, and vehicle types, but cannot remove the required 'Admin' role." class="form-input" rows="4"></textarea>
+                <span class="form-hint">Specific domain logic instructions to ensure the LLM generates valid, safe configurations.</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -564,6 +591,10 @@ export class SubmitProjectComponent {
     status: 'pending',
     liveDemos: [],
     youtubeUrl: '',
+    aiDeploymentEnabled: false,
+    aiBaseSchema: '',
+    aiForbiddenFields: [],
+    aiGuardrails: ''
   };
 
   tagsInput = '';
@@ -577,6 +608,8 @@ export class SubmitProjectComponent {
   parseTags(): string[] {
     return this.tagsInput.split(',').map(t => t.trim()).filter(t => t.length > 0);
   }
+
+  aiForbiddenFieldsInput = '';
 
   isStepValid(): boolean {
     switch (this.currentStep()) {
@@ -699,6 +732,7 @@ export class SubmitProjectComponent {
       this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
       this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
       this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
+      this.project.aiForbiddenFields = this.aiForbiddenFieldsInput.split(',').map(f => f.trim()).filter(f => f);
       this.project.status = 'draft';
       
       // Sanitize for Firestore
@@ -750,6 +784,7 @@ export class SubmitProjectComponent {
       this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
       this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
       this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
+      this.project.aiForbiddenFields = this.aiForbiddenFieldsInput.split(',').map(f => f.trim()).filter(f => f);
       this.project.status = 'published';
       
       // Sanitize for Firestore
@@ -773,12 +808,13 @@ export class SubmitProjectComponent {
       title: '', shortDescription: '', fullDescription: '', category: '' as ProductCategory,
       price: 0, tags: [], features: [], techStack: [], compatibility: [],
       version: '', fileSize: '', license: 'regular', hasReskinService: false, status: 'pending',
-      thumbnailData: undefined, previewData: [],
+      thumbnailData: undefined, previewData: [], aiDeploymentEnabled: false, aiBaseSchema: '', aiForbiddenFields: [], aiGuardrails: ''
     };
     this.tagsInput = '';
     this.featuresInput = '';
     this.techStackInput = '';
     this.compatInput = '';
+    this.aiForbiddenFieldsInput = '';
     this.thumbnailName = '';
     this.screenshotNames = [];
     this.sourceName = '';

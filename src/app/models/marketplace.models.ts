@@ -52,6 +52,10 @@ export interface Product {
     email: string;
   };
   rejectionReason?: string;
+  aiDeploymentEnabled?: boolean;
+  aiBaseSchema?: string;
+  aiForbiddenFields?: string[];
+  aiGuardrails?: string;
 }
 
 export type ProductCategory = string;
@@ -150,6 +154,10 @@ export interface AdminProject {
     email: string;
   };
   rejectionReason?: string;
+  aiDeploymentEnabled?: boolean;
+  aiBaseSchema?: string;
+  aiForbiddenFields?: string[];
+  aiGuardrails?: string;
 }
 
 export interface SearchFilters {
