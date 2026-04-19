@@ -1,0 +1,83 @@
+name: AI Triggered Build
+
+on:
+  repository_dispatch:
+    types: [trigger-ai-build]
+
+jobs:
+  build-and-config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Recommended for most modern Ionic Angular apps
+
+      - name: Determine Project Path
+        id: set-project
+        run: |
+          PRODUCT_ID="${{ github.event.client_payload.product_id }}"
+          
+          # Map the product_id to the specific folder within your monorepo
+          # Adjust these directory names to exactly match your repository structure
+          project_path=""
+          case "$PRODUCT_ID" in
+            "rider")
+              project_path="Rider"
+              ;;
+            "driver")
+              project_path="Driver"
+              ;;
+            "admin")
+              project_path="Admin"
+              ;;
+            "dispatch")
+              project_path="Dispatch"
+              ;;
+            "vendor")
+              project_path="Vendor"
+              ;;
+            *)
+              echo "Error: Unknown product_id '$PRODUCT_ID'"
+              exit 1
+              ;;
+          esac
+          
+          echo "PROJECT_PATH=$project_path" >> $GITHUB_ENV
+          echo "Selected Project Path: $project_path"
+
+      - name: Apply Custom Configuration
+        env:
+          NEW_CONFIG: ${{ toJson(github.event.client_payload.new_config) }}
+        run: |
+          ENV_FILE="${PROJECT_PATH}/src/environments/environment.prod.ts"
+          
+          # Create environments directory just in case it doesn't already exist
+          mkdir -p $(dirname "$ENV_FILE")
+          
+          # Build a clean TS export string by prefixing the raw JSON payload
+          echo "export const environment = ${NEW_CONFIG};" > "$ENV_FILE"
+          
+          echo "Successfully injected dynamic payload into $ENV_FILE"
+
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli
+
+      - name: Install Project Dependencies
+        working-directory: ./${{ env.PROJECT_PATH }}
+        run: npm install --legacy-peer-deps
+
+      - name: Run Production Build
+        working-directory: ./${{ env.PROJECT_PATH }}
+        run: npm run build -- --configuration production
+
+      - name: Report Build Success
+        if: success()
+        run: |
+          echo "✅ Build Success"
+          echo "👤 Triggered by user_id: ${{ github.event.client_payload.user_id }}"
+          echo "📦 Built product_id: ${{ github.event.client_payload.product_id }}"

@@ -109,6 +109,10 @@ export class MarketplaceService {
         ...p,
         createdAt: this.parseFirestoreDate(p.createdAt),
         lastUpdated: this.parseFirestoreDate(p.lastUpdated),
+        aiDeploymentEnabled: p.aiDeploymentEnabled === undefined ? true : p.aiDeploymentEnabled,
+        aiBaseSchema: p.aiBaseSchema || '{\n  "theme": {\n    "primary": "#6366F1"\n  }\n}',
+        aiForbiddenFields: p.aiForbiddenFields || ['firebase.apiKey', 'stripe.secretKey'],
+        aiGuardrails: p.aiGuardrails || 'Can edit themes, colors, and styling properties. Cannot remove required fields or admin overrides.',
       }));
       this._allProducts.set(transformed as Product[]);
       // Important: Only flip loading states after we have at least one emission
