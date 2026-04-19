@@ -175,6 +175,60 @@ import { AdminProject, ProductCategory } from '../../models/marketplace.models';
                   <input id="youtubeUrl" type="url" [(ngModel)]="project.youtubeUrl" name="youtubeUrl" placeholder="https://youtube.com/watch?v=..." class="form-input" />
                 </div>
               </div>
+
+              <div class="form-group">
+                <label for="compat">Compatibility (comma separated)</label>
+                <input id="compat" type="text" [(ngModel)]="compatInput" name="compat" placeholder="e.g. iOS, Android, Web" class="form-input" />
+              </div>
+
+              <div class="form-group">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+                  <label style="margin-bottom:0">🌐 Live Demo Hub (Multiple Links)</label>
+                  <button type="button" class="pm-btn pm-btn-ghost pm-btn-sm" (click)="addDemoLink()">+ Add Demo</button>
+                </div>
+                
+                <div class="demo-links-list" style="display:flex; flex-direction:column; gap:12px;">
+                  <div *ngFor="let demo of project.liveDemos; let i = index" class="demo-item" style="display:flex; gap:12px; padding:12px; background:rgba(0,0,0,0.02); border-radius:8px; border:1px solid var(--pm-border); position:relative;">
+                    <div class="demo-thumb-upload" (click)="dThumb.click()" style="width:50px; height:50px; background:#e2e8f0; border-radius:6px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; flex-shrink:0;">
+                      <img *ngIf="demo.thumbnailUrl" [src]="demo.thumbnailUrl" style="width:100%; height:100%; object-fit:cover;" />
+                      <span *ngIf="!demo.thumbnailUrl">📸</span>
+                      <input #dThumb type="file" hidden (change)="onDemoThumbSelect($event, i)" />
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
+                      <input type="text" [(ngModel)]="demo.label" [name]="'demoLabel'+i" placeholder="Demo Name (Admin, User, etc)" class="form-input" style="padding:8px;" />
+                      <input type="url" [(ngModel)]="demo.url" [name]="'demoUrl'+i" placeholder="Demo URL" class="form-input" style="padding:8px;" />
+                    </div>
+                    <button type="button" (click)="removeDemoLink(i)" style="background:none; border:none; color:#EF4444; font-size:20px; cursor:pointer;">&times;</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--pm-border-light);">
+                <label class="checkbox-label" style="font-weight: 700; font-size: 1.05rem; color: #8B5CF6;">
+                  <input type="checkbox" [(ngModel)]="project.aiDeploymentEnabled" name="aiDeployment" />
+                  <span>🤖 Enable AI Deployment (Launch with AI)</span>
+                </label>
+                <span class="form-hint" style="margin-top:8px; margin-left:28px;">Allow non-technical users to customize and deploy this app automatically using AI.</span>
+              </div>
+
+              <div *ngIf="project.aiDeploymentEnabled" class="ai-config-box" style="background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); padding: 20px; border-radius: var(--pm-radius-md); margin-top: 16px;">
+                <h4 style="margin: 0 0 16px; color: #6D28D9; font-size: 0.95rem;">AI Factory Configuration</h4>
+                <div class="form-group">
+                  <label for="aiBaseSchema">Base JSON Schema (app-config.json) *</label>
+                  <textarea id="aiBaseSchema" [(ngModel)]="project.aiBaseSchema" name="aiBaseSchema" placeholder='{\n  "theme": {\n    "primary": "#000000"\n  }\n}' class="form-input" rows="8" style="font-family: monospace; font-size: 0.85rem;"></textarea>
+                  <span class="form-hint">The default JSON configuration the AI will modify based on user prompts.</span>
+                </div>
+                <div class="form-group">
+                  <label for="aiForbiddenFields">Forbidden Fields (comma separated)</label>
+                  <input id="aiForbiddenFields" type="text" [(ngModel)]="aiForbiddenFieldsInput" name="aiForbiddenFields" placeholder="e.g. firebase.apiKey, services.stripe" class="form-input" />
+                  <span class="form-hint">A list of JSON paths the AI is strictly prohibited from touching.</span>
+                </div>
+                <div class="form-group">
+                  <label for="aiGuardrails">AI Domain Guardrails *</label>
+                  <textarea id="aiGuardrails" [(ngModel)]="project.aiGuardrails" name="aiGuardrails" placeholder="e.g. This is a delivery app. The AI can adjust delivery fees but cannot change vehicle types." class="form-input" rows="4"></textarea>
+                  <span class="form-hint">Specific domain logic instructions for the AI.</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -282,6 +336,23 @@ import { AdminProject, ProductCategory } from '../../models/marketplace.models';
                     <span class="upload-icon">✅</span>
                     <strong>{{ screenshotNames.length }} file(s) selected</strong>
                     <span>Click to add more</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Source Code (ZIP) *</label>
+                <div class="file-upload" (click)="sourceInput.click()">
+                  <input #sourceInput type="file" accept=".zip,.rar,.7z" hidden (change)="onSourceSelect($event)" />
+                  <div class="upload-content" *ngIf="!sourceName">
+                    <span class="upload-icon">📁</span>
+                    <strong>Upload your source code package</strong>
+                    <span>ZIP, RAR up to 500MB</span>
+                  </div>
+                  <div class="upload-content selected" *ngIf="sourceName">
+                    <span class="upload-icon">✅</span>
+                    <strong>{{ sourceName }}</strong>
+                    <span>Click to change</span>
                   </div>
                 </div>
               </div>
@@ -585,13 +656,21 @@ Make it clear, step-by-step, and highly visual.`;
     status: 'pending',
     deploymentGuide: '',
     youtubeUrl: '',
+    liveDemos: [],
+    aiDeploymentEnabled: false,
+    aiBaseSchema: '',
+    aiForbiddenFields: [],
+    aiGuardrails: ''
   };
 
   tagsInput = '';
   featuresInput = '';
   techStackInput = '';
+  compatInput = '';
+  aiForbiddenFieldsInput = '';
   thumbnailName = '';
   screenshotNames: string[] = [];
+  sourceName = '';
 
   parseTags(): string[] {
     return this.tagsInput.split(',').map(t => t.trim()).filter(t => t.length > 0);
@@ -662,6 +741,33 @@ Make it clear, step-by-step, and highly visual.`;
     }
   }
 
+  onSourceSelect(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) this.sourceName = input.files[0].name;
+  }
+
+  addDemoLink() {
+    if (!this.project.liveDemos) this.project.liveDemos = [];
+    this.project.liveDemos.push({ label: '', url: '', thumbnailUrl: '' });
+  }
+
+  removeDemoLink(index: number) {
+    this.project.liveDemos?.splice(index, 1);
+  }
+
+  onDemoThumbSelect(event: Event, index: number) {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (this.project.liveDemos) {
+          this.project.liveDemos[index].thumbnailUrl = e.target?.result as string;
+        }
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
   async onSubmit() {
     this.isUploading.set(true);
     try {
@@ -685,14 +791,26 @@ Make it clear, step-by-step, and highly visual.`;
         delete this.project.previewData;
       }
 
+      // Upload demo hub icons
+      if (this.project.liveDemos) {
+        for (const demo of this.project.liveDemos) {
+          if (demo.thumbnailUrl && demo.thumbnailUrl.startsWith('data:')) {
+            demo.thumbnailUrl = await this.imageUpload.upload(demo.thumbnailUrl, 'products/demos');
+          }
+        }
+      }
+
       this.project.tags = this.parseTags();
       this.project.features = this.featuresInput.split('\n').filter(f => f.trim());
       this.project.techStack = this.techStackInput.split(',').map(t => t.trim()).filter(t => t);
-      this.project.status = 'pending';
-
-      // Attach seller info
+      this.project.compatibility = this.compatInput.split(',').map(c => c.trim()).filter(c => c);
+      this.project.aiForbiddenFields = this.aiForbiddenFieldsInput.split(',').map(f => f.trim()).filter(f => f);
+      
       const user = this.auth.currentUser();
       const profile = this.auth.userProfile();
+      
+      // Auto-publish if admin, otherwise pending
+      this.project.status = profile?.role === 'admin' ? 'published' : 'pending';
       if (user) {
         this.project.submittedBy = {
           uid: user.uid,
@@ -719,12 +837,16 @@ Make it clear, step-by-step, and highly visual.`;
       title: '', shortDescription: '', fullDescription: '', category: '' as ProductCategory,
       price: 0, tags: [], features: [], techStack: [], compatibility: [],
       version: '', fileSize: '', license: 'regular', hasReskinService: false, status: 'pending',
-      deploymentGuide: '', youtubeUrl: '',
+      deploymentGuide: '', youtubeUrl: '', liveDemos: [],
+      aiDeploymentEnabled: false, aiBaseSchema: '', aiForbiddenFields: [], aiGuardrails: ''
     };
     this.tagsInput = '';
     this.featuresInput = '';
     this.techStackInput = '';
+    this.compatInput = '';
+    this.aiForbiddenFieldsInput = '';
     this.thumbnailName = '';
     this.screenshotNames = [];
+    this.sourceName = '';
   }
 }

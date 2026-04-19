@@ -30,10 +30,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin/submit',
-    loadComponent: () =>
-      import('./pages/admin/submit-project/submit-project.component').then(
-        (m) => m.SubmitProjectComponent
-      ),
+    redirectTo: 'sell'
   },
   {
     path: 'login',
