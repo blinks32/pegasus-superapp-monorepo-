@@ -1,14 +1,14 @@
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { IonContent, ModalController } from '@ionic/angular/standalone';
 import { AiBuildService, BuildStatus } from '../../services/ai-build.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-ai-build-studio',
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule],
+  imports: [CommonModule, FormsModule, IonContent],
   template: `
     <ion-content class="ais-dark">
       <div class="flex flex-col h-full bg-zinc-950 text-zinc-100 overflow-hidden">

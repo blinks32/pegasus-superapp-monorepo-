@@ -4,13 +4,19 @@ import {
   AnimationMetadataType,
   NoopAnimationPlayer,
   environment,
+  provideIonicAngular,
   sequence,
   style,
   ɵPRE_STYLE
-} from "./chunk-4W7LTIU3.js";
+} from "./chunk-DHOEBXB3.js";
+import "./chunk-RLLLK2NX.js";
+import "./chunk-LCF4N3YM.js";
+import "./chunk-5JYJ7K33.js";
+import "./chunk-BARXMHI7.js";
 import {
   SeoService
-} from "./chunk-GARPURRS.js";
+} from "./chunk-2UKN7PKU.js";
+import "./chunk-36DL7JJS.js";
 import {
   ANIMATION_MODULE_TYPE,
   BrowserModule,
@@ -48,11 +54,20 @@ import {
   ɵɵdefineNgModule,
   ɵɵelement,
   ɵɵinject
-} from "./chunk-3HEZZIL3.js";
+} from "./chunk-FBYZR7PH.js";
+import "./chunk-77PJMC5V.js";
+import "./chunk-CCWKYVAO.js";
+import "./chunk-MMN6JBV3.js";
+import "./chunk-OFPQOJLF.js";
+import "./chunk-DVBWEDNF.js";
+import "./chunk-2NCJX5FR.js";
+import "./chunk-KXQDCBXG.js";
+import "./chunk-WED6EE3F.js";
+import "./chunk-T2KHARD3.js";
 import {
   __objRest,
   __spreadValues
-} from "./chunk-EGSMBJJY.js";
+} from "./chunk-5K356HEJ.js";
 
 // src/app/app.component.ts
 var AppComponent = class _AppComponent {
@@ -4155,23 +4170,23 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-JMMPFMR2.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-EK6REPGW.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-QBEJP62G.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-3DRFD7F5.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-Q2Z7H3ET.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-Z6CMW5SU.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-CP6EPZRK.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-GUARKVLX.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-ENVJ2FR5.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-WPGAWDUN.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4179,35 +4194,35 @@ var routes = [
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-QN27PO65.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-L7C5BD4K.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-3WWGSJW7.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-S3E3FUXR.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-UGPHMM6X.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-NQORZUXD.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-WSDBHZFW.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-ZJKNW7YJ.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-DWN2X6HJ.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-BX3X23KA.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-QOZDLBTV.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-45MJDKI2.js").then((m) => m.GuideComponent)
   },
   {
     path: "sell",
-    loadComponent: () => import("./chunk-3O7FSIMG.js").then((m) => m.SellComponent)
+    loadComponent: () => import("./chunk-5GLESSSA.js").then((m) => m.SellComponent)
   },
   {
     path: "sell/dashboard",
-    loadComponent: () => import("./chunk-34MVRFDM.js").then((m) => m.SellerDashboardComponent)
+    loadComponent: () => import("./chunk-VISFVVDW.js").then((m) => m.SellerDashboardComponent)
   },
   {
     path: "**",
@@ -4221,6 +4236,7 @@ var appConfig = {
     provideRouter(routes, withPreloading(PreloadAllModules), withInMemoryScrolling({ scrollPositionRestoration: "enabled", anchorScrolling: "enabled" })),
     provideAnimations(),
     provideHttpClient(),
+    provideIonicAngular({}),
     Title,
     Meta,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
