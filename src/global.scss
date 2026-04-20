@@ -404,3 +404,79 @@ button { cursor: pointer; }
   .pm-search-bar { flex-direction: column; border-radius: var(--pm-radius-lg); padding: 12px; }
   .pm-search-bar button { width: 100%; border-radius: var(--pm-radius-sm); }
 }
+/* ═══════════════════════════════════════════
+   Enterprise Dark — AI Build Studio Styles
+   (Tailwind-like utility workaround)
+   ═══════════════════════════════════════════ */
+
+:root {
+  --ais-zinc-50: #fafafa;
+  --ais-zinc-100: #f4f4f5;
+  --ais-zinc-200: #e4e4e7;
+  --ais-zinc-300: #d4d4d8;
+  --ais-zinc-400: #a1a1aa;
+  --ais-zinc-500: #71717a;
+  --ais-zinc-600: #52525b;
+  --ais-zinc-700: #3f3f46;
+  --ais-zinc-800: #27272a;
+  --ais-zinc-900: #18181b;
+  --ais-zinc-950: #09090b;
+  
+  --ais-violet-50: #f5f3ff;
+  --ais-violet-100: #ede9fe;
+  --ais-violet-400: #a78bfa;
+  --ais-violet-500: #8b5cf6;
+  --ais-violet-600: #7c3aed;
+  
+  --ais-glass: rgba(255, 255, 255, 0.03);
+  --ais-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+.ais-dark {
+  background-color: var(--ais-zinc-950);
+  color: var(--ais-zinc-100);
+}
+
+.ais-glass {
+  background: var(--ais-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--ais-glass-border);
+}
+
+.ais-text-gradient {
+  background: linear-gradient(135deg, var(--ais-violet-400) 0%, var(--ais-violet-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ais-glow-violet {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+/* Stepper Animation */
+@keyframes aisPulseGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(139, 92, 246, 0.4); }
+}
+
+.ais-step-active-glow {
+  animation: aisPulseGlow 2s infinite ease-in-out;
+}
+
+/* Utility Workarounds */
+.bg-zinc-950 { background-color: var(--ais-zinc-950); }
+.bg-zinc-900 { background-color: var(--ais-zinc-900); }
+.bg-zinc-800 { background-color: var(--ais-zinc-800); }
+.text-zinc-400 { color: var(--ais-zinc-400); }
+.text-zinc-500 { color: var(--ais-zinc-500); }
+.text-violet-500 { color: var(--ais-violet-500); }
+.border-zinc-800 { border-color: var(--ais-zinc-800); }
+.rounded-xl { border-radius: 12px; }
+.rounded-2xl { border-radius: 16px; }
+.p-6 { padding: 24px; }
+.gap-4 { gap: 16px; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }

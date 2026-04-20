@@ -11,11 +11,13 @@ import { AuthService } from '../../services/auth.service';
 import { GuideWidgetComponent } from '../../components/guide-widget/guide-widget.component';
 import { SeoService } from '../../services/seo.service';
 import { Product } from '../../models/marketplace.models';
+import { AIBuildStudioComponent } from '../../components/ai-build-studio/ai-build-studio.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent],
+  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent, AIBuildStudioComponent],
   template: `
     <app-header></app-header>
 
@@ -344,7 +346,7 @@ import { Product } from '../../models/marketplace.models';
               <button class="pm-btn pm-btn-lg ai-studio-trigger"
                       style="width:100%; margin-top: 12px; position: relative; overflow: hidden; border: none; font-weight: 700; letter-spacing: 0.5px;"
                       *ngIf="product.aiDeploymentEnabled"
-                      (click)="showAiBuilder = true">
+                      (click)="launchAiStudio()">
                 <div class="ai-glow"></div>
                 <span style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 10px;">
                   <span class="ai-sparkle">✨</span> AI Studio: Customize & Deploy
@@ -352,127 +354,6 @@ import { Product } from '../../models/marketplace.models';
               </button>
             </ng-container>
 
-            <!-- AI Studio Workspace (Slide-over Panel) -->
-            <div *ngIf="showAiBuilder" class="ai-studio-workspace" [class.active]="showAiBuilder">
-              <div class="ais-overlay" (click)="closeAiBuilder()"></div>
-              <div class="ais-panel shadow-premium">
-                <!-- Panel Glows -->
-                <div class="ais-glow-top"></div>
-                <div class="ais-glow-bottom"></div>
-
-                <div class="ais-header">
-                  <div class="ais-title-wrap">
-                    <div class="ais-icon-box">✨</div>
-                    <div>
-                      <h3>AI App Factory</h3>
-                      <span class="ais-subtitle">AI STUDIO V2.0 — NEURAL ENGINE</span>
-                    </div>
-                  </div>
-                  <button (click)="closeAiBuilder()" class="ais-close">&times;</button>
-                </div>
-
-                <div class="ais-content">
-                  <!-- State 1: Configurator -->
-                  <div *ngIf="aiStatus === 'idle'" class="ais-state-enter">
-                    <h2 class="ais-heading">Describe your ideal app</h2>
-                    <p class="ais-text">Define themes, base fares, and custom logic. Our AI will architect the binary in real-time.</p>
-                    
-                    <div class="ais-input-group">
-                      <textarea [(ngModel)]="aiPrompt" rows="5" class="ais-textarea" placeholder="e.g., Luxury gold theme, 5000 NGN base fare, premium animations..."></textarea>
-                      <div class="ais-input-meta">
-                        <span class="ais-status-dot"></span>
-                        <span class="ais-status-label">READY TO ARCHITECT</span>
-                      </div>
-                    </div>
-
-                    <div class="ais-schema-view">
-                      <div class="ais-schema-header">
-                        <span>DEFAULT SCHEMA PARAMETERS</span>
-                        <span class="ais-schema-tag">JSON_V1</span>
-                      </div>
-                      <pre class="ais-code">{{ product.aiBaseSchema }}</pre>
-                    </div>
-
-                    <button class="ais-btn-build" (click)="submitAiPrompt()" [disabled]="!aiPrompt || isGeneratingAi">
-                      <span *ngIf="!isGeneratingAi">Initiate AI Build 🚀</span>
-                      <span *ngIf="isGeneratingAi">Establishing Link... ⏳</span>
-                    </button>
-                  </div>
-
-                  <!-- State 2: Pipeline -->
-                  <div *ngIf="aiStatus !== 'idle' && aiStatus !== 'ready'" class="ais-state-enter">
-                    <div class="ais-pipeline-header">
-                      <div class="ais-loader-ring"></div>
-                      <h2>Factory Pipeline</h2>
-                      <p>Your custom app is being architected and compiled.</p>
-                    </div>
-
-                    <div class="ais-stepper">
-                      <div class="ais-step" [class.active]="aiStatus === 'configuring'" [class.done]="aiStatus === 'compiling' || aiStatus === 'ready'">
-                        <div class="ais-step-icon">
-                          <span *ngIf="aiStatus === 'configuring'">⏳</span>
-                          <span *ngIf="aiStatus !== 'configuring'">✅</span>
-                        </div>
-                        <div class="ais-step-info">
-                          <strong>AI Architecting...</strong>
-                          <span>JSON Generation & Data Audit</span>
-                        </div>
-                      </div>
-                      
-                      <div class="ais-step" [class.active]="aiStatus === 'compiling'" [class.done]="aiStatus === 'ready'">
-                        <div class="ais-step-icon">
-                          <span *ngIf="aiStatus === 'configuring'">⚪</span>
-                          <span *ngIf="aiStatus === 'compiling'">🔄</span>
-                          <span *ngIf="aiStatus === 'ready'">✅</span>
-                        </div>
-                        <div class="ais-step-info">
-                          <strong>Compiling Binaries...</strong>
-                          <span>GitHub Actions Pipeline</span>
-                        </div>
-                      </div>
-
-                      <div class="ais-step" [class.active]="aiStatus === 'ready'" [class.done]="aiStatus === 'ready'">
-                        <div class="ais-step-icon">
-                          <span *ngIf="aiStatus !== 'ready'">⚪</span>
-                          <span *ngIf="aiStatus === 'ready'">🎉</span>
-                        </div>
-                        <div class="ais-step-info">
-                          <strong>Packaging App...</strong>
-                          <span>Signing & Cloud Seeding</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="ais-estimate">
-                      Estimated Time: <span>2-3 minutes</span>
-                    </div>
-                  </div>
-
-                  <!-- State 3: Success -->
-                  <div *ngIf="aiStatus === 'ready'" class="ais-state-enter ais-success">
-                    <div class="ais-success-icon">✓</div>
-                    <h2 class="ais-heading">Build Successful!</h2>
-                    <p class="ais-text">Your custom APK has been compiled and is ready for deployment.</p>
-
-                    <div class="ais-actions">
-                      <a [href]="aiDownloadUrl" target="_blank" class="ais-btn-download">
-                        Download Custom APK 📲
-                      </a>
-                      <button class="ais-btn-docs">
-                        View API Docs 📖
-                      </button>
-                    </div>
-
-                    <button class="ais-btn-reset" (click)="aiStatus = 'idle'; aiPrompt = ''">Start New Build</button>
-                  </div>
-                </div>
-
-                <div class="ais-footer">
-                  <div class="ais-gpu-status"><span class="ais-gpu-dot"></span> CONNECTED TO GPU CLUSTER</div>
-                  <div class="ais-brand">POWERED BY SELLJUSTCODE AI</div>
-                </div>
-              </div>
-            </div>
 
 
             <a routerLink="/cart" class="pm-btn pm-btn-outline pm-btn-lg" style="width:100%; margin-top: 8px; text-align: center"
@@ -1280,6 +1161,7 @@ export class ProductDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private seo = inject(SeoService);
   private sanitizer = inject(DomSanitizer);
+  private modalCtrl = inject(ModalController);
 
   product?: Product;
   relatedProducts: Product[] = [];
@@ -1293,12 +1175,6 @@ export class ProductDetailComponent implements OnInit {
   safeYoutubeUrl?: SafeResourceUrl;
   guideExpanded = false;
 
-  showAiBuilder = false;
-  aiPrompt = '';
-  aiStatus: 'idle' | 'configuring' | 'compiling' | 'ready' = 'idle';
-  aiDownloadUrl: string | null = null;
-  isGeneratingAi = false;
-  private statusPollInterval: any;
 
   newCommentText = '';
   comments: Array<{userName: string; text: string; date: Date}> = [];
@@ -1506,67 +1382,20 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  closeAiBuilder() {
-    this.showAiBuilder = false;
-    if (this.statusPollInterval) {
-      clearInterval(this.statusPollInterval);
-    }
-  }
-
-  async submitAiPrompt() {
-    if (!this.product || !this.aiPrompt) return;
-    this.isGeneratingAi = true;
+  async launchAiStudio() {
+    if (!this.product) return;
     
-    try {
-      const user = this.auth.userProfile() || { uid: 'anonymous', displayName: 'Anonymous' };
-      const res = await fetch('https://ai-app-factory.pegasus.workers.dev/build', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          product_id: this.product.id,
-          user_id: user.uid,
-          user_prompt: this.aiPrompt,
-          base_schema: this.product.aiBaseSchema,
-          forbidden_fields: this.product.aiForbiddenFields,
-          guardrails: this.product.aiGuardrails
-        })
-      });
-
-      if (res.ok) {
-        this.aiStatus = 'configuring';
-        this.startPollingStatus(user.uid);
-      } else {
-        alert('Failed to start AI builder.');
-        this.aiStatus = 'idle';
+    const modal = await this.modalCtrl.create({
+      component: AIBuildStudioComponent,
+      cssClass: 'ais-slide-panel',
+      componentProps: {
+        productId: this.product.id,
+        productName: this.product.title,
+        baseSchema: this.product.aiBaseSchema || '{}'
       }
-    } catch (e) {
-      console.error(e);
-      alert('Network error starting AI builder.');
-      this.aiStatus = 'idle';
-    } finally {
-      this.isGeneratingAi = false;
-    }
-  }
+    });
 
-  private startPollingStatus(userId: string) {
-    if (this.statusPollInterval) clearInterval(this.statusPollInterval);
-    
-    // Poll the worker endpoint every 3 seconds
-    this.statusPollInterval = setInterval(async () => {
-      try {
-        const res = await fetch(`https://ai-app-factory.pegasus.workers.dev/status?user_id=${userId}`);
-        if (res.ok) {
-          const data = await res.json();
-          this.aiStatus = data.status || 'configuring'; // configuring | compiling | ready
-          if (this.aiStatus === 'ready') {
-            this.aiDownloadUrl = data.downloadUrl;
-            clearInterval(this.statusPollInterval);
-          }
-        }
-      } catch (e) {
-        console.error('Error polling status', e);
-      }
-    }, 3000);
+    return await modal.present();
   }
 }
 

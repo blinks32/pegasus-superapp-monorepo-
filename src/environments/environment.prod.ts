@@ -9,4 +9,5 @@ export const environment = {
     appId: '1:711315471580:web:f7586fa4c9e44d5176c819',
     measurementId: 'G-DDQH0VJ7GR',
   },
+  workerUrl: 'https://ai-build-factory.chndth.workers.dev'
 };
