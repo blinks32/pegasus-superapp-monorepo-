@@ -1979,7 +1979,7 @@ var ProductDetailComponent = class _ProductDetailComponent {
     this.addReskin = false;
     this.isInCart = false;
     this.activePreviewIndex = -1;
-    this.isLoading = signal(true);
+    this.isLoading = signal(false);
     this.maximizedImage = null;
     this.guideExpanded = false;
     this.newCommentText = "";
@@ -2204,4 +2204,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-QJQ3V5KS.js.map
+//# sourceMappingURL=chunk-CZU4U7XI.js.map

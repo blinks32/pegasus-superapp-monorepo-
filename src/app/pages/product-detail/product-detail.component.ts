@@ -1179,7 +1179,7 @@ export class ProductDetailComponent implements OnInit {
   addReskin = false;
   isInCart = false;
   activePreviewIndex: number | 'youtube' = -1;
-  isLoading = signal(true);
+  isLoading = signal(false);
 
   maximizedImage: string | null = null;
   safeYoutubeUrl?: SafeResourceUrl;

@@ -428,5 +428,35 @@ button { cursor: pointer; }
   animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ═══════════════════════════════════════════
+   AI Studio Modal — Slide Panel
+   ═══════════════════════════════════════════ */
+
+.ais-slide-panel {
+  --width: 100%;
+  --height: 100%;
+  --max-width: 600px;
+  --background: var(--pm-surface);
+  --border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .ais-slide-panel {
+    --width: 500px;
+    --height: 100vh;
+    --max-height: 100vh;
+    --border-radius: 0;
+    margin-left: auto;
+  }
+}
+
+.ais-slide-panel::part(content) {
+  background: var(--pm-surface);
+}
+
+.ais-slide-panel::part(backdrop) {
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+}
 
