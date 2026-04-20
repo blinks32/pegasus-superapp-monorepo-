@@ -480,3 +480,33 @@ button { cursor: pointer; }
 .flex-col { flex-direction: column; }
 .items-center { align-items: center; }
 .justify-between { justify-content: space-between; }
+
+/* ═══════════════════════════════════════════
+   Ionic Modal Overrides — Slide-Over AI Panel
+   ═══════════════════════════════════════════ */
+
+.ais-slide-panel {
+  --width: 100%;
+  --max-width: 600px;
+  --height: 100%;
+  --border-radius: 0;
+  
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    --width: 600px;
+    --height: 100%;
+    margin: 0;
+    margin-left: auto;
+  }
+}
+
+.ais-slide-panel ion-backdrop {
+  --backdrop-opacity: 0.6;
+}
+
+/* Animations (Ionic uses native animations, but we can hint at transitions) */
+.ais-slide-panel::part(content) {
+  background: var(--ais-zinc-950);
+}
