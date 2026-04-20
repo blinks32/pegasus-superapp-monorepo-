@@ -12,12 +12,12 @@ import { GuideWidgetComponent } from '../../components/guide-widget/guide-widget
 import { SeoService } from '../../services/seo.service';
 import { Product } from '../../models/marketplace.models';
 import { AIBuildStudioComponent } from '../../components/ai-build-studio/ai-build-studio.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent, AIBuildStudioComponent],
+  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent, AIBuildStudioComponent, IonicModule],
   template: `
     <app-header></app-header>
 
