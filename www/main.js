@@ -4297,7 +4297,7 @@ var routes = [
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-MXBEDXJE.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-VW36HBCC.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",

@@ -21,7 +21,15 @@ import { ModalController } from '@ionic/angular/standalone';
   template: `
     <app-header></app-header>
 
-    <div class="pm-container page-enter" *ngIf="product">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" *ngIf="isLoading()">
+      <div class="loader-content">
+        <div class="premium-spinner"></div>
+        <p>Initializing Pegasus Neural Link...</p>
+      </div>
+    </div>
+
+    <div class="pm-container page-enter" *ngIf="product && !isLoading()">
       <!-- Lightbox -->
       <div class="lightbox-overlay" *ngIf="maximizedImage" (click)="maximizedImage = null">
         <div class="lightbox-content" (click)="$event.stopPropagation()">
@@ -1171,6 +1179,7 @@ export class ProductDetailComponent implements OnInit {
   addReskin = false;
   isInCart = false;
   activePreviewIndex: number | 'youtube' = -1;
+  isLoading = signal(true);
 
   maximizedImage: string | null = null;
   safeYoutubeUrl?: SafeResourceUrl;
@@ -1214,11 +1223,11 @@ export class ProductDetailComponent implements OnInit {
   constructor() {
     effect(() => {
       const all = this.marketplace.allProducts();
-      // Reactive retry if the product hasn't loaded yet and the service finishes fetching
+      // Only trigger reactive load if we have an ID but no product data yet (first load)
       if (this.currentProductId && !this.product && all.length > 0) {
         this.loadProduct(this.currentProductId);
       }
-    });
+    }, { allowSignalWrites: true });
   }
 
   ngOnInit() {
@@ -1229,6 +1238,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   loadProduct(id: string) {
+    this.isLoading.set(true);
     this.product = this.marketplace.getProductById(id);
     if (this.product) {
       // Unique view tracking (once per session per product)
@@ -1261,6 +1271,12 @@ export class ProductDetailComponent implements OnInit {
       if (this.product.youtubeUrl) {
         this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
       }
+      
+      // Delay settling for smooth transition
+      setTimeout(() => this.isLoading.set(false), 300);
+    } else if (this.marketplace.initialLoadComplete()) {
+      // If data load finished but product still not found
+      this.isLoading.set(false);
     }
   }
 
