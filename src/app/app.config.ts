@@ -4,7 +4,8 @@ import { provideRouter, withPreloading, PreloadAllModules, withInMemoryScrolling
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { Title, Meta } from '@angular/platform-browser';
 import { routes } from './app.routes';
-import { provideIonicAngular, ModalController } from '@ionic/angular/standalone';
+import { provideIonicAngular } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
@@ -21,7 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(),
     provideIonicAngular({}),
-    ModalController,
+    importProvidersFrom(IonicModule.forRoot({})),
     Title,
     Meta,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

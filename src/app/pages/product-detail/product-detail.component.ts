@@ -18,7 +18,6 @@ import { ModalController } from '@ionic/angular/standalone';
   selector: 'app-product-detail',
   standalone: true,
   imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent, AIBuildStudioComponent],
-  providers: [ModalController],
   template: `
     <app-header></app-header>
 
