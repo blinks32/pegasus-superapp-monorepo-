@@ -341,52 +341,139 @@ import { Product } from '../../models/marketplace.models';
                 {{ isInCart ? '✓ Added to Cart' : '🛒 Buy Source Code' }}
               </button>
 
-              <button class="pm-btn pm-btn-lg" style="width:100%; margin-top: 8px; background: linear-gradient(135deg, #A855F7, #EC4899); color: white; border: none; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3);"
+              <button class="pm-btn pm-btn-lg ai-studio-trigger"
+                      style="width:100%; margin-top: 12px; position: relative; overflow: hidden; border: none; font-weight: 700; letter-spacing: 0.5px;"
                       *ngIf="product.aiDeploymentEnabled"
                       (click)="showAiBuilder = true">
-                ✨ Launch with AI
+                <div class="ai-glow"></div>
+                <span style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                  <span class="ai-sparkle">✨</span> AI Studio: Customize & Deploy
+                </span>
               </button>
             </ng-container>
 
-            <!-- AI Builder Panel -->
-            <div *ngIf="showAiBuilder" class="ai-builder-panel" style="margin-top: 16px; background: rgba(236, 72, 153, 0.05); border: 1px solid rgba(236, 72, 153, 0.2); border-radius: var(--pm-radius-md); padding: 16px;">
-              <div class="ai-header" style="margin-bottom: 12px; border-bottom: 1px solid rgba(236, 72, 153, 0.2); padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="margin:0; font-size: 1.05rem; color: #EC4899; display:flex; align-items: center; gap: 8px;">✨ AI App Factory</h3>
-                <button (click)="closeAiBuilder()" style="background:none; border:none; color: var(--pm-text-muted); cursor: pointer; font-size: 1.2rem;">&times;</button>
-              </div>
+            <!-- AI Studio Workspace (Slide-over Panel) -->
+            <div *ngIf="showAiBuilder" class="ai-studio-workspace" [class.active]="showAiBuilder">
+              <div class="ais-overlay" (click)="closeAiBuilder()"></div>
+              <div class="ais-panel shadow-premium">
+                <!-- Panel Glows -->
+                <div class="ais-glow-top"></div>
+                <div class="ais-glow-bottom"></div>
 
-              <!-- Input Phase -->
-              <div *ngIf="aiStatus === 'idle'">
-                <p style="font-size: 0.85rem; color: var(--pm-text-secondary); margin-bottom: 12px; line-height: 1.4;">Describe your customizations (theme, colors, basic rules, etc) for your deployed app.</p>
-                <textarea [(ngModel)]="aiPrompt" rows="4" style="width: 100%; padding: 8px; border: 1px solid var(--pm-border); border-radius: 4px; resize: vertical; font-family: inherit; margin-bottom: 12px; font-size: 0.85rem;" placeholder="e.g., Use a dark theme with neon green accents. Set the base delivery fee to $5."></textarea>
-                <button class="pm-btn pm-btn-lg" style="width: 100%; background: linear-gradient(135deg, #A855F7, #EC4899); color: white; border: none; font-size: 0.95rem; display: flex; justify-content: center; align-items: center;" (click)="submitAiPrompt()" [disabled]="!aiPrompt || isGeneratingAi">
-                  <span *ngIf="!isGeneratingAi">Build & Deploy 🚀</span>
-                  <span *ngIf="isGeneratingAi">Starting... ⏳</span>
-                </button>
-              </div>
+                <div class="ais-header">
+                  <div class="ais-title-wrap">
+                    <div class="ais-icon-box">✨</div>
+                    <div>
+                      <h3>AI App Factory</h3>
+                      <span class="ais-subtitle">AI STUDIO V2.0 — NEURAL ENGINE</span>
+                    </div>
+                  </div>
+                  <button (click)="closeAiBuilder()" class="ais-close">&times;</button>
+                </div>
 
-              <!-- Status Phase -->
-              <div *ngIf="aiStatus !== 'idle'">
-                <div class="status-steps" style="display: flex; flex-direction: column; gap: 10px; font-size:0.9rem;">
-                  <div class="status-item" [style.opacity]="(aiStatus === 'configuring' || aiStatus === 'compiling' || aiStatus === 'ready') ? '1' : '0.5'">
-                    <span>{{ aiStatus === 'configuring' ? '⏳' : '✅' }}</span>
-                    <strong style="margin-left:8px; color: var(--pm-text-primary)">AI Configuring...</strong>
+                <div class="ais-content">
+                  <!-- State 1: Configurator -->
+                  <div *ngIf="aiStatus === 'idle'" class="ais-state-enter">
+                    <h2 class="ais-heading">Describe your ideal app</h2>
+                    <p class="ais-text">Define themes, base fares, and custom logic. Our AI will architect the binary in real-time.</p>
+                    
+                    <div class="ais-input-group">
+                      <textarea [(ngModel)]="aiPrompt" rows="5" class="ais-textarea" placeholder="e.g., Luxury gold theme, 5000 NGN base fare, premium animations..."></textarea>
+                      <div class="ais-input-meta">
+                        <span class="ais-status-dot"></span>
+                        <span class="ais-status-label">READY TO ARCHITECT</span>
+                      </div>
+                    </div>
+
+                    <div class="ais-schema-view">
+                      <div class="ais-schema-header">
+                        <span>DEFAULT SCHEMA PARAMETERS</span>
+                        <span class="ais-schema-tag">JSON_V1</span>
+                      </div>
+                      <pre class="ais-code">{{ product.aiBaseSchema }}</pre>
+                    </div>
+
+                    <button class="ais-btn-build" (click)="submitAiPrompt()" [disabled]="!aiPrompt || isGeneratingAi">
+                      <span *ngIf="!isGeneratingAi">Initiate AI Build 🚀</span>
+                      <span *ngIf="isGeneratingAi">Establishing Link... ⏳</span>
+                    </button>
                   </div>
-                  <div class="status-item" [style.opacity]="(aiStatus === 'compiling' || aiStatus === 'ready') ? '1' : '0.5'">
-                    <span>{{ aiStatus === 'compiling' ? '⏳' : (aiStatus === 'ready' ? '✅' : '⚪') }}</span>
-                    <strong style="margin-left:8px; color: var(--pm-text-primary)">Compiling APK...</strong>
+
+                  <!-- State 2: Pipeline -->
+                  <div *ngIf="aiStatus !== 'idle' && aiStatus !== 'ready'" class="ais-state-enter">
+                    <div class="ais-pipeline-header">
+                      <div class="ais-loader-ring"></div>
+                      <h2>Factory Pipeline</h2>
+                      <p>Your custom app is being architected and compiled.</p>
+                    </div>
+
+                    <div class="ais-stepper">
+                      <div class="ais-step" [class.active]="aiStatus === 'configuring'" [class.done]="aiStatus === 'compiling' || aiStatus === 'ready'">
+                        <div class="ais-step-icon">
+                          <span *ngIf="aiStatus === 'configuring'">⏳</span>
+                          <span *ngIf="aiStatus !== 'configuring'">✅</span>
+                        </div>
+                        <div class="ais-step-info">
+                          <strong>AI Architecting...</strong>
+                          <span>JSON Generation & Data Audit</span>
+                        </div>
+                      </div>
+                      
+                      <div class="ais-step" [class.active]="aiStatus === 'compiling'" [class.done]="aiStatus === 'ready'">
+                        <div class="ais-step-icon">
+                          <span *ngIf="aiStatus === 'configuring'">⚪</span>
+                          <span *ngIf="aiStatus === 'compiling'">🔄</span>
+                          <span *ngIf="aiStatus === 'ready'">✅</span>
+                        </div>
+                        <div class="ais-step-info">
+                          <strong>Compiling Binaries...</strong>
+                          <span>GitHub Actions Pipeline</span>
+                        </div>
+                      </div>
+
+                      <div class="ais-step" [class.active]="aiStatus === 'ready'" [class.done]="aiStatus === 'ready'">
+                        <div class="ais-step-icon">
+                          <span *ngIf="aiStatus !== 'ready'">⚪</span>
+                          <span *ngIf="aiStatus === 'ready'">🎉</span>
+                        </div>
+                        <div class="ais-step-info">
+                          <strong>Packaging App...</strong>
+                          <span>Signing & Cloud Seeding</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ais-estimate">
+                      Estimated Time: <span>2-3 minutes</span>
+                    </div>
                   </div>
-                  <div class="status-item" [style.opacity]="(aiStatus === 'ready') ? '1' : '0.5'">
-                    <span>{{ aiStatus === 'ready' ? '🎉' : '⚪' }}</span>
-                    <strong style="margin-left:8px; color: var(--pm-text-primary)">Ready for Download</strong>
+
+                  <!-- State 3: Success -->
+                  <div *ngIf="aiStatus === 'ready'" class="ais-state-enter ais-success">
+                    <div class="ais-success-icon">✓</div>
+                    <h2 class="ais-heading">Build Successful!</h2>
+                    <p class="ais-text">Your custom APK has been compiled and is ready for deployment.</p>
+
+                    <div class="ais-actions">
+                      <a [href]="aiDownloadUrl" target="_blank" class="ais-btn-download">
+                        Download Custom APK 📲
+                      </a>
+                      <button class="ais-btn-docs">
+                        View API Docs 📖
+                      </button>
+                    </div>
+
+                    <button class="ais-btn-reset" (click)="aiStatus = 'idle'; aiPrompt = ''">Start New Build</button>
                   </div>
                 </div>
 
-                <div *ngIf="aiStatus === 'ready' && aiDownloadUrl" style="margin-top: 16px;">
-                  <a [href]="aiDownloadUrl" target="_blank" class="pm-btn pm-btn-success pm-btn-lg" style="width: 100%; text-align: center; display: block; text-decoration:none;">Download APK 📲</a>
+                <div class="ais-footer">
+                  <div class="ais-gpu-status"><span class="ais-gpu-dot"></span> CONNECTED TO GPU CLUSTER</div>
+                  <div class="ais-brand">POWERED BY SELLJUSTCODE AI</div>
                 </div>
               </div>
             </div>
+
 
             <a routerLink="/cart" class="pm-btn pm-btn-outline pm-btn-lg" style="width:100%; margin-top: 8px; text-align: center"
                *ngIf="isInCart">
@@ -998,22 +1085,193 @@ import { Product } from '../../models/marketplace.models';
       margin: 0; font-size: 0.88rem; line-height: 1.8;
       color: var(--pm-text-secondary); white-space: pre-wrap; font-family: inherit;
     }
-    .guide-screenshot-marker {
-      display: inline-block;
-      background: rgba(16, 185, 129, 0.1);
-      color: #059669;
-      border: 1px dashed #10B981;
-      padding: 2px 8px;
-      border-radius: var(--pm-radius-sm);
-      font-weight: 600;
-      margin: 2px 0;
-      font-family: inherit;
-      font-size: 0.85rem;
+    /* AI Studio Workspace */
+    .ai-studio-trigger {
+      background: linear-gradient(135deg, #A855F7, #EC4899);
+      color: white !important;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    @media (max-width: 768px) {
-      .dg-header { padding: 16px 20px; }
-      .dg-body { padding: 16px 20px; }
+    .ai-studio-trigger:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
     }
+    .ai-glow {
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+      animation: ais-glow-rotate 4s linear infinite;
+    }
+    @keyframes ais-glow-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .ai-studio-workspace {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      justify-content: flex-end;
+      visibility: hidden;
+      transition: visibility 0s 0.4s;
+    }
+    .ai-studio-workspace.active {
+      visibility: visible;
+      transition: visibility 0s 0s;
+    }
+    .ais-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .ai-studio-workspace.active .ais-overlay { opacity: 1; }
+    
+    .ais-panel {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+      background: #09090B; /* Zinc 950 */
+      color: white;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+    .ai-studio-workspace.active .ais-panel { transform: translateX(0); }
+
+    .ais-glow-top { position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: rgba(168,85,247,0.15); border-radius: 50%; filter: blur(80px); pointer-events: none; }
+    .ais-glow-bottom { position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: rgba(59,130,246,0.1); border-radius: 50%; filter: blur(80px); pointer-events: none; }
+
+    .ais-header {
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(9, 9, 11, 0.5);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+    .ais-title-wrap { display: flex; align-items: center; gap: 16px; }
+    .ais-icon-box {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, #A855F7, #3B82F6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; box-shadow: 0 4px 15px rgba(168,85,247,0.3);
+    }
+    .ais-header h3 { margin: 0; font-size: 1.25rem; font-weight: 800; color: white; letter-spacing: -0.5px; }
+    .ais-subtitle { font-size: 10px; font-weight: 700; color: #71717A; letter-spacing: 1.5px; }
+    .ais-close { background: none; border: none; color: #71717A; font-size: 2rem; cursor: pointer; transition: color 0.2s; }
+    .ais-close:hover { color: white; }
+
+    .ais-content { flex: 1; overflow-y: auto; padding: 40px 32px; z-index: 5; }
+    .ais-state-enter { animation: ais-fade-up 0.5s ease-out; }
+    @keyframes ais-fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .ais-heading { font-size: 1.75rem; font-weight: 800; margin-bottom: 12px; color: white; }
+    .ais-text { color: #A1A1AA; font-size: 1rem; line-height: 1.6; margin-bottom: 32px; }
+
+    .ais-textarea {
+      width: 100%; min-height: 160px;
+      background: #18181B; border: 1px solid #27272A;
+      border-radius: 16px; padding: 20px; color: white;
+      font-family: inherit; font-size: 1rem; resize: none;
+      transition: all 0.3s;
+    }
+    .ais-textarea:focus { outline: none; border-color: #A855F7; box-shadow: 0 0 0 4px rgba(168,85,247,0.1); }
+    
+    .ais-input-group { position: relative; margin-bottom: 32px; }
+    .ais-input-meta {
+      position: absolute; bottom: 16px; right: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .ais-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #A855F7; animation: ais-pulse 2s infinite; }
+    .ais-status-label { font-size: 10px; font-weight: 700; color: #52525B; font-family: monospace; }
+    @keyframes ais-pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+    .ais-schema-view { margin-bottom: 32px; }
+    .ais-schema-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .ais-schema-header span { font-size: 11px; font-weight: 700; color: #52525B; letter-spacing: 0.5px; }
+    .ais-schema-tag { background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; }
+    .ais-code {
+      background: #18181B; border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px; padding: 20px; color: #3B82F6; font-family: monospace;
+      font-size: 0.85rem; overflow-x: auto; margin: 0;
+    }
+
+    .ais-btn-build {
+      width: 100%; padding: 20px; border-radius: 16px;
+      background: linear-gradient(135deg, #A855F7, #3B82F6);
+      color: white; font-weight: 800; font-size: 1.1rem;
+      border: none; cursor: pointer; transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(168,85,247,0.25);
+    }
+    .ais-btn-build:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(168,85,247,0.4); }
+    .ais-btn-build:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Pipeline State */
+    .ais-pipeline-header { text-align: center; margin-bottom: 48px; }
+    .ais-loader-ring {
+      width: 64px; height: 64px; border: 4px solid rgba(168,85,247,0.1);
+      border-top-color: #A855F7; border-radius: 50%;
+      margin: 0 auto 24px; animation: ais-spin 1s linear infinite;
+    }
+    @keyframes ais-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    
+    .ais-stepper { display: flex; flex-direction: column; gap: 32px; max-width: 320px; margin: 0 auto 48px; position: relative; }
+    .ais-stepper::before { content: ''; position: absolute; left: 24px; top: 10px; bottom: 10px; width: 1px; background: #27272A; }
+    
+    .ais-step { display: flex; align-items: center; gap: 24px; opacity: 0.4; transition: all 0.4s; }
+    .ais-step.active { opacity: 1; }
+    .ais-step.done { opacity: 1; }
+    .ais-step-icon {
+      width: 48px; height: 48px; border-radius: 50%; background: #18181B;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; z-index: 2; border: 1px solid #27272A;
+    }
+    .ais-step.active .ais-step-icon { background: #A855F7; color: white; border-color: transparent; box-shadow: 0 0 20px rgba(168,85,247,0.4); }
+    .ais-step.done .ais-step-icon { background: #10B981; color: white; border-color: transparent; font-size: 1rem; }
+    .ais-step-info strong { display: block; font-size: 1.1rem; margin-bottom: 2px; }
+    .ais-step-info span { font-size: 0.8rem; color: #71717A; }
+
+    .ais-estimate { text-align: center; padding: 20px; background: rgba(255,255,255,0.03); border-radius: 12px; font-size: 0.85rem; color: #71717A; }
+    .ais-estimate span { color: white; font-weight: 700; }
+
+    /* Success State */
+    .ais-success { text-align: center; padding-top: 20px; }
+    .ais-success-icon {
+      width: 80px; height: 80px; border-radius: 24px; background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2); color: #10B981;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; margin: 0 auto 32px;
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+    }
+    .ais-actions { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .ais-btn-download {
+      padding: 20px; border-radius: 16px; background: white; color: black;
+      font-weight: 800; font-size: 1.1rem; text-decoration: none; display: block;
+      transition: all 0.2s;
+    }
+    .ais-btn-download:hover { transform: translateY(-2px); background: #F4F4F5; }
+    .ais-btn-docs {
+      padding: 20px; border-radius: 16px; background: #18181B; color: white;
+      font-weight: 700; border: 1px solid #27272A; cursor: pointer; transition: background 0.2s;
+    }
+    .ais-btn-docs:hover { background: #27272A; }
+    .ais-btn-reset { background: none; border: none; color: #71717A; font-weight: 600; font-size: 0.9rem; cursor: pointer; text-decoration: underline; }
+
+    .ais-footer { padding: 32px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+    .ais-gpu-status { font-size: 10px; font-weight: 700; color: #3F3F46; font-family: monospace; display: flex; align-items: center; gap: 6px; }
+    .ais-gpu-dot { width: 4px; height: 4px; border-radius: 50%; background: #10B981; box-shadow: 0 0 6px #10B981; }
+    .ais-brand { font-size: 10px; font-weight: 700; color: #27272A; letter-spacing: 1px; }
+
   `],
 })
 export class ProductDetailComponent implements OnInit {
