@@ -1,20 +1,20 @@
 import {
   ProductCardComponent
-} from "./chunk-KMPVPLXN.js";
+} from "./chunk-TAOYTMNO.js";
 import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-GIKPRKIQ.js";
+} from "./chunk-HS73AGKG.js";
 import {
   SeoService
-} from "./chunk-K3IR3TGK.js";
+} from "./chunk-NROIVCYZ.js";
 import {
   DefaultValueAccessor,
   FormsModule,
   NgControlStatus,
   NgModel
-} from "./chunk-IQGQCZKQ.js";
+} from "./chunk-XLO4FCJH.js";
 import {
   CommonModule,
   NgForOf,
@@ -44,7 +44,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-WQJ3QHNN.js";
+} from "./chunk-OKV2NBY4.js";
 import "./chunk-EGSMBJJY.js";
 
 // src/app/pages/home/home.component.ts
@@ -189,4 +189,4 @@ var HomeComponent = class _HomeComponent {
 export {
   HomeComponent
 };
-//# sourceMappingURL=chunk-T2W74GGE.js.map
+//# sourceMappingURL=chunk-LQB4SNCA.js.map

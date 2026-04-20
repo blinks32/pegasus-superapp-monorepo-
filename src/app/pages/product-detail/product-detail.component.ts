@@ -1220,15 +1220,7 @@ export class ProductDetailComponent implements OnInit {
 
   currentProductId: string | null = null;
 
-  constructor() {
-    effect(() => {
-      const all = this.marketplace.allProducts();
-      // Only trigger reactive load if we have an ID but no product data yet (first load)
-      if (this.currentProductId && !this.product && all.length > 0) {
-        this.loadProduct(this.currentProductId);
-      }
-    }, { allowSignalWrites: true });
-  }
+  constructor() { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -1271,13 +1263,10 @@ export class ProductDetailComponent implements OnInit {
       if (this.product.youtubeUrl) {
         this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
       }
-      
-      // Delay settling for smooth transition
-      setTimeout(() => this.isLoading.set(false), 300);
-    } else if (this.marketplace.initialLoadComplete()) {
-      // If data load finished but product still not found
-      this.isLoading.set(false);
     }
+    
+    // Resolve loading immediately
+    this.isLoading.set(false);
   }
 
   getYoutubeEmbedUrl(url: string): SafeResourceUrl | undefined {

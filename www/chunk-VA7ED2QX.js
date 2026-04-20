@@ -1,7 +1,7 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-GIKPRKIQ.js";
+} from "./chunk-HS73AGKG.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -31,7 +31,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-WQJ3QHNN.js";
+} from "./chunk-OKV2NBY4.js";
 import {
   __async,
   __spreadValues
@@ -167,4 +167,4 @@ var BlogDetailComponent = class _BlogDetailComponent {
 export {
   BlogDetailComponent
 };
-//# sourceMappingURL=chunk-IGLW5K43.js.map
+//# sourceMappingURL=chunk-VA7ED2QX.js.map

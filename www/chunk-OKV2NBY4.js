@@ -64101,7 +64101,6 @@ export {
   setClassMetadata,
   ɵɵpureFunction0,
   ɵɵpureFunction1,
-  ɵɵpureFunction2,
   ɵɵpipe,
   ɵɵpipeBind1,
   ɵɵpipeBind2,
@@ -64130,12 +64129,10 @@ export {
   DOCUMENT2 as DOCUMENT,
   LocationStrategy,
   Location,
-  NgClass,
   NgForOf,
   NgIf,
   NgTemplateOutlet,
   TitleCasePipe,
-  UpperCasePipe,
   DatePipe,
   DecimalPipe,
   SlicePipe,
@@ -64205,4 +64202,4 @@ export {
   updateDoc2 as updateDoc,
   where2 as where
 };
-//# sourceMappingURL=chunk-WQJ3QHNN.js.map
+//# sourceMappingURL=chunk-OKV2NBY4.js.map

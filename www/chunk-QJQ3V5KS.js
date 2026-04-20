@@ -1,12 +1,12 @@
 import {
   ProductCardComponent
-} from "./chunk-KMPVPLXN.js";
+} from "./chunk-TAOYTMNO.js";
 import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-GIKPRKIQ.js";
+} from "./chunk-HS73AGKG.js";
 import {
   IonContent,
   ModalController,
@@ -15,19 +15,19 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-UISMZNYX.js";
+} from "./chunk-M2UXXAMM.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import {
   SeoService
-} from "./chunk-K3IR3TGK.js";
+} from "./chunk-NROIVCYZ.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
   NgControlStatus,
   NgModel
-} from "./chunk-IQGQCZKQ.js";
+} from "./chunk-XLO4FCJH.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -35,14 +35,11 @@ import {
   DecimalPipe,
   DomSanitizer,
   HttpClient,
-  NgClass,
   NgForOf,
   NgIf,
   RouterLink,
   SlicePipe,
-  UpperCasePipe,
   catchError,
-  effect,
   inject,
   interval,
   of,
@@ -73,7 +70,6 @@ import {
   ɵɵpipeBind3,
   ɵɵproperty,
   ɵɵpureFunction1,
-  ɵɵpureFunction2,
   ɵɵreference,
   ɵɵresetView,
   ɵɵrestoreView,
@@ -90,7 +86,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-WQJ3QHNN.js";
+} from "./chunk-OKV2NBY4.js";
 import "./chunk-BZUELC5Z.js";
 import "./chunk-NIIMY5ZY.js";
 import "./chunk-LGH3V3RI.js";
@@ -441,15 +437,14 @@ var AiBuildService = class _AiBuildService {
 };
 
 // src/app/components/ai-build-studio/ai-build-studio.component.ts
-var _c0 = (a0, a1) => ({ "bg-green-500/10 text-green-500": a0, "bg-red-500/10 text-red-500": a1 });
-function AIBuildStudioComponent_div_19_div_1_span_24_Template(rf, ctx) {
+function AIBuildStudioComponent_div_19_div_1_span_23_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1, "INITIATE AI BUILD \u{1F680}");
     \u0275\u0275elementEnd();
   }
 }
-function AIBuildStudioComponent_div_19_div_1_span_25_Template(rf, ctx) {
+function AIBuildStudioComponent_div_19_div_1_span_24_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1, "ESTABLISHING CONNECTION... \u23F3");
@@ -459,15 +454,15 @@ function AIBuildStudioComponent_div_19_div_1_span_25_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 21)(1, "div", 22)(2, "h2", 23);
+    \u0275\u0275elementStart(0, "div", 18)(1, "div", 19)(2, "h2");
     \u0275\u0275text(3, "Configure Product: ");
-    \u0275\u0275elementStart(4, "span", 24);
+    \u0275\u0275elementStart(4, "span", 20);
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(6, "p", 25);
+    \u0275\u0275elementStart(6, "p");
     \u0275\u0275text(7, "Instruct the AI to customize the source code architecture. Themes, fares, and logic will be re-baked in real-time.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "div", 26)(9, "textarea", 27);
+    \u0275\u0275elementStart(8, "div", 21)(9, "textarea", 22);
     \u0275\u0275twoWayListener("ngModelChange", function AIBuildStudioComponent_div_19_div_1_Template_textarea_ngModelChange_9_listener($event) {
       \u0275\u0275restoreView(_r1);
       const ctx_r1 = \u0275\u0275nextContext(2);
@@ -475,27 +470,27 @@ function AIBuildStudioComponent_div_19_div_1_Template(rf, ctx) {
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(10, "div", 28);
-    \u0275\u0275element(11, "span", 29);
+    \u0275\u0275elementStart(10, "div", 23);
+    \u0275\u0275element(11, "span", 24);
     \u0275\u0275text(12, " NEURAL LINK ACTIVE ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(13, "div", 30)(14, "div", 31)(15, "span", 32);
+    \u0275\u0275elementStart(13, "div", 25)(14, "div", 26)(15, "span");
     \u0275\u0275text(16, "LIVE SCHEMA PREVIEW");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "span", 33);
+    \u0275\u0275elementStart(17, "span");
     \u0275\u0275text(18, "JSON_CONFIG_V4");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(19, "div", 34)(20, "pre", 35);
-    \u0275\u0275text(21);
-    \u0275\u0275pipe(22, "slice");
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(23, "button", 36);
-    \u0275\u0275listener("click", function AIBuildStudioComponent_div_19_div_1_Template_button_click_23_listener() {
+    \u0275\u0275elementStart(19, "pre", 27);
+    \u0275\u0275text(20);
+    \u0275\u0275pipe(21, "slice");
+    \u0275\u0275elementEnd()();
+    \u0275\u0275elementStart(22, "button", 28);
+    \u0275\u0275listener("click", function AIBuildStudioComponent_div_19_div_1_Template_button_click_22_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.initiateBuild());
     });
-    \u0275\u0275template(24, AIBuildStudioComponent_div_19_div_1_span_24_Template, 2, 0, "span", 37)(25, AIBuildStudioComponent_div_19_div_1_span_25_Template, 2, 0, "span", 37);
+    \u0275\u0275template(23, AIBuildStudioComponent_div_19_div_1_span_23_Template, 2, 0, "span", 29)(24, AIBuildStudioComponent_div_19_div_1_span_24_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -504,8 +499,8 @@ function AIBuildStudioComponent_div_19_div_1_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r1.productName);
     \u0275\u0275advance(4);
     \u0275\u0275twoWayProperty("ngModel", ctx_r1.prompt);
-    \u0275\u0275advance(12);
-    \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind3(22, 6, ctx_r1.baseSchema, 0, 300), "...");
+    \u0275\u0275advance(11);
+    \u0275\u0275textInterpolate1("", \u0275\u0275pipeBind3(21, 6, ctx_r1.baseSchema, 0, 300), "...");
     \u0275\u0275advance(2);
     \u0275\u0275property("disabled", !ctx_r1.prompt || ctx_r1.isBuilding);
     \u0275\u0275advance();
@@ -524,7 +519,7 @@ function AIBuildStudioComponent_div_19_div_2_span_11_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_12_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2705");
+    \u0275\u0275text(1, "\u2713");
     \u0275\u0275elementEnd();
   }
 }
@@ -538,7 +533,7 @@ function AIBuildStudioComponent_div_19_div_2_span_20_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_21_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2705");
+    \u0275\u0275text(1, "\u2713");
     \u0275\u0275elementEnd();
   }
 }
@@ -552,7 +547,7 @@ function AIBuildStudioComponent_div_19_div_2_span_29_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_30_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2705");
+    \u0275\u0275text(1, "\u2713");
     \u0275\u0275elementEnd();
   }
 }
@@ -566,7 +561,7 @@ function AIBuildStudioComponent_div_19_div_2_span_38_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_39_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2705");
+    \u0275\u0275text(1, "\u2713");
     \u0275\u0275elementEnd();
   }
 }
@@ -580,156 +575,156 @@ function AIBuildStudioComponent_div_19_div_2_span_47_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_48_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u{1F389}");
+    \u0275\u0275text(1, "\u2713");
     \u0275\u0275elementEnd();
   }
 }
 function AIBuildStudioComponent_div_19_div_2_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 38)(1, "div", 39)(2, "div", 40);
+    \u0275\u0275elementStart(0, "div", 30)(1, "div", 31)(2, "span", 32);
     \u0275\u0275text(3, "LIVE FACTORY FEED");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "h2", 41);
+    \u0275\u0275elementStart(4, "h2");
     \u0275\u0275text(5, "Mission Control");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "p", 25);
+    \u0275\u0275elementStart(6, "p");
     \u0275\u0275text(7, "Tracking build execution across distributed clusters.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "div", 42)(9, "div", 43)(10, "div", 44);
-    \u0275\u0275template(11, AIBuildStudioComponent_div_19_div_2_span_11_Template, 2, 0, "span", 37)(12, AIBuildStudioComponent_div_19_div_2_span_12_Template, 2, 0, "span", 37);
+    \u0275\u0275elementStart(8, "div", 33)(9, "div", 34)(10, "div", 35);
+    \u0275\u0275template(11, AIBuildStudioComponent_div_19_div_2_span_11_Template, 2, 0, "span", 29)(12, AIBuildStudioComponent_div_19_div_2_span_12_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "div")(14, "h3", 45);
+    \u0275\u0275elementStart(13, "div", 36)(14, "h3");
     \u0275\u0275text(15, "Analyzing");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(16, "p", 46);
+    \u0275\u0275elementStart(16, "p");
     \u0275\u0275text(17, "AI generating new configuration based on instructions.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(18, "div", 43)(19, "div", 44);
-    \u0275\u0275template(20, AIBuildStudioComponent_div_19_div_2_span_20_Template, 2, 0, "span", 37)(21, AIBuildStudioComponent_div_19_div_2_span_21_Template, 2, 0, "span", 37);
+    \u0275\u0275elementStart(18, "div", 34)(19, "div", 35);
+    \u0275\u0275template(20, AIBuildStudioComponent_div_19_div_2_span_20_Template, 2, 0, "span", 29)(21, AIBuildStudioComponent_div_19_div_2_span_21_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(22, "div")(23, "h3", 45);
+    \u0275\u0275elementStart(22, "div", 36)(23, "h3");
     \u0275\u0275text(24, "Validating");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(25, "p", 46);
+    \u0275\u0275elementStart(25, "p");
     \u0275\u0275text(26, "Security audit & schema integrity checks.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(27, "div", 43)(28, "div", 44);
-    \u0275\u0275template(29, AIBuildStudioComponent_div_19_div_2_span_29_Template, 2, 0, "span", 37)(30, AIBuildStudioComponent_div_19_div_2_span_30_Template, 2, 0, "span", 37);
+    \u0275\u0275elementStart(27, "div", 34)(28, "div", 35);
+    \u0275\u0275template(29, AIBuildStudioComponent_div_19_div_2_span_29_Template, 2, 0, "span", 29)(30, AIBuildStudioComponent_div_19_div_2_span_30_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(31, "div")(32, "h3", 45);
+    \u0275\u0275elementStart(31, "div", 36)(32, "h3");
     \u0275\u0275text(33, "Provisioning");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(34, "p", 46);
-    \u0275\u0275text(35, "Triggering GitHub Build Engine & environment setup.");
+    \u0275\u0275elementStart(34, "p");
+    \u0275\u0275text(35, "Triggering Build Engine & environment setup.");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(36, "div", 43)(37, "div", 44);
-    \u0275\u0275template(38, AIBuildStudioComponent_div_19_div_2_span_38_Template, 2, 0, "span", 37)(39, AIBuildStudioComponent_div_19_div_2_span_39_Template, 2, 0, "span", 37);
+    \u0275\u0275elementStart(36, "div", 34)(37, "div", 35);
+    \u0275\u0275template(38, AIBuildStudioComponent_div_19_div_2_span_38_Template, 2, 0, "span", 29)(39, AIBuildStudioComponent_div_19_div_2_span_39_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(40, "div")(41, "h3", 45);
+    \u0275\u0275elementStart(40, "div", 36)(41, "h3");
     \u0275\u0275text(42, "Compiling");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(43, "p", 46);
+    \u0275\u0275elementStart(43, "p");
     \u0275\u0275text(44, "Real-time binary generation (may take 2-4 mins).");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(45, "div", 43)(46, "div", 44);
-    \u0275\u0275template(47, AIBuildStudioComponent_div_19_div_2_span_47_Template, 2, 0, "span", 37)(48, AIBuildStudioComponent_div_19_div_2_span_48_Template, 2, 0, "span", 37);
+    \u0275\u0275elementStart(45, "div", 34)(46, "div", 35);
+    \u0275\u0275template(47, AIBuildStudioComponent_div_19_div_2_span_47_Template, 2, 0, "span", 29)(48, AIBuildStudioComponent_div_19_div_2_span_48_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(49, "div")(50, "h3", 45);
+    \u0275\u0275elementStart(49, "div", 36)(50, "h3");
     \u0275\u0275text(51, "Delivering");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(52, "p", 46);
-    \u0275\u0275text(53, "Final packaging & delivery of secure download link.");
+    \u0275\u0275elementStart(52, "p");
+    \u0275\u0275text(53, "Final packaging & delivery of secure link.");
     \u0275\u0275elementEnd()()()()();
   }
   if (rf & 2) {
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(9);
-    \u0275\u0275classProp("opacity-40", !ctx_r1.isCurrentStep("analyzing") && !ctx_r1.isPastStep("analyzing"));
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("analyzing") && !ctx_r1.isPastStep("analyzing"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("border-violet-500", ctx_r1.isCurrentStep("analyzing"))("bg-violet-500", ctx_r1.isPastStep("analyzing"))("ais-step-active-glow", ctx_r1.isCurrentStep("analyzing"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("analyzing"))("past", ctx_r1.isPastStep("analyzing"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !ctx_r1.isPastStep("analyzing"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.isPastStep("analyzing"));
-    \u0275\u0275advance(2);
-    \u0275\u0275classProp("text-violet-500", ctx_r1.isCurrentStep("analyzing"));
-    \u0275\u0275advance(4);
-    \u0275\u0275classProp("opacity-40", !ctx_r1.isCurrentStep("validating") && !ctx_r1.isPastStep("validating"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("border-violet-500", ctx_r1.isCurrentStep("validating"))("bg-violet-500", ctx_r1.isPastStep("validating"))("ais-step-active-glow", ctx_r1.isCurrentStep("validating"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("analyzing"));
+    \u0275\u0275advance(5);
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("validating") && !ctx_r1.isPastStep("validating"));
+    \u0275\u0275advance();
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("validating"))("past", ctx_r1.isPastStep("validating"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !ctx_r1.isPastStep("validating"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.isPastStep("validating"));
-    \u0275\u0275advance(2);
-    \u0275\u0275classProp("text-violet-500", ctx_r1.isCurrentStep("validating"));
-    \u0275\u0275advance(4);
-    \u0275\u0275classProp("opacity-40", !ctx_r1.isCurrentStep("provisioning") && !ctx_r1.isPastStep("provisioning"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("border-violet-500", ctx_r1.isCurrentStep("provisioning"))("bg-violet-500", ctx_r1.isPastStep("provisioning"))("ais-step-active-glow", ctx_r1.isCurrentStep("provisioning"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("validating"));
+    \u0275\u0275advance(5);
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("provisioning") && !ctx_r1.isPastStep("provisioning"));
+    \u0275\u0275advance();
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("provisioning"))("past", ctx_r1.isPastStep("provisioning"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !ctx_r1.isPastStep("provisioning"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.isPastStep("provisioning"));
-    \u0275\u0275advance(2);
-    \u0275\u0275classProp("text-violet-500", ctx_r1.isCurrentStep("provisioning"));
-    \u0275\u0275advance(4);
-    \u0275\u0275classProp("opacity-40", !ctx_r1.isCurrentStep("compiling") && !ctx_r1.isPastStep("compiling"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("border-violet-500", ctx_r1.isCurrentStep("compiling"))("bg-violet-500", ctx_r1.isPastStep("compiling"))("ais-step-active-glow", ctx_r1.isCurrentStep("compiling"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("provisioning"));
+    \u0275\u0275advance(5);
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("compiling") && !ctx_r1.isPastStep("compiling"));
+    \u0275\u0275advance();
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("compiling"))("past", ctx_r1.isPastStep("compiling"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !ctx_r1.isPastStep("compiling"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r1.isPastStep("compiling"));
-    \u0275\u0275advance(2);
-    \u0275\u0275classProp("text-violet-500", ctx_r1.isCurrentStep("compiling"));
-    \u0275\u0275advance(4);
-    \u0275\u0275classProp("opacity-40", !ctx_r1.isCurrentStep("ready"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("border-violet-500", ctx_r1.isCurrentStep("ready"))("bg-violet-500", ctx_r1.isCurrentStep("ready"))("ais-step-active-glow", ctx_r1.isCurrentStep("ready"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("compiling"));
+    \u0275\u0275advance(5);
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("ready"));
+    \u0275\u0275advance();
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("ready"))("past", ctx_r1.isPastStep("ready"));
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", (ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.status) !== "ready");
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", (ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.status) === "ready");
-    \u0275\u0275advance(2);
-    \u0275\u0275classProp("text-violet-500", ctx_r1.isCurrentStep("ready"));
+    \u0275\u0275advance();
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("ready"));
   }
 }
 function AIBuildStudioComponent_div_19_div_3_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 47)(1, "div", 48);
+    \u0275\u0275elementStart(0, "div", 37)(1, "div", 38);
     \u0275\u0275text(2, "\u2713");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "div", 49)(4, "h2", 50);
-    \u0275\u0275text(5, "Build Ready");
+    \u0275\u0275elementStart(3, "h2");
+    \u0275\u0275text(4, "Build Ready");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(6, "p", 25);
-    \u0275\u0275text(7, "Your universal custom app has been successfully compiled and signed.");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "div", 51)(9, "a", 52);
-    \u0275\u0275text(10, "DOWNLOAD CUSTOM APK \u{1F4F2}");
+    \u0275\u0275elementStart(5, "p");
+    \u0275\u0275text(6, "Your universal custom app has been successfully compiled and signed.");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(11, "button", 53);
-    \u0275\u0275listener("click", function AIBuildStudioComponent_div_19_div_3_Template_button_click_11_listener() {
+    \u0275\u0275elementStart(7, "div", 39)(8, "a", 40);
+    \u0275\u0275text(9, "DOWNLOAD APK \u{1F4F2}");
+    \u0275\u0275elementEnd();
+    \u0275\u0275elementStart(10, "button", 41);
+    \u0275\u0275listener("click", function AIBuildStudioComponent_div_19_div_3_Template_button_click_10_listener() {
       \u0275\u0275restoreView(_r3);
       const ctx_r1 = \u0275\u0275nextContext(2);
       ctx_r1.viewState = "configurator";
       return \u0275\u0275resetView(ctx_r1.prompt = "");
     });
-    \u0275\u0275text(12, "START NEW BUILD");
+    \u0275\u0275text(11, "START NEW BUILD");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
     const ctx_r1 = \u0275\u0275nextContext(2);
-    \u0275\u0275advance(9);
+    \u0275\u0275advance(8);
     \u0275\u0275property("href", ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.downloadUrl, \u0275\u0275sanitizeUrl);
   }
 }
 function AIBuildStudioComponent_div_19_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 17);
-    \u0275\u0275template(1, AIBuildStudioComponent_div_19_div_1_Template, 26, 10, "div", 18)(2, AIBuildStudioComponent_div_19_div_2_Template, 54, 60, "div", 19)(3, AIBuildStudioComponent_div_19_div_3_Template, 13, 1, "div", 20);
+    \u0275\u0275elementStart(0, "div", 14);
+    \u0275\u0275template(1, AIBuildStudioComponent_div_19_div_1_Template, 25, 10, "div", 15)(2, AIBuildStudioComponent_div_19_div_2_Template, 54, 50, "div", 16)(3, AIBuildStudioComponent_div_19_div_3_Template, 12, 1, "div", 17);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -744,17 +739,21 @@ function AIBuildStudioComponent_div_19_Template(rf, ctx) {
 }
 function AIBuildStudioComponent_div_20_div_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 57)(1, "div", 58);
-    \u0275\u0275text(2, "\u{1F5C4}\uFE0F");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(3, "p", 59);
-    \u0275\u0275text(4, "No previous builds found in history.");
+    \u0275\u0275elementStart(0, "div", 45)(1, "p");
+    \u0275\u0275text(2, "No previous builds found in history.");
     \u0275\u0275elementEnd()();
   }
 }
-function AIBuildStudioComponent_div_20_div_4_a_14_Template(rf, ctx) {
+function AIBuildStudioComponent_div_20_div_4_span_10_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "a", 69);
+    \u0275\u0275elementStart(0, "span", 53);
+    \u0275\u0275text(1, "COMPLETED");
+    \u0275\u0275elementEnd();
+  }
+}
+function AIBuildStudioComponent_div_20_div_4_a_11_Template(rf, ctx) {
+  if (rf & 1) {
+    \u0275\u0275elementStart(0, "a", 54);
     \u0275\u0275text(1, "Download Link \u2192");
     \u0275\u0275elementEnd();
   }
@@ -766,53 +765,47 @@ function AIBuildStudioComponent_div_20_div_4_a_14_Template(rf, ctx) {
 function AIBuildStudioComponent_div_20_div_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
-    \u0275\u0275elementStart(0, "div", 60)(1, "div", 61)(2, "div")(3, "h3", 62);
-    \u0275\u0275text(4);
+    \u0275\u0275elementStart(0, "div", 46)(1, "div", 47)(2, "h3");
+    \u0275\u0275text(3);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(5, "p", 63);
-    \u0275\u0275text(6);
-    \u0275\u0275pipe(7, "date");
+    \u0275\u0275elementStart(4, "time");
+    \u0275\u0275text(5);
+    \u0275\u0275pipe(6, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(8, "span", 64);
-    \u0275\u0275text(9);
-    \u0275\u0275pipe(10, "uppercase");
-    \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "p", 65);
-    \u0275\u0275text(12);
+    \u0275\u0275elementStart(7, "p", 48);
+    \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(13, "div", 66);
-    \u0275\u0275template(14, AIBuildStudioComponent_div_20_div_4_a_14_Template, 2, 1, "a", 67);
-    \u0275\u0275elementStart(15, "button", 68);
-    \u0275\u0275listener("click", function AIBuildStudioComponent_div_20_div_4_Template_button_click_15_listener() {
+    \u0275\u0275elementStart(9, "div", 49);
+    \u0275\u0275template(10, AIBuildStudioComponent_div_20_div_4_span_10_Template, 2, 0, "span", 50)(11, AIBuildStudioComponent_div_20_div_4_a_11_Template, 2, 1, "a", 51);
+    \u0275\u0275elementStart(12, "button", 52);
+    \u0275\u0275listener("click", function AIBuildStudioComponent_div_20_div_4_Template_button_click_12_listener() {
       const build_r5 = \u0275\u0275restoreView(_r4).$implicit;
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.reViewBuild(build_r5));
     });
-    \u0275\u0275text(16, "View Schema Details");
+    \u0275\u0275text(13, "View Details");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
     const build_r5 = ctx.$implicit;
-    \u0275\u0275advance(4);
+    \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(build_r5.product_name);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(7, 6, build_r5.timestamp, "medium"));
-    \u0275\u0275advance(2);
-    \u0275\u0275property("ngClass", \u0275\u0275pureFunction2(11, _c0, build_r5.status === "ready", build_r5.status === "failed"));
-    \u0275\u0275advance();
-    \u0275\u0275textInterpolate1(" ", \u0275\u0275pipeBind1(10, 9, build_r5.status), " ");
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(6, 5, build_r5.timestamp, "short"));
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate1('"', build_r5.prompt, '"');
     \u0275\u0275advance(2);
+    \u0275\u0275property("ngIf", build_r5.status === "ready");
+    \u0275\u0275advance();
     \u0275\u0275property("ngIf", build_r5.downloadUrl);
   }
 }
 function AIBuildStudioComponent_div_20_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275elementStart(0, "div", 54)(1, "h2", 23);
+    \u0275\u0275elementStart(0, "div", 42)(1, "h2");
     \u0275\u0275text(2, "Build Archives");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, AIBuildStudioComponent_div_20_div_3_Template, 5, 0, "div", 55)(4, AIBuildStudioComponent_div_20_div_4_Template, 17, 14, "div", 56);
+    \u0275\u0275template(3, AIBuildStudioComponent_div_20_div_3_Template, 3, 0, "div", 43)(4, AIBuildStudioComponent_div_20_div_4_Template, 14, 8, "div", 44);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -899,57 +892,57 @@ Prompt: ${build.prompt}`);
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AIBuildStudioComponent, selectors: [["app-ai-build-studio"]], inputs: { productId: "productId", productName: "productName", baseSchema: "baseSchema" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 27, vars: 10, consts: [[1, "ais-dark"], [1, "flex", "flex-col", "h-full", "bg-zinc-950", "text-zinc-100", "overflow-hidden"], [1, "p-6", "flex", "items-center", "justify-between", "border-b", "border-zinc-800", "ais-glass"], [1, "flex", "items-center", "gap-4"], [1, "w-10", "h-10", "rounded-xl", "bg-violet-500", "flex", "items-center", "justify-center", "text-xl", "ais-glow-violet"], [1, "text-xl", "font-bold", "ais-text-gradient"], [1, "text-xs", "text-zinc-500", "tracking-widest", "uppercase"], [1, "text-zinc-500", "hover:text-white", "transition-colors", "text-2xl", 3, "click"], [1, "flex", "px-6", "pt-4", "gap-8", "border-b", "border-zinc-800"], [1, "pb-3", "border-violet-500", "font-semibold", "transition-all", 3, "click"], [1, "flex-1", "overflow-y-auto", "p-6", "scroll-smooth"], ["class", "fade-in space-y-8", 4, "ngIf"], ["class", "fade-in space-y-6", 4, "ngIf"], [1, "p-6", "border-t", "border-zinc-800", "ais-glass", "flex", "items-center", "justify-between"], [1, "flex", "items-center", "gap-2", "text-[10px]", "font-bold", "text-zinc-600", "tracking-widest"], [1, "w-1.5", "h-1.5", "bg-violet-500", "rounded-full", "animate-pulse"], [1, "text-[10px]", "text-zinc-600", "font-bold", "tracking-widest", "uppercase"], [1, "fade-in", "space-y-8"], ["class", "space-y-6", 4, "ngIf"], ["class", "space-y-8 py-4", 4, "ngIf"], ["class", "text-center space-y-8 py-10", 4, "ngIf"], [1, "space-y-6"], [1, "space-y-2"], [1, "text-2xl", "font-bold"], [1, "text-violet-500"], [1, "text-zinc-400"], [1, "relative", "group"], ["rows", "4", "placeholder", "e.g., 'Modern dark theme with gold accents, set base fare to $5.00, and add a premium driver onboarding flow...'", 1, "w-full", "bg-zinc-900", "border", "border-zinc-800", "rounded-2xl", "p-6", "focus:border-violet-500", "focus:ring-1", "focus:ring-violet-500", "outline-none", "transition-all", "placeholder:text-zinc-600", 3, "ngModelChange", "ngModel"], [1, "absolute", "bottom-4", "right-4", "flex", "items-center", "gap-2", "text-xs", "text-zinc-500"], [1, "w-2", "h-2", "bg-green-500", "rounded-full"], [1, "ais-glass", "rounded-2xl", "overflow-hidden"], [1, "p-4", "border-b", "border-white/5", "flex", "justify-between", "items-center"], [1, "text-xs", "font-bold", "tracking-widest", "text-zinc-500"], [1, "px-2", "py-1", "bg-zinc-800", "rounded", "text-[10px]", "text-zinc-400"], [1, "p-6", "bg-zinc-900/50"], [1, "text-[13px]", "text-violet-400", "font-mono", "leading-relaxed", "overflow-x-auto"], [1, "w-full", "py-4", "bg-violet-600", "hover:bg-violet-500", "disabled:opacity-50", "disabled:cursor-not-allowed", "text-white", "font-bold", "rounded-2xl", "transition-all", "ais-glow-violet", "flex", "items-center", "justify-center", "gap-3", 3, "click", "disabled"], [4, "ngIf"], [1, "space-y-8", "py-4"], [1, "text-center", "space-y-2"], [1, "inline-block", "px-3", "py-1", "bg-violet-500/10", "text-violet-500", "rounded-full", "text-[10px]", "font-bold", "tracking-widest", "mb-2", "border", "border-violet-500/20"], [1, "text-3xl", "font-bold"], [1, "relative", "space-y-12", "before:absolute", "before:left-[19px]", "before:top-2", "before:bottom-2", "before:w-[2px]", "before:bg-zinc-800"], [1, "flex", "items-start", "gap-6", "relative"], [1, "w-10", "h-10", "rounded-full", "bg-zinc-900", "border-2", "border-zinc-800", "flex", "items-center", "justify-center", "z-10", "transition-all"], [1, "font-bold", "text-lg"], [1, "text-sm", "text-zinc-500"], [1, "text-center", "space-y-8", "py-10"], [1, "w-24", "h-24", "bg-green-500", "rounded-full", "flex", "items-center", "justify-center", "text-5xl", "mx-auto", "shadow-[0_0_50px_rgba(34,197,94,0.3)]", "animate-bounce"], [1, "space-y-4"], [1, "text-4xl", "font-extrabold", "uppercase", "tracking-tight"], [1, "flex", "flex-col", "gap-4"], ["target", "_blank", 1, "w-full", "py-4", "bg-green-600", "hover:bg-green-500", "text-white", "font-bold", "rounded-2xl", "transition-all", "shadow-[0_0_20px_rgba(34,197,94,0.2)]", 3, "href"], [1, "w-full", "py-4", "bg-zinc-900", "border", "border-zinc-800", "text-zinc-400", "hover:text-white", "rounded-2xl", "transition-all", 3, "click"], [1, "fade-in", "space-y-6"], ["class", "py-20 text-center space-y-4", 4, "ngIf"], ["class", "ais-glass rounded-2xl p-6 border border-white/5 space-y-4 hover:border-violet-500/30 transition-all", 4, "ngFor", "ngForOf"], [1, "py-20", "text-center", "space-y-4"], [1, "text-5xl", "opacity-20"], [1, "text-zinc-500"], [1, "ais-glass", "rounded-2xl", "p-6", "border", "border-white/5", "space-y-4", "hover:border-violet-500/30", "transition-all"], [1, "flex", "justify-between", "items-start"], [1, "font-bold", "text-lg", "text-violet-400"], [1, "text-[10px]", "text-zinc-500", "uppercase", "tracking-tighter"], [1, "px-2", "py-1", "rounded", "text-[10px]", "font-bold", 3, "ngClass"], [1, "text-sm", "text-zinc-400", "italic", "line-clamp-2"], [1, "pt-2", "flex", "gap-4"], ["target", "_blank", "class", "text-xs font-bold text-violet-500 hover:underline", 3, "href", 4, "ngIf"], [1, "text-xs", "font-bold", "text-zinc-500", "hover:text-white", 3, "click"], ["target", "_blank", 1, "text-xs", "font-bold", "text-violet-500", "hover:underline", 3, "href"]], template: function AIBuildStudioComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AIBuildStudioComponent, selectors: [["app-ai-build-studio"]], inputs: { productId: "productId", productName: "productName", baseSchema: "baseSchema" }, standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 27, vars: 6, consts: [[1, "ais-root"], [1, "ais-header"], [1, "header-brand"], [1, "brand-icon"], [1, "header-text"], [1, "close-btn", 3, "click"], [1, "ais-nav"], [1, "nav-item", 3, "click"], [1, "ais-body"], ["class", "view-section", 4, "ngIf"], ["class", "history-view", 4, "ngIf"], [1, "ais-footer"], [1, "cluster-info"], [1, "pulse-dot"], [1, "view-section"], ["class", "space-y-8", 4, "ngIf"], ["class", "space-y-12", 4, "ngIf"], ["class", "success-view", 4, "ngIf"], [1, "space-y-8"], [1, "section-header"], [2, "color", "var(--ion-color-primary)"], [1, "prompt-container"], ["placeholder", "e.g., 'Modern dark theme with gold accents, set base fare to $5.00...'", 1, "prompt-textarea", 3, "ngModelChange", "ngModel"], [1, "prompt-status"], [1, "status-dot"], [1, "schema-preview"], [1, "preview-header"], [1, "preview-code"], [1, "ais-action-btn", 3, "click", "disabled"], [4, "ngIf"], [1, "space-y-12"], [1, "status-header"], [1, "status-tag"], [1, "ais-stepper"], [1, "step-item"], [1, "step-circle"], [1, "step-info"], [1, "success-view"], [1, "success-icon"], [1, "space-y-4"], ["target", "_blank", 1, "ais-action-btn", 2, "text-decoration", "none", "display", "block", 3, "href"], [1, "pm-btn", "pm-btn-ghost", 2, "width", "100%", 3, "click"], [1, "history-view"], ["style", "padding: 100px 0; text-align: center; color: var(--pm-text-muted)", 4, "ngIf"], ["class", "history-card", 4, "ngFor", "ngForOf"], [2, "padding", "100px 0", "text-align", "center", "color", "var(--pm-text-muted)"], [1, "history-card"], [1, "card-top"], [1, "card-prompt"], [1, "card-footer"], ["class", "status-pill ready", 4, "ngIf"], ["target", "_blank", "style", "color: var(--ion-color-primary)", 3, "href", 4, "ngIf"], [3, "click"], [1, "status-pill", "ready"], ["target", "_blank", 2, "color", "var(--ion-color-primary)", 3, "href"]], template: function AIBuildStudioComponent_Template(rf, ctx) {
       if (rf & 1) {
-        \u0275\u0275elementStart(0, "ion-content", 0)(1, "div", 1)(2, "header", 2)(3, "div", 3)(4, "div", 4);
+        \u0275\u0275elementStart(0, "ion-content")(1, "div", 0)(2, "header", 1)(3, "div", 2)(4, "div", 3);
         \u0275\u0275text(5, "\u2728");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(6, "div")(7, "h1", 5);
+        \u0275\u0275elementStart(6, "div", 4)(7, "h1");
         \u0275\u0275text(8, "AI BUILD STUDIO");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(9, "p", 6);
+        \u0275\u0275elementStart(9, "p");
         \u0275\u0275text(10, "Universal Factory Hub v2.0");
         \u0275\u0275elementEnd()()();
-        \u0275\u0275elementStart(11, "button", 7);
+        \u0275\u0275elementStart(11, "button", 5);
         \u0275\u0275listener("click", function AIBuildStudioComponent_Template_button_click_11_listener() {
           return ctx.dismiss();
         });
         \u0275\u0275text(12, "\xD7");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(13, "nav", 8)(14, "button", 9);
+        \u0275\u0275elementStart(13, "nav", 6)(14, "button", 7);
         \u0275\u0275listener("click", function AIBuildStudioComponent_Template_button_click_14_listener() {
           return ctx.activeTab = "studio";
         });
         \u0275\u0275text(15, "Studio");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(16, "button", 9);
+        \u0275\u0275elementStart(16, "button", 7);
         \u0275\u0275listener("click", function AIBuildStudioComponent_Template_button_click_16_listener() {
           return ctx.loadHistory();
         });
         \u0275\u0275text(17, "Archives");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(18, "div", 10);
-        \u0275\u0275template(19, AIBuildStudioComponent_div_19_Template, 4, 3, "div", 11)(20, AIBuildStudioComponent_div_20_Template, 5, 2, "div", 12);
+        \u0275\u0275elementStart(18, "div", 8);
+        \u0275\u0275template(19, AIBuildStudioComponent_div_19_Template, 4, 3, "div", 9)(20, AIBuildStudioComponent_div_20_Template, 5, 2, "div", 10);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(21, "footer", 13)(22, "div", 14);
-        \u0275\u0275element(23, "span", 15);
-        \u0275\u0275text(24, " CLUSTER: NEURAL-US-EAST-1 ");
+        \u0275\u0275elementStart(21, "footer", 11)(22, "div", 12);
+        \u0275\u0275element(23, "span", 13);
+        \u0275\u0275text(24, " NEURAL-LINK-US-EAST-1 ");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(25, "div", 16);
-        \u0275\u0275text(26, " POWERED BY SELLJUSTCODE AI ");
+        \u0275\u0275elementStart(25, "div");
+        \u0275\u0275text(26, "POWERED BY SELLJUSTCODE");
         \u0275\u0275elementEnd()()()();
       }
       if (rf & 2) {
         \u0275\u0275advance(14);
-        \u0275\u0275classProp("text-violet-500", ctx.activeTab === "studio")("border-b-2", ctx.activeTab === "studio");
+        \u0275\u0275classProp("active", ctx.activeTab === "studio");
         \u0275\u0275advance(2);
-        \u0275\u0275classProp("text-violet-500", ctx.activeTab === "history")("border-b-2", ctx.activeTab === "history");
+        \u0275\u0275classProp("active", ctx.activeTab === "history");
         \u0275\u0275advance(3);
         \u0275\u0275property("ngIf", ctx.activeTab === "studio");
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.activeTab === "history");
       }
-    }, dependencies: [CommonModule, NgClass, NgForOf, NgIf, UpperCasePipe, SlicePipe, DatePipe, FormsModule, DefaultValueAccessor, NgControlStatus, NgModel, IonContent], styles: ["\n\n.fade-in[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_fadeIn 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n/*# sourceMappingURL=ai-build-studio.component.css.map */"], data: { animation: [
+    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DatePipe, FormsModule, DefaultValueAccessor, NgControlStatus, NgModel, IonContent], styles: ['@charset "UTF-8";\n\n\n\n[_ngcontent-%COMP%]:root {\n  --ion-color-primary: #6366F1;\n  --ion-color-primary-rgb:\n    99,\n    102,\n    241;\n  --ion-color-primary-contrast: #ffffff;\n  --ion-color-primary-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-primary-shade: #5558d5;\n  --ion-color-primary-tint: #737af2;\n  --ion-color-secondary: #10B981;\n  --ion-color-secondary-rgb:\n    16,\n    185,\n    129;\n  --ion-color-secondary-contrast: #ffffff;\n  --ion-color-secondary-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-secondary-shade: #0ea372;\n  --ion-color-secondary-tint: #28c08e;\n  --ion-color-tertiary: #F59E0B;\n  --ion-color-tertiary-rgb:\n    245,\n    158,\n    11;\n  --ion-color-tertiary-contrast: #000000;\n  --ion-color-tertiary-contrast-rgb:\n    0,\n    0,\n    0;\n  --ion-color-tertiary-shade: #d88b0a;\n  --ion-color-tertiary-tint: #f6a823;\n  --ion-color-success: #10B981;\n  --ion-color-success-rgb:\n    16,\n    185,\n    129;\n  --ion-color-success-contrast: #ffffff;\n  --ion-color-success-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-success-shade: #0ea372;\n  --ion-color-success-tint: #28c08e;\n  --ion-color-warning: #F59E0B;\n  --ion-color-warning-rgb:\n    245,\n    158,\n    11;\n  --ion-color-warning-contrast: #000000;\n  --ion-color-warning-contrast-rgb:\n    0,\n    0,\n    0;\n  --ion-color-warning-shade: #d88b0a;\n  --ion-color-warning-tint: #f6a823;\n  --ion-color-danger: #EF4444;\n  --ion-color-danger-rgb:\n    239,\n    68,\n    68;\n  --ion-color-danger-contrast: #ffffff;\n  --ion-color-danger-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-danger-shade: #d23c3c;\n  --ion-color-danger-tint: #f15757;\n  --ion-color-dark: #1E293B;\n  --ion-color-dark-rgb:\n    30,\n    41,\n    59;\n  --ion-color-dark-contrast: #ffffff;\n  --ion-color-dark-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-dark-shade: #1a2434;\n  --ion-color-dark-tint: #353f4f;\n  --ion-color-light: #F8FAFC;\n  --ion-color-light-rgb:\n    248,\n    250,\n    252;\n  --ion-color-light-contrast: #1E293B;\n  --ion-color-light-contrast-rgb:\n    30,\n    41,\n    59;\n  --ion-color-light-shade: #daddde;\n  --ion-color-light-tint: #f9fbfc;\n  --ion-color-medium: #64748B;\n  --ion-color-medium-rgb:\n    100,\n    116,\n    139;\n  --ion-color-medium-contrast: #ffffff;\n  --ion-color-medium-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-medium-shade: #58667a;\n  --ion-color-medium-tint: #748297;\n  --ion-font-family:\n    "Plus Jakarta Sans",\n    "Inter",\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    sans-serif;\n  --ion-background-color: #F8FAFC;\n  --ion-background-color-rgb:\n    248,\n    250,\n    252;\n  --ion-text-color: #1E293B;\n  --ion-text-color-rgb:\n    30,\n    41,\n    59;\n  --ion-toolbar-background: #ffffff;\n  --ion-toolbar-color: #1E293B;\n  --ion-item-background: #ffffff;\n  --ion-card-background: #ffffff;\n  --pm-surface: #ffffff;\n  --pm-surface-elevated: #ffffff;\n  --pm-surface-muted: #F1F5F9;\n  --pm-surface-subtle: #E2E8F0;\n  --pm-border: #E2E8F0;\n  --pm-border-light: #F1F5F9;\n  --pm-text-primary: #0F172A;\n  --pm-text-secondary: #475569;\n  --pm-text-muted: #94A3B8;\n  --pm-text-inverse: #ffffff;\n  --pm-gradient-primary:\n    linear-gradient(\n      135deg,\n      #6366F1 0%,\n      #8B5CF6 50%,\n      #A855F7 100%);\n  --pm-gradient-warm:\n    linear-gradient(\n      135deg,\n      #F97316 0%,\n      #EF4444 50%,\n      #EC4899 100%);\n  --pm-gradient-cool:\n    linear-gradient(\n      135deg,\n      #06B6D4 0%,\n      #3B82F6 50%,\n      #6366F1 100%);\n  --pm-gradient-success:\n    linear-gradient(\n      135deg,\n      #10B981 0%,\n      #059669 100%);\n  --pm-gradient-hero:\n    linear-gradient(\n      135deg,\n      #667EEA 0%,\n      #764BA2 100%);\n  --pm-gradient-card-hover:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.03) 0%,\n      rgba(168, 85, 247, 0.06) 100%);\n  --pm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);\n  --pm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);\n  --pm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);\n  --pm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);\n  --pm-shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);\n  --pm-shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 6px 16px rgba(0,0,0,.04);\n  --pm-shadow-card-hover: 0 4px 12px rgba(0,0,0,.08), 0 12px 28px rgba(0,0,0,.06);\n  --pm-radius-sm: 8px;\n  --pm-radius-md: 12px;\n  --pm-radius-lg: 16px;\n  --pm-radius-xl: 24px;\n  --pm-radius-full: 9999px;\n  --pm-space-xs: 4px;\n  --pm-space-sm: 8px;\n  --pm-space-md: 16px;\n  --pm-space-lg: 24px;\n  --pm-space-xl: 32px;\n  --pm-space-2xl: 48px;\n  --pm-space-3xl: 64px;\n  --pm-text-xs: 0.75rem;\n  --pm-text-sm: 0.875rem;\n  --pm-text-base: 1rem;\n  --pm-text-lg: 1.125rem;\n  --pm-text-xl: 1.25rem;\n  --pm-text-2xl: 1.5rem;\n  --pm-text-3xl: 1.875rem;\n  --pm-text-4xl: 2.25rem;\n  --pm-text-5xl: 3rem;\n  --pm-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-spring: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  --pm-cat-mobile: #F97316;\n  --pm-cat-web: #3B82F6;\n  --pm-cat-wordpress: #8B5CF6;\n  --pm-cat-javascript: #EAB308;\n  --pm-cat-uikit: #EC4899;\n  --pm-cat-fullstack: #10B981;\n}\n[_nghost-%COMP%] {\n  display: block;\n  height: 100%;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n}\n.ais-root[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  background: var(--pm-surface);\n  overflow: hidden;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-bottom: 1px solid var(--pm-border-light);\n  background: #fff;\n}\n.header-brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: var(--pm-space-md);\n}\n.brand-icon[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-md);\n  background: var(--pm-gradient-primary);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20px;\n  box-shadow: var(--pm-shadow-glow);\n}\n.header-text[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-xl);\n  font-weight: 800;\n  margin: 0;\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n.header-text[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 10px;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  margin: 0;\n}\n.close-btn[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 28px;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n  transition: color var(--pm-transition-fast);\n}\n.close-btn[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.ais-nav[_ngcontent-%COMP%] {\n  display: flex;\n  padding: 0 var(--pm-space-lg);\n  gap: var(--pm-space-xl);\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.nav-item[_ngcontent-%COMP%] {\n  padding: var(--pm-space-md) 0;\n  font-weight: 600;\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  border-bottom: 2px solid transparent;\n  cursor: pointer;\n  transition: all var(--pm-transition-base);\n}\n.nav-item.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  border-bottom-color: var(--ion-color-primary);\n}\n.ais-body[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: var(--pm-space-lg);\n}\n.view-section[_ngcontent-%COMP%] {\n  max-width: 800px;\n  margin: 0 auto;\n  animation: _ngcontent-%COMP%_fadeIn 0.4s ease-out;\n}\n.section-header[_ngcontent-%COMP%] {\n  margin-bottom: var(--pm-space-xl);\n}\n.section-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-2xl);\n  margin-bottom: 8px;\n}\n.section-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n}\n.prompt-container[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: var(--pm-space-xl);\n}\n.prompt-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 120px;\n  padding: var(--pm-space-lg);\n  background: var(--pm-surface-muted);\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-lg);\n  font-family: inherit;\n  font-size: var(--pm-text-base);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: all var(--pm-transition-base);\n  resize: vertical;\n}\n.prompt-textarea[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n  background: #fff;\n  box-shadow: var(--pm-shadow-glow);\n}\n.prompt-status[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 10px;\n  font-weight: 700;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n}\n.status-dot[_ngcontent-%COMP%] {\n  width: 8px;\n  height: 8px;\n  background: var(--ion-color-success);\n  border-radius: 50%;\n  box-shadow: 0 0 8px var(--ion-color-success);\n}\n.schema-preview[_ngcontent-%COMP%] {\n  background: #0F172A;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  margin-bottom: var(--pm-space-xl);\n  box-shadow: var(--pm-shadow-lg);\n}\n.schema-preview[_ngcontent-%COMP%]   .preview-header[_ngcontent-%COMP%] {\n  padding: 12px 16px;\n  background: rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n  color: rgba(255, 255, 255, 0.4);\n}\n.schema-preview[_ngcontent-%COMP%]   .preview-code[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  margin: 0;\n  font-family:\n    "Courier New",\n    Courier,\n    monospace;\n  font-size: 13px;\n  line-height: 1.6;\n  color: #A78BFA;\n  overflow-x: auto;\n}\n.ais-action-btn[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 18px;\n  background: var(--pm-gradient-primary);\n  color: #fff;\n  border: none;\n  border-radius: var(--pm-radius-lg);\n  font-weight: 700;\n  font-size: var(--pm-text-base);\n  cursor: pointer;\n  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);\n  transition: all var(--pm-transition-base);\n}\n.ais-action-btn[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);\n}\n.ais-action-btn[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  position: relative;\n  padding-left: 40px;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 19px;\n  top: 5px;\n  bottom: 5px;\n  width: 2px;\n  background: var(--pm-border);\n}\n.step-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-start;\n  gap: var(--pm-space-lg);\n  margin-bottom: var(--pm-space-2xl);\n  position: relative;\n  transition: opacity 0.3s;\n}\n.step-item.inactive[_ngcontent-%COMP%] {\n  opacity: 0.3;\n}\n.step-circle[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #fff;\n  border: 2px solid var(--pm-border);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  font-size: 18px;\n  transition: all 0.4s;\n}\n.step-circle.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);\n}\n.step-circle.past[_ngcontent-%COMP%] {\n  background: var(--ion-color-primary);\n  border-color: var(--ion-color-primary);\n  color: #fff;\n}\n.step-info[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-lg);\n  margin-bottom: 4px;\n}\n.step-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-muted);\n}\n.step-info.active[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.status-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: var(--pm-space-2xl);\n}\n.status-header[_ngcontent-%COMP%]   .status-tag[_ngcontent-%COMP%] {\n  display: inline-block;\n  padding: 4px 12px;\n  background: rgba(99, 102, 241, 0.1);\n  color: var(--ion-color-primary);\n  border-radius: 99px;\n  font-size: 10px;\n  font-weight: 700;\n  margin-bottom: 12px;\n}\n.success-view[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: var(--pm-space-3xl) 0;\n}\n.success-view[_ngcontent-%COMP%]   .success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  background: var(--ion-color-success);\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 40px;\n  margin: 0 auto 32px;\n  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);\n}\n.success-view[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-4xl);\n  margin-bottom: 16px;\n  font-weight: 800;\n}\n.success-view[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin-bottom: 32px;\n}\n.history-view[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-bottom: var(--pm-space-xl);\n}\n.history-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-lg);\n  padding: var(--pm-space-lg);\n  margin-bottom: var(--pm-space-md);\n  transition: all var(--pm-transition-base);\n}\n.history-card[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-md);\n}\n.card-top[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 12px;\n}\n.card-top[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-lg);\n  color: var(--ion-color-primary);\n}\n.card-top[_ngcontent-%COMP%]   time[_ngcontent-%COMP%] {\n  font-size: 10px;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n}\n.status-pill[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 800;\n}\n.status-pill.ready[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: var(--ion-color-success);\n}\n.card-prompt[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-secondary);\n  font-style: italic;\n  margin-bottom: 16px;\n}\n.card-footer[_ngcontent-%COMP%] {\n  display: flex;\n  gap: var(--pm-space-lg);\n}\n.card-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%], \n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-xs);\n  font-weight: 700;\n}\n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n}\n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  border-top: 1px solid var(--pm-border-light);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n  color: var(--pm-text-muted);\n}\n.cluster-info[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pulse-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  background: var(--ion-color-primary);\n  border-radius: 50%;\n  animation: _ngcontent-%COMP%_pulse 2s infinite;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes _ngcontent-%COMP%_pulse {\n  0%, 100% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.4;\n  }\n}\n/*# sourceMappingURL=ai-build-studio.component.css.map */'], data: { animation: [
       trigger("stateAnim", [
         transition(":enter", [
           style({ opacity: 0, transform: "scale(0.95)" }),
@@ -960,11 +953,11 @@ Prompt: ${build.prompt}`);
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AIBuildStudioComponent, { className: "AIBuildStudioComponent", filePath: "src\\app\\components\\ai-build-studio\\ai-build-studio.component.ts", lineNumber: 253 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AIBuildStudioComponent, { className: "AIBuildStudioComponent", filePath: "src\\app\\components\\ai-build-studio\\ai-build-studio.component.ts", lineNumber: 213 });
 })();
 
 // src/app/pages/product-detail/product-detail.component.ts
-var _c02 = (a0) => ({ category: a0 });
+var _c0 = (a0) => ({ category: a0 });
 var _c1 = (a0) => ({ q: a0 });
 function ProductDetailComponent_div_1_Template(rf, ctx) {
   if (rf & 1) {
@@ -1868,7 +1861,7 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.maximizedImage);
     \u0275\u0275advance(10);
-    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(88, _c02, ctx_r2.product.category));
+    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(88, _c0, ctx_r2.product.category));
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r2.getCategoryLabel());
     \u0275\u0275advance(4);
@@ -2025,12 +2018,6 @@ var ProductDetailComponent = class _ProductDetailComponent {
       "pvp-games": "\u{1F3AE}"
     };
     this.currentProductId = null;
-    effect(() => {
-      const all = this.marketplace.allProducts();
-      if (this.currentProductId && !this.product && all.length > 0) {
-        this.loadProduct(this.currentProductId);
-      }
-    }, { allowSignalWrites: true });
   }
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -2064,10 +2051,8 @@ var ProductDetailComponent = class _ProductDetailComponent {
       if (this.product.youtubeUrl) {
         this.safeYoutubeUrl = this.getYoutubeEmbedUrl(this.product.youtubeUrl);
       }
-      setTimeout(() => this.isLoading.set(false), 300);
-    } else if (this.marketplace.initialLoadComplete()) {
-      this.isLoading.set(false);
     }
+    this.isLoading.set(false);
   }
   getYoutubeEmbedUrl(url) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]*).*/;
@@ -2219,4 +2204,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-VW36HBCC.js.map
+//# sourceMappingURL=chunk-QJQ3V5KS.js.map
