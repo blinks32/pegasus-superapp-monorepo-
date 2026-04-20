@@ -202,10 +202,10 @@ import { animate, style, transition, trigger } from '@angular/animations';
                   <p class="text-[10px] text-zinc-500 uppercase tracking-tighter">{{ build.timestamp | date:'medium' }}</p>
                 </div>
                 <span class="px-2 py-1 rounded text-[10px] font-bold" 
-                      [class.bg-green-500/10]="build.status === 'ready'"
-                      [class.text-green-500]="build.status === 'ready'"
-                      [class.bg-red-500/10]="build.status === 'failed'"
-                      [class.text-red-500]="build.status === 'failed'">
+                      [ngClass]="{
+                        'bg-green-500/10 text-green-500': build.status === 'ready',
+                        'bg-red-500/10 text-red-500': build.status === 'failed'
+                      }">
                   {{ build.status | uppercase }}
                 </span>
               </div>

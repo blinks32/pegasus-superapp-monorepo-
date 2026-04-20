@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["angular:styles/component:css;f7eaea39b01e70715015dc11309ecd5d7f18ec6a86f5f0c90321f7fe8ecd009a;C:/Users/USER/Documents/pegasus-superapp-monorepo-/src/app/components/ai-build-studio/ai-build-studio.component.ts"],
+  "sourcesContent": ["\n    .fade-in {\n      animation: fadeIn 0.4s ease-out;\n    }\n    @keyframes fadeIn {\n      from { opacity: 0; transform: translateY(10px); }\n      to { opacity: 1; transform: translateY(0); }\n    }\n  "],
+  "mappings": ";AACI,CAAC;AACC,aAAW,OAAO,KAAK;AACzB;AACA,WAFa;AAGX;AAAO,aAAS;AAAG,eAAW,WAAW;AAAO;AAChD;AAAK,aAAS;AAAG,eAAW,WAAW;AAAI;AAC7C;",
+  "names": []
+}

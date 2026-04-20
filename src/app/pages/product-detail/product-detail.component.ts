@@ -336,7 +336,7 @@ import { ModalController } from '@ionic/angular';
               </label>
             </div>
 
-            <ng-container *ngIf="!showAiBuilder">
+
               <button class="pm-btn pm-btn-success pm-btn-lg" style="width:100%; margin-top: 8px"
                       (click)="addToCart()"
                       [class.added]="isInCart">
@@ -352,7 +352,8 @@ import { ModalController } from '@ionic/angular';
                   <span class="ai-sparkle">✨</span> AI Studio: Customize & Deploy
                 </span>
               </button>
-            </ng-container>
+
+            
 
 
 
