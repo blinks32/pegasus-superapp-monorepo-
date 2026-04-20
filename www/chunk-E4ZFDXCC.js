@@ -3,7 +3,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-VBYU2D6T.js";
+} from "./chunk-CHDXGT3Q.js";
 import {
   CommonModule,
   DatePipe,
@@ -36,7 +36,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2
-} from "./chunk-FBYZR7PH.js";
+} from "./chunk-DCEMYP2Z.js";
 import "./chunk-5K356HEJ.js";
 
 // src/app/pages/sell/seller-dashboard.component.ts
@@ -290,4 +290,4 @@ var SellerDashboardComponent = class _SellerDashboardComponent {
 export {
   SellerDashboardComponent
 };
-//# sourceMappingURL=chunk-VISFVVDW.js.map
+//# sourceMappingURL=chunk-E4ZFDXCC.js.map

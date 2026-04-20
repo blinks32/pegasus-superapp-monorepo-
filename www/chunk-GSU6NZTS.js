@@ -1,4 +1,13 @@
 import {
+  ProductCardComponent
+} from "./chunk-UPHU4NJ5.js";
+import {
+  AuthService,
+  FooterComponent,
+  HeaderComponent,
+  MarketplaceService
+} from "./chunk-CHDXGT3Q.js";
+import {
   IonContent,
   ModalController,
   animate,
@@ -6,30 +15,19 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-DHOEBXB3.js";
-import "./chunk-RLLLK2NX.js";
-import "./chunk-LCF4N3YM.js";
+} from "./chunk-ZPOKBCJ7.js";
 import "./chunk-5JYJ7K33.js";
 import "./chunk-BARXMHI7.js";
 import {
-  ProductCardComponent
-} from "./chunk-KTA6LUZO.js";
-import {
-  AuthService,
-  FooterComponent,
-  HeaderComponent,
-  MarketplaceService
-} from "./chunk-VBYU2D6T.js";
-import {
   SeoService
-} from "./chunk-2UKN7PKU.js";
+} from "./chunk-PDJHI4Z5.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
   NgControlStatus,
   NgModel
-} from "./chunk-36DL7JJS.js";
+} from "./chunk-GSIM2S2G.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -92,16 +90,18 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-FBYZR7PH.js";
-import "./chunk-77PJMC5V.js";
-import "./chunk-CCWKYVAO.js";
-import "./chunk-MMN6JBV3.js";
-import "./chunk-OFPQOJLF.js";
-import "./chunk-DVBWEDNF.js";
+} from "./chunk-DCEMYP2Z.js";
+import "./chunk-PNZEID6F.js";
+import "./chunk-Z4KXYCID.js";
+import "./chunk-3MR67STO.js";
+import "./chunk-PYIFS7WQ.js";
 import "./chunk-2NCJX5FR.js";
-import "./chunk-KXQDCBXG.js";
 import "./chunk-WED6EE3F.js";
+import "./chunk-RLLLK2NX.js";
+import "./chunk-LCF4N3YM.js";
+import "./chunk-KXQDCBXG.js";
 import "./chunk-T2KHARD3.js";
+import "./chunk-DVBWEDNF.js";
 import {
   __async,
   __spreadProps,
@@ -2203,4 +2203,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-Z6CMW5SU.js.map
+//# sourceMappingURL=chunk-GSU6NZTS.js.map

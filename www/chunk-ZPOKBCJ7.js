@@ -1,12 +1,4 @@
 import {
-  t as t5
-} from "./chunk-RLLLK2NX.js";
-import {
-  i as i4,
-  r as r3,
-  t as t4
-} from "./chunk-LCF4N3YM.js";
-import {
   a as a2,
   e as e3,
   f as f3,
@@ -23,7 +15,7 @@ import {
 import {
   NG_VALUE_ACCESSOR,
   NgControl
-} from "./chunk-36DL7JJS.js";
+} from "./chunk-GSIM2S2G.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_INITIALIZER,
@@ -114,7 +106,7 @@ import {
   ɵɵrestoreView,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-FBYZR7PH.js";
+} from "./chunk-DCEMYP2Z.js";
 import {
   B,
   D,
@@ -127,19 +119,28 @@ import {
   s as s3,
   t as t2,
   v as v2
-} from "./chunk-MMN6JBV3.js";
+} from "./chunk-3MR67STO.js";
 import {
   a,
   c as c3,
   o as o3
-} from "./chunk-OFPQOJLF.js";
-import {
-  d,
-  o as o2
-} from "./chunk-DVBWEDNF.js";
+} from "./chunk-PYIFS7WQ.js";
 import {
   o as o4
 } from "./chunk-2NCJX5FR.js";
+import {
+  h,
+  i as i2,
+  s as s4
+} from "./chunk-WED6EE3F.js";
+import {
+  t as t5
+} from "./chunk-RLLLK2NX.js";
+import {
+  i as i4,
+  r as r3,
+  t as t4
+} from "./chunk-LCF4N3YM.js";
 import {
   T,
   _,
@@ -161,11 +162,6 @@ import {
   y
 } from "./chunk-KXQDCBXG.js";
 import {
-  h,
-  i as i2,
-  s as s4
-} from "./chunk-WED6EE3F.js";
-import {
   Ct,
   Dn,
   I,
@@ -186,6 +182,10 @@ import {
   s,
   u
 } from "./chunk-T2KHARD3.js";
+import {
+  d,
+  o as o2
+} from "./chunk-DVBWEDNF.js";
 import {
   __async,
   __objRest,
@@ -3888,7 +3888,7 @@ var b5 = Dn(class extends I {
       const t16 = () => {
         this.gestureOrAnimationInProgress = true, this.swipeHandler && this.swipeHandler.onStart();
       };
-      this.gesture = (yield import("./chunk-WOIRD7CM.js")).createSwipeBackGesture(this.el, () => !this.gestureOrAnimationInProgress && !!this.swipeHandler && this.swipeHandler.canStart(), () => t16(), (t17) => {
+      this.gesture = (yield import("./chunk-U4BMTAHI.js")).createSwipeBackGesture(this.el, () => !this.gestureOrAnimationInProgress && !!this.swipeHandler && this.swipeHandler.canStart(), () => t16(), (t17) => {
         var i15;
         return null === (i15 = this.ani) || void 0 === i15 ? void 0 : i15.progressStep(t17);
       }, (t17, i15, s21) => {
@@ -7343,11 +7343,11 @@ var d6 = Dn(class extends I {
   componentDidLoad() {
     this.rIC(() => __async(this, null, function* () {
       const t16 = s5(window, "hybrid");
-      if (n.getBoolean("_testing") || import("./chunk-NIO3G2MU.js").then((t17) => t17.startTapClick(n)), n.getBoolean("statusTap", t16) && import("./chunk-4TQH7XMA.js").then((t17) => t17.startStatusTap()), n.getBoolean("inputShims", m7())) {
+      if (n.getBoolean("_testing") || import("./chunk-NML7QAZG.js").then((t17) => t17.startTapClick(n)), n.getBoolean("statusTap", t16) && import("./chunk-4TQH7XMA.js").then((t17) => t17.startStatusTap()), n.getBoolean("inputShims", m7())) {
         const t17 = s5(window, "ios") ? "ios" : "android";
-        import("./chunk-6VAJD7DW.js").then((e16) => e16.startInputShims(n, t17));
+        import("./chunk-ZLCHVDVA.js").then((e16) => e16.startInputShims(n, t17));
       }
-      const e15 = yield import("./chunk-T3SAKTBD.js"), i15 = t16 || o3();
+      const e15 = yield import("./chunk-6BBNBSLN.js"), i15 = t16 || o3();
       n.getBoolean("hardwareBackButton", i15) ? e15.startHardwareBackButton() : (o3() && u("[ion-app] - experimentalCloseWatcher was set to `true`, but hardwareBackButton was set to `false`. Both config options must be `true` for the Close Watcher API to be used."), e15.blockHardwareBackButton()), "undefined" != typeof window && import("./chunk-A6CKESCW.js").then((t17) => t17.startKeyboardAssist(window)), import("./chunk-APDYASZD.js").then((t17) => this.focusVisible = t17.startFocusVisible());
     }));
   }
@@ -15998,7 +15998,7 @@ var k7 = Dn(class extends I {
   }
   componentDidLoad() {
     return __async(this, null, function* () {
-      this.didLoad = true, this.rootChanged(), this.gesture = (yield import("./chunk-WOIRD7CM.js")).createSwipeBackGesture(this.el, this.canStart.bind(this), this.onStart.bind(this), this.onMove.bind(this), this.onEnd.bind(this)), this.swipeGestureChanged();
+      this.didLoad = true, this.rootChanged(), this.gesture = (yield import("./chunk-U4BMTAHI.js")).createSwipeBackGesture(this.el, this.canStart.bind(this), this.onStart.bind(this), this.onMove.bind(this), this.onEnd.bind(this)), this.swipeGestureChanged();
     });
   }
   connectedCallback() {
@@ -29833,6 +29833,11 @@ var environment = {
 };
 
 export {
+  IonRouterOutlet2 as IonRouterOutlet,
+  IonApp,
+  IonContent,
+  ModalController,
+  provideIonicAngular,
   AnimationMetadataType,
   AUTO_STYLE,
   trigger,
@@ -29843,9 +29848,6 @@ export {
   NoopAnimationPlayer,
   AnimationGroupPlayer,
   ɵPRE_STYLE,
-  IonContent,
-  ModalController,
-  provideIonicAngular,
   environment
 };
-//# sourceMappingURL=chunk-DHOEBXB3.js.map
+//# sourceMappingURL=chunk-ZPOKBCJ7.js.map

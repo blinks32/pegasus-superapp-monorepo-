@@ -2,21 +2,22 @@ import {
   AUTO_STYLE,
   AnimationGroupPlayer,
   AnimationMetadataType,
+  IonApp,
+  IonRouterOutlet,
+  ModalController,
   NoopAnimationPlayer,
   environment,
   provideIonicAngular,
   sequence,
   style,
   ɵPRE_STYLE
-} from "./chunk-DHOEBXB3.js";
-import "./chunk-RLLLK2NX.js";
-import "./chunk-LCF4N3YM.js";
+} from "./chunk-ZPOKBCJ7.js";
 import "./chunk-5JYJ7K33.js";
 import "./chunk-BARXMHI7.js";
 import {
   SeoService
-} from "./chunk-2UKN7PKU.js";
-import "./chunk-36DL7JJS.js";
+} from "./chunk-PDJHI4Z5.js";
+import "./chunk-GSIM2S2G.js";
 import {
   ANIMATION_MODULE_TYPE,
   BrowserModule,
@@ -29,7 +30,6 @@ import {
   NgZone,
   PreloadAllModules,
   RendererFactory2,
-  RouterOutlet,
   RuntimeError,
   Title,
   bootstrapApplication,
@@ -53,17 +53,21 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵelement,
+  ɵɵelementEnd,
+  ɵɵelementStart,
   ɵɵinject
-} from "./chunk-FBYZR7PH.js";
-import "./chunk-77PJMC5V.js";
-import "./chunk-CCWKYVAO.js";
-import "./chunk-MMN6JBV3.js";
-import "./chunk-OFPQOJLF.js";
-import "./chunk-DVBWEDNF.js";
+} from "./chunk-DCEMYP2Z.js";
+import "./chunk-PNZEID6F.js";
+import "./chunk-Z4KXYCID.js";
+import "./chunk-3MR67STO.js";
+import "./chunk-PYIFS7WQ.js";
 import "./chunk-2NCJX5FR.js";
-import "./chunk-KXQDCBXG.js";
 import "./chunk-WED6EE3F.js";
+import "./chunk-RLLLK2NX.js";
+import "./chunk-LCF4N3YM.js";
+import "./chunk-KXQDCBXG.js";
 import "./chunk-T2KHARD3.js";
+import "./chunk-DVBWEDNF.js";
 import {
   __objRest,
   __spreadValues
@@ -85,15 +89,17 @@ var AppComponent = class _AppComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 1, vars: 0, template: function AppComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AppComponent, selectors: [["app-root"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 2, vars: 0, template: function AppComponent_Template(rf, ctx) {
       if (rf & 1) {
-        \u0275\u0275element(0, "router-outlet");
+        \u0275\u0275elementStart(0, "ion-app");
+        \u0275\u0275element(1, "ion-router-outlet");
+        \u0275\u0275elementEnd();
       }
-    }, dependencies: [RouterOutlet], styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n  min-height: 100vh;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
+    }, dependencies: [IonApp, IonRouterOutlet], styles: ["\n\n[_nghost-%COMP%] {\n  display: block;\n  min-height: 100vh;\n}\n/*# sourceMappingURL=app.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 12 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AppComponent, { className: "AppComponent", filePath: "src\\app\\app.component.ts", lineNumber: 16 });
 })();
 
 // node_modules/@angular/animations/fesm2022/browser.mjs
@@ -4170,23 +4176,23 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-EK6REPGW.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-J2RMFLYK.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-3DRFD7F5.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-RBHHTAIN.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-Z6CMW5SU.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-GSU6NZTS.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-GUARKVLX.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-LRH3MWCI.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-WPGAWDUN.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-EMLYFRWJ.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4194,35 +4200,35 @@ var routes = [
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-L7C5BD4K.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-VMOZPX4B.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-S3E3FUXR.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-VXOJD5AQ.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-NQORZUXD.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-E54DEVGT.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-ZJKNW7YJ.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-SDDUW3PJ.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-BX3X23KA.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-X435ATZP.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-45MJDKI2.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-OXUTOHAM.js").then((m) => m.GuideComponent)
   },
   {
     path: "sell",
-    loadComponent: () => import("./chunk-5GLESSSA.js").then((m) => m.SellComponent)
+    loadComponent: () => import("./chunk-SWMBBMLI.js").then((m) => m.SellComponent)
   },
   {
     path: "sell/dashboard",
-    loadComponent: () => import("./chunk-VISFVVDW.js").then((m) => m.SellerDashboardComponent)
+    loadComponent: () => import("./chunk-E4ZFDXCC.js").then((m) => m.SellerDashboardComponent)
   },
   {
     path: "**",
@@ -4237,6 +4243,7 @@ var appConfig = {
     provideAnimations(),
     provideHttpClient(),
     provideIonicAngular({}),
+    ModalController,
     Title,
     Meta,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
