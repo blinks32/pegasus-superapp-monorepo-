@@ -5,7 +5,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-HS73AGKG.js";
+} from "./chunk-L3MOXFDZ.js";
 import {
   SeoService
 } from "./chunk-NROIVCYZ.js";
@@ -189,4 +189,4 @@ var HomeComponent = class _HomeComponent {
 export {
   HomeComponent
 };
-//# sourceMappingURL=chunk-LQB4SNCA.js.map
+//# sourceMappingURL=chunk-2WGU7RQH.js.map

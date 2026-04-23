@@ -3,7 +3,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-HS73AGKG.js";
+} from "./chunk-L3MOXFDZ.js";
 import {
   CommonModule,
   DatePipe,
@@ -290,4 +290,4 @@ var SellerDashboardComponent = class _SellerDashboardComponent {
 export {
   SellerDashboardComponent
 };
-//# sourceMappingURL=chunk-MJJJID2S.js.map
+//# sourceMappingURL=chunk-B5VQ55YU.js.map

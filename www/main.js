@@ -67,7 +67,7 @@ import {
   setIonicClasses,
   style,
   ɵPRE_STYLE
-} from "./chunk-M2UXXAMM.js";
+} from "./chunk-H4I5LEG4.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import {
@@ -4289,23 +4289,23 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-LQB4SNCA.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-2WGU7RQH.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-IV3D67QL.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-ASFWQ622.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-CZU4U7XI.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-DWVYCQMN.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-IHHZWRQG.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-NRNBAE3E.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-GMVXCWEP.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-SEMUC7GX.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4313,35 +4313,35 @@ var routes = [
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-EQYPFJ6W.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-CSABU4M5.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-MRCQTRU5.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-QNIAUYWO.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-7NOWPVR2.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-CKPPX4PJ.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-VA7ED2QX.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-BW6O5AFN.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-UH2FSNGB.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-LRH57LNR.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-2IP5TQW3.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-ISKHTR3P.js").then((m) => m.GuideComponent)
   },
   {
     path: "sell",
-    loadComponent: () => import("./chunk-VHDO7DRZ.js").then((m) => m.SellComponent)
+    loadComponent: () => import("./chunk-ZMQ225OZ.js").then((m) => m.SellComponent)
   },
   {
     path: "sell/dashboard",
-    loadComponent: () => import("./chunk-MJJJID2S.js").then((m) => m.SellerDashboardComponent)
+    loadComponent: () => import("./chunk-B5VQ55YU.js").then((m) => m.SellerDashboardComponent)
   },
   {
     path: "**",

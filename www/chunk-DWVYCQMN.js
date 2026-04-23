@@ -6,7 +6,7 @@ import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-HS73AGKG.js";
+} from "./chunk-L3MOXFDZ.js";
 import {
   IonContent,
   ModalController,
@@ -15,7 +15,7 @@ import {
   style,
   transition,
   trigger
-} from "./chunk-M2UXXAMM.js";
+} from "./chunk-H4I5LEG4.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import {
@@ -424,7 +424,7 @@ var AiBuildService = class _AiBuildService {
     return this.http.get(`${this.baseUrl}/history?user_id=${userId}`).pipe(catchError(() => of([])));
   }
   pollBuildStatus(buildId) {
-    return interval(3e3).pipe(startWith(0), switchMap(() => this.getBuildStatus(buildId)), takeWhile((status) => status.status !== "ready" && status.status !== "failed" && status.status !== "not_found", true));
+    return interval(3e3).pipe(startWith(0), switchMap(() => this.getBuildStatus(buildId)), takeWhile((status) => status.status !== "success" && status.status !== "failed" && status.status !== "not_found", true));
   }
   static {
     this.\u0275fac = function AiBuildService_Factory(__ngFactoryType__) {
@@ -526,7 +526,7 @@ function AIBuildStudioComponent_div_19_div_2_span_12_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_20_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2696\uFE0F");
+    \u0275\u0275text(1, "\u{1F6E0}\uFE0F");
     \u0275\u0275elementEnd();
   }
 }
@@ -540,39 +540,11 @@ function AIBuildStudioComponent_div_19_div_2_span_21_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_div_2_span_29_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u26A1");
-    \u0275\u0275elementEnd();
-  }
-}
-function AIBuildStudioComponent_div_19_div_2_span_30_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2713");
-    \u0275\u0275elementEnd();
-  }
-}
-function AIBuildStudioComponent_div_19_div_2_span_38_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u{1F6E0}\uFE0F");
-    \u0275\u0275elementEnd();
-  }
-}
-function AIBuildStudioComponent_div_19_div_2_span_39_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span");
-    \u0275\u0275text(1, "\u2713");
-    \u0275\u0275elementEnd();
-  }
-}
-function AIBuildStudioComponent_div_19_div_2_span_47_Template(rf, ctx) {
-  if (rf & 1) {
-    \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1, "\u{1F4E6}");
     \u0275\u0275elementEnd();
   }
 }
-function AIBuildStudioComponent_div_19_div_2_span_48_Template(rf, ctx) {
+function AIBuildStudioComponent_div_19_div_2_span_30_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1, "\u2713");
@@ -594,80 +566,42 @@ function AIBuildStudioComponent_div_19_div_2_Template(rf, ctx) {
     \u0275\u0275template(11, AIBuildStudioComponent_div_19_div_2_span_11_Template, 2, 0, "span", 29)(12, AIBuildStudioComponent_div_19_div_2_span_12_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(13, "div", 36)(14, "h3");
-    \u0275\u0275text(15, "Analyzing");
+    \u0275\u0275text(15, "AI Configuring");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(16, "p");
-    \u0275\u0275text(17, "AI generating new configuration based on instructions.");
+    \u0275\u0275text(17, "Analyzing requirements, validating schema, and provisioning.");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(18, "div", 34)(19, "div", 35);
     \u0275\u0275template(20, AIBuildStudioComponent_div_19_div_2_span_20_Template, 2, 0, "span", 29)(21, AIBuildStudioComponent_div_19_div_2_span_21_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(22, "div", 36)(23, "h3");
-    \u0275\u0275text(24, "Validating");
+    \u0275\u0275text(24, "Compiling");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(25, "p");
-    \u0275\u0275text(26, "Security audit & schema integrity checks.");
+    \u0275\u0275text(26, "Triggering GitHub Actions & building application bundle.");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(27, "div", 34)(28, "div", 35);
     \u0275\u0275template(29, AIBuildStudioComponent_div_19_div_2_span_29_Template, 2, 0, "span", 29)(30, AIBuildStudioComponent_div_19_div_2_span_30_Template, 2, 0, "span", 29);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(31, "div", 36)(32, "h3");
-    \u0275\u0275text(33, "Provisioning");
+    \u0275\u0275text(33, "Delivering");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(34, "p");
-    \u0275\u0275text(35, "Triggering Build Engine & environment setup.");
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(36, "div", 34)(37, "div", 35);
-    \u0275\u0275template(38, AIBuildStudioComponent_div_19_div_2_span_38_Template, 2, 0, "span", 29)(39, AIBuildStudioComponent_div_19_div_2_span_39_Template, 2, 0, "span", 29);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(40, "div", 36)(41, "h3");
-    \u0275\u0275text(42, "Compiling");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(43, "p");
-    \u0275\u0275text(44, "Real-time binary generation (may take 2-4 mins).");
-    \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(45, "div", 34)(46, "div", 35);
-    \u0275\u0275template(47, AIBuildStudioComponent_div_19_div_2_span_47_Template, 2, 0, "span", 29)(48, AIBuildStudioComponent_div_19_div_2_span_48_Template, 2, 0, "span", 29);
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(49, "div", 36)(50, "h3");
-    \u0275\u0275text(51, "Delivering");
-    \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(52, "p");
-    \u0275\u0275text(53, "Final packaging & delivery of secure link.");
+    \u0275\u0275text(35, "Final packaging & delivery of secure link.");
     \u0275\u0275elementEnd()()()()();
   }
   if (rf & 2) {
     const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(9);
-    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("analyzing") && !ctx_r1.isPastStep("analyzing"));
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("configuring") && !ctx_r1.isPastStep("configuring"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("analyzing"))("past", ctx_r1.isPastStep("analyzing"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("configuring"))("past", ctx_r1.isPastStep("configuring"));
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r1.isPastStep("analyzing"));
+    \u0275\u0275property("ngIf", !ctx_r1.isPastStep("configuring"));
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.isPastStep("analyzing"));
+    \u0275\u0275property("ngIf", ctx_r1.isPastStep("configuring"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("analyzing"));
-    \u0275\u0275advance(5);
-    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("validating") && !ctx_r1.isPastStep("validating"));
-    \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("validating"))("past", ctx_r1.isPastStep("validating"));
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r1.isPastStep("validating"));
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.isPastStep("validating"));
-    \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("validating"));
-    \u0275\u0275advance(5);
-    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("provisioning") && !ctx_r1.isPastStep("provisioning"));
-    \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("provisioning"))("past", ctx_r1.isPastStep("provisioning"));
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", !ctx_r1.isPastStep("provisioning"));
-    \u0275\u0275advance();
-    \u0275\u0275property("ngIf", ctx_r1.isPastStep("provisioning"));
-    \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("provisioning"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("configuring"));
     \u0275\u0275advance(5);
     \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("compiling") && !ctx_r1.isPastStep("compiling"));
     \u0275\u0275advance();
@@ -679,15 +613,15 @@ function AIBuildStudioComponent_div_19_div_2_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275classProp("active", ctx_r1.isCurrentStep("compiling"));
     \u0275\u0275advance(5);
-    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("ready"));
+    \u0275\u0275classProp("inactive", !ctx_r1.isCurrentStep("success"));
     \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("ready"))("past", ctx_r1.isPastStep("ready"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("success"))("past", ctx_r1.isPastStep("success"));
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", (ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.status) !== "ready");
+    \u0275\u0275property("ngIf", (ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.status) !== "success");
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", (ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.status) === "ready");
+    \u0275\u0275property("ngIf", (ctx_r1.currentStatus == null ? null : ctx_r1.currentStatus.status) === "success");
     \u0275\u0275advance();
-    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("ready"));
+    \u0275\u0275classProp("active", ctx_r1.isCurrentStep("success"));
   }
 }
 function AIBuildStudioComponent_div_19_div_3_Template(rf, ctx) {
@@ -724,7 +658,7 @@ function AIBuildStudioComponent_div_19_div_3_Template(rf, ctx) {
 function AIBuildStudioComponent_div_19_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 14);
-    \u0275\u0275template(1, AIBuildStudioComponent_div_19_div_1_Template, 25, 10, "div", 15)(2, AIBuildStudioComponent_div_19_div_2_Template, 54, 50, "div", 16)(3, AIBuildStudioComponent_div_19_div_3_Template, 12, 1, "div", 17);
+    \u0275\u0275template(1, AIBuildStudioComponent_div_19_div_1_Template, 25, 10, "div", 15)(2, AIBuildStudioComponent_div_19_div_2_Template, 36, 30, "div", 16)(3, AIBuildStudioComponent_div_19_div_3_Template, 12, 1, "div", 17);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -795,7 +729,7 @@ function AIBuildStudioComponent_div_20_div_4_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate1('"', build_r5.prompt, '"');
     \u0275\u0275advance(2);
-    \u0275\u0275property("ngIf", build_r5.status === "ready");
+    \u0275\u0275property("ngIf", build_r5.status === "success");
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", build_r5.downloadUrl);
   }
@@ -860,7 +794,7 @@ var AIBuildStudioComponent = class _AIBuildStudioComponent {
     this.buildService.pollBuildStatus(buildId).subscribe({
       next: (status) => {
         this.currentStatus = status;
-        if (status.status === "ready") {
+        if (status.status === "success") {
           this.viewState = "success";
           this.isBuilding = false;
         }
@@ -881,8 +815,8 @@ Prompt: ${build.prompt}`);
     return this.currentStatus?.status === step;
   }
   isPastStep(step) {
-    const steps = ["analyzing", "validating", "provisioning", "compiling", "ready"];
-    const currentIndex = steps.indexOf(this.currentStatus?.status || "analyzing");
+    const steps = ["configuring", "compiling", "success"];
+    const currentIndex = steps.indexOf(this.currentStatus?.status || "configuring");
     const stepIndex = steps.indexOf(step);
     return currentIndex > stepIndex;
   }
@@ -953,7 +887,7 @@ Prompt: ${build.prompt}`);
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AIBuildStudioComponent, { className: "AIBuildStudioComponent", filePath: "src\\app\\components\\ai-build-studio\\ai-build-studio.component.ts", lineNumber: 213 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AIBuildStudioComponent, { className: "AIBuildStudioComponent", filePath: "src\\app\\components\\ai-build-studio\\ai-build-studio.component.ts", lineNumber: 189 });
 })();
 
 // src/app/pages/product-detail/product-detail.component.ts
@@ -2204,4 +2138,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-CZU4U7XI.js.map
+//# sourceMappingURL=chunk-DWVYCQMN.js.map

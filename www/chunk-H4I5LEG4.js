@@ -29829,7 +29829,7 @@ var environment = {
     appId: "1:711315471580:web:f7586fa4c9e44d5176c819",
     measurementId: "G-DDQH0VJ7GR"
   },
-  workerUrl: "http://localhost:8787"
+  workerUrl: "https://ai-build-factory.chndth.workers.dev"
 };
 
 export {
@@ -29868,4 +29868,4 @@ export {
   ɵPRE_STYLE,
   environment
 };
-//# sourceMappingURL=chunk-M2UXXAMM.js.map
+//# sourceMappingURL=chunk-H4I5LEG4.js.map

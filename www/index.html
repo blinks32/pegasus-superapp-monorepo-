@@ -11,7 +11,7 @@
   <base href="/"/>
 
   <meta name="color-scheme" content="light"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <meta name="format-detection" content="telephone=no"/>
   <meta name="theme-color" content="#6366F1"/>
 
@@ -92,6 +92,13 @@
 <link rel="stylesheet" href="styles.css"></head>
 
 <body>
+  <!-- Override Ionic structure.css: position:fixed + overflow:hidden breaks scrolling
+       when not using ion-content. Must be inline to survive production CSS optimization. -->
+  <style>
+    body { position: relative !important; overflow-y: auto !important; max-height: none !important; }
+    ion-app { overflow: auto !important; contain: none !important; }
+    ion-app .ion-page { overflow: auto !important; contain: none !important; position: relative !important; }
+  </style>
   <app-root></app-root>
 <link rel="modulepreload" href="chunk-LUHB4R5V.js"><link rel="modulepreload" href="chunk-ZXZ3SF7U.js"><link rel="modulepreload" href="chunk-35CO2ZXY.js"><link rel="modulepreload" href="chunk-UMGSPZOI.js"><link rel="modulepreload" href="chunk-MENACPOF.js"><link rel="modulepreload" href="chunk-EUE5VIVC.js"><link rel="modulepreload" href="chunk-WLIFMEFR.js"><link rel="modulepreload" href="chunk-5Y5NNO7P.js"><link rel="modulepreload" href="chunk-JEPLCGF5.js"><link rel="modulepreload" href="chunk-2DNWBSVZ.js"><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script></body>
 </html>
