@@ -92,6 +92,13 @@
 </head>
 
 <body>
+  <!-- Override Ionic structure.css: position:fixed + overflow:hidden breaks scrolling
+       when not using ion-content. Must be inline to survive production CSS optimization. -->
+  <style>
+    body { position: relative !important; overflow-y: auto !important; max-height: none !important; }
+    ion-app { overflow: auto !important; contain: none !important; }
+    ion-app .ion-page { overflow: auto !important; contain: none !important; position: relative !important; }
+  </style>
   <app-root></app-root>
 </body>
 </html>

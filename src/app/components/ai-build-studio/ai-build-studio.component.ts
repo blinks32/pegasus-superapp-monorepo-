@@ -90,39 +90,15 @@ import { animate, style, transition, trigger } from '@angular/animations';
               <!-- Stepper -->
               <div class="ais-stepper">
                 
-                <!-- Step: Analyzing -->
-                <div class="step-item" [class.inactive]="!isCurrentStep('analyzing') && !isPastStep('analyzing')">
-                  <div class="step-circle" [class.active]="isCurrentStep('analyzing')" [class.past]="isPastStep('analyzing')">
-                    <span *ngIf="!isPastStep('analyzing')">🧠</span>
-                    <span *ngIf="isPastStep('analyzing')">✓</span>
+                <!-- Step: Configuring -->
+                <div class="step-item" [class.inactive]="!isCurrentStep('configuring') && !isPastStep('configuring')">
+                  <div class="step-circle" [class.active]="isCurrentStep('configuring')" [class.past]="isPastStep('configuring')">
+                    <span *ngIf="!isPastStep('configuring')">🧠</span>
+                    <span *ngIf="isPastStep('configuring')">✓</span>
                   </div>
-                  <div class="step-info" [class.active]="isCurrentStep('analyzing')">
-                    <h3>Analyzing</h3>
-                    <p>AI generating new configuration based on instructions.</p>
-                  </div>
-                </div>
-
-                <!-- Step: Validating -->
-                <div class="step-item" [class.inactive]="!isCurrentStep('validating') && !isPastStep('validating')">
-                  <div class="step-circle" [class.active]="isCurrentStep('validating')" [class.past]="isPastStep('validating')">
-                    <span *ngIf="!isPastStep('validating')">⚖️</span>
-                    <span *ngIf="isPastStep('validating')">✓</span>
-                  </div>
-                  <div class="step-info" [class.active]="isCurrentStep('validating')">
-                    <h3>Validating</h3>
-                    <p>Security audit & schema integrity checks.</p>
-                  </div>
-                </div>
-
-                <!-- Step: Provisioning -->
-                <div class="step-item" [class.inactive]="!isCurrentStep('provisioning') && !isPastStep('provisioning')">
-                  <div class="step-circle" [class.active]="isCurrentStep('provisioning')" [class.past]="isPastStep('provisioning')">
-                    <span *ngIf="!isPastStep('provisioning')">⚡</span>
-                    <span *ngIf="isPastStep('provisioning')">✓</span>
-                  </div>
-                  <div class="step-info" [class.active]="isCurrentStep('provisioning')">
-                    <h3>Provisioning</h3>
-                    <p>Triggering Build Engine & environment setup.</p>
+                  <div class="step-info" [class.active]="isCurrentStep('configuring')">
+                    <h3>AI Configuring</h3>
+                    <p>Analyzing requirements, validating schema, and provisioning.</p>
                   </div>
                 </div>
 
@@ -134,17 +110,17 @@ import { animate, style, transition, trigger } from '@angular/animations';
                   </div>
                   <div class="step-info" [class.active]="isCurrentStep('compiling')">
                     <h3>Compiling</h3>
-                    <p>Real-time binary generation (may take 2-4 mins).</p>
+                    <p>Triggering GitHub Actions & building application bundle.</p>
                   </div>
                 </div>
 
-                <!-- Step: Delivering -->
-                <div class="step-item" [class.inactive]="!isCurrentStep('ready')">
-                  <div class="step-circle" [class.active]="isCurrentStep('ready')" [class.past]="isPastStep('ready')">
-                    <span *ngIf="currentStatus?.status !== 'ready'">📦</span>
-                    <span *ngIf="currentStatus?.status === 'ready'">✓</span>
+                <!-- Step: Success -->
+                <div class="step-item" [class.inactive]="!isCurrentStep('success')">
+                  <div class="step-circle" [class.active]="isCurrentStep('success')" [class.past]="isPastStep('success')">
+                    <span *ngIf="currentStatus?.status !== 'success'">📦</span>
+                    <span *ngIf="currentStatus?.status === 'success'">✓</span>
                   </div>
-                  <div class="step-info" [class.active]="isCurrentStep('ready')">
+                  <div class="step-info" [class.active]="isCurrentStep('success')">
                     <h3>Delivering</h3>
                     <p>Final packaging & delivery of secure link.</p>
                   </div>
@@ -181,7 +157,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
               </div>
               <p class="card-prompt">"{{ build.prompt }}"</p>
               <div class="card-footer">
-                <span class="status-pill ready" *ngIf="build.status === 'ready'">COMPLETED</span>
+                <span class="status-pill ready" *ngIf="build.status === 'success'">COMPLETED</span>
                 <a *ngIf="build.downloadUrl" [href]="build.downloadUrl" target="_blank" style="color: var(--ion-color-primary)">Download Link →</a>
                 <button (click)="reViewBuild(build)">View Details</button>
               </div>
@@ -260,7 +236,7 @@ export class AIBuildStudioComponent implements OnInit {
     this.buildService.pollBuildStatus(buildId).subscribe({
       next: (status) => {
         this.currentStatus = status;
-        if (status.status === 'ready') {
+        if (status.status === 'success') {
           this.viewState = 'success';
           this.isBuilding = false;
         }
@@ -283,8 +259,8 @@ export class AIBuildStudioComponent implements OnInit {
   }
 
   isPastStep(step: string): boolean {
-    const steps = ['analyzing', 'validating', 'provisioning', 'compiling', 'ready'];
-    const currentIndex = steps.indexOf(this.currentStatus?.status || 'analyzing');
+    const steps = ['configuring', 'compiling', 'success'];
+    const currentIndex = steps.indexOf(this.currentStatus?.status || 'configuring');
     const stepIndex = steps.indexOf(step as any);
     return currentIndex > stepIndex;
   }

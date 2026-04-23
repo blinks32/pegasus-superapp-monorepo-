@@ -9,7 +9,7 @@ export interface BuildStatus {
   id: string;
   product_id: string;
   product_name: string;
-  status: 'analyzing' | 'validating' | 'provisioning' | 'compiling' | 'delivering' | 'ready' | 'failed' | 'not_found';
+  status: 'configuring' | 'compiling' | 'success' | 'failed' | 'not_found';
   timestamp: string;
   updatedAt?: string;
   prompt: string;
@@ -69,7 +69,7 @@ export class AiBuildService {
     return interval(3000).pipe(
       startWith(0),
       switchMap(() => this.getBuildStatus(buildId)),
-      takeWhile(status => status.status !== 'ready' && status.status !== 'failed' && status.status !== 'not_found', true)
+      takeWhile(status => status.status !== 'success' && status.status !== 'failed' && status.status !== 'not_found', true)
     );
   }
 }
