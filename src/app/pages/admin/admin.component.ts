@@ -31,7 +31,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
             </button>
             <button (click)="activeTab = 'Blogs'" [class.active]="activeTab === 'Blogs'" class="tab-btn">Blogs</button>
             <button (click)="activeTab = 'analytics'; loadAnalytics()" [class.active]="activeTab === 'analytics'" class="tab-btn">Analytics</button>
-            <button (click)="activeTab = 'settings'" [class.active]="activeTab === 'settings'" class="tab-btn">Settings</button>
+
             <button
               (click)="generateSiteActivity()"
               [disabled]="isGenerating()"
@@ -213,58 +213,6 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
         </div>
       </div>
 
-      <!-- Settings View -->
-      <div *ngIf="activeTab === 'settings'" class="fade-in">
-        <div class="settings-card">
-          <div class="settings-header">
-            <h3>Admin Security Settings</h3>
-            <p>Modify the authorized admin email and account credentials.</p>
-          </div>
-
-          <div class="settings-form">
-            <div class="form-section">
-              <h4>Authorized Email</h4>
-              <p class="section-desc">Only this email + password can access the admin dashboard.</p>
-              <div class="form-group-row">
-                <input type="email" [(ngModel)]="newAdminEmail" placeholder="Admin email" class="pm-input">
-                <button
-                  (click)="updateAdminEmail()"
-                  class="pm-btn pm-btn-primary"
-                  [disabled]="isUpdating || !currentPassword">
-                  {{ isUpdating ? 'Updating...' : 'Save Email' }}
-                </button>
-              </div>
-            </div>
-
-            <div class="pm-divider"></div>
-
-            <div class="form-section">
-              <h4>Change Account Password</h4>
-              <p class="section-desc">Update the password for your current admin account.</p>
-              <div class="form-grid">
-                <div class="form-group">
-                  <label>Current Password</label>
-                  <input type="password" [(ngModel)]="currentPassword" placeholder="Enter current password" class="pm-input">
-                </div>
-                <div class="form-group">
-                  <label>New Password</label>
-                  <input type="password" [(ngModel)]="newPassword" placeholder="Enter new password" class="pm-input">
-                </div>
-                <div class="form-group">
-                  <label>Confirm Password</label>
-                  <input type="password" [(ngModel)]="confirmPassword" placeholder="Repeat new password" class="pm-input">
-                </div>
-              </div>
-              <button
-                (click)="updatePassword()"
-                class="pm-btn pm-btn-primary mt-16"
-                [disabled]="isUpdating || !newPassword || !confirmPassword || !currentPassword">
-                 Update Password
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!-- Blog Management View -->
       <div *ngIf="activeTab === 'Blogs'" class="fade-in">
@@ -1073,12 +1021,6 @@ export class AdminComponent implements OnInit {
   chartTotalRevenue = 0;
   allProjects: any[] = [];
   
-  // Settings Form
-  newAdminEmail = '';
-  currentPassword = '';
-  newPassword = '';
-  confirmPassword = '';
-  isUpdating = false;
 
   // Blog Management
   blogs: any[] = [];
@@ -1114,12 +1056,7 @@ export class AdminComponent implements OnInit {
     this.allProjects = this.marketplace.products();
     this.calculateStats();
     
-    // Set the current user's email
-    const user = this.authService.currentUser();
-    if (user) {
-      this.newAdminEmail = user.email || '';
-    }
-    
+
     // Load blogs
     this.loadBlogs();
   }
@@ -1237,60 +1174,6 @@ export class AdminComponent implements OnInit {
     return v.toString();
   }
 
-  async updateAdminEmail() {
-    const normalizedEmail = (this.newAdminEmail || '').trim().toLowerCase();
-    if (!normalizedEmail.includes('@')) {
-      alert('Please enter a valid email.');
-      return;
-    }
-    if (!this.currentPassword) {
-      alert('Please enter your current password to save the email.');
-      return;
-    }
-    this.isUpdating = true;
-    try {
-      // Update Firebase Auth email
-      await this.authService.updateEmailWithReauth(normalizedEmail, this.currentPassword);
-      alert('Email updated successfully!');
-      this.currentPassword = '';
-    } catch (e) {
-      console.error(e);
-      alert('Error updating email. Please check your password and try again.');
-    } finally {
-      this.isUpdating = false;
-    }
-  }
-
-  async updatePassword() {
-    if (!this.currentPassword) {
-      alert('Please enter your current password.');
-      return;
-    }
-    if (this.newPassword !== this.confirmPassword) {
-      alert('Passwords do not match.');
-      return;
-    }
-    if (this.newPassword.length < 6) {
-      alert('Password must be at least 6 characters.');
-      return;
-    }
-    
-    this.isUpdating = true;
-    try {
-      await this.authService.updatePasswordWithReauth(this.newPassword, this.currentPassword);
-
-      // Clear password fields after successful update.
-      this.newPassword = '';
-      this.confirmPassword = '';
-      this.currentPassword = '';
-      alert('Admin password updated successfully.');
-    } catch (e) {
-      console.error(e);
-      alert('Error updating password. Did your current password match?');
-    } finally {
-      this.isUpdating = false;
-    }
-  }
 
   private gradients: Record<string, string> = {
     'saas-boilerplates': 'linear-gradient(135deg, #10B981, #34D399)',
