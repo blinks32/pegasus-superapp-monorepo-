@@ -74,7 +74,7 @@ import { ModalController } from '@ionic/angular/standalone';
         <div class="stat-divider"></div>
         <div class="stat-pill">
           <span class="pill-label">Last Updated</span>
-          <span class="pill-value">{{ product.lastUpdated | date:'mediumDate' }}</span>
+          <span class="pill-value">{{ toDate(product.lastUpdated) | date:'mediumDate' }}</span>
         </div>
       </div>
 
@@ -258,7 +258,7 @@ import { ModalController } from '@ionic/angular/standalone';
                     <div class="review-stars">
                       <span *ngFor="let s of getStars(review.rating)" [class]="s" style="font-size:12px"></span>
                     </div>
-                    <span class="review-date">{{ review.date | date:'mediumDate' }}</span>
+                    <span class="review-date">{{ toDate(review.date) | date:'mediumDate' }}</span>
                   </div>
                 </div>
                 <p class="review-comment">{{ review.comment }}</p>
@@ -292,7 +292,7 @@ import { ModalController } from '@ionic/angular/standalone';
                       <strong>{{ c.userName }}</strong>
                     </div>
                   </div>
-                  <span class="review-date">{{ c.date | date:'mediumDate' }}</span>
+                  <span class="review-date">{{ toDate(c.date) | date:'mediumDate' }}</span>
                 </div>
                 <p class="review-comment">{{ c.text }}</p>
               </div>
@@ -376,7 +376,7 @@ import { ModalController } from '@ionic/angular/standalone';
             <div class="purchase-meta">
               <div class="meta-row"><span>💰 Sales</span><strong>{{ product.totalSales | number }}</strong></div>
               <div class="meta-row"><span>👁️ Views</span><strong>{{ product.totalVisits | number }}</strong></div>
-              <div class="meta-row"><span>📅 Last Updated</span><strong>{{ product.lastUpdated | date:'mediumDate' }}</strong></div>
+              <div class="meta-row"><span>📅 Last Updated</span><strong>{{ toDate(product.lastUpdated) | date:'mediumDate' }}</strong></div>
               <div class="meta-row"><span>📦 Version</span><strong>{{ product.version }}</strong></div>
               <div class="meta-row"><span>📁 File Size</span><strong>{{ product.fileSize }}</strong></div>
             </div>
@@ -1406,6 +1406,12 @@ export class ProductDetailComponent implements OnInit {
     });
 
     return await modal.present();
+  }
+
+  toDate(timestamp: any): Date | any {
+    if (!timestamp) return null;
+    if (timestamp.toDate) return timestamp.toDate();
+    return timestamp;
   }
 }
 

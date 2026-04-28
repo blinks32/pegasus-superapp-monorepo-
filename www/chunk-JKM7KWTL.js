@@ -108,6 +108,7 @@ function SellerDashboardComponent_ng_container_2_div_49_Template(rf, ctx) {
   }
   if (rf & 2) {
     const p_r1 = ctx.$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275styleProp("background-image", p_r1.thumbnailUrl ? "url(" + p_r1.thumbnailUrl + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
@@ -123,7 +124,7 @@ function SellerDashboardComponent_ng_container_2_div_49_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate2("", "$", "", p_r1.price, "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 18, p_r1.createdAt, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 18, ctx_r1.toDate(p_r1.createdAt), "mediumDate"));
     \u0275\u0275advance(3);
     \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(21, _c0, p_r1.id));
   }
@@ -138,9 +139,9 @@ function SellerDashboardComponent_ng_container_2_div_50_div_6_Template(rf, ctx) 
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const p_r2 = \u0275\u0275nextContext().$implicit;
+    const p_r3 = \u0275\u0275nextContext().$implicit;
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(p_r2.rejectionReason);
+    \u0275\u0275textInterpolate(p_r3.rejectionReason);
   }
 }
 function SellerDashboardComponent_ng_container_2_div_50_Template(rf, ctx) {
@@ -155,11 +156,11 @@ function SellerDashboardComponent_ng_container_2_div_50_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const p_r2 = ctx.$implicit;
+    const p_r3 = ctx.$implicit;
     \u0275\u0275advance(5);
-    \u0275\u0275textInterpolate(p_r2.title);
+    \u0275\u0275textInterpolate(p_r3.title);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", p_r2.rejectionReason);
+    \u0275\u0275property("ngIf", p_r3.rejectionReason);
   }
 }
 function SellerDashboardComponent_ng_container_2_Template(rf, ctx) {
@@ -223,21 +224,21 @@ function SellerDashboardComponent_ng_container_2_Template(rf, ctx) {
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const ctx_r2 = \u0275\u0275nextContext();
+    const ctx_r1 = \u0275\u0275nextContext();
     \u0275\u0275advance(20);
-    \u0275\u0275textInterpolate(ctx_r2.myProducts.length);
+    \u0275\u0275textInterpolate(ctx_r1.myProducts.length);
     \u0275\u0275advance(8);
-    \u0275\u0275textInterpolate(ctx_r2.pendingCount);
+    \u0275\u0275textInterpolate(ctx_r1.pendingCount);
     \u0275\u0275advance(8);
-    \u0275\u0275textInterpolate(ctx_r2.publishedCount);
+    \u0275\u0275textInterpolate(ctx_r1.publishedCount);
     \u0275\u0275advance(8);
-    \u0275\u0275textInterpolate(ctx_r2.rejectedCount);
+    \u0275\u0275textInterpolate(ctx_r1.rejectedCount);
     \u0275\u0275advance(4);
-    \u0275\u0275property("ngIf", ctx_r2.myProducts.length === 0);
+    \u0275\u0275property("ngIf", ctx_r1.myProducts.length === 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r2.myProducts);
+    \u0275\u0275property("ngForOf", ctx_r1.myProducts);
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r2.rejectedProducts);
+    \u0275\u0275property("ngForOf", ctx_r1.rejectedProducts);
   }
 }
 var SellerDashboardComponent = class _SellerDashboardComponent {
@@ -262,6 +263,13 @@ var SellerDashboardComponent = class _SellerDashboardComponent {
   }
   get rejectedProducts() {
     return this.myProducts.filter((p) => p.status === "rejected");
+  }
+  toDate(timestamp) {
+    if (!timestamp)
+      return null;
+    if (timestamp.toDate)
+      return timestamp.toDate();
+    return timestamp;
   }
   static {
     this.\u0275fac = function SellerDashboardComponent_Factory(__ngFactoryType__) {
@@ -290,4 +298,4 @@ var SellerDashboardComponent = class _SellerDashboardComponent {
 export {
   SellerDashboardComponent
 };
-//# sourceMappingURL=chunk-B5VQ55YU.js.map
+//# sourceMappingURL=chunk-JKM7KWTL.js.map

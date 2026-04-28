@@ -453,11 +453,11 @@ export class ProfileComponent implements OnInit {
     this.loadUserData();
   }
 
-  getJoinDate(): Date {
-    if (this.auth.userProfile()?.createdAt) {
-      return new Date(this.auth.userProfile()!.createdAt);
-    }
-    return new Date(); // Fallback to current date if not available
+  getJoinDate(): any {
+    const created: any = this.auth.userProfile()?.createdAt;
+    if (!created) return new Date();
+    if (created.toDate) return created.toDate();
+    return new Date(created);
   }
 
   async loadUserData() {

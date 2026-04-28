@@ -56,10 +56,12 @@ var ProfileComponent = class _ProfileComponent {
     this.loadUserData();
   }
   getJoinDate() {
-    if (this.auth.userProfile()?.createdAt) {
-      return new Date(this.auth.userProfile().createdAt);
-    }
-    return /* @__PURE__ */ new Date();
+    const created = this.auth.userProfile()?.createdAt;
+    if (!created)
+      return /* @__PURE__ */ new Date();
+    if (created.toDate)
+      return created.toDate();
+    return new Date(created);
   }
   loadUserData() {
     return __async(this, null, function* () {
@@ -230,4 +232,4 @@ var ProfileComponent = class _ProfileComponent {
 export {
   ProfileComponent
 };
-//# sourceMappingURL=chunk-7TD2WPSY.js.map
+//# sourceMappingURL=chunk-JKENNNVG.js.map

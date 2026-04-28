@@ -281,7 +281,7 @@ function AdminComponent_div_29_ng_container_34_div_1_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate2("", "$", "", project_r7.price, "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 20, project_r7.createdAt, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 20, ctx_r0.toDate(project_r7.createdAt), "mediumDate"));
     \u0275\u0275advance(3);
     \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(23, _c0, project_r7.id));
   }
@@ -546,6 +546,7 @@ function AdminComponent_div_30_div_8_Template(rf, ctx) {
   }
   if (rf & 2) {
     const p_r9 = ctx.$implicit;
+    const ctx_r0 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
     \u0275\u0275styleProp("background-image", p_r9.thumbnailUrl ? "url(" + p_r9.thumbnailUrl + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
@@ -561,7 +562,7 @@ function AdminComponent_div_30_div_8_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", p_r9.submittedBy);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("\u{1F4C5} ", \u0275\u0275pipeBind2(17, 16, p_r9.createdAt, "mediumDate"), "");
+    \u0275\u0275textInterpolate1("\u{1F4C5} ", \u0275\u0275pipeBind2(17, 16, ctx_r0.toDate(p_r9.createdAt), "mediumDate"), "");
     \u0275\u0275advance(2);
     \u0275\u0275property("ngIf", p_r9.deploymentGuide);
     \u0275\u0275advance();
@@ -634,6 +635,7 @@ function AdminComponent_div_31_div_13_div_1_Template(rf, ctx) {
   }
   if (rf & 2) {
     const blog_r13 = ctx.$implicit;
+    const ctx_r0 = \u0275\u0275nextContext(3);
     \u0275\u0275advance(4);
     \u0275\u0275textInterpolate(blog_r13.title || "Untitled Blog");
     \u0275\u0275advance(12);
@@ -643,7 +645,7 @@ function AdminComponent_div_31_div_13_div_1_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", blog_r13.published ? "Published" : "Draft", " ");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(22, 6, blog_r13.createdAt, "medium"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(22, 6, ctx_r0.toDate(blog_r13.createdAt), "medium"));
   }
 }
 function AdminComponent_div_31_div_13_Template(rf, ctx) {
@@ -728,8 +730,9 @@ function AdminComponent_div_32_tr_22_Template(rf, ctx) {
   }
   if (rf & 2) {
     const view_r14 = ctx.$implicit;
+    const ctx_r0 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(3, 8, view_r14.timestamp, "short"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(3, 8, ctx_r0.toDate(view_r14.timestamp), "short"));
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind3(6, 11, view_r14.productId, 0, 8));
     \u0275\u0275advance(4);
@@ -2045,6 +2048,13 @@ var AdminComponent = class _AdminComponent {
       }
     });
   }
+  toDate(timestamp) {
+    if (!timestamp)
+      return null;
+    if (timestamp && timestamp.toDate)
+      return timestamp.toDate();
+    return timestamp;
+  }
   static {
     this.\u0275fac = function AdminComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || _AdminComponent)();
@@ -2153,4 +2163,4 @@ var AdminComponent = class _AdminComponent {
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-FG3OF64B.js.map
+//# sourceMappingURL=chunk-INS7EQJ6.js.map

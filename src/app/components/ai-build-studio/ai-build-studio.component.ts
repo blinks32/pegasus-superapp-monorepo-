@@ -153,7 +153,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
             <div *ngFor="let build of history()" class="history-card">
               <div class="card-top">
                 <h3>{{ build.product_name }}</h3>
-                <time>{{ build.timestamp | date:'short' }}</time>
+                <time>{{ toDate(build.timestamp) | date:'short' }}</time>
               </div>
               <p class="card-prompt">"{{ build.prompt }}"</p>
               <div class="card-footer">
@@ -212,7 +212,11 @@ export class AIBuildStudioComponent implements OnInit {
   async loadHistory() {
     this.activeTab = 'history';
     this.buildService.getHistory().subscribe(data => {
-      this.history.set(data.sort((a,b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()));
+      this.history.set(data.sort((a,b) => {
+        const timeA = this.toDate(a.timestamp)?.getTime() || 0;
+        const timeB = this.toDate(b.timestamp)?.getTime() || 0;
+        return timeB - timeA;
+      }));
     });
   }
 
@@ -263,5 +267,12 @@ export class AIBuildStudioComponent implements OnInit {
     const currentIndex = steps.indexOf(this.currentStatus?.status || 'configuring');
     const stepIndex = steps.indexOf(step as any);
     return currentIndex > stepIndex;
+  }
+
+  toDate(timestamp: any): Date | any {
+    if (!timestamp) return null;
+    if (timestamp.toDate) return timestamp.toDate();
+    if (typeof timestamp === 'string' || typeof timestamp === 'number') return new Date(timestamp);
+    return timestamp;
   }
 }

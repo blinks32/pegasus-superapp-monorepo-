@@ -136,7 +136,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
                 </span>
               </div>
               <div class="project-price">{{'$'}}{{ project.price }}</div>
-              <div class="project-date">{{ project.createdAt | date:'mediumDate' }}</div>
+              <div class="project-date">{{ toDate(project.createdAt) | date:'mediumDate' }}</div>
               <div class="project-actions">
                 <a [routerLink]="['/product', project.id]" class="pm-btn pm-btn-ghost pm-btn-sm">View</a>
                 <button class="pm-btn pm-btn-ghost pm-btn-sm" (click)="openEditProduct(project)">
@@ -186,7 +186,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
                   <span class="meta-tag">💰 \${{ p.price }}</span>
                   <span class="meta-tag">📁 {{ p.category }}</span>
                   <span class="meta-tag" *ngIf="p.submittedBy">👤 {{ p.submittedBy.displayName }}</span>
-                  <span class="meta-tag">📅 {{ p.createdAt | date:'mediumDate' }}</span>
+                  <span class="meta-tag">📅 {{ toDate(p.createdAt) | date:'mediumDate' }}</span>
                 </div>
               </div>
             </div>
@@ -261,7 +261,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
                     <span class="blog-status" [class]="blog.published ? 'status-published' : 'status-draft'">
                       {{ blog.published ? 'Published' : 'Draft' }}
                     </span>
-                    <span class="blog-date">{{ blog.createdAt | date:'medium' }}</span>
+                    <span class="blog-date">{{ toDate(blog.createdAt) | date:'medium' }}</span>
                   </div>
                 </div>
               </div>
@@ -303,7 +303,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
               </thead>
               <tbody>
                 <tr *ngFor="let view of analyticsEvents" style="border-bottom: 1px solid var(--pm-border-light);">
-                  <td style="padding: 12px; white-space: nowrap;">{{ view.timestamp | date:'short' }}</td>
+                  <td style="padding: 12px; white-space: nowrap;">{{ toDate(view.timestamp) | date:'short' }}</td>
                   <td style="padding: 12px;">{{ view.productId | slice:0:8 }}</td>
                   <td style="padding: 12px;"><strong>{{ view.ip }}</strong></td>
                   <td style="padding: 12px;">{{ view.city }}, {{ view.country }} {{ view.countryCode }}</td>
@@ -1699,5 +1699,11 @@ export class AdminComponent implements OnInit {
       console.error('Error rejecting:', e);
       alert('Failed to reject product.');
     }
+  }
+
+  toDate(timestamp: any): Date | any {
+    if (!timestamp) return null;
+    if (timestamp && (timestamp as any).toDate) return (timestamp as any).toDate();
+    return timestamp;
   }
 }

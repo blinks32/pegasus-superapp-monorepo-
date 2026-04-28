@@ -4299,7 +4299,7 @@ var routes = [
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-UBWYI2EL.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-B36YVXMR.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
@@ -4307,7 +4307,7 @@ var routes = [
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-FG3OF64B.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-INS7EQJ6.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4319,7 +4319,7 @@ var routes = [
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-7TD2WPSY.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-JKENNNVG.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
@@ -4343,7 +4343,7 @@ var routes = [
   },
   {
     path: "sell/dashboard",
-    loadComponent: () => import("./chunk-B5VQ55YU.js").then((m) => m.SellerDashboardComponent)
+    loadComponent: () => import("./chunk-JKM7KWTL.js").then((m) => m.SellerDashboardComponent)
   },
   {
     path: "**",

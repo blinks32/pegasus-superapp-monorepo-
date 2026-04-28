@@ -86,7 +86,7 @@ import { Product } from '../../models/marketplace.models';
               </span>
             </div>
             <div class="product-price">{{'$'}}{{ p.price }}</div>
-            <div class="product-date">{{ p.createdAt | date:'mediumDate' }}</div>
+            <div class="product-date">{{ toDate(p.createdAt) | date:'mediumDate' }}</div>
             <div class="product-actions">
               <a [routerLink]="['/product', p.id]" class="pm-btn pm-btn-ghost pm-btn-sm">View</a>
             </div>
@@ -230,4 +230,10 @@ export class SellerDashboardComponent {
   get publishedCount() { return this.myProducts.filter(p => !p.status || p.status === 'published').length; }
   get rejectedCount() { return this.myProducts.filter(p => p.status === 'rejected').length; }
   get rejectedProducts() { return this.myProducts.filter(p => p.status === 'rejected'); }
+
+  toDate(timestamp: any): Date | any {
+    if (!timestamp) return null;
+    if (timestamp.toDate) return timestamp.toDate();
+    return timestamp;
+  }
 }

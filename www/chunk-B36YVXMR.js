@@ -724,10 +724,11 @@ function AIBuildStudioComponent_div_20_div_4_Template(rf, ctx) {
   }
   if (rf & 2) {
     const build_r5 = ctx.$implicit;
+    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(build_r5.product_name);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(6, 5, build_r5.timestamp, "short"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(6, 5, ctx_r1.toDate(build_r5.timestamp), "short"));
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate1('"', build_r5.prompt, '"');
     \u0275\u0275advance(2);
@@ -773,7 +774,11 @@ var AIBuildStudioComponent = class _AIBuildStudioComponent {
     return __async(this, null, function* () {
       this.activeTab = "history";
       this.buildService.getHistory().subscribe((data) => {
-        this.history.set(data.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()));
+        this.history.set(data.sort((a, b) => {
+          const timeA = this.toDate(a.timestamp)?.getTime() || 0;
+          const timeB = this.toDate(b.timestamp)?.getTime() || 0;
+          return timeB - timeA;
+        }));
       });
     });
   }
@@ -821,6 +826,15 @@ Prompt: ${build.prompt}`);
     const currentIndex = steps.indexOf(this.currentStatus?.status || "configuring");
     const stepIndex = steps.indexOf(step);
     return currentIndex > stepIndex;
+  }
+  toDate(timestamp) {
+    if (!timestamp)
+      return null;
+    if (timestamp.toDate)
+      return timestamp.toDate();
+    if (typeof timestamp === "string" || typeof timestamp === "number")
+      return new Date(timestamp);
+    return timestamp;
   }
   static {
     this.\u0275fac = function AIBuildStudioComponent_Factory(__ngFactoryType__) {
@@ -1324,7 +1338,7 @@ function ProductDetailComponent_div_3_div_75_div_18_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275property("ngForOf", ctx_r2.getStars(review_r20.rating));
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, review_r20.date, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, ctx_r2.toDate(review_r20.date), "mediumDate"));
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(review_r20.comment);
     \u0275\u0275advance(3);
@@ -1407,7 +1421,7 @@ function ProductDetailComponent_div_3_div_76_div_8_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(c_r22.userName);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, c_r22.date, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, ctx_r2.toDate(c_r22.date), "mediumDate"));
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(c_r22.text);
   }
@@ -1809,7 +1823,7 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275advance(7);
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(39, 74, ctx_r2.product.totalVisits));
     \u0275\u0275advance(7);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(46, 76, ctx_r2.product.lastUpdated, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(46, 76, ctx_r2.toDate(ctx_r2.product.lastUpdated), "mediumDate"));
     \u0275\u0275advance(5);
     \u0275\u0275styleProp("background", ctx_r2.activePreviewIndex === -1 ? ctx_r2.product.thumbnailUrl ? "none" : ctx_r2.getGradient() : "none")("background-image", ctx_r2.activePreviewIndex === -1 && ctx_r2.product.thumbnailUrl ? "url(" + ctx_r2.product.thumbnailUrl + ")" : ctx_r2.activePreviewIndex !== -1 && ctx_r2.activePreviewIndex !== "youtube" ? "url(" + ctx_r2.product.previewImages[ctx_r2.activePreviewIndex] + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
@@ -1872,7 +1886,7 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(120, 81, ctx_r2.product.totalVisits));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(126, 83, ctx_r2.product.lastUpdated, "mediumDate"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(126, 83, ctx_r2.toDate(ctx_r2.product.lastUpdated), "mediumDate"));
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.version);
     \u0275\u0275advance(5);
@@ -2113,6 +2127,13 @@ var ProductDetailComponent = class _ProductDetailComponent {
       return yield modal.present();
     });
   }
+  toDate(timestamp) {
+    if (!timestamp)
+      return null;
+    if (timestamp.toDate)
+      return timestamp.toDate();
+    return timestamp;
+  }
   static {
     this.\u0275fac = function ProductDetailComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || _ProductDetailComponent)();
@@ -2142,4 +2163,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-UBWYI2EL.js.map
+//# sourceMappingURL=chunk-B36YVXMR.js.map
