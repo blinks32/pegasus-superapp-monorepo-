@@ -109,6 +109,10 @@ export class MarketplaceService {
         ...p,
         createdAt: this.parseFirestoreDate(p.createdAt),
         lastUpdated: this.parseFirestoreDate(p.lastUpdated),
+        reviews: (p.reviews || []).map((r: any) => ({
+          ...r,
+          date: this.parseFirestoreDate(r.date)
+        })),
         aiDeploymentEnabled: p.aiDeploymentEnabled === undefined ? true : p.aiDeploymentEnabled,
         aiBaseSchema: p.aiBaseSchema || '{\n  "theme": {\n    "primary": "#6366F1"\n  }\n}',
         aiForbiddenFields: p.aiForbiddenFields || ['firebase.apiKey', 'stripe.secretKey'],
@@ -457,6 +461,15 @@ export class MarketplaceService {
     if (!value) return new Date();
     if (value instanceof Date) return value;
     if (value.toDate && typeof value.toDate === 'function') return value.toDate();
+    
+    // Handle Firestore Timestamp string representation
+    if (typeof value === 'string' && value.includes('Timestamp(seconds=')) {
+      const match = value.match(/seconds=(\d+)/);
+      if (match && match[1]) {
+        return new Date(parseInt(match[1]) * 1000);
+      }
+    }
+
     const d = new Date(value);
     return isNaN(d.getTime()) ? new Date() : d;
   }

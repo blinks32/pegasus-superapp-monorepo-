@@ -27,6 +27,13 @@ export class FirestoreDatePipe implements PipeTransform {
     if (value.seconds !== undefined) {
       return new Date(value.seconds * 1000);
     }
+    // Handle string representation: "Timestamp(seconds=1776936136, nanoseconds=548000000)"
+    if (typeof value === 'string' && value.includes('Timestamp(seconds=')) {
+      const match = value.match(/seconds=(\d+)/);
+      if (match && match[1]) {
+        return new Date(parseInt(match[1]) * 1000);
+      }
+    }
     return value;
   }
 }

@@ -5,11 +5,12 @@ import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { AuthService } from '../../services/auth.service';
+import { FirestoreDatePipe } from '../../pipes/firestore-date.pipe';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent, FirestoreDatePipe],
   template: `
     <app-header></app-header>
 
@@ -30,7 +31,7 @@ import { AuthService } from '../../services/auth.service';
             </div>
             <h3 class="profile-name">{{ auth.userProfile()?.displayName || 'User' }}</h3>
             <p class="profile-email">{{ auth.userProfile()?.email }}</p>
-            <p class="profile-joined">Member since {{ getJoinDate() | date:'mediumDate' }}</p>
+            <p class="profile-joined">Member since {{ auth.userProfile()?.createdAt | fsDate | date:'mediumDate' }}</p>
             
             <div class="profile-stats">
               <div class="stat-item">
@@ -63,7 +64,7 @@ import { AuthService } from '../../services/auth.service';
                 </div>
                 <div class="info-row">
                   <span class="info-label">Member Since:</span>
-                  <span class="info-value">{{ getJoinDate() | date:'longDate' }}</span>
+                  <span class="info-value">{{ auth.userProfile()?.createdAt | fsDate | date:'longDate' }}</span>
                 </div>
                 <div class="info-row">
                   <span class="info-label">User Rank:</span>
@@ -106,7 +107,7 @@ import { AuthService } from '../../services/auth.service';
                   <div class="activity-icon">📱</div>
                   <div>
                     <div class="activity-title">Joined SellJustCode</div>
-                    <div class="activity-time">{{ getJoinDate() | date:'medium' }}</div>
+                    <div class="activity-time">{{ auth.userProfile()?.createdAt | fsDate | date:'medium' }}</div>
                   </div>
                 </div>
                 <div class="activity-item">
@@ -451,13 +452,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.loadUserData();
-  }
-
-  getJoinDate(): any {
-    const created: any = this.auth.userProfile()?.createdAt;
-    if (!created) return new Date();
-    if (created.toDate) return created.toDate();
-    return new Date(created);
   }
 
   async loadUserData() {
