@@ -1,17 +1,17 @@
 import {
   ProductCardComponent
-} from "./chunk-TAOYTMNO.js";
+} from "./chunk-CTZWXPCK.js";
 import {
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-L3MOXFDZ.js";
+} from "./chunk-DGJNZ4OC.js";
 import {
   SeoService
-} from "./chunk-NROIVCYZ.js";
+} from "./chunk-OC3PZCFA.js";
 import {
   IonContent
-} from "./chunk-7TFQUZIJ.js";
+} from "./chunk-S4DXISLP.js";
 import {
   DefaultValueAccessor,
   FormsModule,
@@ -21,7 +21,7 @@ import {
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-XLO4FCJH.js";
+} from "./chunk-OLW2AZEG.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -60,7 +60,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
@@ -420,4 +420,4 @@ var BrowseComponent = class _BrowseComponent {
 export {
   BrowseComponent
 };
-//# sourceMappingURL=chunk-G7A2LVW3.js.map
+//# sourceMappingURL=chunk-4KE57C66.js.map

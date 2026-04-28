@@ -46,10 +46,10 @@ import {
   sequence,
   style,
   ɵPRE_STYLE
-} from "./chunk-LL6IVHFO.js";
+} from "./chunk-NPPW327T.js";
 import {
   SeoService
-} from "./chunk-NROIVCYZ.js";
+} from "./chunk-OC3PZCFA.js";
 import {
   AngularDelegate,
   Config,
@@ -72,13 +72,13 @@ import {
   provideIonicAngular,
   raf,
   setIonicClasses
-} from "./chunk-7TFQUZIJ.js";
+} from "./chunk-S4DXISLP.js";
 import {
   MaxValidator,
   MinValidator,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
-} from "./chunk-XLO4FCJH.js";
+} from "./chunk-OLW2AZEG.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_INITIALIZER,
@@ -167,7 +167,7 @@ import {
   ɵɵrestoreView,
   ɵɵtemplate,
   ɵɵviewQuery
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
@@ -4291,23 +4291,23 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-Q5CDMJPZ.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-NN3GGGQF.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-G7A2LVW3.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-4KE57C66.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-B36YVXMR.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-3AQL5YAU.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-3P6FIOOM.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-MRKFUSZH.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-INS7EQJ6.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-U4NJINBH.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4315,35 +4315,35 @@ var routes = [
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-CC3ZOSOP.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-TNKSAJFP.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-JKENNNVG.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-MHRAQZRT.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-EWAYFVUL.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-SB63ATHQ.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-MIHEGMQL.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-YLDEAW4L.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
-    loadComponent: () => import("./chunk-LRH57LNR.js").then((m) => m.StaticPageComponent)
+    loadComponent: () => import("./chunk-B4GYQJF6.js").then((m) => m.StaticPageComponent)
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-4YF7CP6X.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-VOMA2DUW.js").then((m) => m.GuideComponent)
   },
   {
     path: "sell",
-    loadComponent: () => import("./chunk-ZMQ225OZ.js").then((m) => m.SellComponent)
+    loadComponent: () => import("./chunk-F45QBKEG.js").then((m) => m.SellComponent)
   },
   {
     path: "sell/dashboard",
-    loadComponent: () => import("./chunk-JKM7KWTL.js").then((m) => m.SellerDashboardComponent)
+    loadComponent: () => import("./chunk-QIC6CRU3.js").then((m) => m.SellerDashboardComponent)
   },
   {
     path: "**",

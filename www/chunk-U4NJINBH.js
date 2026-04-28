@@ -1,15 +1,18 @@
 import {
   ImageUploadService
-} from "./chunk-LXTJKJX5.js";
+} from "./chunk-RVQXSWHU.js";
+import {
+  FirestoreDatePipe
+} from "./chunk-SY5GTD6M.js";
 import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-L3MOXFDZ.js";
+} from "./chunk-DGJNZ4OC.js";
 import {
   IonContent
-} from "./chunk-7TFQUZIJ.js";
+} from "./chunk-S4DXISLP.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
@@ -20,7 +23,7 @@ import {
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-XLO4FCJH.js";
+} from "./chunk-OLW2AZEG.js";
 import {
   CommonModule,
   DatePipe,
@@ -82,7 +85,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
@@ -234,33 +237,34 @@ function AdminComponent_div_29_ng_container_34_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(14, "div", 57);
     \u0275\u0275text(15);
-    \u0275\u0275pipe(16, "date");
+    \u0275\u0275pipe(16, "fsDate");
+    \u0275\u0275pipe(17, "date");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "div", 58)(18, "a", 59);
-    \u0275\u0275text(19, "View");
+    \u0275\u0275elementStart(18, "div", 58)(19, "a", 59);
+    \u0275\u0275text(20, "View");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(20, "button", 60);
-    \u0275\u0275listener("click", function AdminComponent_div_29_ng_container_34_div_1_Template_button_click_20_listener() {
+    \u0275\u0275elementStart(21, "button", 60);
+    \u0275\u0275listener("click", function AdminComponent_div_29_ng_container_34_div_1_Template_button_click_21_listener() {
       const project_r7 = \u0275\u0275restoreView(_r6).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.openEditProduct(project_r7));
     });
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(21, "svg", 61);
-    \u0275\u0275element(22, "path", 62)(23, "path", 63);
+    \u0275\u0275elementStart(22, "svg", 61);
+    \u0275\u0275element(23, "path", 62)(24, "path", 63);
     \u0275\u0275elementEnd();
-    \u0275\u0275text(24, " Edit ");
+    \u0275\u0275text(25, " Edit ");
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
-    \u0275\u0275elementStart(25, "button", 64);
-    \u0275\u0275listener("click", function AdminComponent_div_29_ng_container_34_div_1_Template_button_click_25_listener() {
+    \u0275\u0275elementStart(26, "button", 64);
+    \u0275\u0275listener("click", function AdminComponent_div_29_ng_container_34_div_1_Template_button_click_26_listener() {
       const project_r7 = \u0275\u0275restoreView(_r6).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.deleteProduct(project_r7.id));
     });
     \u0275\u0275namespaceSVG();
-    \u0275\u0275elementStart(26, "svg", 61);
-    \u0275\u0275element(27, "path", 65);
+    \u0275\u0275elementStart(27, "svg", 61);
+    \u0275\u0275element(28, "path", 65);
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
@@ -281,9 +285,9 @@ function AdminComponent_div_29_ng_container_34_div_1_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate2("", "$", "", project_r7.price, "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 20, ctx_r0.toDate(project_r7.createdAt), "mediumDate"));
-    \u0275\u0275advance(3);
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(23, _c0, project_r7.id));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(17, 22, \u0275\u0275pipeBind1(16, 20, project_r7.createdAt), "mediumDate"));
+    \u0275\u0275advance(4);
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(25, _c0, project_r7.id));
   }
 }
 function AdminComponent_div_29_ng_container_34_div_2_Template(rf, ctx) {
@@ -298,7 +302,7 @@ function AdminComponent_div_29_ng_container_34_div_2_Template(rf, ctx) {
 function AdminComponent_div_29_ng_container_34_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, AdminComponent_div_29_ng_container_34_div_1_Template, 28, 25, "div", 47)(2, AdminComponent_div_29_ng_container_34_div_2_Template, 5, 0, "div", 48);
+    \u0275\u0275template(1, AdminComponent_div_29_ng_container_34_div_1_Template, 29, 27, "div", 47)(2, AdminComponent_div_29_ng_container_34_div_2_Template, 5, 0, "div", 48);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -453,7 +457,7 @@ function AdminComponent_div_30_div_8_span_14_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("\u{1F464} ", p_r9.submittedBy.displayName, "");
   }
 }
-function AdminComponent_div_30_div_8_div_18_pre_6_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_div_19_pre_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "pre", 90);
     \u0275\u0275text(1);
@@ -465,11 +469,11 @@ function AdminComponent_div_30_div_8_div_18_pre_6_Template(rf, ctx) {
     \u0275\u0275textInterpolate(p_r9.deploymentGuide);
   }
 }
-function AdminComponent_div_30_div_8_div_18_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_div_19_Template(rf, ctx) {
   if (rf & 1) {
     const _r10 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 87)(1, "div", 88);
-    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_div_18_Template_div_click_1_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_div_19_Template_div_click_1_listener() {
       \u0275\u0275restoreView(_r10);
       const p_r9 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(2);
@@ -481,7 +485,7 @@ function AdminComponent_div_30_div_8_div_18_Template(rf, ctx) {
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(6, AdminComponent_div_30_div_8_div_18_pre_6_Template, 2, 1, "pre", 89);
+    \u0275\u0275template(6, AdminComponent_div_30_div_8_div_19_pre_6_Template, 2, 1, "pre", 89);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -493,7 +497,7 @@ function AdminComponent_div_30_div_8_div_18_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r0.expandedGuides[p_r9.id]);
   }
 }
-function AdminComponent_div_30_div_8_div_19_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_div_20_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 91);
     \u0275\u0275text(1, " \u26A0\uFE0F No deployment guide submitted ");
@@ -521,32 +525,32 @@ function AdminComponent_div_30_div_8_Template(rf, ctx) {
     \u0275\u0275template(14, AdminComponent_div_30_div_8_span_14_Template, 2, 1, "span", 81);
     \u0275\u0275elementStart(15, "span", 80);
     \u0275\u0275text(16);
-    \u0275\u0275pipe(17, "date");
+    \u0275\u0275pipe(17, "fsDate");
+    \u0275\u0275pipe(18, "date");
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275template(18, AdminComponent_div_30_div_8_div_18_Template, 7, 2, "div", 82)(19, AdminComponent_div_30_div_8_div_19_Template, 2, 0, "div", 83);
-    \u0275\u0275elementStart(20, "div", 84)(21, "a", 59);
-    \u0275\u0275text(22, "\u{1F441}\uFE0F Preview");
+    \u0275\u0275template(19, AdminComponent_div_30_div_8_div_19_Template, 7, 2, "div", 82)(20, AdminComponent_div_30_div_8_div_20_Template, 2, 0, "div", 83);
+    \u0275\u0275elementStart(21, "div", 84)(22, "a", 59);
+    \u0275\u0275text(23, "\u{1F441}\uFE0F Preview");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(23, "button", 85);
-    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_Template_button_click_23_listener() {
+    \u0275\u0275elementStart(24, "button", 85);
+    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_Template_button_click_24_listener() {
       const p_r9 = \u0275\u0275restoreView(_r8).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.approveProduct(p_r9.id));
     });
-    \u0275\u0275text(24, " \u2705 Approve ");
+    \u0275\u0275text(25, " \u2705 Approve ");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(25, "button", 86);
-    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_Template_button_click_25_listener() {
+    \u0275\u0275elementStart(26, "button", 86);
+    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_Template_button_click_26_listener() {
       const p_r9 = \u0275\u0275restoreView(_r8).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.openRejectModal(p_r9.id, p_r9.title));
     });
-    \u0275\u0275text(26, " \u274C Reject ");
+    \u0275\u0275text(27, " \u274C Reject ");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
     const p_r9 = ctx.$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
     \u0275\u0275styleProp("background-image", p_r9.thumbnailUrl ? "url(" + p_r9.thumbnailUrl + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
@@ -562,13 +566,13 @@ function AdminComponent_div_30_div_8_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", p_r9.submittedBy);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate1("\u{1F4C5} ", \u0275\u0275pipeBind2(17, 16, ctx_r0.toDate(p_r9.createdAt), "mediumDate"), "");
-    \u0275\u0275advance(2);
+    \u0275\u0275textInterpolate1("\u{1F4C5} ", \u0275\u0275pipeBind2(18, 18, \u0275\u0275pipeBind1(17, 16, p_r9.createdAt), "mediumDate"), "");
+    \u0275\u0275advance(3);
     \u0275\u0275property("ngIf", p_r9.deploymentGuide);
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", !p_r9.deploymentGuide);
     \u0275\u0275advance(2);
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(19, _c0, p_r9.id));
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(21, _c0, p_r9.id));
   }
 }
 function AdminComponent_div_30_Template(rf, ctx) {
@@ -579,7 +583,7 @@ function AdminComponent_div_30_Template(rf, ctx) {
     \u0275\u0275elementStart(5, "p");
     \u0275\u0275text(6, "Review and approve or reject seller submissions before they go live.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(7, AdminComponent_div_30_div_7_Template, 7, 0, "div", 70)(8, AdminComponent_div_30_div_8_Template, 27, 21, "div", 71);
+    \u0275\u0275template(7, AdminComponent_div_30_div_7_Template, 7, 0, "div", 70)(8, AdminComponent_div_30_div_8_Template, 28, 23, "div", 71);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -630,12 +634,12 @@ function AdminComponent_div_31_div_13_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(20, "span", 106);
     \u0275\u0275text(21);
-    \u0275\u0275pipe(22, "date");
+    \u0275\u0275pipe(22, "fsDate");
+    \u0275\u0275pipe(23, "date");
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
     const blog_r13 = ctx.$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(3);
     \u0275\u0275advance(4);
     \u0275\u0275textInterpolate(blog_r13.title || "Untitled Blog");
     \u0275\u0275advance(12);
@@ -645,13 +649,13 @@ function AdminComponent_div_31_div_13_div_1_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275textInterpolate1(" ", blog_r13.published ? "Published" : "Draft", " ");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(22, 6, ctx_r0.toDate(blog_r13.createdAt), "medium"));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(23, 8, \u0275\u0275pipeBind1(22, 6, blog_r13.createdAt), "medium"));
   }
 }
 function AdminComponent_div_31_div_13_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 96);
-    \u0275\u0275template(1, AdminComponent_div_31_div_13_div_1_Template, 23, 9, "div", 97);
+    \u0275\u0275template(1, AdminComponent_div_31_div_13_div_1_Template, 24, 11, "div", 97);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -712,29 +716,29 @@ function AdminComponent_div_32_tr_22_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr", 117)(1, "td", 118);
     \u0275\u0275text(2);
-    \u0275\u0275pipe(3, "date");
+    \u0275\u0275pipe(3, "fsDate");
+    \u0275\u0275pipe(4, "date");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(4, "td", 119);
-    \u0275\u0275text(5);
-    \u0275\u0275pipe(6, "slice");
+    \u0275\u0275elementStart(5, "td", 119);
+    \u0275\u0275text(6);
+    \u0275\u0275pipe(7, "slice");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(7, "td", 119)(8, "strong");
-    \u0275\u0275text(9);
+    \u0275\u0275elementStart(8, "td", 119)(9, "strong");
+    \u0275\u0275text(10);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(10, "td", 119);
-    \u0275\u0275text(11);
+    \u0275\u0275elementStart(11, "td", 119);
+    \u0275\u0275text(12);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(12, "td", 120);
-    \u0275\u0275text(13);
+    \u0275\u0275elementStart(13, "td", 120);
+    \u0275\u0275text(14);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
     const view_r14 = ctx.$implicit;
-    const ctx_r0 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(3, 8, ctx_r0.toDate(view_r14.timestamp), "short"));
-    \u0275\u0275advance(3);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind3(6, 11, view_r14.productId, 0, 8));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(4, 10, \u0275\u0275pipeBind1(3, 8, view_r14.timestamp), "short"));
+    \u0275\u0275advance(4);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind3(7, 13, view_r14.productId, 0, 8));
     \u0275\u0275advance(4);
     \u0275\u0275textInterpolate(view_r14.ip);
     \u0275\u0275advance(2);
@@ -776,7 +780,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(20, "Device Data");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(21, "tbody");
-    \u0275\u0275template(22, AdminComponent_div_32_tr_22_Template, 14, 15, "tr", 116);
+    \u0275\u0275template(22, AdminComponent_div_32_tr_22_Template, 15, 17, "tr", 116);
     \u0275\u0275elementEnd()();
     \u0275\u0275template(23, AdminComponent_div_32_div_23_Template, 3, 0, "div", 70);
     \u0275\u0275elementEnd()()();
@@ -2048,13 +2052,6 @@ var AdminComponent = class _AdminComponent {
       }
     });
   }
-  toDate(timestamp) {
-    if (!timestamp)
-      return null;
-    if (timestamp && timestamp.toDate)
-      return timestamp.toDate();
-    return timestamp;
-  }
   static {
     this.\u0275fac = function AdminComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || _AdminComponent)();
@@ -2154,13 +2151,13 @@ var AdminComponent = class _AdminComponent {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.showRejectModal);
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DecimalPipe, TitleCasePipe, DatePipe, RouterLink, FormsModule, NgSelectOption, \u0275NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor, NgControlStatus, NgModel, IonContent, HeaderComponent, FooterComponent], styles: ["\n\n.admin-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.hero-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.admin-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.admin-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.hero-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  padding: 10px 20px;\n  border-radius: var(--pm-radius-md);\n  border: none;\n  background: transparent;\n  color: var(--pm-text-secondary);\n  font-family: inherit;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.tab-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.05);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: white;\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.admin-content[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\n  gap: 20px;\n  margin-bottom: 32px;\n}\n.stat-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.stat-card-icon[_ngcontent-%COMP%] {\n  width: 56px;\n  height: 56px;\n  border-radius: var(--pm-radius-md);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.stat-card-info[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.stat-card-value[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--pm-text-primary);\n}\n.stat-card-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n}\n.stat-card-change[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n}\n.stat-card-change.positive[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.chart-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  margin-bottom: 32px;\n}\n.chart-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.chart-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.chart-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  background: var(--pm-surface-muted);\n  padding: 4px;\n  border-radius: var(--pm-radius-sm);\n}\n.chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.chart-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: white;\n  box-shadow: var(--pm-shadow-sm);\n}\n.chart-body[_ngcontent-%COMP%] {\n  min-height: 200px;\n}\n.chart-bars[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-end;\n  gap: 8px;\n  height: 200px;\n  padding-bottom: 8px;\n}\n.chart-bar[_ngcontent-%COMP%] {\n  flex: 1;\n  background:\n    linear-gradient(\n      180deg,\n      #6366F1,\n      #A855F7);\n  border-radius: 4px 4px 0 0;\n  min-height: 4px;\n  position: relative;\n  transition: height 0.3s ease;\n}\n.bar-tooltip[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -24px;\n  left: 50%;\n  transform: translateX(-50%);\n  font-size: 0.7rem;\n  background: #1F2937;\n  color: white;\n  padding: 2px 6px;\n  border-radius: 4px;\n  white-space: nowrap;\n  opacity: 0;\n  transition: opacity 0.2s;\n}\n.chart-bar[_ngcontent-%COMP%]:hover   .bar-tooltip[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.chart-labels[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin-top: 8px;\n}\n.chart-labels[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  flex: 1;\n  text-align: center;\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.empty-chart[_ngcontent-%COMP%] {\n  height: 200px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--pm-text-muted);\n  font-size: 0.9rem;\n}\n.projects-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.card-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.header-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n}\n.header-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  transition: all 0.2s;\n}\n.header-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  color: var(--pm-text-primary);\n}\n.project-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.project-row[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.project-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n}\n.project-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.project-title[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 2px;\n}\n.project-desc[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.project-status[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.status-badge[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  font-weight: 600;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-pending[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.1);\n  color: #6366F1;\n}\n.status-rejected[_ngcontent-%COMP%] {\n  background: rgba(239, 68, 68, 0.1);\n  color: #EF4444;\n}\n.project-price[_ngcontent-%COMP%] {\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  flex-shrink: 0;\n}\n.project-date[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.project-actions[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.empty-projects[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n}\n.empty-projects[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.settings-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  padding: 32px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.settings-header[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.settings-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 1.3rem;\n}\n.settings-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n  color: var(--pm-text-muted);\n}\n.form-section[_ngcontent-%COMP%] {\n  margin: 24px 0;\n}\n.form-section[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.section-desc[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  margin-bottom: 16px;\n}\n.form-group-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  max-width: 500px;\n}\n.pm-input[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 10px 16px;\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  font-family: inherit;\n}\n.pm-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid var(--ion-color-primary-transparent);\n  border-color: var(--ion-color-primary);\n}\n.form-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  max-width: 600px;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n}\n.pm-divider[_ngcontent-%COMP%] {\n  height: 1px;\n  background: var(--pm-border-light);\n  margin: 32px 0;\n}\n.mt-16[_ngcontent-%COMP%] {\n  margin-top: 16px;\n}\n.fade-in[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_fadeIn 0.3s ease-out;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.blog-management[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.blog-actions[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.blogs-list[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.blog-item[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  padding: 20px;\n  transition: all var(--pm-transition-fast);\n}\n.blog-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.blog-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.blog-item-header[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.1rem;\n  color: var(--pm-text-primary);\n  flex: 1;\n}\n.blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin: 0;\n}\n.blog-excerpt[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  color: var(--pm-text-secondary);\n  font-size: 0.9rem;\n  line-height: 1.5;\n}\n.blog-meta[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-size: 0.8rem;\n}\n.blog-status[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n  font-weight: 600;\n  font-size: 0.75rem;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.blog-date[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 48px 24px;\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%]   svg[_ngcontent-%COMP%] {\n  margin-bottom: 16px;\n  color: var(--pm-border);\n}\n.empty-state[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  color: var(--pm-text-primary);\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.modal-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.modal-content[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  width: 100%;\n  max-width: 600px;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: var(--pm-shadow-lg);\n}\n.modal-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.modal-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.2rem;\n}\n.modal-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 1.5rem;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  padding: 0;\n  line-height: 1;\n}\n.modal-close[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-sm);\n  font-family: inherit;\n  font-size: 0.9rem;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: border-color 0.2s;\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.modal-footer[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding: 16px 24px;\n  border-top: 1px solid var(--pm-border-light);\n}\n@media (max-width: 768px) {\n  .hero-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 16px;\n  }\n  .hero-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    padding: 8px 12px;\n    font-size: 0.85rem;\n  }\n  .stats-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 12px;\n  }\n  .stat-card[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .stat-card-icon[_ngcontent-%COMP%] {\n    width: 48px;\n    height: 48px;\n    font-size: 1.25rem;\n  }\n  .chart-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .chart-tabs[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: space-between;\n  }\n  .chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    flex: 1;\n    text-align: center;\n  }\n  .project-row[_ngcontent-%COMP%] {\n    flex-wrap: wrap;\n    gap: 12px;\n    padding: 12px 0;\n  }\n  .project-thumb[_ngcontent-%COMP%] {\n    width: 40px;\n    height: 40px;\n    font-size: 1rem;\n  }\n  .project-info[_ngcontent-%COMP%] {\n    min-width: 0;\n  }\n  .project-title[_ngcontent-%COMP%] {\n    font-size: 0.9rem;\n  }\n  .project-desc[_ngcontent-%COMP%] {\n    font-size: 0.8rem;\n  }\n  .project-price[_ngcontent-%COMP%], \n   .project-date[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .form-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .form-group-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .modal-content[_ngcontent-%COMP%] {\n    max-height: 100vh;\n    border-radius: 0;\n    margin: 0;\n    width: 100%;\n  }\n  .settings-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .blog-item-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n}\n.pending-badge[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 20px;\n  height: 20px;\n  padding: 0 6px;\n  background: #EF4444;\n  color: white;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 700;\n  margin-left: 6px;\n}\n.review-item[_ngcontent-%COMP%] {\n  padding: 24px;\n  margin-bottom: 16px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-lg);\n  transition: all 0.2s;\n}\n.review-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.review-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  margin-bottom: 16px;\n}\n.review-thumb[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 60px;\n  border-radius: var(--pm-radius-sm);\n  background: var(--pm-surface-muted);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.review-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.review-info[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.review-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.review-meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.meta-tag[_ngcontent-%COMP%] {\n  padding: 3px 10px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n}\n.guide-preview-mini[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 16px;\n  overflow: hidden;\n}\n.gpm-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 16px;\n  cursor: pointer;\n  font-size: 0.85rem;\n  font-weight: 600;\n}\n.gpm-header[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.02);\n}\n.gpm-content[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin: 0;\n  font-size: 0.8rem;\n  line-height: 1.6;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n  max-height: 200px;\n  overflow-y: auto;\n  border-top: 1px solid var(--pm-border-light);\n}\n.no-guide-tag[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  background: rgba(245, 158, 11, 0.06);\n  border: 1px solid rgba(245, 158, 11, 0.15);\n  border-radius: var(--pm-radius-md);\n  font-size: 0.82rem;\n  color: #D97706;\n  margin-bottom: 16px;\n}\n.review-actions-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  justify-content: flex-end;\n}\n/*# sourceMappingURL=admin.component.css.map */"] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DecimalPipe, TitleCasePipe, DatePipe, RouterLink, FormsModule, NgSelectOption, \u0275NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor, NgControlStatus, NgModel, IonContent, HeaderComponent, FooterComponent, FirestoreDatePipe], styles: ["\n\n.admin-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.hero-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.admin-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.admin-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.hero-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  padding: 10px 20px;\n  border-radius: var(--pm-radius-md);\n  border: none;\n  background: transparent;\n  color: var(--pm-text-secondary);\n  font-family: inherit;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.tab-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.05);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: white;\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.admin-content[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\n  gap: 20px;\n  margin-bottom: 32px;\n}\n.stat-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.stat-card-icon[_ngcontent-%COMP%] {\n  width: 56px;\n  height: 56px;\n  border-radius: var(--pm-radius-md);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.stat-card-info[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.stat-card-value[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--pm-text-primary);\n}\n.stat-card-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n}\n.stat-card-change[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n}\n.stat-card-change.positive[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.chart-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  margin-bottom: 32px;\n}\n.chart-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.chart-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.chart-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  background: var(--pm-surface-muted);\n  padding: 4px;\n  border-radius: var(--pm-radius-sm);\n}\n.chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.chart-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: white;\n  box-shadow: var(--pm-shadow-sm);\n}\n.chart-body[_ngcontent-%COMP%] {\n  min-height: 200px;\n}\n.chart-bars[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-end;\n  gap: 8px;\n  height: 200px;\n  padding-bottom: 8px;\n}\n.chart-bar[_ngcontent-%COMP%] {\n  flex: 1;\n  background:\n    linear-gradient(\n      180deg,\n      #6366F1,\n      #A855F7);\n  border-radius: 4px 4px 0 0;\n  min-height: 4px;\n  position: relative;\n  transition: height 0.3s ease;\n}\n.bar-tooltip[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -24px;\n  left: 50%;\n  transform: translateX(-50%);\n  font-size: 0.7rem;\n  background: #1F2937;\n  color: white;\n  padding: 2px 6px;\n  border-radius: 4px;\n  white-space: nowrap;\n  opacity: 0;\n  transition: opacity 0.2s;\n}\n.chart-bar[_ngcontent-%COMP%]:hover   .bar-tooltip[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.chart-labels[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin-top: 8px;\n}\n.chart-labels[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  flex: 1;\n  text-align: center;\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.empty-chart[_ngcontent-%COMP%] {\n  height: 200px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--pm-text-muted);\n  font-size: 0.9rem;\n}\n.projects-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.card-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.header-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n}\n.header-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  transition: all 0.2s;\n}\n.header-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  color: var(--pm-text-primary);\n}\n.project-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.project-row[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.project-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n}\n.project-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.project-title[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 2px;\n}\n.project-desc[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.project-status[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.status-badge[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  font-weight: 600;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-pending[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.1);\n  color: #6366F1;\n}\n.status-rejected[_ngcontent-%COMP%] {\n  background: rgba(239, 68, 68, 0.1);\n  color: #EF4444;\n}\n.project-price[_ngcontent-%COMP%] {\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  flex-shrink: 0;\n}\n.project-date[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.project-actions[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.empty-projects[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n}\n.empty-projects[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.settings-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  padding: 32px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.settings-header[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.settings-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 1.3rem;\n}\n.settings-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n  color: var(--pm-text-muted);\n}\n.form-section[_ngcontent-%COMP%] {\n  margin: 24px 0;\n}\n.form-section[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.section-desc[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  margin-bottom: 16px;\n}\n.form-group-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  max-width: 500px;\n}\n.pm-input[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 10px 16px;\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  font-family: inherit;\n}\n.pm-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid var(--ion-color-primary-transparent);\n  border-color: var(--ion-color-primary);\n}\n.form-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  max-width: 600px;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n}\n.pm-divider[_ngcontent-%COMP%] {\n  height: 1px;\n  background: var(--pm-border-light);\n  margin: 32px 0;\n}\n.mt-16[_ngcontent-%COMP%] {\n  margin-top: 16px;\n}\n.fade-in[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_fadeIn 0.3s ease-out;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.blog-management[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.blog-actions[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.blogs-list[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.blog-item[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  padding: 20px;\n  transition: all var(--pm-transition-fast);\n}\n.blog-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.blog-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.blog-item-header[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.1rem;\n  color: var(--pm-text-primary);\n  flex: 1;\n}\n.blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin: 0;\n}\n.blog-excerpt[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  color: var(--pm-text-secondary);\n  font-size: 0.9rem;\n  line-height: 1.5;\n}\n.blog-meta[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-size: 0.8rem;\n}\n.blog-status[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n  font-weight: 600;\n  font-size: 0.75rem;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.blog-date[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 48px 24px;\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%]   svg[_ngcontent-%COMP%] {\n  margin-bottom: 16px;\n  color: var(--pm-border);\n}\n.empty-state[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  color: var(--pm-text-primary);\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.modal-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.modal-content[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  width: 100%;\n  max-width: 600px;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: var(--pm-shadow-lg);\n}\n.modal-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.modal-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.2rem;\n}\n.modal-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 1.5rem;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  padding: 0;\n  line-height: 1;\n}\n.modal-close[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-sm);\n  font-family: inherit;\n  font-size: 0.9rem;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: border-color 0.2s;\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.modal-footer[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding: 16px 24px;\n  border-top: 1px solid var(--pm-border-light);\n}\n@media (max-width: 768px) {\n  .hero-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 16px;\n  }\n  .hero-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    padding: 8px 12px;\n    font-size: 0.85rem;\n  }\n  .stats-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 12px;\n  }\n  .stat-card[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .stat-card-icon[_ngcontent-%COMP%] {\n    width: 48px;\n    height: 48px;\n    font-size: 1.25rem;\n  }\n  .chart-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .chart-tabs[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: space-between;\n  }\n  .chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    flex: 1;\n    text-align: center;\n  }\n  .project-row[_ngcontent-%COMP%] {\n    flex-wrap: wrap;\n    gap: 12px;\n    padding: 12px 0;\n  }\n  .project-thumb[_ngcontent-%COMP%] {\n    width: 40px;\n    height: 40px;\n    font-size: 1rem;\n  }\n  .project-info[_ngcontent-%COMP%] {\n    min-width: 0;\n  }\n  .project-title[_ngcontent-%COMP%] {\n    font-size: 0.9rem;\n  }\n  .project-desc[_ngcontent-%COMP%] {\n    font-size: 0.8rem;\n  }\n  .project-price[_ngcontent-%COMP%], \n   .project-date[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .form-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .form-group-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .modal-content[_ngcontent-%COMP%] {\n    max-height: 100vh;\n    border-radius: 0;\n    margin: 0;\n    width: 100%;\n  }\n  .settings-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .blog-item-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n}\n.pending-badge[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 20px;\n  height: 20px;\n  padding: 0 6px;\n  background: #EF4444;\n  color: white;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 700;\n  margin-left: 6px;\n}\n.review-item[_ngcontent-%COMP%] {\n  padding: 24px;\n  margin-bottom: 16px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-lg);\n  transition: all 0.2s;\n}\n.review-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.review-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  margin-bottom: 16px;\n}\n.review-thumb[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 60px;\n  border-radius: var(--pm-radius-sm);\n  background: var(--pm-surface-muted);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.review-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.review-info[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.review-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.review-meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.meta-tag[_ngcontent-%COMP%] {\n  padding: 3px 10px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n}\n.guide-preview-mini[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 16px;\n  overflow: hidden;\n}\n.gpm-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 16px;\n  cursor: pointer;\n  font-size: 0.85rem;\n  font-weight: 600;\n}\n.gpm-header[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.02);\n}\n.gpm-content[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin: 0;\n  font-size: 0.8rem;\n  line-height: 1.6;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n  max-height: 200px;\n  overflow-y: auto;\n  border-top: 1px solid var(--pm-border-light);\n}\n.no-guide-tag[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  background: rgba(245, 158, 11, 0.06);\n  border: 1px solid rgba(245, 158, 11, 0.15);\n  border-radius: var(--pm-radius-md);\n  font-size: 0.82rem;\n  color: #D97706;\n  margin-bottom: 16px;\n}\n.review-actions-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  justify-content: flex-end;\n}\n/*# sourceMappingURL=admin.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 1011 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 1012 });
 })();
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-INS7EQJ6.js.map
+//# sourceMappingURL=chunk-U4NJINBH.js.map

@@ -10,7 +10,7 @@ import {
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵinject
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AnimationMetadataType;
@@ -481,4 +481,4 @@ export {
   ɵPRE_STYLE,
   environment
 };
-//# sourceMappingURL=chunk-LL6IVHFO.js.map
+//# sourceMappingURL=chunk-NPPW327T.js.map

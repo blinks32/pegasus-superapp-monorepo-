@@ -64030,6 +64030,7 @@ export {
   ɵɵdefineComponent,
   ɵɵdefineNgModule,
   ɵɵdefineDirective,
+  ɵɵdefinePipe,
   makeEnvironmentProviders,
   importProvidersFrom,
   EnvironmentInjector,
@@ -64202,4 +64203,4 @@ export {
   updateDoc2 as updateDoc,
   where2 as where
 };
-//# sourceMappingURL=chunk-OKV2NBY4.js.map
+//# sourceMappingURL=chunk-RHD5Y3BY.js.map

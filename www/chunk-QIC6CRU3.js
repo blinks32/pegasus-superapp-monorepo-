@@ -1,9 +1,12 @@
 import {
+  FirestoreDatePipe
+} from "./chunk-SY5GTD6M.js";
+import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-L3MOXFDZ.js";
+} from "./chunk-DGJNZ4OC.js";
 import {
   CommonModule,
   DatePipe,
@@ -36,7 +39,7 @@ import {
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1,
   ɵɵtextInterpolate2
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 import "./chunk-EGSMBJJY.js";
 
 // src/app/pages/sell/seller-dashboard.component.ts
@@ -100,15 +103,15 @@ function SellerDashboardComponent_ng_container_2_div_49_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(14, "div", 35);
     \u0275\u0275text(15);
-    \u0275\u0275pipe(16, "date");
+    \u0275\u0275pipe(16, "fsDate");
+    \u0275\u0275pipe(17, "date");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(17, "div", 36)(18, "a", 37);
-    \u0275\u0275text(19, "View");
+    \u0275\u0275elementStart(18, "div", 36)(19, "a", 37);
+    \u0275\u0275text(20, "View");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
     const p_r1 = ctx.$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance();
     \u0275\u0275styleProp("background-image", p_r1.thumbnailUrl ? "url(" + p_r1.thumbnailUrl + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
@@ -124,9 +127,9 @@ function SellerDashboardComponent_ng_container_2_div_49_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate2("", "$", "", p_r1.price, "");
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 18, ctx_r1.toDate(p_r1.createdAt), "mediumDate"));
-    \u0275\u0275advance(3);
-    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(21, _c0, p_r1.id));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(17, 20, \u0275\u0275pipeBind1(16, 18, p_r1.createdAt), "mediumDate"));
+    \u0275\u0275advance(4);
+    \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(23, _c0, p_r1.id));
   }
 }
 function SellerDashboardComponent_ng_container_2_div_50_div_6_Template(rf, ctx) {
@@ -139,9 +142,9 @@ function SellerDashboardComponent_ng_container_2_div_50_div_6_Template(rf, ctx) 
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
-    const p_r3 = \u0275\u0275nextContext().$implicit;
+    const p_r2 = \u0275\u0275nextContext().$implicit;
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(p_r3.rejectionReason);
+    \u0275\u0275textInterpolate(p_r2.rejectionReason);
   }
 }
 function SellerDashboardComponent_ng_container_2_div_50_Template(rf, ctx) {
@@ -156,11 +159,11 @@ function SellerDashboardComponent_ng_container_2_div_50_Template(rf, ctx) {
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
-    const p_r3 = ctx.$implicit;
+    const p_r2 = ctx.$implicit;
     \u0275\u0275advance(5);
-    \u0275\u0275textInterpolate(p_r3.title);
+    \u0275\u0275textInterpolate(p_r2.title);
     \u0275\u0275advance();
-    \u0275\u0275property("ngIf", p_r3.rejectionReason);
+    \u0275\u0275property("ngIf", p_r2.rejectionReason);
   }
 }
 function SellerDashboardComponent_ng_container_2_Template(rf, ctx) {
@@ -217,28 +220,28 @@ function SellerDashboardComponent_ng_container_2_Template(rf, ctx) {
     \u0275\u0275text(46, "Rejected");
     \u0275\u0275elementEnd()()()();
     \u0275\u0275elementStart(47, "div", 21);
-    \u0275\u0275template(48, SellerDashboardComponent_ng_container_2_div_48_Template, 9, 0, "div", 22)(49, SellerDashboardComponent_ng_container_2_div_49_Template, 20, 23, "div", 23);
+    \u0275\u0275template(48, SellerDashboardComponent_ng_container_2_div_48_Template, 9, 0, "div", 22)(49, SellerDashboardComponent_ng_container_2_div_49_Template, 21, 25, "div", 23);
     \u0275\u0275elementEnd();
     \u0275\u0275template(50, SellerDashboardComponent_ng_container_2_div_50_Template, 7, 2, "div", 24);
     \u0275\u0275elementEnd();
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
-    const ctx_r1 = \u0275\u0275nextContext();
+    const ctx_r2 = \u0275\u0275nextContext();
     \u0275\u0275advance(20);
-    \u0275\u0275textInterpolate(ctx_r1.myProducts.length);
+    \u0275\u0275textInterpolate(ctx_r2.myProducts.length);
     \u0275\u0275advance(8);
-    \u0275\u0275textInterpolate(ctx_r1.pendingCount);
+    \u0275\u0275textInterpolate(ctx_r2.pendingCount);
     \u0275\u0275advance(8);
-    \u0275\u0275textInterpolate(ctx_r1.publishedCount);
+    \u0275\u0275textInterpolate(ctx_r2.publishedCount);
     \u0275\u0275advance(8);
-    \u0275\u0275textInterpolate(ctx_r1.rejectedCount);
+    \u0275\u0275textInterpolate(ctx_r2.rejectedCount);
     \u0275\u0275advance(4);
-    \u0275\u0275property("ngIf", ctx_r1.myProducts.length === 0);
+    \u0275\u0275property("ngIf", ctx_r2.myProducts.length === 0);
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r1.myProducts);
+    \u0275\u0275property("ngForOf", ctx_r2.myProducts);
     \u0275\u0275advance();
-    \u0275\u0275property("ngForOf", ctx_r1.rejectedProducts);
+    \u0275\u0275property("ngForOf", ctx_r2.rejectedProducts);
   }
 }
 var SellerDashboardComponent = class _SellerDashboardComponent {
@@ -264,13 +267,6 @@ var SellerDashboardComponent = class _SellerDashboardComponent {
   get rejectedProducts() {
     return this.myProducts.filter((p) => p.status === "rejected");
   }
-  toDate(timestamp) {
-    if (!timestamp)
-      return null;
-    if (timestamp.toDate)
-      return timestamp.toDate();
-    return timestamp;
-  }
   static {
     this.\u0275fac = function SellerDashboardComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || _SellerDashboardComponent)();
@@ -289,13 +285,13 @@ var SellerDashboardComponent = class _SellerDashboardComponent {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.auth.currentUser());
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, TitleCasePipe, DatePipe, RouterLink, HeaderComponent, FooterComponent], styles: ["\n\n.auth-gate[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 60vh;\n  padding: 40px 20px;\n}\n.auth-card[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 64px 40px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-xl);\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-lg);\n  max-width: 480px;\n  width: 100%;\n}\n.auth-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  margin-bottom: 16px;\n}\n.auth-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n}\n.auth-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin: 0 0 28px;\n}\n.dash-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.hero-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.dash-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.dash-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.dash-content[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n}\n.stats-row[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 16px;\n  margin-bottom: 32px;\n}\n.mini-stat[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 20px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.ms-icon[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-md);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n}\n.mini-stat[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.5rem;\n  color: var(--pm-text-primary);\n}\n.mini-stat[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.products-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.empty-state[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 48px 24px;\n}\n.empty-icon[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  margin-bottom: 12px;\n}\n.empty-state[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 20px;\n  color: var(--pm-text-muted);\n}\n.product-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.product-row[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.product-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n  background: var(--pm-surface-muted);\n}\n.product-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.product-title[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 2px;\n}\n.product-desc[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.product-status[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.status-badge[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  font-weight: 600;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-pending[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.1);\n  color: #6366F1;\n}\n.status-rejected[_ngcontent-%COMP%] {\n  background: rgba(239, 68, 68, 0.1);\n  color: #EF4444;\n}\n.product-price[_ngcontent-%COMP%] {\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  flex-shrink: 0;\n}\n.product-date[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.product-actions[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.rejection-card[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  padding: 20px;\n  background: rgba(239, 68, 68, 0.03);\n  border: 1px solid rgba(239, 68, 68, 0.15);\n  border-radius: var(--pm-radius-md);\n}\n.rejection-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.reason-label[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  color: var(--pm-text-muted);\n}\n.rejection-reason[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: 0.9rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n}\n@media (max-width: 768px) {\n  .stats-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n  .hero-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .product-row[_ngcontent-%COMP%] {\n    flex-wrap: wrap;\n    gap: 12px;\n  }\n  .product-price[_ngcontent-%COMP%], \n   .product-date[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n/*# sourceMappingURL=seller-dashboard.component.css.map */"] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, TitleCasePipe, DatePipe, RouterLink, HeaderComponent, FooterComponent, FirestoreDatePipe], styles: ["\n\n.auth-gate[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 60vh;\n  padding: 40px 20px;\n}\n.auth-card[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 64px 40px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-xl);\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-lg);\n  max-width: 480px;\n  width: 100%;\n}\n.auth-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  margin-bottom: 16px;\n}\n.auth-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n}\n.auth-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin: 0 0 28px;\n}\n.dash-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.hero-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.dash-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.dash-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.dash-content[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n}\n.stats-row[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 16px;\n  margin-bottom: 32px;\n}\n.mini-stat[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  padding: 20px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.ms-icon[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-md);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n}\n.mini-stat[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.5rem;\n  color: var(--pm-text-primary);\n}\n.mini-stat[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.products-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.empty-state[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 48px 24px;\n}\n.empty-icon[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  margin-bottom: 12px;\n}\n.empty-state[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 20px;\n  color: var(--pm-text-muted);\n}\n.product-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.product-row[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.product-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n  background: var(--pm-surface-muted);\n}\n.product-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.product-title[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 2px;\n}\n.product-desc[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.product-status[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.status-badge[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  font-weight: 600;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-pending[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.1);\n  color: #6366F1;\n}\n.status-rejected[_ngcontent-%COMP%] {\n  background: rgba(239, 68, 68, 0.1);\n  color: #EF4444;\n}\n.product-price[_ngcontent-%COMP%] {\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  flex-shrink: 0;\n}\n.product-date[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.product-actions[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.rejection-card[_ngcontent-%COMP%] {\n  margin-top: 16px;\n  padding: 20px;\n  background: rgba(239, 68, 68, 0.03);\n  border: 1px solid rgba(239, 68, 68, 0.15);\n  border-radius: var(--pm-radius-md);\n}\n.rejection-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.reason-label[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  color: var(--pm-text-muted);\n}\n.rejection-reason[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 4px 0 0;\n  font-size: 0.9rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n}\n@media (max-width: 768px) {\n  .stats-row[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n  .hero-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .product-row[_ngcontent-%COMP%] {\n    flex-wrap: wrap;\n    gap: 12px;\n  }\n  .product-price[_ngcontent-%COMP%], \n   .product-date[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n/*# sourceMappingURL=seller-dashboard.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SellerDashboardComponent, { className: "SellerDashboardComponent", filePath: "src\\app\\pages\\sell\\seller-dashboard.component.ts", lineNumber: 219 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(SellerDashboardComponent, { className: "SellerDashboardComponent", filePath: "src\\app\\pages\\sell\\seller-dashboard.component.ts", lineNumber: 220 });
 })();
 export {
   SellerDashboardComponent
 };
-//# sourceMappingURL=chunk-JKM7KWTL.js.map
+//# sourceMappingURL=chunk-QIC6CRU3.js.map

@@ -1,11 +1,11 @@
 import {
   FooterComponent,
   HeaderComponent
-} from "./chunk-L3MOXFDZ.js";
+} from "./chunk-DGJNZ4OC.js";
 import {
   IonContent
-} from "./chunk-7TFQUZIJ.js";
-import "./chunk-XLO4FCJH.js";
+} from "./chunk-S4DXISLP.js";
+import "./chunk-OLW2AZEG.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -35,7 +35,7 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵtextInterpolate1
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
@@ -184,4 +184,4 @@ var BlogDetailComponent = class _BlogDetailComponent {
 export {
   BlogDetailComponent
 };
-//# sourceMappingURL=chunk-MIHEGMQL.js.map
+//# sourceMappingURL=chunk-YLDEAW4L.js.map

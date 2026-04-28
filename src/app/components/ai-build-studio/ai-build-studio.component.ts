@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, ModalController } from '@ionic/angular/standalone';
 import { AiBuildService, BuildStatus } from '../../services/ai-build.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { FirestoreDatePipe } from '../../pipes/firestore-date.pipe';
 
 @Component({
   selector: 'app-ai-build-studio',
   standalone: true,
-  imports: [CommonModule, FormsModule, IonContent],
+  imports: [CommonModule, FormsModule, IonContent, FirestoreDatePipe],
   styleUrl: './ai-build-studio.component.scss',
   template: `
     <ion-content>
@@ -153,7 +154,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
             <div *ngFor="let build of history()" class="history-card">
               <div class="card-top">
                 <h3>{{ build.product_name }}</h3>
-                <time>{{ toDate(build.timestamp) | date:'short' }}</time>
+                <time>{{ build.timestamp | fsDate | date:'short' }}</time>
               </div>
               <p class="card-prompt">"{{ build.prompt }}"</p>
               <div class="card-footer">
@@ -213,8 +214,9 @@ export class AIBuildStudioComponent implements OnInit {
     this.activeTab = 'history';
     this.buildService.getHistory().subscribe(data => {
       this.history.set(data.sort((a,b) => {
-        const timeA = this.toDate(a.timestamp)?.getTime() || 0;
-        const timeB = this.toDate(b.timestamp)?.getTime() || 0;
+        const pipe = new FirestoreDatePipe();
+        const timeA = pipe.transform(a.timestamp)?.getTime() || 0;
+        const timeB = pipe.transform(b.timestamp)?.getTime() || 0;
         return timeB - timeA;
       }));
     });
@@ -267,12 +269,5 @@ export class AIBuildStudioComponent implements OnInit {
     const currentIndex = steps.indexOf(this.currentStatus?.status || 'configuring');
     const stepIndex = steps.indexOf(step as any);
     return currentIndex > stepIndex;
-  }
-
-  toDate(timestamp: any): Date | any {
-    if (!timestamp) return null;
-    if (timestamp.toDate) return timestamp.toDate();
-    if (typeof timestamp === 'string' || typeof timestamp === 'number') return new Date(timestamp);
-    return timestamp;
   }
 }

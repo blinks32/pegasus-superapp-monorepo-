@@ -1,33 +1,36 @@
 import {
   ProductCardComponent
-} from "./chunk-TAOYTMNO.js";
+} from "./chunk-CTZWXPCK.js";
+import {
+  FirestoreDatePipe
+} from "./chunk-SY5GTD6M.js";
 import {
   AuthService,
   FooterComponent,
   HeaderComponent,
   MarketplaceService
-} from "./chunk-L3MOXFDZ.js";
+} from "./chunk-DGJNZ4OC.js";
 import {
   animate,
   environment,
   style,
   transition,
   trigger
-} from "./chunk-LL6IVHFO.js";
+} from "./chunk-NPPW327T.js";
 import {
   SeoService
-} from "./chunk-NROIVCYZ.js";
+} from "./chunk-OC3PZCFA.js";
 import {
   IonContent,
   ModalController
-} from "./chunk-7TFQUZIJ.js";
+} from "./chunk-S4DXISLP.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
   NgControlStatus,
   NgModel
-} from "./chunk-XLO4FCJH.js";
+} from "./chunk-OLW2AZEG.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -86,7 +89,7 @@ import {
   ɵɵtwoWayBindingSet,
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
-} from "./chunk-OKV2NBY4.js";
+} from "./chunk-RHD5Y3BY.js";
 import "./chunk-KWZAHRWA.js";
 import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
@@ -680,14 +683,14 @@ function AIBuildStudioComponent_div_20_div_3_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function AIBuildStudioComponent_div_20_div_4_span_10_Template(rf, ctx) {
+function AIBuildStudioComponent_div_20_div_4_span_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 53);
     \u0275\u0275text(1, "COMPLETED");
     \u0275\u0275elementEnd();
   }
 }
-function AIBuildStudioComponent_div_20_div_4_a_11_Template(rf, ctx) {
+function AIBuildStudioComponent_div_20_div_4_a_12_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 54);
     \u0275\u0275text(1, "Download Link \u2192");
@@ -706,30 +709,30 @@ function AIBuildStudioComponent_div_20_div_4_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "time");
     \u0275\u0275text(5);
-    \u0275\u0275pipe(6, "date");
+    \u0275\u0275pipe(6, "fsDate");
+    \u0275\u0275pipe(7, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(7, "p", 48);
-    \u0275\u0275text(8);
+    \u0275\u0275elementStart(8, "p", 48);
+    \u0275\u0275text(9);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(9, "div", 49);
-    \u0275\u0275template(10, AIBuildStudioComponent_div_20_div_4_span_10_Template, 2, 0, "span", 50)(11, AIBuildStudioComponent_div_20_div_4_a_11_Template, 2, 1, "a", 51);
-    \u0275\u0275elementStart(12, "button", 52);
-    \u0275\u0275listener("click", function AIBuildStudioComponent_div_20_div_4_Template_button_click_12_listener() {
+    \u0275\u0275elementStart(10, "div", 49);
+    \u0275\u0275template(11, AIBuildStudioComponent_div_20_div_4_span_11_Template, 2, 0, "span", 50)(12, AIBuildStudioComponent_div_20_div_4_a_12_Template, 2, 1, "a", 51);
+    \u0275\u0275elementStart(13, "button", 52);
+    \u0275\u0275listener("click", function AIBuildStudioComponent_div_20_div_4_Template_button_click_13_listener() {
       const build_r5 = \u0275\u0275restoreView(_r4).$implicit;
       const ctx_r1 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r1.reViewBuild(build_r5));
     });
-    \u0275\u0275text(13, "View Details");
+    \u0275\u0275text(14, "View Details");
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
     const build_r5 = ctx.$implicit;
-    const ctx_r1 = \u0275\u0275nextContext(2);
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(build_r5.product_name);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(6, 5, ctx_r1.toDate(build_r5.timestamp), "short"));
-    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(7, 7, \u0275\u0275pipeBind1(6, 5, build_r5.timestamp), "short"));
+    \u0275\u0275advance(4);
     \u0275\u0275textInterpolate1('"', build_r5.prompt, '"');
     \u0275\u0275advance(2);
     \u0275\u0275property("ngIf", build_r5.status === "success");
@@ -742,7 +745,7 @@ function AIBuildStudioComponent_div_20_Template(rf, ctx) {
     \u0275\u0275elementStart(0, "div", 42)(1, "h2");
     \u0275\u0275text(2, "Build Archives");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(3, AIBuildStudioComponent_div_20_div_3_Template, 3, 0, "div", 43)(4, AIBuildStudioComponent_div_20_div_4_Template, 14, 8, "div", 44);
+    \u0275\u0275template(3, AIBuildStudioComponent_div_20_div_3_Template, 3, 0, "div", 43)(4, AIBuildStudioComponent_div_20_div_4_Template, 15, 10, "div", 44);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -775,8 +778,9 @@ var AIBuildStudioComponent = class _AIBuildStudioComponent {
       this.activeTab = "history";
       this.buildService.getHistory().subscribe((data) => {
         this.history.set(data.sort((a, b) => {
-          const timeA = this.toDate(a.timestamp)?.getTime() || 0;
-          const timeB = this.toDate(b.timestamp)?.getTime() || 0;
+          const pipe = new FirestoreDatePipe();
+          const timeA = pipe.transform(a.timestamp)?.getTime() || 0;
+          const timeB = pipe.transform(b.timestamp)?.getTime() || 0;
           return timeB - timeA;
         }));
       });
@@ -826,15 +830,6 @@ Prompt: ${build.prompt}`);
     const currentIndex = steps.indexOf(this.currentStatus?.status || "configuring");
     const stepIndex = steps.indexOf(step);
     return currentIndex > stepIndex;
-  }
-  toDate(timestamp) {
-    if (!timestamp)
-      return null;
-    if (timestamp.toDate)
-      return timestamp.toDate();
-    if (typeof timestamp === "string" || typeof timestamp === "number")
-      return new Date(timestamp);
-    return timestamp;
   }
   static {
     this.\u0275fac = function AIBuildStudioComponent_Factory(__ngFactoryType__) {
@@ -892,7 +887,7 @@ Prompt: ${build.prompt}`);
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.activeTab === "history");
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DatePipe, FormsModule, DefaultValueAccessor, NgControlStatus, NgModel, IonContent], styles: ['@charset "UTF-8";\n\n\n\n[_ngcontent-%COMP%]:root {\n  --ion-color-primary: #6366F1;\n  --ion-color-primary-rgb:\n    99,\n    102,\n    241;\n  --ion-color-primary-contrast: #ffffff;\n  --ion-color-primary-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-primary-shade: #5558d5;\n  --ion-color-primary-tint: #737af2;\n  --ion-color-secondary: #10B981;\n  --ion-color-secondary-rgb:\n    16,\n    185,\n    129;\n  --ion-color-secondary-contrast: #ffffff;\n  --ion-color-secondary-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-secondary-shade: #0ea372;\n  --ion-color-secondary-tint: #28c08e;\n  --ion-color-tertiary: #F59E0B;\n  --ion-color-tertiary-rgb:\n    245,\n    158,\n    11;\n  --ion-color-tertiary-contrast: #000000;\n  --ion-color-tertiary-contrast-rgb:\n    0,\n    0,\n    0;\n  --ion-color-tertiary-shade: #d88b0a;\n  --ion-color-tertiary-tint: #f6a823;\n  --ion-color-success: #10B981;\n  --ion-color-success-rgb:\n    16,\n    185,\n    129;\n  --ion-color-success-contrast: #ffffff;\n  --ion-color-success-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-success-shade: #0ea372;\n  --ion-color-success-tint: #28c08e;\n  --ion-color-warning: #F59E0B;\n  --ion-color-warning-rgb:\n    245,\n    158,\n    11;\n  --ion-color-warning-contrast: #000000;\n  --ion-color-warning-contrast-rgb:\n    0,\n    0,\n    0;\n  --ion-color-warning-shade: #d88b0a;\n  --ion-color-warning-tint: #f6a823;\n  --ion-color-danger: #EF4444;\n  --ion-color-danger-rgb:\n    239,\n    68,\n    68;\n  --ion-color-danger-contrast: #ffffff;\n  --ion-color-danger-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-danger-shade: #d23c3c;\n  --ion-color-danger-tint: #f15757;\n  --ion-color-dark: #1E293B;\n  --ion-color-dark-rgb:\n    30,\n    41,\n    59;\n  --ion-color-dark-contrast: #ffffff;\n  --ion-color-dark-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-dark-shade: #1a2434;\n  --ion-color-dark-tint: #353f4f;\n  --ion-color-light: #F8FAFC;\n  --ion-color-light-rgb:\n    248,\n    250,\n    252;\n  --ion-color-light-contrast: #1E293B;\n  --ion-color-light-contrast-rgb:\n    30,\n    41,\n    59;\n  --ion-color-light-shade: #daddde;\n  --ion-color-light-tint: #f9fbfc;\n  --ion-color-medium: #64748B;\n  --ion-color-medium-rgb:\n    100,\n    116,\n    139;\n  --ion-color-medium-contrast: #ffffff;\n  --ion-color-medium-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-medium-shade: #58667a;\n  --ion-color-medium-tint: #748297;\n  --ion-font-family:\n    "Plus Jakarta Sans",\n    "Inter",\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    sans-serif;\n  --ion-background-color: #F8FAFC;\n  --ion-background-color-rgb:\n    248,\n    250,\n    252;\n  --ion-text-color: #1E293B;\n  --ion-text-color-rgb:\n    30,\n    41,\n    59;\n  --ion-toolbar-background: #ffffff;\n  --ion-toolbar-color: #1E293B;\n  --ion-item-background: #ffffff;\n  --ion-card-background: #ffffff;\n  --pm-surface: #ffffff;\n  --pm-surface-elevated: #ffffff;\n  --pm-surface-muted: #F1F5F9;\n  --pm-surface-subtle: #E2E8F0;\n  --pm-border: #E2E8F0;\n  --pm-border-light: #F1F5F9;\n  --pm-text-primary: #0F172A;\n  --pm-text-secondary: #475569;\n  --pm-text-muted: #94A3B8;\n  --pm-text-inverse: #ffffff;\n  --pm-gradient-primary:\n    linear-gradient(\n      135deg,\n      #6366F1 0%,\n      #8B5CF6 50%,\n      #A855F7 100%);\n  --pm-gradient-warm:\n    linear-gradient(\n      135deg,\n      #F97316 0%,\n      #EF4444 50%,\n      #EC4899 100%);\n  --pm-gradient-cool:\n    linear-gradient(\n      135deg,\n      #06B6D4 0%,\n      #3B82F6 50%,\n      #6366F1 100%);\n  --pm-gradient-success:\n    linear-gradient(\n      135deg,\n      #10B981 0%,\n      #059669 100%);\n  --pm-gradient-hero:\n    linear-gradient(\n      135deg,\n      #667EEA 0%,\n      #764BA2 100%);\n  --pm-gradient-card-hover:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.03) 0%,\n      rgba(168, 85, 247, 0.06) 100%);\n  --pm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);\n  --pm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);\n  --pm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);\n  --pm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);\n  --pm-shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);\n  --pm-shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 6px 16px rgba(0,0,0,.04);\n  --pm-shadow-card-hover: 0 4px 12px rgba(0,0,0,.08), 0 12px 28px rgba(0,0,0,.06);\n  --pm-radius-sm: 8px;\n  --pm-radius-md: 12px;\n  --pm-radius-lg: 16px;\n  --pm-radius-xl: 24px;\n  --pm-radius-full: 9999px;\n  --pm-space-xs: 4px;\n  --pm-space-sm: 8px;\n  --pm-space-md: 16px;\n  --pm-space-lg: 24px;\n  --pm-space-xl: 32px;\n  --pm-space-2xl: 48px;\n  --pm-space-3xl: 64px;\n  --pm-text-xs: 0.75rem;\n  --pm-text-sm: 0.875rem;\n  --pm-text-base: 1rem;\n  --pm-text-lg: 1.125rem;\n  --pm-text-xl: 1.25rem;\n  --pm-text-2xl: 1.5rem;\n  --pm-text-3xl: 1.875rem;\n  --pm-text-4xl: 2.25rem;\n  --pm-text-5xl: 3rem;\n  --pm-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-spring: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  --pm-cat-mobile: #F97316;\n  --pm-cat-web: #3B82F6;\n  --pm-cat-wordpress: #8B5CF6;\n  --pm-cat-javascript: #EAB308;\n  --pm-cat-uikit: #EC4899;\n  --pm-cat-fullstack: #10B981;\n}\n[_nghost-%COMP%] {\n  display: block;\n  height: 100%;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n}\n.ais-root[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  background: var(--pm-surface);\n  overflow: hidden;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-bottom: 1px solid var(--pm-border-light);\n  background: #fff;\n}\n.header-brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: var(--pm-space-md);\n}\n.brand-icon[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-md);\n  background: var(--pm-gradient-primary);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20px;\n  box-shadow: var(--pm-shadow-glow);\n}\n.header-text[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-xl);\n  font-weight: 800;\n  margin: 0;\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n.header-text[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 10px;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  margin: 0;\n}\n.close-btn[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 28px;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n  transition: color var(--pm-transition-fast);\n}\n.close-btn[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.ais-nav[_ngcontent-%COMP%] {\n  display: flex;\n  padding: 0 var(--pm-space-lg);\n  gap: var(--pm-space-xl);\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.nav-item[_ngcontent-%COMP%] {\n  padding: var(--pm-space-md) 0;\n  font-weight: 600;\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  border-bottom: 2px solid transparent;\n  cursor: pointer;\n  transition: all var(--pm-transition-base);\n}\n.nav-item.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  border-bottom-color: var(--ion-color-primary);\n}\n.ais-body[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: var(--pm-space-lg);\n}\n.view-section[_ngcontent-%COMP%] {\n  max-width: 800px;\n  margin: 0 auto;\n  animation: _ngcontent-%COMP%_fadeIn 0.4s ease-out;\n}\n.section-header[_ngcontent-%COMP%] {\n  margin-bottom: var(--pm-space-xl);\n}\n.section-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-2xl);\n  margin-bottom: 8px;\n}\n.section-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n}\n.prompt-container[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: var(--pm-space-xl);\n}\n.prompt-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 120px;\n  padding: var(--pm-space-lg);\n  background: var(--pm-surface-muted);\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-lg);\n  font-family: inherit;\n  font-size: var(--pm-text-base);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: all var(--pm-transition-base);\n  resize: vertical;\n}\n.prompt-textarea[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n  background: #fff;\n  box-shadow: var(--pm-shadow-glow);\n}\n.prompt-status[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 10px;\n  font-weight: 700;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n}\n.status-dot[_ngcontent-%COMP%] {\n  width: 8px;\n  height: 8px;\n  background: var(--ion-color-success);\n  border-radius: 50%;\n  box-shadow: 0 0 8px var(--ion-color-success);\n}\n.schema-preview[_ngcontent-%COMP%] {\n  background: #0F172A;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  margin-bottom: var(--pm-space-xl);\n  box-shadow: var(--pm-shadow-lg);\n}\n.schema-preview[_ngcontent-%COMP%]   .preview-header[_ngcontent-%COMP%] {\n  padding: 12px 16px;\n  background: rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n  color: rgba(255, 255, 255, 0.4);\n}\n.schema-preview[_ngcontent-%COMP%]   .preview-code[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  margin: 0;\n  font-family:\n    "Courier New",\n    Courier,\n    monospace;\n  font-size: 13px;\n  line-height: 1.6;\n  color: #A78BFA;\n  overflow-x: auto;\n}\n.ais-action-btn[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 18px;\n  background: var(--pm-gradient-primary);\n  color: #fff;\n  border: none;\n  border-radius: var(--pm-radius-lg);\n  font-weight: 700;\n  font-size: var(--pm-text-base);\n  cursor: pointer;\n  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);\n  transition: all var(--pm-transition-base);\n}\n.ais-action-btn[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);\n}\n.ais-action-btn[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  position: relative;\n  padding-left: 40px;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 19px;\n  top: 5px;\n  bottom: 5px;\n  width: 2px;\n  background: var(--pm-border);\n}\n.step-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-start;\n  gap: var(--pm-space-lg);\n  margin-bottom: var(--pm-space-2xl);\n  position: relative;\n  transition: opacity 0.3s;\n}\n.step-item.inactive[_ngcontent-%COMP%] {\n  opacity: 0.3;\n}\n.step-circle[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #fff;\n  border: 2px solid var(--pm-border);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  font-size: 18px;\n  transition: all 0.4s;\n}\n.step-circle.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);\n}\n.step-circle.past[_ngcontent-%COMP%] {\n  background: var(--ion-color-primary);\n  border-color: var(--ion-color-primary);\n  color: #fff;\n}\n.step-info[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-lg);\n  margin-bottom: 4px;\n}\n.step-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-muted);\n}\n.step-info.active[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.status-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: var(--pm-space-2xl);\n}\n.status-header[_ngcontent-%COMP%]   .status-tag[_ngcontent-%COMP%] {\n  display: inline-block;\n  padding: 4px 12px;\n  background: rgba(99, 102, 241, 0.1);\n  color: var(--ion-color-primary);\n  border-radius: 99px;\n  font-size: 10px;\n  font-weight: 700;\n  margin-bottom: 12px;\n}\n.success-view[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: var(--pm-space-3xl) 0;\n}\n.success-view[_ngcontent-%COMP%]   .success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  background: var(--ion-color-success);\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 40px;\n  margin: 0 auto 32px;\n  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);\n}\n.success-view[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-4xl);\n  margin-bottom: 16px;\n  font-weight: 800;\n}\n.success-view[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin-bottom: 32px;\n}\n.history-view[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-bottom: var(--pm-space-xl);\n}\n.history-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-lg);\n  padding: var(--pm-space-lg);\n  margin-bottom: var(--pm-space-md);\n  transition: all var(--pm-transition-base);\n}\n.history-card[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-md);\n}\n.card-top[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 12px;\n}\n.card-top[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-lg);\n  color: var(--ion-color-primary);\n}\n.card-top[_ngcontent-%COMP%]   time[_ngcontent-%COMP%] {\n  font-size: 10px;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n}\n.status-pill[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 800;\n}\n.status-pill.ready[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: var(--ion-color-success);\n}\n.card-prompt[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-secondary);\n  font-style: italic;\n  margin-bottom: 16px;\n}\n.card-footer[_ngcontent-%COMP%] {\n  display: flex;\n  gap: var(--pm-space-lg);\n}\n.card-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%], \n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-xs);\n  font-weight: 700;\n}\n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n}\n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  border-top: 1px solid var(--pm-border-light);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n  color: var(--pm-text-muted);\n}\n.cluster-info[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pulse-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  background: var(--ion-color-primary);\n  border-radius: 50%;\n  animation: _ngcontent-%COMP%_pulse 2s infinite;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes _ngcontent-%COMP%_pulse {\n  0%, 100% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.4;\n  }\n}\n/*# sourceMappingURL=ai-build-studio.component.css.map */'], data: { animation: [
+    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DatePipe, FormsModule, DefaultValueAccessor, NgControlStatus, NgModel, IonContent, FirestoreDatePipe], styles: ['@charset "UTF-8";\n\n\n\n[_ngcontent-%COMP%]:root {\n  --ion-color-primary: #6366F1;\n  --ion-color-primary-rgb:\n    99,\n    102,\n    241;\n  --ion-color-primary-contrast: #ffffff;\n  --ion-color-primary-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-primary-shade: #5558d5;\n  --ion-color-primary-tint: #737af2;\n  --ion-color-secondary: #10B981;\n  --ion-color-secondary-rgb:\n    16,\n    185,\n    129;\n  --ion-color-secondary-contrast: #ffffff;\n  --ion-color-secondary-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-secondary-shade: #0ea372;\n  --ion-color-secondary-tint: #28c08e;\n  --ion-color-tertiary: #F59E0B;\n  --ion-color-tertiary-rgb:\n    245,\n    158,\n    11;\n  --ion-color-tertiary-contrast: #000000;\n  --ion-color-tertiary-contrast-rgb:\n    0,\n    0,\n    0;\n  --ion-color-tertiary-shade: #d88b0a;\n  --ion-color-tertiary-tint: #f6a823;\n  --ion-color-success: #10B981;\n  --ion-color-success-rgb:\n    16,\n    185,\n    129;\n  --ion-color-success-contrast: #ffffff;\n  --ion-color-success-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-success-shade: #0ea372;\n  --ion-color-success-tint: #28c08e;\n  --ion-color-warning: #F59E0B;\n  --ion-color-warning-rgb:\n    245,\n    158,\n    11;\n  --ion-color-warning-contrast: #000000;\n  --ion-color-warning-contrast-rgb:\n    0,\n    0,\n    0;\n  --ion-color-warning-shade: #d88b0a;\n  --ion-color-warning-tint: #f6a823;\n  --ion-color-danger: #EF4444;\n  --ion-color-danger-rgb:\n    239,\n    68,\n    68;\n  --ion-color-danger-contrast: #ffffff;\n  --ion-color-danger-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-danger-shade: #d23c3c;\n  --ion-color-danger-tint: #f15757;\n  --ion-color-dark: #1E293B;\n  --ion-color-dark-rgb:\n    30,\n    41,\n    59;\n  --ion-color-dark-contrast: #ffffff;\n  --ion-color-dark-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-dark-shade: #1a2434;\n  --ion-color-dark-tint: #353f4f;\n  --ion-color-light: #F8FAFC;\n  --ion-color-light-rgb:\n    248,\n    250,\n    252;\n  --ion-color-light-contrast: #1E293B;\n  --ion-color-light-contrast-rgb:\n    30,\n    41,\n    59;\n  --ion-color-light-shade: #daddde;\n  --ion-color-light-tint: #f9fbfc;\n  --ion-color-medium: #64748B;\n  --ion-color-medium-rgb:\n    100,\n    116,\n    139;\n  --ion-color-medium-contrast: #ffffff;\n  --ion-color-medium-contrast-rgb:\n    255,\n    255,\n    255;\n  --ion-color-medium-shade: #58667a;\n  --ion-color-medium-tint: #748297;\n  --ion-font-family:\n    "Plus Jakarta Sans",\n    "Inter",\n    -apple-system,\n    BlinkMacSystemFont,\n    "Segoe UI",\n    sans-serif;\n  --ion-background-color: #F8FAFC;\n  --ion-background-color-rgb:\n    248,\n    250,\n    252;\n  --ion-text-color: #1E293B;\n  --ion-text-color-rgb:\n    30,\n    41,\n    59;\n  --ion-toolbar-background: #ffffff;\n  --ion-toolbar-color: #1E293B;\n  --ion-item-background: #ffffff;\n  --ion-card-background: #ffffff;\n  --pm-surface: #ffffff;\n  --pm-surface-elevated: #ffffff;\n  --pm-surface-muted: #F1F5F9;\n  --pm-surface-subtle: #E2E8F0;\n  --pm-border: #E2E8F0;\n  --pm-border-light: #F1F5F9;\n  --pm-text-primary: #0F172A;\n  --pm-text-secondary: #475569;\n  --pm-text-muted: #94A3B8;\n  --pm-text-inverse: #ffffff;\n  --pm-gradient-primary:\n    linear-gradient(\n      135deg,\n      #6366F1 0%,\n      #8B5CF6 50%,\n      #A855F7 100%);\n  --pm-gradient-warm:\n    linear-gradient(\n      135deg,\n      #F97316 0%,\n      #EF4444 50%,\n      #EC4899 100%);\n  --pm-gradient-cool:\n    linear-gradient(\n      135deg,\n      #06B6D4 0%,\n      #3B82F6 50%,\n      #6366F1 100%);\n  --pm-gradient-success:\n    linear-gradient(\n      135deg,\n      #10B981 0%,\n      #059669 100%);\n  --pm-gradient-hero:\n    linear-gradient(\n      135deg,\n      #667EEA 0%,\n      #764BA2 100%);\n  --pm-gradient-card-hover:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.03) 0%,\n      rgba(168, 85, 247, 0.06) 100%);\n  --pm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);\n  --pm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.06);\n  --pm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.06);\n  --pm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);\n  --pm-shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);\n  --pm-shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 6px 16px rgba(0,0,0,.04);\n  --pm-shadow-card-hover: 0 4px 12px rgba(0,0,0,.08), 0 12px 28px rgba(0,0,0,.06);\n  --pm-radius-sm: 8px;\n  --pm-radius-md: 12px;\n  --pm-radius-lg: 16px;\n  --pm-radius-xl: 24px;\n  --pm-radius-full: 9999px;\n  --pm-space-xs: 4px;\n  --pm-space-sm: 8px;\n  --pm-space-md: 16px;\n  --pm-space-lg: 24px;\n  --pm-space-xl: 32px;\n  --pm-space-2xl: 48px;\n  --pm-space-3xl: 64px;\n  --pm-text-xs: 0.75rem;\n  --pm-text-sm: 0.875rem;\n  --pm-text-base: 1rem;\n  --pm-text-lg: 1.125rem;\n  --pm-text-xl: 1.25rem;\n  --pm-text-2xl: 1.5rem;\n  --pm-text-3xl: 1.875rem;\n  --pm-text-4xl: 2.25rem;\n  --pm-text-5xl: 3rem;\n  --pm-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);\n  --pm-transition-spring: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);\n  --pm-cat-mobile: #F97316;\n  --pm-cat-web: #3B82F6;\n  --pm-cat-wordpress: #8B5CF6;\n  --pm-cat-javascript: #EAB308;\n  --pm-cat-uikit: #EC4899;\n  --pm-cat-fullstack: #10B981;\n}\n[_nghost-%COMP%] {\n  display: block;\n  height: 100%;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n}\n.ais-root[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  background: var(--pm-surface);\n  overflow: hidden;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-bottom: 1px solid var(--pm-border-light);\n  background: #fff;\n}\n.header-brand[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: var(--pm-space-md);\n}\n.brand-icon[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: var(--pm-radius-md);\n  background: var(--pm-gradient-primary);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20px;\n  box-shadow: var(--pm-shadow-glow);\n}\n.header-text[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-xl);\n  font-weight: 800;\n  margin: 0;\n  background: var(--pm-gradient-primary);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n.header-text[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: 10px;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  margin: 0;\n}\n.close-btn[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 28px;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n  transition: color var(--pm-transition-fast);\n}\n.close-btn[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.ais-nav[_ngcontent-%COMP%] {\n  display: flex;\n  padding: 0 var(--pm-space-lg);\n  gap: var(--pm-space-xl);\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.nav-item[_ngcontent-%COMP%] {\n  padding: var(--pm-space-md) 0;\n  font-weight: 600;\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-secondary);\n  background: none;\n  border: none;\n  border-bottom: 2px solid transparent;\n  cursor: pointer;\n  transition: all var(--pm-transition-base);\n}\n.nav-item.active[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n  border-bottom-color: var(--ion-color-primary);\n}\n.ais-body[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: var(--pm-space-lg);\n}\n.view-section[_ngcontent-%COMP%] {\n  max-width: 800px;\n  margin: 0 auto;\n  animation: _ngcontent-%COMP%_fadeIn 0.4s ease-out;\n}\n.section-header[_ngcontent-%COMP%] {\n  margin-bottom: var(--pm-space-xl);\n}\n.section-header[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-2xl);\n  margin-bottom: 8px;\n}\n.section-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n}\n.prompt-container[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: var(--pm-space-xl);\n}\n.prompt-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 120px;\n  padding: var(--pm-space-lg);\n  background: var(--pm-surface-muted);\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-lg);\n  font-family: inherit;\n  font-size: var(--pm-text-base);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: all var(--pm-transition-base);\n  resize: vertical;\n}\n.prompt-textarea[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n  background: #fff;\n  box-shadow: var(--pm-shadow-glow);\n}\n.prompt-status[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 10px;\n  font-weight: 700;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n}\n.status-dot[_ngcontent-%COMP%] {\n  width: 8px;\n  height: 8px;\n  background: var(--ion-color-success);\n  border-radius: 50%;\n  box-shadow: 0 0 8px var(--ion-color-success);\n}\n.schema-preview[_ngcontent-%COMP%] {\n  background: #0F172A;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  margin-bottom: var(--pm-space-xl);\n  box-shadow: var(--pm-shadow-lg);\n}\n.schema-preview[_ngcontent-%COMP%]   .preview-header[_ngcontent-%COMP%] {\n  padding: 12px 16px;\n  background: rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n  color: rgba(255, 255, 255, 0.4);\n}\n.schema-preview[_ngcontent-%COMP%]   .preview-code[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  margin: 0;\n  font-family:\n    "Courier New",\n    Courier,\n    monospace;\n  font-size: 13px;\n  line-height: 1.6;\n  color: #A78BFA;\n  overflow-x: auto;\n}\n.ais-action-btn[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 18px;\n  background: var(--pm-gradient-primary);\n  color: #fff;\n  border: none;\n  border-radius: var(--pm-radius-lg);\n  font-weight: 700;\n  font-size: var(--pm-text-base);\n  cursor: pointer;\n  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);\n  transition: all var(--pm-transition-base);\n}\n.ais-action-btn[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);\n}\n.ais-action-btn[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  position: relative;\n  padding-left: 40px;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 19px;\n  top: 5px;\n  bottom: 5px;\n  width: 2px;\n  background: var(--pm-border);\n}\n.step-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-start;\n  gap: var(--pm-space-lg);\n  margin-bottom: var(--pm-space-2xl);\n  position: relative;\n  transition: opacity 0.3s;\n}\n.step-item.inactive[_ngcontent-%COMP%] {\n  opacity: 0.3;\n}\n.step-circle[_ngcontent-%COMP%] {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #fff;\n  border: 2px solid var(--pm-border);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1;\n  font-size: 18px;\n  transition: all 0.4s;\n}\n.step-circle.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);\n}\n.step-circle.past[_ngcontent-%COMP%] {\n  background: var(--ion-color-primary);\n  border-color: var(--ion-color-primary);\n  color: #fff;\n}\n.step-info[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-lg);\n  margin-bottom: 4px;\n}\n.step-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-muted);\n}\n.step-info.active[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.status-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: var(--pm-space-2xl);\n}\n.status-header[_ngcontent-%COMP%]   .status-tag[_ngcontent-%COMP%] {\n  display: inline-block;\n  padding: 4px 12px;\n  background: rgba(99, 102, 241, 0.1);\n  color: var(--ion-color-primary);\n  border-radius: 99px;\n  font-size: 10px;\n  font-weight: 700;\n  margin-bottom: 12px;\n}\n.success-view[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: var(--pm-space-3xl) 0;\n}\n.success-view[_ngcontent-%COMP%]   .success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  background: var(--ion-color-success);\n  color: #fff;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 40px;\n  margin: 0 auto 32px;\n  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);\n}\n.success-view[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-4xl);\n  margin-bottom: 16px;\n  font-weight: 800;\n}\n.success-view[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  margin-bottom: 32px;\n}\n.history-view[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  margin-bottom: var(--pm-space-xl);\n}\n.history-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-lg);\n  padding: var(--pm-space-lg);\n  margin-bottom: var(--pm-space-md);\n  transition: all var(--pm-transition-base);\n}\n.history-card[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-md);\n}\n.card-top[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 12px;\n}\n.card-top[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-lg);\n  color: var(--ion-color-primary);\n}\n.card-top[_ngcontent-%COMP%]   time[_ngcontent-%COMP%] {\n  font-size: 10px;\n  color: var(--pm-text-muted);\n  text-transform: uppercase;\n}\n.status-pill[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: 4px;\n  font-size: 10px;\n  font-weight: 800;\n}\n.status-pill.ready[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: var(--ion-color-success);\n}\n.card-prompt[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-sm);\n  color: var(--pm-text-secondary);\n  font-style: italic;\n  margin-bottom: 16px;\n}\n.card-footer[_ngcontent-%COMP%] {\n  display: flex;\n  gap: var(--pm-space-lg);\n}\n.card-footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%], \n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: var(--pm-text-xs);\n  font-weight: 700;\n}\n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: var(--pm-text-muted);\n  cursor: pointer;\n}\n.card-footer[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: var(--pm-space-lg);\n  border-top: 1px solid var(--pm-border-light);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 0.5px;\n  color: var(--pm-text-muted);\n}\n.cluster-info[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pulse-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  background: var(--ion-color-primary);\n  border-radius: 50%;\n  animation: _ngcontent-%COMP%_pulse 2s infinite;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n@keyframes _ngcontent-%COMP%_pulse {\n  0%, 100% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.4;\n  }\n}\n/*# sourceMappingURL=ai-build-studio.component.css.map */'], data: { animation: [
       trigger("stateAnim", [
         transition(":enter", [
           style({ opacity: 0, transform: "scale(0.95)" }),
@@ -903,7 +898,7 @@ Prompt: ${build.prompt}`);
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AIBuildStudioComponent, { className: "AIBuildStudioComponent", filePath: "src\\app\\components\\ai-build-studio\\ai-build-studio.component.ts", lineNumber: 189 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AIBuildStudioComponent, { className: "AIBuildStudioComponent", filePath: "src\\app\\components\\ai-build-studio\\ai-build-studio.component.ts", lineNumber: 190 });
 })();
 
 // src/app/pages/product-detail/product-detail.component.ts
@@ -948,7 +943,7 @@ function ProductDetailComponent_div_3_div_1_Template(rf, ctx) {
     \u0275\u0275property("src", ctx_r2.maximizedImage, \u0275\u0275sanitizeUrl);
   }
 }
-function ProductDetailComponent_div_3_div_51_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_52_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 80);
     \u0275\u0275element(1, "iframe", 81);
@@ -960,7 +955,7 @@ function ProductDetailComponent_div_3_div_51_Template(rf, ctx) {
     \u0275\u0275property("src", ctx_r2.safeYoutubeUrl, \u0275\u0275sanitizeResourceUrl);
   }
 }
-function ProductDetailComponent_div_3_ng_container_52_ng_container_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_ng_container_53_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
     \u0275\u0275elementStart(1, "span", 83);
@@ -979,11 +974,11 @@ function ProductDetailComponent_div_3_ng_container_52_ng_container_1_Template(rf
     \u0275\u0275textInterpolate(ctx_r2.product.title.split("\u2014")[0]);
   }
 }
-function ProductDetailComponent_div_3_ng_container_52_button_2_Template(rf, ctx) {
+function ProductDetailComponent_div_3_ng_container_53_button_2_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "button", 85);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_ng_container_52_button_2_Template_button_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_ng_container_53_button_2_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r4);
       const ctx_r2 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = ctx_r2.getRawPreviewUrl());
@@ -994,10 +989,10 @@ function ProductDetailComponent_div_3_ng_container_52_button_2_Template(rf, ctx)
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_3_ng_container_52_Template(rf, ctx) {
+function ProductDetailComponent_div_3_ng_container_53_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, ProductDetailComponent_div_3_ng_container_52_ng_container_1_Template, 5, 2, "ng-container", 26)(2, ProductDetailComponent_div_3_ng_container_52_button_2_Template, 3, 0, "button", 82);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_ng_container_53_ng_container_1_Template, 5, 2, "ng-container", 26)(2, ProductDetailComponent_div_3_ng_container_53_button_2_Template, 3, 0, "button", 82);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -1008,11 +1003,11 @@ function ProductDetailComponent_div_3_ng_container_52_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.getRawPreviewUrl());
   }
 }
-function ProductDetailComponent_div_3_div_55_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_56_Template(rf, ctx) {
   if (rf & 1) {
     const _r5 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 88);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_55_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_56_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r5);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = "youtube");
@@ -1028,11 +1023,11 @@ function ProductDetailComponent_div_3_div_55_Template(rf, ctx) {
     \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === "youtube");
   }
 }
-function ProductDetailComponent_div_3_div_56_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_Template(rf, ctx) {
   if (rf & 1) {
     const _r6 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 28);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_56_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_57_Template_div_click_0_listener() {
       const i_r7 = \u0275\u0275restoreView(_r6).index;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = i_r7);
@@ -1047,7 +1042,7 @@ function ProductDetailComponent_div_3_div_56_Template(rf, ctx) {
     \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === i_r7);
   }
 }
-function ProductDetailComponent_div_3_div_57_ng_container_2_a_1_div_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_ng_container_2_a_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "div", 100);
   }
@@ -1056,10 +1051,10 @@ function ProductDetailComponent_div_3_div_57_ng_container_2_a_1_div_1_Template(r
     \u0275\u0275styleProp("background-image", "url(" + demo_r9.thumbnailUrl + ")");
   }
 }
-function ProductDetailComponent_div_3_div_57_ng_container_2_a_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_ng_container_2_a_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 95);
-    \u0275\u0275template(1, ProductDetailComponent_div_3_div_57_ng_container_2_a_1_div_1_Template, 1, 2, "div", 96);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_div_58_ng_container_2_a_1_div_1_Template, 1, 2, "div", 96);
     \u0275\u0275elementStart(2, "div", 97)(3, "span", 98);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
@@ -1076,10 +1071,10 @@ function ProductDetailComponent_div_3_div_57_ng_container_2_a_1_Template(rf, ctx
     \u0275\u0275textInterpolate(demo_r9.label);
   }
 }
-function ProductDetailComponent_div_3_div_57_ng_container_2_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, ProductDetailComponent_div_3_div_57_ng_container_2_a_1_Template, 7, 3, "a", 94);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_div_58_ng_container_2_a_1_Template, 7, 3, "a", 94);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -1088,7 +1083,7 @@ function ProductDetailComponent_div_3_div_57_ng_container_2_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.product.liveDemos);
   }
 }
-function ProductDetailComponent_div_3_div_57_ng_template_3_a_0_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_ng_template_3_a_0_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 102);
     \u0275\u0275text(1, " \u{1F310} Live Demo ");
@@ -1099,19 +1094,19 @@ function ProductDetailComponent_div_3_div_57_ng_template_3_a_0_Template(rf, ctx)
     \u0275\u0275property("href", ctx_r2.product.demoUrl, \u0275\u0275sanitizeUrl);
   }
 }
-function ProductDetailComponent_div_3_div_57_ng_template_3_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_ng_template_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, ProductDetailComponent_div_3_div_57_ng_template_3_a_0_Template, 2, 1, "a", 101);
+    \u0275\u0275template(0, ProductDetailComponent_div_3_div_58_ng_template_3_a_0_Template, 2, 1, "a", 101);
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275property("ngIf", ctx_r2.product.demoUrl);
   }
 }
-function ProductDetailComponent_div_3_div_57_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 91)(1, "div", 92);
-    \u0275\u0275template(2, ProductDetailComponent_div_3_div_57_ng_container_2_Template, 2, 1, "ng-container", 93)(3, ProductDetailComponent_div_3_div_57_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
+    \u0275\u0275template(2, ProductDetailComponent_div_3_div_58_ng_container_2_Template, 2, 1, "ng-container", 93)(3, ProductDetailComponent_div_3_div_58_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -1121,7 +1116,7 @@ function ProductDetailComponent_div_3_div_57_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.product.liveDemos && ctx_r2.product.liveDemos.length > 0)("ngIfElse", singleDemo_r10);
   }
 }
-function ProductDetailComponent_div_3_div_58_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_59_div_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 110);
     \u0275\u0275element(1, "pre", 111);
@@ -1133,11 +1128,11 @@ function ProductDetailComponent_div_3_div_58_div_9_Template(rf, ctx) {
     \u0275\u0275property("innerHTML", ctx_r2.formattedGuide, \u0275\u0275sanitizeHtml);
   }
 }
-function ProductDetailComponent_div_3_div_58_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_59_Template(rf, ctx) {
   if (rf & 1) {
     const _r11 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 103)(1, "div", 104);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_58_Template_div_click_1_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_59_Template_div_click_1_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.guideExpanded = !ctx_r2.guideExpanded);
@@ -1151,7 +1146,7 @@ function ProductDetailComponent_div_3_div_58_Template(rf, ctx) {
     \u0275\u0275elementStart(7, "span", 108);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(9, ProductDetailComponent_div_3_div_58_div_9_Template, 2, 1, "div", 109);
+    \u0275\u0275template(9, ProductDetailComponent_div_3_div_59_div_9_Template, 2, 1, "div", 109);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1162,7 +1157,7 @@ function ProductDetailComponent_div_3_div_58_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.guideExpanded);
   }
 }
-function ProductDetailComponent_div_3_div_69_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_70_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 112);
     \u0275\u0275namespaceSVG();
@@ -1180,11 +1175,11 @@ function ProductDetailComponent_div_3_div_69_Template(rf, ctx) {
     \u0275\u0275textInterpolate(f_r12);
   }
 }
-function ProductDetailComponent_div_3_button_73_Template(rf, ctx) {
+function ProductDetailComponent_div_3_button_74_Template(rf, ctx) {
   if (rf & 1) {
     const _r13 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "button", 115);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_button_73_Template_button_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_button_74_Template_button_click_0_listener() {
       const tab_r14 = \u0275\u0275restoreView(_r13).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.activeTab = tab_r14.id);
@@ -1200,7 +1195,7 @@ function ProductDetailComponent_div_3_button_73_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", tab_r14.label, " ");
   }
 }
-function ProductDetailComponent_div_3_div_74_span_6_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_span_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 123);
     \u0275\u0275text(1);
@@ -1212,7 +1207,7 @@ function ProductDetailComponent_div_3_div_74_span_6_Template(rf, ctx) {
     \u0275\u0275textInterpolate(t_r15);
   }
 }
-function ProductDetailComponent_div_3_div_74_span_11_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_span_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 124);
     \u0275\u0275text(1);
@@ -1224,19 +1219,19 @@ function ProductDetailComponent_div_3_div_74_span_11_Template(rf, ctx) {
     \u0275\u0275textInterpolate(c_r16);
   }
 }
-function ProductDetailComponent_div_3_div_74_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 116)(1, "div", 117)(2, "div", 34)(3, "h3", 118);
     \u0275\u0275text(4, "Tech Stack");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 119);
-    \u0275\u0275template(6, ProductDetailComponent_div_3_div_74_span_6_Template, 2, 1, "span", 120);
+    \u0275\u0275template(6, ProductDetailComponent_div_3_div_75_span_6_Template, 2, 1, "span", 120);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(7, "div", 121)(8, "h3", 118);
     \u0275\u0275text(9, "Compatibility");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(10, "div", 119);
-    \u0275\u0275template(11, ProductDetailComponent_div_3_div_74_span_11_Template, 2, 1, "span", 122);
+    \u0275\u0275template(11, ProductDetailComponent_div_3_div_75_span_11_Template, 2, 1, "span", 122);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 121)(13, "h3", 118);
     \u0275\u0275text(14, "Documentation & Support");
@@ -1253,7 +1248,7 @@ function ProductDetailComponent_div_3_div_74_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.product.compatibility);
   }
 }
-function ProductDetailComponent_div_3_div_75_span_6_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_span_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span");
   }
@@ -1262,7 +1257,7 @@ function ProductDetailComponent_div_3_div_75_span_6_Template(rf, ctx) {
     \u0275\u0275classMap(s_r17);
   }
 }
-function ProductDetailComponent_div_3_div_75_div_11_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 139)(1, "span", 140);
     \u0275\u0275text(2);
@@ -1284,14 +1279,14 @@ function ProductDetailComponent_div_3_div_75_div_11_Template(rf, ctx) {
     \u0275\u0275textInterpolate(bar_r18.count);
   }
 }
-function ProductDetailComponent_div_3_div_75_div_18_span_9_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_18_span_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 157);
     \u0275\u0275text(1, "\u2713 Verified Purchase");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_3_div_75_div_18_span_12_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_18_span_12_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span", 158);
   }
@@ -1300,7 +1295,7 @@ function ProductDetailComponent_div_3_div_75_div_18_span_12_Template(rf, ctx) {
     \u0275\u0275classMap(s_r19);
   }
 }
-function ProductDetailComponent_div_3_div_75_div_18_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_18_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 144)(1, "div", 145)(2, "div", 146)(3, "div", 147)(4, "div", 148);
     \u0275\u0275text(5);
@@ -1308,20 +1303,21 @@ function ProductDetailComponent_div_3_div_75_div_18_Template(rf, ctx) {
     \u0275\u0275elementStart(6, "div")(7, "strong");
     \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_3_div_75_div_18_span_9_Template, 2, 0, "span", 149);
+    \u0275\u0275template(9, ProductDetailComponent_div_3_div_76_div_18_span_9_Template, 2, 0, "span", 149);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(10, "div", 150)(11, "div", 151);
-    \u0275\u0275template(12, ProductDetailComponent_div_3_div_75_div_18_span_12_Template, 1, 2, "span", 152);
+    \u0275\u0275template(12, ProductDetailComponent_div_3_div_76_div_18_span_12_Template, 1, 2, "span", 152);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(13, "span", 153);
     \u0275\u0275text(14);
-    \u0275\u0275pipe(15, "date");
+    \u0275\u0275pipe(15, "fsDate");
+    \u0275\u0275pipe(16, "date");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(16, "p", 154);
-    \u0275\u0275text(17);
+    \u0275\u0275elementStart(17, "p", 154);
+    \u0275\u0275text(18);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(18, "div", 155)(19, "button", 156);
-    \u0275\u0275text(20);
+    \u0275\u0275elementStart(19, "div", 155)(20, "button", 156);
+    \u0275\u0275text(21);
     \u0275\u0275elementEnd()()()();
   }
   if (rf & 2) {
@@ -1338,34 +1334,34 @@ function ProductDetailComponent_div_3_div_75_div_18_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275property("ngForOf", ctx_r2.getStars(review_r20.rating));
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(15, 9, ctx_r2.toDate(review_r20.date), "mediumDate"));
-    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(16, 11, \u0275\u0275pipeBind1(15, 9, review_r20.date), "mediumDate"));
+    \u0275\u0275advance(4);
     \u0275\u0275textInterpolate(review_r20.comment);
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate1("\u{1F44D} Helpful (", review_r20.helpful, ")");
   }
 }
-function ProductDetailComponent_div_3_div_75_div_19_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_19_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 159)(1, "p");
     \u0275\u0275text(2, "No reviews yet. Be the first buyer to leave a review!");
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_3_div_75_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 116)(1, "div", 125)(2, "div", 126)(3, "span", 127);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 128);
-    \u0275\u0275template(6, ProductDetailComponent_div_3_div_75_span_6_Template, 1, 2, "span", 129);
+    \u0275\u0275template(6, ProductDetailComponent_div_3_div_76_span_6_Template, 1, 2, "span", 129);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(7, "span", 130);
     \u0275\u0275text(8);
     \u0275\u0275pipe(9, "number");
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(10, "div", 131);
-    \u0275\u0275template(11, ProductDetailComponent_div_3_div_75_div_11_Template, 7, 4, "div", 132);
+    \u0275\u0275template(11, ProductDetailComponent_div_3_div_76_div_11_Template, 7, 4, "div", 132);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 133);
     \u0275\u0275namespaceSVG();
@@ -1376,7 +1372,7 @@ function ProductDetailComponent_div_3_div_75_Template(rf, ctx) {
     \u0275\u0275elementStart(16, "span");
     \u0275\u0275text(17, "Only verified buyers can leave reviews after purchase.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(18, ProductDetailComponent_div_3_div_75_div_18_Template, 21, 12, "div", 137)(19, ProductDetailComponent_div_3_div_75_div_19_Template, 3, 0, "div", 138);
+    \u0275\u0275template(18, ProductDetailComponent_div_3_div_76_div_18_Template, 22, 14, "div", 137)(19, ProductDetailComponent_div_3_div_76_div_19_Template, 3, 0, "div", 138);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1395,7 +1391,7 @@ function ProductDetailComponent_div_3_div_75_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.product.reviews.length === 0);
   }
 }
-function ProductDetailComponent_div_3_div_76_div_8_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_77_div_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 165)(1, "div", 146)(2, "div", 147)(3, "div", 148);
     \u0275\u0275text(4);
@@ -1405,10 +1401,11 @@ function ProductDetailComponent_div_3_div_76_div_8_Template(rf, ctx) {
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(8, "span", 153);
     \u0275\u0275text(9);
-    \u0275\u0275pipe(10, "date");
+    \u0275\u0275pipe(10, "fsDate");
+    \u0275\u0275pipe(11, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(11, "p", 154);
-    \u0275\u0275text(12);
+    \u0275\u0275elementStart(12, "p", 154);
+    \u0275\u0275text(13);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -1421,26 +1418,26 @@ function ProductDetailComponent_div_3_div_76_div_8_Template(rf, ctx) {
     \u0275\u0275advance(3);
     \u0275\u0275textInterpolate(c_r22.userName);
     \u0275\u0275advance(2);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(10, 6, ctx_r2.toDate(c_r22.date), "mediumDate"));
-    \u0275\u0275advance(3);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(11, 8, \u0275\u0275pipeBind1(10, 6, c_r22.date), "mediumDate"));
+    \u0275\u0275advance(4);
     \u0275\u0275textInterpolate(c_r22.text);
   }
 }
-function ProductDetailComponent_div_3_div_76_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_77_div_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 159)(1, "p");
     \u0275\u0275text(2, "No comments yet. Start the conversation!");
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_3_div_76_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_77_Template(rf, ctx) {
   if (rf & 1) {
     const _r21 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 116)(1, "div", 160)(2, "h3");
     \u0275\u0275text(3, "\u{1F4AC} Leave a Comment");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "textarea", 161);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_3_div_76_Template_textarea_ngModelChange_4_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_3_div_77_Template_textarea_ngModelChange_4_listener($event) {
       \u0275\u0275restoreView(_r21);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.newCommentText, $event) || (ctx_r2.newCommentText = $event);
@@ -1448,7 +1445,7 @@ function ProductDetailComponent_div_3_div_76_Template(rf, ctx) {
     });
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "button", 162);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_76_Template_button_click_5_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_77_Template_button_click_5_listener() {
       \u0275\u0275restoreView(_r21);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.submitComment());
@@ -1456,9 +1453,9 @@ function ProductDetailComponent_div_3_div_76_Template(rf, ctx) {
     \u0275\u0275text(6, " Post Comment ");
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(7, "div", 163);
-    \u0275\u0275template(8, ProductDetailComponent_div_3_div_76_div_8_Template, 13, 9, "div", 164);
+    \u0275\u0275template(8, ProductDetailComponent_div_3_div_77_div_8_Template, 14, 11, "div", 164);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_3_div_76_div_9_Template, 3, 0, "div", 138);
+    \u0275\u0275template(9, ProductDetailComponent_div_3_div_77_div_9_Template, 3, 0, "div", 138);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1473,7 +1470,7 @@ function ProductDetailComponent_div_3_div_76_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.comments.length === 0);
   }
 }
-function ProductDetailComponent_div_3_span_82_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_83_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 166);
     \u0275\u0275text(1);
@@ -1485,7 +1482,7 @@ function ProductDetailComponent_div_3_span_82_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("$", ctx_r2.product.originalPrice, "");
   }
 }
-function ProductDetailComponent_div_3_span_83_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_84_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 167);
     \u0275\u0275text(1);
@@ -1497,11 +1494,11 @@ function ProductDetailComponent_div_3_span_83_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("-", ctx_r2.product.discountPercent, "%");
   }
 }
-function ProductDetailComponent_div_3_div_103_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_104_Template(rf, ctx) {
   if (rf & 1) {
     const _r23 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 168)(1, "label", 169)(2, "input", 170);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_3_div_103_Template_input_ngModelChange_2_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_3_div_104_Template_input_ngModelChange_2_listener($event) {
       \u0275\u0275restoreView(_r23);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.addReskin, $event) || (ctx_r2.addReskin = $event);
@@ -1523,11 +1520,11 @@ function ProductDetailComponent_div_3_div_103_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("Professional rebranding (+$", ctx_r2.product.reskinPrice, ")");
   }
 }
-function ProductDetailComponent_div_3_button_106_Template(rf, ctx) {
+function ProductDetailComponent_div_3_button_107_Template(rf, ctx) {
   if (rf & 1) {
     const _r24 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "button", 171);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_button_106_Template_button_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_button_107_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r24);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.launchAiStudio());
@@ -1540,21 +1537,21 @@ function ProductDetailComponent_div_3_button_106_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_3_a_107_Template(rf, ctx) {
+function ProductDetailComponent_div_3_a_108_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 175);
     \u0275\u0275text(1, " View Cart \u2192 ");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_3_span_144_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_146_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 176);
     \u0275\u0275text(1, "\u2713 Verified Author");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_3_span_165_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_167_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 177);
     \u0275\u0275text(1);
@@ -1567,7 +1564,7 @@ function ProductDetailComponent_div_3_span_165_Template(rf, ctx) {
     \u0275\u0275textInterpolate2("", ctx_r2.getBadgeIcon(b_r25), " ", ctx_r2.formatBadge(b_r25), "");
   }
 }
-function ProductDetailComponent_div_3_a_170_Template(rf, ctx) {
+function ProductDetailComponent_div_3_a_172_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 178);
     \u0275\u0275text(1);
@@ -1580,7 +1577,7 @@ function ProductDetailComponent_div_3_a_170_Template(rf, ctx) {
     \u0275\u0275textInterpolate(tag_r26);
   }
 }
-function ProductDetailComponent_div_3_app_product_card_175_Template(rf, ctx) {
+function ProductDetailComponent_div_3_app_product_card_177_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "app-product-card", 179);
   }
@@ -1646,164 +1643,166 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(44, "span", 20);
     \u0275\u0275text(45);
-    \u0275\u0275pipe(46, "date");
+    \u0275\u0275pipe(46, "fsDate");
+    \u0275\u0275pipe(47, "date");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(47, "div", 21)(48, "div", 22)(49, "div", 23)(50, "div", 24);
-    \u0275\u0275template(51, ProductDetailComponent_div_3_div_51_Template, 2, 1, "div", 25)(52, ProductDetailComponent_div_3_ng_container_52_Template, 3, 2, "ng-container", 26);
+    \u0275\u0275elementStart(48, "div", 21)(49, "div", 22)(50, "div", 23)(51, "div", 24);
+    \u0275\u0275template(52, ProductDetailComponent_div_3_div_52_Template, 2, 1, "div", 25)(53, ProductDetailComponent_div_3_ng_container_53_Template, 3, 2, "ng-container", 26);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(53, "div", 27)(54, "div", 28);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_div_click_54_listener() {
+    \u0275\u0275elementStart(54, "div", 27)(55, "div", 28);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_div_click_55_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = -1);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(55, ProductDetailComponent_div_3_div_55_Template, 3, 8, "div", 29)(56, ProductDetailComponent_div_3_div_56_Template, 1, 8, "div", 30);
+    \u0275\u0275template(56, ProductDetailComponent_div_3_div_56_Template, 3, 8, "div", 29)(57, ProductDetailComponent_div_3_div_57_Template, 1, 8, "div", 30);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(57, ProductDetailComponent_div_3_div_57_Template, 5, 2, "div", 31);
+    \u0275\u0275template(58, ProductDetailComponent_div_3_div_58_Template, 5, 2, "div", 31);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(58, ProductDetailComponent_div_3_div_58_Template, 10, 2, "div", 32);
-    \u0275\u0275elementStart(59, "div", 33)(60, "div", 34)(61, "h2", 35);
-    \u0275\u0275text(62, "Overview");
+    \u0275\u0275template(59, ProductDetailComponent_div_3_div_59_Template, 10, 2, "div", 32);
+    \u0275\u0275elementStart(60, "div", 33)(61, "div", 34)(62, "h2", 35);
+    \u0275\u0275text(63, "Overview");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(63, "p", 36);
-    \u0275\u0275text(64);
+    \u0275\u0275elementStart(64, "p", 36);
+    \u0275\u0275text(65);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(65, "div", 34)(66, "h2", 35);
-    \u0275\u0275text(67, "Key Features");
+    \u0275\u0275elementStart(66, "div", 34)(67, "h2", 35);
+    \u0275\u0275text(68, "Key Features");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(68, "div", 37);
-    \u0275\u0275template(69, ProductDetailComponent_div_3_div_69_Template, 5, 1, "div", 38);
+    \u0275\u0275elementStart(69, "div", 37);
+    \u0275\u0275template(70, ProductDetailComponent_div_3_div_70_Template, 5, 1, "div", 38);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(70, "div", 39)(71, "div", 40)(72, "div", 41);
-    \u0275\u0275template(73, ProductDetailComponent_div_3_button_73_Template, 2, 3, "button", 42);
+    \u0275\u0275elementStart(71, "div", 39)(72, "div", 40)(73, "div", 41);
+    \u0275\u0275template(74, ProductDetailComponent_div_3_button_74_Template, 2, 3, "button", 42);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(74, ProductDetailComponent_div_3_div_74_Template, 17, 2, "div", 43)(75, ProductDetailComponent_div_3_div_75_Template, 20, 8, "div", 43)(76, ProductDetailComponent_div_3_div_76_Template, 10, 4, "div", 43);
+    \u0275\u0275template(75, ProductDetailComponent_div_3_div_75_Template, 17, 2, "div", 43)(76, ProductDetailComponent_div_3_div_76_Template, 20, 8, "div", 43)(77, ProductDetailComponent_div_3_div_77_Template, 10, 4, "div", 43);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(77, "aside", 44)(78, "div", 45)(79, "div", 46)(80, "span", 47);
-    \u0275\u0275text(81);
+    \u0275\u0275elementStart(78, "aside", 44)(79, "div", 45)(80, "div", 46)(81, "span", 47);
+    \u0275\u0275text(82);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(82, ProductDetailComponent_div_3_span_82_Template, 2, 1, "span", 48)(83, ProductDetailComponent_div_3_span_83_Template, 2, 1, "span", 49);
+    \u0275\u0275template(83, ProductDetailComponent_div_3_span_83_Template, 2, 1, "span", 48)(84, ProductDetailComponent_div_3_span_84_Template, 2, 1, "span", 49);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(84, "div", 50)(85, "label", 51);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_label_click_85_listener() {
+    \u0275\u0275elementStart(85, "div", 50)(86, "label", 51);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_label_click_86_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "regular");
     });
-    \u0275\u0275element(86, "input", 52);
-    \u0275\u0275elementStart(87, "div")(88, "strong");
-    \u0275\u0275text(89, "Regular License");
+    \u0275\u0275element(87, "input", 52);
+    \u0275\u0275elementStart(88, "div")(89, "strong");
+    \u0275\u0275text(90, "Regular License");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(90, "span");
-    \u0275\u0275text(91, "Use in a single end product");
+    \u0275\u0275elementStart(91, "span");
+    \u0275\u0275text(92, "Use in a single end product");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(92, "span", 53);
-    \u0275\u0275text(93);
+    \u0275\u0275elementStart(93, "span", 53);
+    \u0275\u0275text(94);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(94, "label", 51);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_label_click_94_listener() {
+    \u0275\u0275elementStart(95, "label", 51);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_label_click_95_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "extended");
     });
-    \u0275\u0275element(95, "input", 54);
-    \u0275\u0275elementStart(96, "div")(97, "strong");
-    \u0275\u0275text(98, "Extended License");
+    \u0275\u0275element(96, "input", 54);
+    \u0275\u0275elementStart(97, "div")(98, "strong");
+    \u0275\u0275text(99, "Extended License");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(99, "span");
-    \u0275\u0275text(100, "Use in unlimited projects");
+    \u0275\u0275elementStart(100, "span");
+    \u0275\u0275text(101, "Use in unlimited projects");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(101, "span", 53);
-    \u0275\u0275text(102);
+    \u0275\u0275elementStart(102, "span", 53);
+    \u0275\u0275text(103);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(103, ProductDetailComponent_div_3_div_103_Template, 8, 2, "div", 55);
-    \u0275\u0275elementStart(104, "button", 56);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_button_click_104_listener() {
+    \u0275\u0275template(104, ProductDetailComponent_div_3_div_104_Template, 8, 2, "div", 55);
+    \u0275\u0275elementStart(105, "button", 56);
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_button_click_105_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.addToCart());
     });
-    \u0275\u0275text(105);
+    \u0275\u0275text(106);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(106, ProductDetailComponent_div_3_button_106_Template, 6, 0, "button", 57)(107, ProductDetailComponent_div_3_a_107_Template, 2, 0, "a", 58);
-    \u0275\u0275elementStart(108, "div", 59)(109, "div", 60)(110, "span");
-    \u0275\u0275text(111, "\u{1F4B0} Sales");
+    \u0275\u0275template(107, ProductDetailComponent_div_3_button_107_Template, 6, 0, "button", 57)(108, ProductDetailComponent_div_3_a_108_Template, 2, 0, "a", 58);
+    \u0275\u0275elementStart(109, "div", 59)(110, "div", 60)(111, "span");
+    \u0275\u0275text(112, "\u{1F4B0} Sales");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(112, "strong");
-    \u0275\u0275text(113);
-    \u0275\u0275pipe(114, "number");
+    \u0275\u0275elementStart(113, "strong");
+    \u0275\u0275text(114);
+    \u0275\u0275pipe(115, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(115, "div", 60)(116, "span");
-    \u0275\u0275text(117, "\u{1F441}\uFE0F Views");
+    \u0275\u0275elementStart(116, "div", 60)(117, "span");
+    \u0275\u0275text(118, "\u{1F441}\uFE0F Views");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(118, "strong");
-    \u0275\u0275text(119);
-    \u0275\u0275pipe(120, "number");
+    \u0275\u0275elementStart(119, "strong");
+    \u0275\u0275text(120);
+    \u0275\u0275pipe(121, "number");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(121, "div", 60)(122, "span");
-    \u0275\u0275text(123, "\u{1F4C5} Last Updated");
+    \u0275\u0275elementStart(122, "div", 60)(123, "span");
+    \u0275\u0275text(124, "\u{1F4C5} Last Updated");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(124, "strong");
-    \u0275\u0275text(125);
-    \u0275\u0275pipe(126, "date");
+    \u0275\u0275elementStart(125, "strong");
+    \u0275\u0275text(126);
+    \u0275\u0275pipe(127, "fsDate");
+    \u0275\u0275pipe(128, "date");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(127, "div", 60)(128, "span");
-    \u0275\u0275text(129, "\u{1F4E6} Version");
+    \u0275\u0275elementStart(129, "div", 60)(130, "span");
+    \u0275\u0275text(131, "\u{1F4E6} Version");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(130, "strong");
-    \u0275\u0275text(131);
+    \u0275\u0275elementStart(132, "strong");
+    \u0275\u0275text(133);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(132, "div", 60)(133, "span");
-    \u0275\u0275text(134, "\u{1F4C1} File Size");
+    \u0275\u0275elementStart(134, "div", 60)(135, "span");
+    \u0275\u0275text(136, "\u{1F4C1} File Size");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(135, "strong");
-    \u0275\u0275text(136);
+    \u0275\u0275elementStart(137, "strong");
+    \u0275\u0275text(138);
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(137, "div", 61)(138, "div", 62)(139, "div", 63);
-    \u0275\u0275text(140);
+    \u0275\u0275elementStart(139, "div", 61)(140, "div", 62)(141, "div", 63);
+    \u0275\u0275text(142);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(141, "div")(142, "strong");
-    \u0275\u0275text(143);
+    \u0275\u0275elementStart(143, "div")(144, "strong");
+    \u0275\u0275text(145);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(144, ProductDetailComponent_div_3_span_144_Template, 2, 0, "span", 64);
+    \u0275\u0275template(146, ProductDetailComponent_div_3_span_146_Template, 2, 0, "span", 64);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(145, "p", 65);
-    \u0275\u0275text(146);
+    \u0275\u0275elementStart(147, "p", 65);
+    \u0275\u0275text(148);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(147, "div", 66)(148, "div")(149, "strong");
-    \u0275\u0275text(150);
-    \u0275\u0275pipe(151, "number");
+    \u0275\u0275elementStart(149, "div", 66)(150, "div")(151, "strong");
+    \u0275\u0275text(152);
+    \u0275\u0275pipe(153, "number");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(152, "span");
-    \u0275\u0275text(153, "Sales");
+    \u0275\u0275elementStart(154, "span");
+    \u0275\u0275text(155, "Sales");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(154, "div")(155, "strong");
-    \u0275\u0275text(156);
+    \u0275\u0275elementStart(156, "div")(157, "strong");
+    \u0275\u0275text(158);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(157, "span");
-    \u0275\u0275text(158, "Rating");
+    \u0275\u0275elementStart(159, "span");
+    \u0275\u0275text(160, "Rating");
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(159, "div")(160, "strong");
-    \u0275\u0275text(161);
+    \u0275\u0275elementStart(161, "div")(162, "strong");
+    \u0275\u0275text(163);
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(162, "span");
-    \u0275\u0275text(163, "Badges");
+    \u0275\u0275elementStart(164, "span");
+    \u0275\u0275text(165, "Badges");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275elementStart(164, "div", 67);
-    \u0275\u0275template(165, ProductDetailComponent_div_3_span_165_Template, 2, 2, "span", 68);
+    \u0275\u0275elementStart(166, "div", 67);
+    \u0275\u0275template(167, ProductDetailComponent_div_3_span_167_Template, 2, 2, "span", 68);
     \u0275\u0275elementEnd()();
-    \u0275\u0275elementStart(166, "div", 69)(167, "h4");
-    \u0275\u0275text(168, "Tags");
+    \u0275\u0275elementStart(168, "div", 69)(169, "h4");
+    \u0275\u0275text(170, "Tags");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(169, "div", 70);
-    \u0275\u0275template(170, ProductDetailComponent_div_3_a_170_Template, 2, 4, "a", 71);
+    \u0275\u0275elementStart(171, "div", 70);
+    \u0275\u0275template(172, ProductDetailComponent_div_3_a_172_Template, 2, 4, "a", 71);
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275elementStart(171, "section", 72)(172, "h2", 73);
-    \u0275\u0275text(173, "Related Products");
+    \u0275\u0275elementStart(173, "section", 72)(174, "h2", 73);
+    \u0275\u0275text(175, "Related Products");
     \u0275\u0275elementEnd();
-    \u0275\u0275elementStart(174, "div", 74);
-    \u0275\u0275template(175, ProductDetailComponent_div_3_app_product_card_175_Template, 1, 1, "app-product-card", 75);
+    \u0275\u0275elementStart(176, "div", 74);
+    \u0275\u0275template(177, ProductDetailComponent_div_3_app_product_card_177_Template, 1, 1, "app-product-card", 75);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -1811,7 +1810,7 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.maximizedImage);
     \u0275\u0275advance(10);
-    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(88, _c0, ctx_r2.product.category));
+    \u0275\u0275property("queryParams", \u0275\u0275pureFunction1(92, _c0, ctx_r2.product.category));
     \u0275\u0275advance();
     \u0275\u0275textInterpolate(ctx_r2.getCategoryLabel());
     \u0275\u0275advance(4);
@@ -1823,8 +1822,8 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275advance(7);
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(39, 74, ctx_r2.product.totalVisits));
     \u0275\u0275advance(7);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(46, 76, ctx_r2.toDate(ctx_r2.product.lastUpdated), "mediumDate"));
-    \u0275\u0275advance(5);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(47, 78, \u0275\u0275pipeBind1(46, 76, ctx_r2.product.lastUpdated), "mediumDate"));
+    \u0275\u0275advance(6);
     \u0275\u0275styleProp("background", ctx_r2.activePreviewIndex === -1 ? ctx_r2.product.thumbnailUrl ? "none" : ctx_r2.getGradient() : "none")("background-image", ctx_r2.activePreviewIndex === -1 && ctx_r2.product.thumbnailUrl ? "url(" + ctx_r2.product.thumbnailUrl + ")" : ctx_r2.activePreviewIndex !== -1 && ctx_r2.activePreviewIndex !== "youtube" ? "url(" + ctx_r2.product.previewImages[ctx_r2.activePreviewIndex] + ")" : "none")("background-size", "cover")("background-position", "center");
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.activePreviewIndex === "youtube");
@@ -1882,12 +1881,12 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275advance();
     \u0275\u0275property("ngIf", ctx_r2.isInCart);
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(114, 79, ctx_r2.product.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(115, 81, ctx_r2.product.totalSales));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(120, 81, ctx_r2.product.totalVisits));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(121, 83, ctx_r2.product.totalVisits));
     \u0275\u0275advance(6);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(126, 83, ctx_r2.toDate(ctx_r2.product.lastUpdated), "mediumDate"));
-    \u0275\u0275advance(6);
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(128, 87, \u0275\u0275pipeBind1(127, 85, ctx_r2.product.lastUpdated), "mediumDate"));
+    \u0275\u0275advance(7);
     \u0275\u0275textInterpolate(ctx_r2.product.version);
     \u0275\u0275advance(5);
     \u0275\u0275textInterpolate(ctx_r2.product.fileSize);
@@ -1902,7 +1901,7 @@ function ProductDetailComponent_div_3_Template(rf, ctx) {
     \u0275\u0275advance(2);
     \u0275\u0275textInterpolate(ctx_r2.product.author.bio);
     \u0275\u0275advance(4);
-    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(151, 86, ctx_r2.product.author.totalSales));
+    \u0275\u0275textInterpolate(\u0275\u0275pipeBind1(153, 90, ctx_r2.product.author.totalSales));
     \u0275\u0275advance(6);
     \u0275\u0275textInterpolate(ctx_r2.product.author.rating);
     \u0275\u0275advance(5);
@@ -2127,13 +2126,6 @@ var ProductDetailComponent = class _ProductDetailComponent {
       return yield modal.present();
     });
   }
-  toDate(timestamp) {
-    if (!timestamp)
-      return null;
-    if (timestamp.toDate)
-      return timestamp.toDate();
-    return timestamp;
-  }
   static {
     this.\u0275fac = function ProductDetailComponent_Factory(__ngFactoryType__) {
       return new (__ngFactoryType__ || _ProductDetailComponent)();
@@ -2144,7 +2136,7 @@ var ProductDetailComponent = class _ProductDetailComponent {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
         \u0275\u0275elementStart(1, "ion-content");
-        \u0275\u0275template(2, ProductDetailComponent_div_2_Template, 5, 0, "div", 1)(3, ProductDetailComponent_div_3_Template, 176, 90, "div", 2);
+        \u0275\u0275template(2, ProductDetailComponent_div_2_Template, 5, 0, "div", 1)(3, ProductDetailComponent_div_3_Template, 178, 94, "div", 2);
         \u0275\u0275elementEnd();
         \u0275\u0275element(4, "app-footer");
       }
@@ -2154,13 +2146,13 @@ var ProductDetailComponent = class _ProductDetailComponent {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.product && !ctx.isLoading());
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterLink, FormsModule, DefaultValueAccessor, CheckboxControlValueAccessor, NgControlStatus, NgModel, IonContent, HeaderComponent, FooterComponent, ProductCardComponent], styles: ['\n\n.page-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_pageEnter 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_pageEnter {\n  from {\n    opacity: 0;\n    transform: translateY(16px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.breadcrumb[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 20px 0;\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  flex-wrap: wrap;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.breadcrumb[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  font-weight: 500;\n}\n.detail-layout[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding-bottom: 32px;\n}\n.detail-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.detail-sidebar[_ngcontent-%COMP%] {\n  width: 360px;\n  flex-shrink: 0;\n}\n.stats-strip[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  padding: 20px 32px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.stat-pill[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.pill-label[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n.pill-value[_ngcontent-%COMP%] {\n  font-size: 1.15rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n}\n.pill-rating[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pill-rating[_ngcontent-%COMP%]   .stars[_ngcontent-%COMP%] {\n  color: #F59E0B;\n  font-size: 1rem;\n}\n.pill-rating[_ngcontent-%COMP%]   .rating-val[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.15rem;\n}\n.stat-divider[_ngcontent-%COMP%] {\n  width: 1px;\n  height: 32px;\n  background: var(--pm-border-light);\n  margin: 0 24px;\n}\n.main-content-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 40px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.content-section[_ngcontent-%COMP%] {\n  margin-bottom: 40px;\n}\n.content-section[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 0;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 900;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.section-subtitle[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n}\n.section-text[_ngcontent-%COMP%] {\n  font-size: 1.05rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n}\n.tabs-layout[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  display: flex;\n  gap: 0;\n  align-items: flex-start;\n}\n.tabs-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.preview-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 24px;\n}\n.preview-image[_ngcontent-%COMP%] {\n  height: 360px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  position: relative;\n}\n.maximize-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  background: rgba(0, 0, 0, 0.5);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background var(--pm-transition-fast);\n  backdrop-filter: blur(4px);\n}\n.maximize-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.lightbox-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.9);\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.lightbox-content[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 90vw;\n  max-height: 90vh;\n}\n.lightbox-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 100%;\n  max-height: 90vh;\n  object-fit: contain;\n  border-radius: 8px;\n}\n.lightbox-close[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -40px;\n  right: 0px;\n  background: none;\n  border: none;\n  color: white;\n  font-size: 2rem;\n  cursor: pointer;\n}\n.video-container[_ngcontent-%COMP%] {\n  position: relative;\n  padding-bottom: 56.25%;\n  height: 0;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-sm);\n}\n.video-container[_ngcontent-%COMP%]   iframe[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.preview-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));\n}\n.preview-title[_ngcontent-%COMP%] {\n  color: white;\n  font-size: 1.1rem;\n  font-weight: 600;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 6px 20px;\n  border-radius: var(--pm-radius-full);\n  backdrop-filter: blur(4px);\n}\n.preview-thumbnails[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  padding: 12px;\n}\n.thumb-item[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  cursor: pointer;\n  border: 2px solid transparent;\n  transition: all var(--pm-transition-fast);\n}\n.thumb-item.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n}\n.thumb-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.8;\n}\n.pm-gallery-strip[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  padding: 16px;\n  overflow-x: auto;\n  scrollbar-width: thin;\n  scrollbar-color: var(--pm-border) transparent;\n  scroll-behavior: smooth;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: var(--pm-border);\n  border-radius: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n  flex: 0 0 80px;\n  height: 60px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-hub[_ngcontent-%COMP%] {\n  padding: 0 16px 16px;\n}\n.demo-links-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.demo-link-card[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px;\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  text-decoration: none;\n  transition: all 0.2s;\n}\n.demo-link-card[_ngcontent-%COMP%]:hover {\n  background: white;\n  border-color: var(--ion-color-primary);\n  transform: translateY(-2px);\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  background-size: cover;\n  background-position: center;\n  flex-shrink: 0;\n}\n.demo-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.demo-label[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 700;\n  font-size: 0.85rem;\n  color: var(--pm-text-primary);\n}\n.demo-action[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--ion-color-primary);\n  font-weight: 500;\n}\n.detail-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  margin-bottom: 24px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-md);\n  padding: 4px;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 12px 16px;\n  border: none;\n  background: transparent;\n  font-family: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.desc-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  margin: 24px 0 12px;\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  margin-top: 0;\n}\n.desc-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n}\n.features-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 10px;\n}\n.feature-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.tags-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tech-tag[_ngcontent-%COMP%], \n.compat-tag[_ngcontent-%COMP%] {\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  font-weight: 500;\n}\n.tech-tag[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.08);\n  color: #6366F1;\n}\n.compat-tag[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.08);\n  color: #059669;\n}\n.reviews-summary[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding: 24px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n}\n.rating-big[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 16px 32px;\n}\n.rating-number[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  display: block;\n}\n.rating-stars[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  color: #F59E0B;\n  margin: 4px 0;\n  display: flex;\n  gap: 2px;\n  justify-content: center;\n}\n.rating-total[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.rating-bars[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  justify-content: center;\n}\n.bar-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.bar-label[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 24px;\n}\n.bar-track[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 8px;\n  background: var(--pm-surface-muted);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.bar-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: #F59E0B;\n  border-radius: 4px;\n  transition: width 0.5s ease;\n}\n.bar-count[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 32px;\n  text-align: right;\n}\n.write-review[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.write-review[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\ntextarea.filter-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n}\n.purchase-notice[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  background: rgba(99, 102, 241, 0.06);\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 20px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.empty-reviews[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n}\n.comment-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 10px;\n}\n.review-user[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.review-avatar[_ngcontent-%COMP%] {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 0.8rem;\n}\n.review-user[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n}\n.verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n  font-weight: 500;\n}\n.review-meta[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.review-stars[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1px;\n  justify-content: flex-end;\n}\n.review-date[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.review-comment[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n  margin: 0 0 8px;\n}\n.purchase-card[_ngcontent-%COMP%], \n.author-card[_ngcontent-%COMP%], \n.tags-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 16px;\n}\n.price-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  margin-bottom: 16px;\n  flex-wrap: wrap;\n}\n.license-select[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.license-option[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-option.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-option[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-option[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.license-option[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-option[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.license-price[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.reskin-option[_ngcontent-%COMP%] {\n  margin-bottom: 4px;\n}\n.reskin-check[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  background:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.04),\n      rgba(168, 85, 247, 0.06));\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n}\n.reskin-check[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.reskin-check[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.reskin-check[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.pm-btn.added[_ngcontent-%COMP%] {\n  background: #10B981;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}\n.purchase-meta[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid var(--pm-border-light);\n}\n.meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  padding: 7px 0;\n  font-size: 0.8rem;\n}\n.meta-row[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.meta-row[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n}\n.author-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.author-av[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.author-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.9rem;\n}\n.author-verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n}\n.author-bio[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n  margin: 0 0 16px;\n}\n.author-stats[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  padding: 12px 0;\n  border-top: 1px solid var(--pm-border-light);\n  border-bottom: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.author-stats[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  text-align: center;\n  flex: 1;\n}\n.author-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.author-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.author-badges[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.a-badge[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.7rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.tags-card[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  font-size: 0.9rem;\n}\n.tags-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tag-link[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.tag-link[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.08);\n  color: var(--ion-color-primary);\n}\n.related-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 24px;\n}\n@media (max-width: 1024px) {\n  .detail-layout[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .detail-sidebar[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media (max-width: 768px) {\n  .features-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .reviews-summary[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .stats-strip[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    padding: 16px;\n  }\n  .stat-divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .stat-pill[_ngcontent-%COMP%] {\n    text-align: center;\n  }\n  .preview-image[_ngcontent-%COMP%] {\n    height: 240px;\n  }\n  .main-content-card[_ngcontent-%COMP%] {\n    padding: 24px;\n  }\n  .section-title[_ngcontent-%COMP%] {\n    font-size: 1.3rem;\n  }\n  .detail-tabs[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    flex-wrap: nowrap;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    white-space: nowrap;\n    min-width: max-content;\n    padding: 10px 14px;\n    font-size: 0.8rem;\n  }\n  .breadcrumb[_ngcontent-%COMP%] {\n    font-size: 0.75rem;\n    padding: 12px 0;\n  }\n  .desc-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .review-card[_ngcontent-%COMP%], \n   .comment-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .purchase-card[_ngcontent-%COMP%], \n   .author-card[_ngcontent-%COMP%], \n   .tags-card[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n    flex: 0 0 64px;\n    height: 48px;\n  }\n  .demo-links-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.deploy-guide-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  overflow: hidden;\n}\n.dg-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 32px;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.dg-header[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.02);\n}\n.dg-title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.dg-icon[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n}\n.dg-toggle[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.dg-body[_ngcontent-%COMP%] {\n  border-top: 1px solid var(--pm-border-light);\n  padding: 24px 32px;\n  max-height: 500px;\n  overflow-y: auto;\n}\n.dg-content[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 0.88rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n}\n.ai-studio-trigger[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #EC4899);\n  color: white !important;\n  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.ai-studio-trigger[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px) scale(1.02);\n  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);\n}\n.ai-glow[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  width: 200%;\n  height: 200%;\n  background:\n    radial-gradient(\n      circle,\n      rgba(255, 255, 255, 0.2) 0%,\n      transparent 70%);\n  animation: _ngcontent-%COMP%_ais-glow-rotate 4s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-glow-rotate {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ai-studio-workspace[_ngcontent-%COMP%] {\n  position: fixed;\n  inset: 0;\n  z-index: 10000;\n  display: flex;\n  justify-content: flex-end;\n  visibility: hidden;\n  transition: visibility 0s 0.4s;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%] {\n  visibility: visible;\n  transition: visibility 0s 0s;\n}\n.ais-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.6);\n  backdrop-filter: blur(4px);\n  opacity: 0;\n  transition: opacity 0.4s ease;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-overlay[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-panel[_ngcontent-%COMP%] {\n  position: relative;\n  width: 100%;\n  max-width: 600px;\n  height: 100%;\n  background: #09090B;\n  color: white;\n  transform: translateX(100%);\n  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  border-left: 1px solid rgba(255, 255, 255, 0.1);\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-panel[_ngcontent-%COMP%] {\n  transform: translateX(0);\n}\n.ais-glow-top[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -100px;\n  right: -100px;\n  width: 400px;\n  height: 400px;\n  background: rgba(168, 85, 247, 0.15);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-glow-bottom[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -100px;\n  left: -100px;\n  width: 300px;\n  height: 300px;\n  background: rgba(59, 130, 246, 0.1);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: 32px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.05);\n  background: rgba(9, 9, 11, 0.5);\n  backdrop-filter: blur(10px);\n  z-index: 10;\n}\n.ais-title-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.ais-icon-box[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);\n}\n.ais-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: white;\n  letter-spacing: -0.5px;\n}\n.ais-subtitle[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #71717A;\n  letter-spacing: 1.5px;\n}\n.ais-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-size: 2rem;\n  cursor: pointer;\n  transition: color 0.2s;\n}\n.ais-close[_ngcontent-%COMP%]:hover {\n  color: white;\n}\n.ais-content[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: 40px 32px;\n  z-index: 5;\n}\n.ais-state-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_ais-fade-up 0.5s ease-out;\n}\n@keyframes _ngcontent-%COMP%_ais-fade-up {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.ais-heading[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 800;\n  margin-bottom: 12px;\n  color: white;\n}\n.ais-text[_ngcontent-%COMP%] {\n  color: #A1A1AA;\n  font-size: 1rem;\n  line-height: 1.6;\n  margin-bottom: 32px;\n}\n.ais-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 160px;\n  background: #18181B;\n  border: 1px solid #27272A;\n  border-radius: 16px;\n  padding: 20px;\n  color: white;\n  font-family: inherit;\n  font-size: 1rem;\n  resize: none;\n  transition: all 0.3s;\n}\n.ais-textarea[_ngcontent-%COMP%]:focus {\n  outline: none;\n  border-color: #A855F7;\n  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);\n}\n.ais-input-group[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: 32px;\n}\n.ais-input-meta[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 16px;\n  right: 16px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.ais-status-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: #A855F7;\n  animation: _ngcontent-%COMP%_ais-pulse 2s infinite;\n}\n.ais-status-label[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #52525B;\n  font-family: monospace;\n}\n@keyframes _ngcontent-%COMP%_ais-pulse {\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.ais-schema-view[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.ais-schema-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.ais-schema-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 11px;\n  font-weight: 700;\n  color: #52525B;\n  letter-spacing: 0.5px;\n}\n.ais-schema-tag[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.05);\n  padding: 2px 8px;\n  border-radius: 4px;\n}\n.ais-code[_ngcontent-%COMP%] {\n  background: #18181B;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n  border-radius: 12px;\n  padding: 20px;\n  color: #3B82F6;\n  font-family: monospace;\n  font-size: 0.85rem;\n  overflow-x: auto;\n  margin: 0;\n}\n.ais-btn-build[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 20px;\n  border-radius: 16px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  color: white;\n  font-weight: 800;\n  font-size: 1.1rem;\n  border: none;\n  cursor: pointer;\n  transition: all 0.3s;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);\n}\n.ais-btn-build[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);\n}\n.ais-btn-build[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-pipeline-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 48px;\n}\n.ais-loader-ring[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 64px;\n  border: 4px solid rgba(168, 85, 247, 0.1);\n  border-top-color: #A855F7;\n  border-radius: 50%;\n  margin: 0 auto 24px;\n  animation: _ngcontent-%COMP%_ais-spin 1s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 32px;\n  max-width: 320px;\n  margin: 0 auto 48px;\n  position: relative;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 24px;\n  top: 10px;\n  bottom: 10px;\n  width: 1px;\n  background: #27272A;\n}\n.ais-step[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 24px;\n  opacity: 0.4;\n  transition: all 0.4s;\n}\n.ais-step.active[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step.done[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step-icon[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: #18181B;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  z-index: 2;\n  border: 1px solid #27272A;\n}\n.ais-step.active[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #A855F7;\n  color: white;\n  border-color: transparent;\n  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);\n}\n.ais-step.done[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #10B981;\n  color: white;\n  border-color: transparent;\n  font-size: 1rem;\n}\n.ais-step-info[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.1rem;\n  margin-bottom: 2px;\n}\n.ais-step-info[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 20px;\n  background: rgba(255, 255, 255, 0.03);\n  border-radius: 12px;\n  font-size: 0.85rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: white;\n  font-weight: 700;\n}\n.ais-success[_ngcontent-%COMP%] {\n  text-align: center;\n  padding-top: 20px;\n}\n.ais-success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  border-radius: 24px;\n  background: rgba(16, 185, 129, 0.1);\n  border: 1px solid rgba(16, 185, 129, 0.2);\n  color: #10B981;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 2.5rem;\n  margin: 0 auto 32px;\n  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);\n}\n.ais-actions[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-bottom: 32px;\n}\n.ais-btn-download[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: white;\n  color: black;\n  font-weight: 800;\n  font-size: 1.1rem;\n  text-decoration: none;\n  display: block;\n  transition: all 0.2s;\n}\n.ais-btn-download[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px);\n  background: #F4F4F5;\n}\n.ais-btn-docs[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: #18181B;\n  color: white;\n  font-weight: 700;\n  border: 1px solid #27272A;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.ais-btn-docs[_ngcontent-%COMP%]:hover {\n  background: #27272A;\n}\n.ais-btn-reset[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-weight: 600;\n  font-size: 0.9rem;\n  cursor: pointer;\n  text-decoration: underline;\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: 32px;\n  border-top: 1px solid rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.ais-gpu-status[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #3F3F46;\n  font-family: monospace;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.ais-gpu-dot[_ngcontent-%COMP%] {\n  width: 4px;\n  height: 4px;\n  border-radius: 50%;\n  background: #10B981;\n  box-shadow: 0 0 6px #10B981;\n}\n.ais-brand[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #27272A;\n  letter-spacing: 1px;\n}\n/*# sourceMappingURL=product-detail.component.css.map */'] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterLink, FormsModule, DefaultValueAccessor, CheckboxControlValueAccessor, NgControlStatus, NgModel, IonContent, HeaderComponent, FooterComponent, ProductCardComponent, FirestoreDatePipe], styles: ['\n\n.page-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_pageEnter 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_pageEnter {\n  from {\n    opacity: 0;\n    transform: translateY(16px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.breadcrumb[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 20px 0;\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  flex-wrap: wrap;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.breadcrumb[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  font-weight: 500;\n}\n.detail-layout[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding-bottom: 32px;\n}\n.detail-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.detail-sidebar[_ngcontent-%COMP%] {\n  width: 360px;\n  flex-shrink: 0;\n}\n.stats-strip[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  padding: 20px 32px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.stat-pill[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.pill-label[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n.pill-value[_ngcontent-%COMP%] {\n  font-size: 1.15rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n}\n.pill-rating[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pill-rating[_ngcontent-%COMP%]   .stars[_ngcontent-%COMP%] {\n  color: #F59E0B;\n  font-size: 1rem;\n}\n.pill-rating[_ngcontent-%COMP%]   .rating-val[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.15rem;\n}\n.stat-divider[_ngcontent-%COMP%] {\n  width: 1px;\n  height: 32px;\n  background: var(--pm-border-light);\n  margin: 0 24px;\n}\n.main-content-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 40px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.content-section[_ngcontent-%COMP%] {\n  margin-bottom: 40px;\n}\n.content-section[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 0;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 900;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.section-subtitle[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n}\n.section-text[_ngcontent-%COMP%] {\n  font-size: 1.05rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n}\n.tabs-layout[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  display: flex;\n  gap: 0;\n  align-items: flex-start;\n}\n.tabs-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.preview-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 24px;\n}\n.preview-image[_ngcontent-%COMP%] {\n  height: 360px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  position: relative;\n}\n.maximize-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  background: rgba(0, 0, 0, 0.5);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background var(--pm-transition-fast);\n  backdrop-filter: blur(4px);\n}\n.maximize-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.lightbox-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.9);\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.lightbox-content[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 90vw;\n  max-height: 90vh;\n}\n.lightbox-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 100%;\n  max-height: 90vh;\n  object-fit: contain;\n  border-radius: 8px;\n}\n.lightbox-close[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -40px;\n  right: 0px;\n  background: none;\n  border: none;\n  color: white;\n  font-size: 2rem;\n  cursor: pointer;\n}\n.video-container[_ngcontent-%COMP%] {\n  position: relative;\n  padding-bottom: 56.25%;\n  height: 0;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-sm);\n}\n.video-container[_ngcontent-%COMP%]   iframe[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.preview-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));\n}\n.preview-title[_ngcontent-%COMP%] {\n  color: white;\n  font-size: 1.1rem;\n  font-weight: 600;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 6px 20px;\n  border-radius: var(--pm-radius-full);\n  backdrop-filter: blur(4px);\n}\n.preview-thumbnails[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  padding: 12px;\n}\n.thumb-item[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  cursor: pointer;\n  border: 2px solid transparent;\n  transition: all var(--pm-transition-fast);\n}\n.thumb-item.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n}\n.thumb-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.8;\n}\n.pm-gallery-strip[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  padding: 16px;\n  overflow-x: auto;\n  scrollbar-width: thin;\n  scrollbar-color: var(--pm-border) transparent;\n  scroll-behavior: smooth;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: var(--pm-border);\n  border-radius: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n  flex: 0 0 80px;\n  height: 60px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-hub[_ngcontent-%COMP%] {\n  padding: 0 16px 16px;\n}\n.demo-links-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.demo-link-card[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px;\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  text-decoration: none;\n  transition: all 0.2s;\n}\n.demo-link-card[_ngcontent-%COMP%]:hover {\n  background: white;\n  border-color: var(--ion-color-primary);\n  transform: translateY(-2px);\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  background-size: cover;\n  background-position: center;\n  flex-shrink: 0;\n}\n.demo-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.demo-label[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 700;\n  font-size: 0.85rem;\n  color: var(--pm-text-primary);\n}\n.demo-action[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--ion-color-primary);\n  font-weight: 500;\n}\n.detail-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  margin-bottom: 24px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-md);\n  padding: 4px;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 12px 16px;\n  border: none;\n  background: transparent;\n  font-family: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.desc-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  margin: 24px 0 12px;\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  margin-top: 0;\n}\n.desc-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n}\n.features-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 10px;\n}\n.feature-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.tags-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tech-tag[_ngcontent-%COMP%], \n.compat-tag[_ngcontent-%COMP%] {\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  font-weight: 500;\n}\n.tech-tag[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.08);\n  color: #6366F1;\n}\n.compat-tag[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.08);\n  color: #059669;\n}\n.reviews-summary[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding: 24px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n}\n.rating-big[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 16px 32px;\n}\n.rating-number[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  display: block;\n}\n.rating-stars[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  color: #F59E0B;\n  margin: 4px 0;\n  display: flex;\n  gap: 2px;\n  justify-content: center;\n}\n.rating-total[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.rating-bars[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  justify-content: center;\n}\n.bar-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.bar-label[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 24px;\n}\n.bar-track[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 8px;\n  background: var(--pm-surface-muted);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.bar-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: #F59E0B;\n  border-radius: 4px;\n  transition: width 0.5s ease;\n}\n.bar-count[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 32px;\n  text-align: right;\n}\n.write-review[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.write-review[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\ntextarea.filter-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n}\n.purchase-notice[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  background: rgba(99, 102, 241, 0.06);\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 20px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.empty-reviews[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n}\n.comment-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 10px;\n}\n.review-user[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.review-avatar[_ngcontent-%COMP%] {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 0.8rem;\n}\n.review-user[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n}\n.verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n  font-weight: 500;\n}\n.review-meta[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.review-stars[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1px;\n  justify-content: flex-end;\n}\n.review-date[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.review-comment[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n  margin: 0 0 8px;\n}\n.purchase-card[_ngcontent-%COMP%], \n.author-card[_ngcontent-%COMP%], \n.tags-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 16px;\n}\n.price-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  margin-bottom: 16px;\n  flex-wrap: wrap;\n}\n.license-select[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.license-option[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-option.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-option[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-option[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.license-option[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-option[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.license-price[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.reskin-option[_ngcontent-%COMP%] {\n  margin-bottom: 4px;\n}\n.reskin-check[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  background:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.04),\n      rgba(168, 85, 247, 0.06));\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n}\n.reskin-check[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.reskin-check[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.reskin-check[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.pm-btn.added[_ngcontent-%COMP%] {\n  background: #10B981;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}\n.purchase-meta[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid var(--pm-border-light);\n}\n.meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  padding: 7px 0;\n  font-size: 0.8rem;\n}\n.meta-row[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.meta-row[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n}\n.author-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.author-av[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.author-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.9rem;\n}\n.author-verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n}\n.author-bio[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n  margin: 0 0 16px;\n}\n.author-stats[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  padding: 12px 0;\n  border-top: 1px solid var(--pm-border-light);\n  border-bottom: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.author-stats[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  text-align: center;\n  flex: 1;\n}\n.author-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.author-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.author-badges[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.a-badge[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.7rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.tags-card[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  font-size: 0.9rem;\n}\n.tags-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tag-link[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.tag-link[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.08);\n  color: var(--ion-color-primary);\n}\n.related-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 24px;\n}\n@media (max-width: 1024px) {\n  .detail-layout[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .detail-sidebar[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media (max-width: 768px) {\n  .features-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .reviews-summary[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .stats-strip[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    padding: 16px;\n  }\n  .stat-divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .stat-pill[_ngcontent-%COMP%] {\n    text-align: center;\n  }\n  .preview-image[_ngcontent-%COMP%] {\n    height: 240px;\n  }\n  .main-content-card[_ngcontent-%COMP%] {\n    padding: 24px;\n  }\n  .section-title[_ngcontent-%COMP%] {\n    font-size: 1.3rem;\n  }\n  .detail-tabs[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    flex-wrap: nowrap;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    white-space: nowrap;\n    min-width: max-content;\n    padding: 10px 14px;\n    font-size: 0.8rem;\n  }\n  .breadcrumb[_ngcontent-%COMP%] {\n    font-size: 0.75rem;\n    padding: 12px 0;\n  }\n  .desc-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .review-card[_ngcontent-%COMP%], \n   .comment-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .purchase-card[_ngcontent-%COMP%], \n   .author-card[_ngcontent-%COMP%], \n   .tags-card[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n    flex: 0 0 64px;\n    height: 48px;\n  }\n  .demo-links-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.deploy-guide-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  overflow: hidden;\n}\n.dg-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 32px;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.dg-header[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.02);\n}\n.dg-title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.dg-icon[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n}\n.dg-toggle[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.dg-body[_ngcontent-%COMP%] {\n  border-top: 1px solid var(--pm-border-light);\n  padding: 24px 32px;\n  max-height: 500px;\n  overflow-y: auto;\n}\n.dg-content[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 0.88rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n}\n.ai-studio-trigger[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #EC4899);\n  color: white !important;\n  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.ai-studio-trigger[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px) scale(1.02);\n  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);\n}\n.ai-glow[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  width: 200%;\n  height: 200%;\n  background:\n    radial-gradient(\n      circle,\n      rgba(255, 255, 255, 0.2) 0%,\n      transparent 70%);\n  animation: _ngcontent-%COMP%_ais-glow-rotate 4s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-glow-rotate {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ai-studio-workspace[_ngcontent-%COMP%] {\n  position: fixed;\n  inset: 0;\n  z-index: 10000;\n  display: flex;\n  justify-content: flex-end;\n  visibility: hidden;\n  transition: visibility 0s 0.4s;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%] {\n  visibility: visible;\n  transition: visibility 0s 0s;\n}\n.ais-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.6);\n  backdrop-filter: blur(4px);\n  opacity: 0;\n  transition: opacity 0.4s ease;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-overlay[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-panel[_ngcontent-%COMP%] {\n  position: relative;\n  width: 100%;\n  max-width: 600px;\n  height: 100%;\n  background: #09090B;\n  color: white;\n  transform: translateX(100%);\n  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  border-left: 1px solid rgba(255, 255, 255, 0.1);\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-panel[_ngcontent-%COMP%] {\n  transform: translateX(0);\n}\n.ais-glow-top[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -100px;\n  right: -100px;\n  width: 400px;\n  height: 400px;\n  background: rgba(168, 85, 247, 0.15);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-glow-bottom[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -100px;\n  left: -100px;\n  width: 300px;\n  height: 300px;\n  background: rgba(59, 130, 246, 0.1);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: 32px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.05);\n  background: rgba(9, 9, 11, 0.5);\n  backdrop-filter: blur(10px);\n  z-index: 10;\n}\n.ais-title-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.ais-icon-box[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);\n}\n.ais-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: white;\n  letter-spacing: -0.5px;\n}\n.ais-subtitle[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #71717A;\n  letter-spacing: 1.5px;\n}\n.ais-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-size: 2rem;\n  cursor: pointer;\n  transition: color 0.2s;\n}\n.ais-close[_ngcontent-%COMP%]:hover {\n  color: white;\n}\n.ais-content[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: 40px 32px;\n  z-index: 5;\n}\n.ais-state-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_ais-fade-up 0.5s ease-out;\n}\n@keyframes _ngcontent-%COMP%_ais-fade-up {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.ais-heading[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 800;\n  margin-bottom: 12px;\n  color: white;\n}\n.ais-text[_ngcontent-%COMP%] {\n  color: #A1A1AA;\n  font-size: 1rem;\n  line-height: 1.6;\n  margin-bottom: 32px;\n}\n.ais-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 160px;\n  background: #18181B;\n  border: 1px solid #27272A;\n  border-radius: 16px;\n  padding: 20px;\n  color: white;\n  font-family: inherit;\n  font-size: 1rem;\n  resize: none;\n  transition: all 0.3s;\n}\n.ais-textarea[_ngcontent-%COMP%]:focus {\n  outline: none;\n  border-color: #A855F7;\n  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);\n}\n.ais-input-group[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: 32px;\n}\n.ais-input-meta[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 16px;\n  right: 16px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.ais-status-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: #A855F7;\n  animation: _ngcontent-%COMP%_ais-pulse 2s infinite;\n}\n.ais-status-label[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #52525B;\n  font-family: monospace;\n}\n@keyframes _ngcontent-%COMP%_ais-pulse {\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.ais-schema-view[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.ais-schema-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.ais-schema-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 11px;\n  font-weight: 700;\n  color: #52525B;\n  letter-spacing: 0.5px;\n}\n.ais-schema-tag[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.05);\n  padding: 2px 8px;\n  border-radius: 4px;\n}\n.ais-code[_ngcontent-%COMP%] {\n  background: #18181B;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n  border-radius: 12px;\n  padding: 20px;\n  color: #3B82F6;\n  font-family: monospace;\n  font-size: 0.85rem;\n  overflow-x: auto;\n  margin: 0;\n}\n.ais-btn-build[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 20px;\n  border-radius: 16px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  color: white;\n  font-weight: 800;\n  font-size: 1.1rem;\n  border: none;\n  cursor: pointer;\n  transition: all 0.3s;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);\n}\n.ais-btn-build[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);\n}\n.ais-btn-build[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-pipeline-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 48px;\n}\n.ais-loader-ring[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 64px;\n  border: 4px solid rgba(168, 85, 247, 0.1);\n  border-top-color: #A855F7;\n  border-radius: 50%;\n  margin: 0 auto 24px;\n  animation: _ngcontent-%COMP%_ais-spin 1s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 32px;\n  max-width: 320px;\n  margin: 0 auto 48px;\n  position: relative;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 24px;\n  top: 10px;\n  bottom: 10px;\n  width: 1px;\n  background: #27272A;\n}\n.ais-step[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 24px;\n  opacity: 0.4;\n  transition: all 0.4s;\n}\n.ais-step.active[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step.done[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step-icon[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: #18181B;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  z-index: 2;\n  border: 1px solid #27272A;\n}\n.ais-step.active[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #A855F7;\n  color: white;\n  border-color: transparent;\n  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);\n}\n.ais-step.done[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #10B981;\n  color: white;\n  border-color: transparent;\n  font-size: 1rem;\n}\n.ais-step-info[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.1rem;\n  margin-bottom: 2px;\n}\n.ais-step-info[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 20px;\n  background: rgba(255, 255, 255, 0.03);\n  border-radius: 12px;\n  font-size: 0.85rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: white;\n  font-weight: 700;\n}\n.ais-success[_ngcontent-%COMP%] {\n  text-align: center;\n  padding-top: 20px;\n}\n.ais-success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  border-radius: 24px;\n  background: rgba(16, 185, 129, 0.1);\n  border: 1px solid rgba(16, 185, 129, 0.2);\n  color: #10B981;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 2.5rem;\n  margin: 0 auto 32px;\n  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);\n}\n.ais-actions[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-bottom: 32px;\n}\n.ais-btn-download[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: white;\n  color: black;\n  font-weight: 800;\n  font-size: 1.1rem;\n  text-decoration: none;\n  display: block;\n  transition: all 0.2s;\n}\n.ais-btn-download[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px);\n  background: #F4F4F5;\n}\n.ais-btn-docs[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: #18181B;\n  color: white;\n  font-weight: 700;\n  border: 1px solid #27272A;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.ais-btn-docs[_ngcontent-%COMP%]:hover {\n  background: #27272A;\n}\n.ais-btn-reset[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-weight: 600;\n  font-size: 0.9rem;\n  cursor: pointer;\n  text-decoration: underline;\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: 32px;\n  border-top: 1px solid rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.ais-gpu-status[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #3F3F46;\n  font-family: monospace;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.ais-gpu-dot[_ngcontent-%COMP%] {\n  width: 4px;\n  height: 4px;\n  border-radius: 50%;\n  background: #10B981;\n  box-shadow: 0 0 6px #10B981;\n}\n.ais-brand[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #27272A;\n  letter-spacing: 1px;\n}\n/*# sourceMappingURL=product-detail.component.css.map */'] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 1171 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 1172 });
 })();
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-B36YVXMR.js.map
+//# sourceMappingURL=chunk-3AQL5YAU.js.map
