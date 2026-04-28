@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
@@ -12,9 +13,11 @@ import { ProductCategory } from '../../models/marketplace.models';
 @Component({
   selector: 'app-browse',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent],
+  imports: [CommonModule, RouterLink, FormsModule, IonContent, HeaderComponent, FooterComponent, ProductCardComponent],
   template: `
     <app-header></app-header>
+
+    <ion-content>
 
     <div class="page-enter">
       <section class="browse-hero">
@@ -131,7 +134,7 @@ import { ProductCategory } from '../../models/marketplace.models';
           </div>
         }
       </main>
-    </div>
+    </ion-content>
     </div>
     <app-footer></app-footer>
   `,

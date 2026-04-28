@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { IonContent } from '@ionic/angular/standalone';
 import { Firestore, doc, getDoc } from '@angular/fire/firestore';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -8,10 +9,11 @@ import { FooterComponent } from '../../components/footer/footer.component';
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
-    
+
+    <ion-content>
     <main class="blog-detail-page">
       <div class="pm-container">
         <!-- Back Button -->
@@ -58,7 +60,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
           </footer>
         </article>
       </div>
-    </main>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

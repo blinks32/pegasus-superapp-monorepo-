@@ -3,6 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
@@ -17,9 +18,11 @@ import { ModalController } from '@ionic/angular/standalone';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent, AIBuildStudioComponent],
+  imports: [CommonModule, RouterLink, FormsModule, IonContent, HeaderComponent, FooterComponent, ProductCardComponent, GuideWidgetComponent, AIBuildStudioComponent],
   template: `
     <app-header></app-header>
+
+    <ion-content>
 
     <!-- Loading Overlay -->
     <div class="loading-overlay" *ngIf="isLoading()">
@@ -418,7 +421,7 @@ import { ModalController } from '@ionic/angular/standalone';
           <app-product-card *ngFor="let p of relatedProducts" [product]="p"></app-product-card>
         </div>
       </section>
-    </div>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

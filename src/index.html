@@ -84,10 +84,9 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="manifest" href="assets/site.webmanifest" />
 
-  <!-- No-JS fallback message for crawlers -->
+  <!-- No-JS fallback: metadata only in head -->
   <noscript>
     <meta http-equiv="refresh" content="0; url=https://selljustcode.com/" />
-    <p>selljustcode — Premium Code Marketplace. Browse complete SaaS solutions, EdTech LMS, and B2B platforms at <a href="https://selljustcode.com">selljustcode.com</a>.</p>
   </noscript>
 </head>
 
@@ -100,5 +99,10 @@
     ion-app .ion-page { overflow: auto !important; contain: none !important; position: relative !important; }
   </style>
   <app-root></app-root>
+
+  <!-- No-JS fallback message for users without JavaScript -->
+  <noscript>
+    <p>selljustcode — Premium Code Marketplace. Browse complete SaaS solutions, EdTech LMS, and B2B platforms at <a href="https://selljustcode.com">selljustcode.com</a>.</p>
+  </noscript>
 </body>
 </html>

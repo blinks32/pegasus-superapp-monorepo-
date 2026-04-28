@@ -2,6 +2,7 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
@@ -11,10 +12,10 @@ import { SeoService } from '../../services/seo.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent, ProductCardComponent],
+  imports: [CommonModule, RouterLink, FormsModule, IonContent, HeaderComponent, FooterComponent, ProductCardComponent],
   template: `
     <app-header></app-header>
-    <div class="page-enter">
+    <ion-content>
     <!-- ═══ HERO SECTION ═══ -->
     <section class="hero">
       <div class="pm-container hero-content">
@@ -77,7 +78,7 @@ import { SeoService } from '../../services/seo.service';
         }
       </div>
     </section>
-    </div>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

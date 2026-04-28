@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
 import { MarketplaceService } from '../../../services/marketplace.service';
@@ -11,9 +12,11 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
 @Component({
   selector: 'app-submit-project',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, FormsModule, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
+
+    <ion-content>
 
     <section class="submit-hero">
       <div class="pm-container">
@@ -340,7 +343,7 @@ import { AdminProject, ProductCategory } from '../../../models/marketplace.model
           </button>
         </div>
       </form>
-    </div>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

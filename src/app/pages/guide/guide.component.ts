@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -18,7 +19,7 @@ interface GuideStep {
 @Component({
   selector: 'app-guide',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, IonContent, HeaderComponent, FooterComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './guide.component.html',
   styleUrls: ['./guide.component.scss']

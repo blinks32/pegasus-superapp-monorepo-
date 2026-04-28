@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { AuthService } from '../../services/auth.service';
@@ -8,11 +9,11 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
 
-    <div class="profile-container">
+    <ion-content>
       <div class="profile-hero">
         <div class="pm-container">
           <h1 class="pm-heading-lg">My Profile</h1>

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
@@ -8,9 +9,11 @@ import { MarketplaceService } from '../../services/marketplace.service';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
+
+    <ion-content>
 
     <section class="cart-hero">
       <div class="pm-container">
@@ -108,6 +111,8 @@ import { MarketplaceService } from '../../services/marketplace.service';
         </div>
       </aside>
     </div>
+
+    </ion-content>
 
     <app-footer></app-footer>
   `,

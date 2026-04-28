@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { IonContent } from '@ionic/angular/standalone';
 import { Firestore, collection, query, where, orderBy, collectionData } from '@angular/fire/firestore';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -9,10 +10,11 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-blogs',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
-    
+
+    <ion-content>
     <main class="blogs-page">
       <section class="blogs-hero">
         <div class="pm-container">
@@ -61,7 +63,7 @@ import { Observable } from 'rxjs';
           <a routerLink="/" class="pm-btn pm-btn-primary">Back to Home</a>
         </div>
       </div>
-    </main>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

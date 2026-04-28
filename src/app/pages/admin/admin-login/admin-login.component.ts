@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
 import { AuthService } from '../../../services/auth.service';
@@ -9,10 +10,11 @@ import { AuthService } from '../../../services/auth.service';
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, HeaderComponent, FooterComponent],
+  imports: [CommonModule, FormsModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
 
+    <ion-content>
     <main class="admin-login-page">
       <div class="pm-container">
         <div class="admin-login-wrapper">
@@ -60,6 +62,7 @@ import { AuthService } from '../../../services/auth.service';
         </div>
       </div>
     </main>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

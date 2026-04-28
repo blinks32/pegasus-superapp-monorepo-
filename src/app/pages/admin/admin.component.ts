@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
@@ -12,9 +13,11 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, FormsModule, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
+
+    <ion-content>
 
     <section class="admin-hero">
       <div class="pm-container">
@@ -315,7 +318,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           </div>
         </div>
       </div>
-    </div>
+    </ion-content>
 
     <!-- Blog Modal -->
     <div class="modal-overlay" *ngIf="showBlogModal" (click)="closeBlogModal()">
