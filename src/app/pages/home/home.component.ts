@@ -1,6 +1,6 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
@@ -195,6 +195,7 @@ import { SeoService } from '../../services/seo.service';
 export class HomeComponent implements OnInit {
   marketplace = inject(MarketplaceService);
   private seo = inject(SeoService);
+  private router = inject(Router);
   searchQuery = '';
 
   popularTags = ['SaaS Boilerplate', 'Super App', 'Ride Booking', 'PvP Multiplayer', 'EdTech LMS'];
@@ -206,7 +207,7 @@ export class HomeComponent implements OnInit {
 
   goSearch() {
     if (this.searchQuery.trim()) {
-      window.location.href = "/browse?q=" + encodeURIComponent(this.searchQuery);
+      this.router.navigate(['/browse'], { queryParams: { q: this.searchQuery } });
     }
   }
 }

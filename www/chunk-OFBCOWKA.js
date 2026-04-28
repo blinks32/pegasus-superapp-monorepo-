@@ -5,8 +5,7 @@ import {
 } from "./chunk-FLFQP357.js";
 import {
   IonContent
-} from "./chunk-S4DXISLP.js";
-import "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   CommonModule,
   DecimalPipe,
@@ -343,4 +342,4 @@ var CartComponent = class _CartComponent {
 export {
   CartComponent
 };
-//# sourceMappingURL=chunk-BUM2FU2K.js.map
+//# sourceMappingURL=chunk-OFBCOWKA.js.map

@@ -10,18 +10,16 @@ import {
   SeoService
 } from "./chunk-OC3PZCFA.js";
 import {
-  IonContent
-} from "./chunk-S4DXISLP.js";
-import {
   DefaultValueAccessor,
   FormsModule,
+  IonContent,
   NgControlStatus,
   NgModel,
   NgSelectOption,
   NumberValueAccessor,
   SelectControlValueAccessor,
   ɵNgSelectMultipleOption
-} from "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -420,4 +418,4 @@ var BrowseComponent = class _BrowseComponent {
 export {
   BrowseComponent
 };
-//# sourceMappingURL=chunk-U2CJ56XC.js.map
+//# sourceMappingURL=chunk-JKIMIC3B.js.map

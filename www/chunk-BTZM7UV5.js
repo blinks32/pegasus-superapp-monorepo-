@@ -7,8 +7,7 @@ import {
 } from "./chunk-FLFQP357.js";
 import {
   IonContent
-} from "./chunk-S4DXISLP.js";
-import "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   CommonModule,
   DatePipe,
@@ -199,4 +198,4 @@ var BlogsComponent = class _BlogsComponent {
 export {
   BlogsComponent
 };
-//# sourceMappingURL=chunk-XL3PJDYP.js.map
+//# sourceMappingURL=chunk-BTZM7UV5.js.map

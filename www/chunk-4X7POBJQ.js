@@ -10,17 +10,16 @@ import {
   SeoService
 } from "./chunk-OC3PZCFA.js";
 import {
-  IonContent
-} from "./chunk-S4DXISLP.js";
-import {
   DefaultValueAccessor,
   FormsModule,
+  IonContent,
   NgControlStatus,
   NgModel
-} from "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   CommonModule,
   NgForOf,
+  Router,
   RouterLink,
   inject,
   ɵsetClassDebugInfo,
@@ -125,6 +124,7 @@ var HomeComponent = class _HomeComponent {
   constructor() {
     this.marketplace = inject(MarketplaceService);
     this.seo = inject(SeoService);
+    this.router = inject(Router);
     this.searchQuery = "";
     this.popularTags = ["SaaS Boilerplate", "Super App", "Ride Booking", "PvP Multiplayer", "EdTech LMS"];
   }
@@ -134,7 +134,7 @@ var HomeComponent = class _HomeComponent {
   }
   goSearch() {
     if (this.searchQuery.trim()) {
-      window.location.href = "/browse?q=" + encodeURIComponent(this.searchQuery);
+      this.router.navigate(["/browse"], { queryParams: { q: this.searchQuery } });
     }
   }
   static {
@@ -205,4 +205,4 @@ var HomeComponent = class _HomeComponent {
 export {
   HomeComponent
 };
-//# sourceMappingURL=chunk-ZTTVOZU6.js.map
+//# sourceMappingURL=chunk-4X7POBJQ.js.map

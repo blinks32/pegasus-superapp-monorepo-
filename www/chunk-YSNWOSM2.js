@@ -7,8 +7,7 @@ import {
 } from "./chunk-FLFQP357.js";
 import {
   IonContent
-} from "./chunk-S4DXISLP.js";
-import "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -188,4 +187,4 @@ var BlogDetailComponent = class _BlogDetailComponent {
 export {
   BlogDetailComponent
 };
-//# sourceMappingURL=chunk-LOZOZEGU.js.map
+//# sourceMappingURL=chunk-YSNWOSM2.js.map

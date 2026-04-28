@@ -11,7 +11,7 @@ import { SeoService } from './services/seo.service';
       <ion-router-outlet></ion-router-outlet>
     </ion-app>
   `,
-  styles: [`:host { display: block; min-height: 100vh; }`],
+  styles: [],
 })
 export class AppComponent implements OnInit {
   private seo = inject(SeoService);

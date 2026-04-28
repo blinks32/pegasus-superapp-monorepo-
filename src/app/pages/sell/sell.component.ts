@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IonContent } from '@ionic/angular/standalone';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { MarketplaceService } from '../../services/marketplace.service';
@@ -12,9 +13,10 @@ import { AdminProject, ProductCategory } from '../../models/marketplace.models';
 @Component({
   selector: 'app-sell',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, FormsModule, IonContent, HeaderComponent, FooterComponent],
   template: `
     <app-header></app-header>
+    <ion-content>
 
     <!-- Not logged in -->
     <div class="pm-container auth-gate" *ngIf="!auth.currentUser()">
@@ -387,6 +389,7 @@ import { AdminProject, ProductCategory } from '../../models/marketplace.models';
       </div>
     </ng-container>
 
+    </ion-content>
     <app-footer></app-footer>
   `,
   styles: [`

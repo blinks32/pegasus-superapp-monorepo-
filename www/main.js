@@ -62,7 +62,11 @@ import {
   IonRouterOutlet,
   IonRouterOutlet2,
   IonTabs,
+  MaxValidator,
   MenuController,
+  MinValidator,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
   NavController,
   OverlayBaseController,
   RouterLinkDelegateDirective,
@@ -72,13 +76,7 @@ import {
   provideIonicAngular,
   raf,
   setIonicClasses
-} from "./chunk-S4DXISLP.js";
-import {
-  MaxValidator,
-  MinValidator,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
-} from "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   ANIMATION_MODULE_TYPE,
   APP_INITIALIZER,
@@ -4291,23 +4289,23 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-ZTTVOZU6.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-4X7POBJQ.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-U2CJ56XC.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-JKIMIC3B.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-U5W4CB4Y.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-SLT2NJDA.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-BUM2FU2K.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-OFBCOWKA.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-EXHOM7KV.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-N236JBCN.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4315,19 +4313,19 @@ var routes = [
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-5CNQO65Z.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-ILN2TKFB.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-V5GO6HIX.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-IVP35BVP.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-XL3PJDYP.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-BTZM7UV5.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-LOZOZEGU.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-YSNWOSM2.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
@@ -4335,11 +4333,11 @@ var routes = [
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-GZQEWIPQ.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-6YX6SSKU.js").then((m) => m.GuideComponent)
   },
   {
     path: "sell",
-    loadComponent: () => import("./chunk-K57LZHGH.js").then((m) => m.SellComponent)
+    loadComponent: () => import("./chunk-VO2PCZOF.js").then((m) => m.SellComponent)
   },
   {
     path: "sell/dashboard",

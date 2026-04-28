@@ -21,16 +21,14 @@ import {
   SeoService
 } from "./chunk-OC3PZCFA.js";
 import {
-  IonContent,
-  ModalController
-} from "./chunk-S4DXISLP.js";
-import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
+  IonContent,
+  ModalController,
   NgControlStatus,
   NgModel
-} from "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   ActivatedRoute,
   CommonModule,
@@ -2155,4 +2153,4 @@ var ProductDetailComponent = class _ProductDetailComponent {
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-U5W4CB4Y.js.map
+//# sourceMappingURL=chunk-SLT2NJDA.js.map

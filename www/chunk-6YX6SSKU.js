@@ -4,8 +4,7 @@ import {
 } from "./chunk-FLFQP357.js";
 import {
   IonContent
-} from "./chunk-S4DXISLP.js";
-import "./chunk-OLW2AZEG.js";
+} from "./chunk-FQJMJDM6.js";
 import {
   CommonModule,
   DecimalPipe,
@@ -349,4 +348,4 @@ var GuideComponent = class _GuideComponent {
 export {
   GuideComponent
 };
-//# sourceMappingURL=chunk-GZQEWIPQ.js.map
+//# sourceMappingURL=chunk-6YX6SSKU.js.map
