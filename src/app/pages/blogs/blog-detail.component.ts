@@ -60,6 +60,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
           </footer>
         </article>
       </div>
+    </main>
     </ion-content>
 
     <app-footer></app-footer>

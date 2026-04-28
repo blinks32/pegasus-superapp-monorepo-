@@ -74,7 +74,6 @@ import { AuthService } from '../../services/auth.service';
           </div>
         </div>
       </div>
-    </main>
     </ion-content>
     <app-footer></app-footer>
   `,

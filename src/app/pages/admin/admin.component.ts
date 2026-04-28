@@ -318,6 +318,7 @@ import { Firestore, doc, getDoc, updateDoc, setDoc, collection, collectionData, 
           </div>
         </div>
       </div>
+    </div>
     </ion-content>
 
     <!-- Blog Modal -->

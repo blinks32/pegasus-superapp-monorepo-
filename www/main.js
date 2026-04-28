@@ -39,9 +39,19 @@ import {
 } from "./chunk-EVP6H62M.js";
 import {
   AUTO_STYLE,
-  AngularDelegate,
   AnimationGroupPlayer,
   AnimationMetadataType,
+  NoopAnimationPlayer,
+  environment,
+  sequence,
+  style,
+  ɵPRE_STYLE
+} from "./chunk-LL6IVHFO.js";
+import {
+  SeoService
+} from "./chunk-NROIVCYZ.js";
+import {
+  AngularDelegate,
   Config,
   ConfigToken,
   IonApp,
@@ -54,25 +64,15 @@ import {
   IonTabs,
   MenuController,
   NavController,
-  NoopAnimationPlayer,
   OverlayBaseController,
   RouterLinkDelegateDirective,
   RouterLinkWithHrefDelegateDirective,
   ValueAccessor,
-  environment,
   provideComponentInputBinding,
   provideIonicAngular,
   raf,
-  sequence,
-  setIonicClasses,
-  style,
-  ɵPRE_STYLE
-} from "./chunk-H4I5LEG4.js";
-import "./chunk-KWZAHRWA.js";
-import "./chunk-BARXMHI7.js";
-import {
-  SeoService
-} from "./chunk-NROIVCYZ.js";
+  setIonicClasses
+} from "./chunk-7TFQUZIJ.js";
 import {
   MaxValidator,
   MinValidator,
@@ -168,6 +168,8 @@ import {
   ɵɵtemplate,
   ɵɵviewQuery
 } from "./chunk-OKV2NBY4.js";
+import "./chunk-KWZAHRWA.js";
+import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
 import "./chunk-NIIMY5ZY.js";
 import "./chunk-LGH3V3RI.js";
@@ -4289,23 +4291,23 @@ var NoopAnimationsModule = class _NoopAnimationsModule {
 var routes = [
   {
     path: "",
-    loadComponent: () => import("./chunk-2WGU7RQH.js").then((m) => m.HomeComponent)
+    loadComponent: () => import("./chunk-Q5CDMJPZ.js").then((m) => m.HomeComponent)
   },
   {
     path: "browse",
-    loadComponent: () => import("./chunk-ASFWQ622.js").then((m) => m.BrowseComponent)
+    loadComponent: () => import("./chunk-G7A2LVW3.js").then((m) => m.BrowseComponent)
   },
   {
     path: "product/:id",
-    loadComponent: () => import("./chunk-DWVYCQMN.js").then((m) => m.ProductDetailComponent)
+    loadComponent: () => import("./chunk-UBWYI2EL.js").then((m) => m.ProductDetailComponent)
   },
   {
     path: "cart",
-    loadComponent: () => import("./chunk-NRNBAE3E.js").then((m) => m.CartComponent)
+    loadComponent: () => import("./chunk-3P6FIOOM.js").then((m) => m.CartComponent)
   },
   {
     path: "admin",
-    loadComponent: () => import("./chunk-SEMUC7GX.js").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-FG3OF64B.js").then((m) => m.AdminComponent)
   },
   {
     path: "admin/submit",
@@ -4313,19 +4315,19 @@ var routes = [
   },
   {
     path: "login",
-    loadComponent: () => import("./chunk-CSABU4M5.js").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-CC3ZOSOP.js").then((m) => m.LoginComponent)
   },
   {
     path: "profile",
-    loadComponent: () => import("./chunk-QNIAUYWO.js").then((m) => m.ProfileComponent)
+    loadComponent: () => import("./chunk-7TD2WPSY.js").then((m) => m.ProfileComponent)
   },
   {
     path: "blogs",
-    loadComponent: () => import("./chunk-CKPPX4PJ.js").then((m) => m.BlogsComponent)
+    loadComponent: () => import("./chunk-EWAYFVUL.js").then((m) => m.BlogsComponent)
   },
   {
     path: "blog/:id",
-    loadComponent: () => import("./chunk-BW6O5AFN.js").then((m) => m.BlogDetailComponent)
+    loadComponent: () => import("./chunk-MIHEGMQL.js").then((m) => m.BlogDetailComponent)
   },
   {
     path: "page/:slug",
@@ -4333,7 +4335,7 @@ var routes = [
   },
   {
     path: "guide",
-    loadComponent: () => import("./chunk-ISKHTR3P.js").then((m) => m.GuideComponent)
+    loadComponent: () => import("./chunk-4YF7CP6X.js").then((m) => m.GuideComponent)
   },
   {
     path: "sell",

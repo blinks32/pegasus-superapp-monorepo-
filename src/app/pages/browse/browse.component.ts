@@ -134,8 +134,9 @@ import { ProductCategory } from '../../models/marketplace.models';
           </div>
         }
       </main>
-    </ion-content>
     </div>
+    </div>
+    </ion-content>
     <app-footer></app-footer>
   `,
   styles: [`

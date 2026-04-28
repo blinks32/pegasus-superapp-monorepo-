@@ -8,6 +8,9 @@ import {
   MarketplaceService
 } from "./chunk-L3MOXFDZ.js";
 import {
+  IonContent
+} from "./chunk-7TFQUZIJ.js";
+import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
   FormsModule,
@@ -80,6 +83,19 @@ import {
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
 } from "./chunk-OKV2NBY4.js";
+import "./chunk-KWZAHRWA.js";
+import "./chunk-BARXMHI7.js";
+import "./chunk-BZUELC5Z.js";
+import "./chunk-NIIMY5ZY.js";
+import "./chunk-LGH3V3RI.js";
+import "./chunk-6NWXNUG5.js";
+import "./chunk-2NCJX5FR.js";
+import "./chunk-WED6EE3F.js";
+import "./chunk-RLLLK2NX.js";
+import "./chunk-LCF4N3YM.js";
+import "./chunk-ORHTZRIY.js";
+import "./chunk-FWR7NPWV.js";
+import "./chunk-DVBWEDNF.js";
 import {
   __async,
   __spreadProps,
@@ -88,7 +104,7 @@ import {
 
 // src/app/pages/admin/admin.component.ts
 var _c0 = (a0) => ["/product", a0];
-function AdminComponent_span_14_Template(rf, ctx) {
+function AdminComponent_span_15_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 16);
     \u0275\u0275text(1);
@@ -100,7 +116,7 @@ function AdminComponent_span_14_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r0.marketplace.pendingProducts().length);
   }
 }
-function AdminComponent_div_28_div_2_span_8_Template(rf, ctx) {
+function AdminComponent_div_29_div_2_span_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 41);
     \u0275\u0275text(1);
@@ -112,7 +128,7 @@ function AdminComponent_div_28_div_2_span_8_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" +", stat_r3.change, "% ");
   }
 }
-function AdminComponent_div_28_div_2_Template(rf, ctx) {
+function AdminComponent_div_29_div_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 35)(1, "div", 36);
     \u0275\u0275text(2);
@@ -123,7 +139,7 @@ function AdminComponent_div_28_div_2_Template(rf, ctx) {
     \u0275\u0275elementStart(6, "span", 39);
     \u0275\u0275text(7);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(8, AdminComponent_div_28_div_2_span_8_Template, 2, 1, "span", 40);
+    \u0275\u0275template(8, AdminComponent_div_29_div_2_span_8_Template, 2, 1, "span", 40);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -140,7 +156,7 @@ function AdminComponent_div_28_div_2_Template(rf, ctx) {
     \u0275\u0275property("ngIf", stat_r3.change);
   }
 }
-function AdminComponent_div_28_div_16_Template(rf, ctx) {
+function AdminComponent_div_29_div_16_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 42)(1, "span", 43);
     \u0275\u0275text(2);
@@ -155,14 +171,14 @@ function AdminComponent_div_28_div_16_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("$", \u0275\u0275pipeBind1(3, 4, bar_r4.value), "");
   }
 }
-function AdminComponent_div_28_div_17_Template(rf, ctx) {
+function AdminComponent_div_29_div_17_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 44)(1, "p");
     \u0275\u0275text(2, "No sales data available for this period.");
     \u0275\u0275elementEnd()();
   }
 }
-function AdminComponent_div_28_span_19_Template(rf, ctx) {
+function AdminComponent_div_29_span_19_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1);
@@ -174,7 +190,7 @@ function AdminComponent_div_28_span_19_Template(rf, ctx) {
     \u0275\u0275textInterpolate(bar_r5.label);
   }
 }
-function AdminComponent_div_28_div_33_Template(rf, ctx) {
+function AdminComponent_div_29_div_33_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 45)(1, "div", 46);
     \u0275\u0275text(2, "\u231B");
@@ -184,7 +200,7 @@ function AdminComponent_div_28_div_33_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function AdminComponent_div_28_ng_container_34_div_1_span_2_Template(rf, ctx) {
+function AdminComponent_div_29_ng_container_34_div_1_span_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1);
@@ -197,11 +213,11 @@ function AdminComponent_div_28_ng_container_34_div_1_span_2_Template(rf, ctx) {
     \u0275\u0275textInterpolate(ctx_r0.getCategoryIcon(project_r7.category));
   }
 }
-function AdminComponent_div_28_ng_container_34_div_1_Template(rf, ctx) {
+function AdminComponent_div_29_ng_container_34_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r6 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 49)(1, "div", 50);
-    \u0275\u0275template(2, AdminComponent_div_28_ng_container_34_div_1_span_2_Template, 2, 1, "span", 34);
+    \u0275\u0275template(2, AdminComponent_div_29_ng_container_34_div_1_span_2_Template, 2, 1, "span", 34);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "div", 51)(4, "span", 52);
     \u0275\u0275text(5);
@@ -224,7 +240,7 @@ function AdminComponent_div_28_ng_container_34_div_1_Template(rf, ctx) {
     \u0275\u0275text(19, "View");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(20, "button", 60);
-    \u0275\u0275listener("click", function AdminComponent_div_28_ng_container_34_div_1_Template_button_click_20_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_ng_container_34_div_1_Template_button_click_20_listener() {
       const project_r7 = \u0275\u0275restoreView(_r6).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.openEditProduct(project_r7));
@@ -237,7 +253,7 @@ function AdminComponent_div_28_ng_container_34_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(25, "button", 64);
-    \u0275\u0275listener("click", function AdminComponent_div_28_ng_container_34_div_1_Template_button_click_25_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_ng_container_34_div_1_Template_button_click_25_listener() {
       const project_r7 = \u0275\u0275restoreView(_r6).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.deleteProduct(project_r7.id));
@@ -270,7 +286,7 @@ function AdminComponent_div_28_ng_container_34_div_1_Template(rf, ctx) {
     \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(23, _c0, project_r7.id));
   }
 }
-function AdminComponent_div_28_ng_container_34_div_2_Template(rf, ctx) {
+function AdminComponent_div_29_ng_container_34_div_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 66)(1, "p");
     \u0275\u0275text(2, "No projects submitted yet. ");
@@ -279,10 +295,10 @@ function AdminComponent_div_28_ng_container_34_div_2_Template(rf, ctx) {
     \u0275\u0275elementEnd()()();
   }
 }
-function AdminComponent_div_28_ng_container_34_Template(rf, ctx) {
+function AdminComponent_div_29_ng_container_34_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, AdminComponent_div_28_ng_container_34_div_1_Template, 28, 25, "div", 47)(2, AdminComponent_div_28_ng_container_34_div_2_Template, 5, 0, "div", 48);
+    \u0275\u0275template(1, AdminComponent_div_29_ng_container_34_div_1_Template, 28, 25, "div", 47)(2, AdminComponent_div_29_ng_container_34_div_2_Template, 5, 0, "div", 48);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -293,17 +309,17 @@ function AdminComponent_div_28_ng_container_34_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r0.getFilteredProjects().length === 0);
   }
 }
-function AdminComponent_div_28_Template(rf, ctx) {
+function AdminComponent_div_29_Template(rf, ctx) {
   if (rf & 1) {
     const _r2 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 17)(1, "div", 18);
-    \u0275\u0275template(2, AdminComponent_div_28_div_2_Template, 9, 6, "div", 19);
+    \u0275\u0275template(2, AdminComponent_div_29_div_2_Template, 9, 6, "div", 19);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(3, "div", 20)(4, "div", 21)(5, "h3");
     \u0275\u0275text(6, "Revenue Overview");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(7, "div", 22)(8, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_8_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_8_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.setChartPeriod("7d"));
@@ -311,7 +327,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275text(9, "7 Days");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(10, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_10_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_10_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.setChartPeriod("30d"));
@@ -319,7 +335,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275text(11, "30 Days");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(12, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_12_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_12_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.setChartPeriod("12m"));
@@ -327,16 +343,16 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275text(13, "12 Months");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(14, "div", 24)(15, "div", 25);
-    \u0275\u0275template(16, AdminComponent_div_28_div_16_Template, 4, 6, "div", 26)(17, AdminComponent_div_28_div_17_Template, 3, 0, "div", 27);
+    \u0275\u0275template(16, AdminComponent_div_29_div_16_Template, 4, 6, "div", 26)(17, AdminComponent_div_29_div_17_Template, 3, 0, "div", 27);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(18, "div", 28);
-    \u0275\u0275template(19, AdminComponent_div_28_span_19_Template, 2, 1, "span", 29);
+    \u0275\u0275template(19, AdminComponent_div_29_span_19_Template, 2, 1, "span", 29);
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(20, "div", 30)(21, "div", 31)(22, "h3");
     \u0275\u0275text(23, "My Projects");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(24, "div", 32)(25, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_25_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_25_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.projectTab = "all");
@@ -344,7 +360,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275text(26);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(27, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_27_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_27_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.projectTab = "published");
@@ -352,7 +368,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275text(28, "Published");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(29, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_29_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_29_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.projectTab = "pending");
@@ -360,14 +376,14 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275text(30, "Pending");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(31, "button", 23);
-    \u0275\u0275listener("click", function AdminComponent_div_28_Template_button_click_31_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_29_Template_button_click_31_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.projectTab = "draft");
     });
     \u0275\u0275text(32, "Drafts");
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(33, AdminComponent_div_28_div_33_Template, 5, 0, "div", 33)(34, AdminComponent_div_28_ng_container_34_Template, 3, 2, "ng-container", 34);
+    \u0275\u0275template(33, AdminComponent_div_29_div_33_Template, 5, 0, "div", 33)(34, AdminComponent_div_29_ng_container_34_Template, 3, 2, "ng-container", 34);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -402,7 +418,7 @@ function AdminComponent_div_28_Template(rf, ctx) {
     \u0275\u0275property("ngIf", !ctx_r0.marketplace.isLoadingProducts());
   }
 }
-function AdminComponent_div_29_div_7_Template(rf, ctx) {
+function AdminComponent_div_30_div_7_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 72);
     \u0275\u0275namespaceSVG();
@@ -418,14 +434,14 @@ function AdminComponent_div_29_div_7_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function AdminComponent_div_29_div_8_span_3_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_span_3_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span");
     \u0275\u0275text(1, "\u{1F4E6}");
     \u0275\u0275elementEnd();
   }
 }
-function AdminComponent_div_29_div_8_span_14_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_span_14_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 80);
     \u0275\u0275text(1);
@@ -437,7 +453,7 @@ function AdminComponent_div_29_div_8_span_14_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("\u{1F464} ", p_r9.submittedBy.displayName, "");
   }
 }
-function AdminComponent_div_29_div_8_div_18_pre_6_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_div_18_pre_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "pre", 90);
     \u0275\u0275text(1);
@@ -449,11 +465,11 @@ function AdminComponent_div_29_div_8_div_18_pre_6_Template(rf, ctx) {
     \u0275\u0275textInterpolate(p_r9.deploymentGuide);
   }
 }
-function AdminComponent_div_29_div_8_div_18_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_div_18_Template(rf, ctx) {
   if (rf & 1) {
     const _r10 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 87)(1, "div", 88);
-    \u0275\u0275listener("click", function AdminComponent_div_29_div_8_div_18_Template_div_click_1_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_div_18_Template_div_click_1_listener() {
       \u0275\u0275restoreView(_r10);
       const p_r9 = \u0275\u0275nextContext().$implicit;
       const ctx_r0 = \u0275\u0275nextContext(2);
@@ -465,7 +481,7 @@ function AdminComponent_div_29_div_8_div_18_Template(rf, ctx) {
     \u0275\u0275elementStart(4, "span");
     \u0275\u0275text(5);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(6, AdminComponent_div_29_div_8_div_18_pre_6_Template, 2, 1, "pre", 89);
+    \u0275\u0275template(6, AdminComponent_div_30_div_8_div_18_pre_6_Template, 2, 1, "pre", 89);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -477,18 +493,18 @@ function AdminComponent_div_29_div_8_div_18_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r0.expandedGuides[p_r9.id]);
   }
 }
-function AdminComponent_div_29_div_8_div_19_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_div_19_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 91);
     \u0275\u0275text(1, " \u26A0\uFE0F No deployment guide submitted ");
     \u0275\u0275elementEnd();
   }
 }
-function AdminComponent_div_29_div_8_Template(rf, ctx) {
+function AdminComponent_div_30_div_8_Template(rf, ctx) {
   if (rf & 1) {
     const _r8 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 75)(1, "div", 76)(2, "div", 77);
-    \u0275\u0275template(3, AdminComponent_div_29_div_8_span_3_Template, 2, 0, "span", 34);
+    \u0275\u0275template(3, AdminComponent_div_30_div_8_span_3_Template, 2, 0, "span", 34);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "div", 78)(5, "h4");
     \u0275\u0275text(6);
@@ -502,17 +518,17 @@ function AdminComponent_div_29_div_8_Template(rf, ctx) {
     \u0275\u0275elementStart(12, "span", 80);
     \u0275\u0275text(13);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(14, AdminComponent_div_29_div_8_span_14_Template, 2, 1, "span", 81);
+    \u0275\u0275template(14, AdminComponent_div_30_div_8_span_14_Template, 2, 1, "span", 81);
     \u0275\u0275elementStart(15, "span", 80);
     \u0275\u0275text(16);
     \u0275\u0275pipe(17, "date");
     \u0275\u0275elementEnd()()()();
-    \u0275\u0275template(18, AdminComponent_div_29_div_8_div_18_Template, 7, 2, "div", 82)(19, AdminComponent_div_29_div_8_div_19_Template, 2, 0, "div", 83);
+    \u0275\u0275template(18, AdminComponent_div_30_div_8_div_18_Template, 7, 2, "div", 82)(19, AdminComponent_div_30_div_8_div_19_Template, 2, 0, "div", 83);
     \u0275\u0275elementStart(20, "div", 84)(21, "a", 59);
     \u0275\u0275text(22, "\u{1F441}\uFE0F Preview");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(23, "button", 85);
-    \u0275\u0275listener("click", function AdminComponent_div_29_div_8_Template_button_click_23_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_Template_button_click_23_listener() {
       const p_r9 = \u0275\u0275restoreView(_r8).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.approveProduct(p_r9.id));
@@ -520,7 +536,7 @@ function AdminComponent_div_29_div_8_Template(rf, ctx) {
     \u0275\u0275text(24, " \u2705 Approve ");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(25, "button", 86);
-    \u0275\u0275listener("click", function AdminComponent_div_29_div_8_Template_button_click_25_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_30_div_8_Template_button_click_25_listener() {
       const p_r9 = \u0275\u0275restoreView(_r8).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.openRejectModal(p_r9.id, p_r9.title));
@@ -554,7 +570,7 @@ function AdminComponent_div_29_div_8_Template(rf, ctx) {
     \u0275\u0275property("routerLink", \u0275\u0275pureFunction1(19, _c0, p_r9.id));
   }
 }
-function AdminComponent_div_29_Template(rf, ctx) {
+function AdminComponent_div_30_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 17)(1, "div", 68)(2, "div", 69)(3, "h3");
     \u0275\u0275text(4, "\u{1F50D} Review Queue");
@@ -562,7 +578,7 @@ function AdminComponent_div_29_Template(rf, ctx) {
     \u0275\u0275elementStart(5, "p");
     \u0275\u0275text(6, "Review and approve or reject seller submissions before they go live.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(7, AdminComponent_div_29_div_7_Template, 7, 0, "div", 70)(8, AdminComponent_div_29_div_8_Template, 27, 21, "div", 71);
+    \u0275\u0275template(7, AdminComponent_div_30_div_7_Template, 7, 0, "div", 70)(8, AdminComponent_div_30_div_8_Template, 27, 21, "div", 71);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -573,14 +589,14 @@ function AdminComponent_div_29_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r0.marketplace.pendingProducts());
   }
 }
-function AdminComponent_div_30_div_13_div_1_Template(rf, ctx) {
+function AdminComponent_div_31_div_13_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r12 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 98)(1, "div", 99)(2, "div", 100)(3, "h4");
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 93)(6, "button", 101);
-    \u0275\u0275listener("click", function AdminComponent_div_30_div_13_div_1_Template_button_click_6_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_31_div_13_div_1_Template_button_click_6_listener() {
       const blog_r13 = \u0275\u0275restoreView(_r12).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.openBlogModal(blog_r13));
@@ -593,7 +609,7 @@ function AdminComponent_div_30_div_13_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275namespaceHTML();
     \u0275\u0275elementStart(11, "button", 102);
-    \u0275\u0275listener("click", function AdminComponent_div_30_div_13_div_1_Template_button_click_11_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_31_div_13_div_1_Template_button_click_11_listener() {
       const blog_r13 = \u0275\u0275restoreView(_r12).$implicit;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.deleteBlog(blog_r13.id));
@@ -630,10 +646,10 @@ function AdminComponent_div_30_div_13_div_1_Template(rf, ctx) {
     \u0275\u0275textInterpolate(\u0275\u0275pipeBind2(22, 6, blog_r13.createdAt, "medium"));
   }
 }
-function AdminComponent_div_30_div_13_Template(rf, ctx) {
+function AdminComponent_div_31_div_13_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 96);
-    \u0275\u0275template(1, AdminComponent_div_30_div_13_div_1_Template, 23, 9, "div", 97);
+    \u0275\u0275template(1, AdminComponent_div_31_div_13_div_1_Template, 23, 9, "div", 97);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -642,7 +658,7 @@ function AdminComponent_div_30_div_13_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r0.blogs);
   }
 }
-function AdminComponent_div_30_div_14_Template(rf, ctx) {
+function AdminComponent_div_31_div_14_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 72);
     \u0275\u0275namespaceSVG();
@@ -658,7 +674,7 @@ function AdminComponent_div_30_div_14_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function AdminComponent_div_30_Template(rf, ctx) {
+function AdminComponent_div_31_Template(rf, ctx) {
   if (rf & 1) {
     const _r11 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 17)(1, "div", 68)(2, "div", 69)(3, "h3");
@@ -668,7 +684,7 @@ function AdminComponent_div_30_Template(rf, ctx) {
     \u0275\u0275text(6, "Create, edit, and manage blog posts");
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(7, "div", 92)(8, "div", 93)(9, "button", 94);
-    \u0275\u0275listener("click", function AdminComponent_div_30_Template_button_click_9_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_31_Template_button_click_9_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.openBlogModal());
@@ -679,7 +695,7 @@ function AdminComponent_div_30_Template(rf, ctx) {
     \u0275\u0275elementEnd();
     \u0275\u0275text(12, " New Blog Post ");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(13, AdminComponent_div_30_div_13_Template, 2, 1, "div", 95)(14, AdminComponent_div_30_div_14_Template, 11, 0, "div", 70);
+    \u0275\u0275template(13, AdminComponent_div_31_div_13_Template, 2, 1, "div", 95)(14, AdminComponent_div_31_div_14_Template, 11, 0, "div", 70);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -690,7 +706,7 @@ function AdminComponent_div_30_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r0.blogs.length === 0);
   }
 }
-function AdminComponent_div_31_tr_22_Template(rf, ctx) {
+function AdminComponent_div_32_tr_22_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "tr", 117)(1, "td", 118);
     \u0275\u0275text(2);
@@ -726,14 +742,14 @@ function AdminComponent_div_31_tr_22_Template(rf, ctx) {
     \u0275\u0275textInterpolate(view_r14.device);
   }
 }
-function AdminComponent_div_31_div_23_Template(rf, ctx) {
+function AdminComponent_div_32_div_23_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 72)(1, "p");
     \u0275\u0275text(2, "No analytics events recorded yet.");
     \u0275\u0275elementEnd()();
   }
 }
-function AdminComponent_div_31_Template(rf, ctx) {
+function AdminComponent_div_32_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 17)(1, "div", 68)(2, "div", 69)(3, "h3");
     \u0275\u0275text(4, "Geographic & Device Analytics");
@@ -757,9 +773,9 @@ function AdminComponent_div_31_Template(rf, ctx) {
     \u0275\u0275text(20, "Device Data");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(21, "tbody");
-    \u0275\u0275template(22, AdminComponent_div_31_tr_22_Template, 14, 15, "tr", 116);
+    \u0275\u0275template(22, AdminComponent_div_32_tr_22_Template, 14, 15, "tr", 116);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(23, AdminComponent_div_31_div_23_Template, 3, 0, "div", 70);
+    \u0275\u0275template(23, AdminComponent_div_32_div_23_Template, 3, 0, "div", 70);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -770,17 +786,17 @@ function AdminComponent_div_31_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r0.analyticsEvents.length === 0);
   }
 }
-function AdminComponent_div_32_Template(rf, ctx) {
+function AdminComponent_div_33_Template(rf, ctx) {
   if (rf & 1) {
     const _r15 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 121);
-    \u0275\u0275listener("click", function AdminComponent_div_32_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_33_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeBlogModal());
     });
     \u0275\u0275elementStart(1, "div", 122);
-    \u0275\u0275listener("click", function AdminComponent_div_32_Template_div_click_1_listener($event) {
+    \u0275\u0275listener("click", function AdminComponent_div_33_Template_div_click_1_listener($event) {
       \u0275\u0275restoreView(_r15);
       return \u0275\u0275resetView($event.stopPropagation());
     });
@@ -788,7 +804,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "button", 124);
-    \u0275\u0275listener("click", function AdminComponent_div_32_Template_button_click_5_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_5_listener() {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeBlogModal());
@@ -799,7 +815,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(10, "Title *");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(11, "input", 128);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_32_Template_input_ngModelChange_11_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_11_listener($event) {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.blogForm.title, $event) || (ctx_r0.blogForm.title = $event);
@@ -810,7 +826,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(14, "Excerpt *");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(15, "textarea", 130);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_32_Template_textarea_ngModelChange_15_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_textarea_ngModelChange_15_listener($event) {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.blogForm.excerpt, $event) || (ctx_r0.blogForm.excerpt = $event);
@@ -821,7 +837,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(18, "Content *");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(19, "textarea", 132);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_32_Template_textarea_ngModelChange_19_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_textarea_ngModelChange_19_listener($event) {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.blogForm.content, $event) || (ctx_r0.blogForm.content = $event);
@@ -829,7 +845,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(20, "div", 126)(21, "label", 133)(22, "input", 134);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_32_Template_input_ngModelChange_22_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_22_listener($event) {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.blogForm.published, $event) || (ctx_r0.blogForm.published = $event);
@@ -840,7 +856,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(24, "Published");
     \u0275\u0275elementEnd()()()();
     \u0275\u0275elementStart(25, "div", 135)(26, "button", 136);
-    \u0275\u0275listener("click", function AdminComponent_div_32_Template_button_click_26_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_26_listener() {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeBlogModal());
@@ -848,7 +864,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275text(27, "Cancel");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(28, "button", 137);
-    \u0275\u0275listener("click", function AdminComponent_div_32_Template_button_click_28_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_28_listener() {
       \u0275\u0275restoreView(_r15);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.saveBlogFromModal());
@@ -874,7 +890,7 @@ function AdminComponent_div_32_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", ctx_r0.editingBlogId ? "Update" : "Create", " ");
   }
 }
-function AdminComponent_div_33_option_38_Template(rf, ctx) {
+function AdminComponent_div_34_option_38_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "option", 167);
     \u0275\u0275text(1);
@@ -887,7 +903,7 @@ function AdminComponent_div_33_option_38_Template(rf, ctx) {
     \u0275\u0275textInterpolate2("", cat_r17.icon, " ", cat_r17.label, "");
   }
 }
-function AdminComponent_div_33_div_67_div_2_Template(rf, ctx) {
+function AdminComponent_div_34_div_67_div_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "div", 177);
   }
@@ -896,43 +912,43 @@ function AdminComponent_div_33_div_67_div_2_Template(rf, ctx) {
     \u0275\u0275styleProp("background-image", "url(" + demo_r19.thumbnailUrl + ")");
   }
 }
-function AdminComponent_div_33_div_67_span_4_Template(rf, ctx) {
+function AdminComponent_div_34_div_67_span_4_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 178);
     \u0275\u0275text(1, "\u{1F4F8}");
     \u0275\u0275elementEnd();
   }
 }
-function AdminComponent_div_33_div_67_Template(rf, ctx) {
+function AdminComponent_div_34_div_67_Template(rf, ctx) {
   if (rf & 1) {
     const _r18 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 168)(1, "div", 169);
-    \u0275\u0275template(2, AdminComponent_div_33_div_67_div_2_Template, 1, 2, "div", 170);
+    \u0275\u0275template(2, AdminComponent_div_34_div_67_div_2_Template, 1, 2, "div", 170);
     \u0275\u0275elementStart(3, "input", 171);
-    \u0275\u0275listener("change", function AdminComponent_div_33_div_67_Template_input_change_3_listener($event) {
+    \u0275\u0275listener("change", function AdminComponent_div_34_div_67_Template_input_change_3_listener($event) {
       const i_r20 = \u0275\u0275restoreView(_r18).index;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.onDemoThumbnailSelect($event, i_r20));
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(4, AdminComponent_div_33_div_67_span_4_Template, 2, 0, "span", 172);
+    \u0275\u0275template(4, AdminComponent_div_34_div_67_span_4_Template, 2, 0, "span", 172);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 173)(6, "input", 174);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_div_67_Template_input_ngModelChange_6_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_div_67_Template_input_ngModelChange_6_listener($event) {
       const demo_r19 = \u0275\u0275restoreView(_r18).$implicit;
       \u0275\u0275twoWayBindingSet(demo_r19.label, $event) || (demo_r19.label = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(7, "input", 175);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_div_67_Template_input_ngModelChange_7_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_div_67_Template_input_ngModelChange_7_listener($event) {
       const demo_r19 = \u0275\u0275restoreView(_r18).$implicit;
       \u0275\u0275twoWayBindingSet(demo_r19.url, $event) || (demo_r19.url = $event);
       return \u0275\u0275resetView($event);
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(8, "button", 176);
-    \u0275\u0275listener("click", function AdminComponent_div_33_div_67_Template_button_click_8_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_div_67_Template_button_click_8_listener() {
       const i_r20 = \u0275\u0275restoreView(_r18).index;
       const ctx_r0 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r0.removeEditDemo(i_r20));
@@ -952,7 +968,7 @@ function AdminComponent_div_33_div_67_Template(rf, ctx) {
     \u0275\u0275twoWayProperty("ngModel", demo_r19.url);
   }
 }
-function AdminComponent_div_33_div_83_Template(rf, ctx) {
+function AdminComponent_div_34_div_83_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 179);
     \u0275\u0275element(1, "img", 180);
@@ -964,13 +980,13 @@ function AdminComponent_div_33_div_83_Template(rf, ctx) {
     \u0275\u0275property("src", ctx_r0.editForm.thumbnailPreview, \u0275\u0275sanitizeUrl);
   }
 }
-function AdminComponent_div_33_div_88_div_1_Template(rf, ctx) {
+function AdminComponent_div_34_div_88_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r21 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 183);
     \u0275\u0275element(1, "img", 184);
     \u0275\u0275elementStart(2, "button", 185);
-    \u0275\u0275listener("click", function AdminComponent_div_33_div_88_div_1_Template_button_click_2_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_div_88_div_1_Template_button_click_2_listener() {
       const i_r22 = \u0275\u0275restoreView(_r21).index;
       const ctx_r0 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r0.removeEditScreenshot(i_r22));
@@ -984,10 +1000,10 @@ function AdminComponent_div_33_div_88_div_1_Template(rf, ctx) {
     \u0275\u0275property("src", img_r23, \u0275\u0275sanitizeUrl);
   }
 }
-function AdminComponent_div_33_div_88_Template(rf, ctx) {
+function AdminComponent_div_34_div_88_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 181);
-    \u0275\u0275template(1, AdminComponent_div_33_div_88_div_1_Template, 4, 1, "div", 182);
+    \u0275\u0275template(1, AdminComponent_div_34_div_88_div_1_Template, 4, 1, "div", 182);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -996,17 +1012,17 @@ function AdminComponent_div_33_div_88_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r0.editForm.screenshotPreviews);
   }
 }
-function AdminComponent_div_33_Template(rf, ctx) {
+function AdminComponent_div_34_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 121);
-    \u0275\u0275listener("click", function AdminComponent_div_33_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeEditModal());
     });
     \u0275\u0275elementStart(1, "div", 138);
-    \u0275\u0275listener("click", function AdminComponent_div_33_Template_div_click_1_listener($event) {
+    \u0275\u0275listener("click", function AdminComponent_div_34_Template_div_click_1_listener($event) {
       \u0275\u0275restoreView(_r16);
       return \u0275\u0275resetView($event.stopPropagation());
     });
@@ -1014,7 +1030,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(4, "\u270F\uFE0F Edit Product");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "button", 124);
-    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_5_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_5_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeEditModal());
@@ -1025,7 +1041,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(10, "Title");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(11, "input", 140);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_11_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_11_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.title, $event) || (ctx_r0.editForm.title = $event);
@@ -1036,7 +1052,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(14, "Short Description");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(15, "textarea", 141);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_textarea_ngModelChange_15_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_textarea_ngModelChange_15_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.shortDescription, $event) || (ctx_r0.editForm.shortDescription = $event);
@@ -1047,7 +1063,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(18, "Full Description");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(19, "textarea", 142);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_textarea_ngModelChange_19_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_textarea_ngModelChange_19_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.fullDescription, $event) || (ctx_r0.editForm.fullDescription = $event);
@@ -1058,7 +1074,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(23, "Price (USD)");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(24, "input", 145);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_24_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_24_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.price, $event) || (ctx_r0.editForm.price = $event);
@@ -1069,7 +1085,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(27, "Original Price");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(28, "input", 145);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_28_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_28_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.originalPrice, $event) || (ctx_r0.editForm.originalPrice = $event);
@@ -1080,7 +1096,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(31, "Version");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(32, "input", 140);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_32_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_32_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.version, $event) || (ctx_r0.editForm.version = $event);
@@ -1091,19 +1107,19 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(36, "Category");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(37, "select", 146);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_select_ngModelChange_37_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_select_ngModelChange_37_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.category, $event) || (ctx_r0.editForm.category = $event);
       return \u0275\u0275resetView($event);
     });
-    \u0275\u0275template(38, AdminComponent_div_33_option_38_Template, 2, 3, "option", 147);
+    \u0275\u0275template(38, AdminComponent_div_34_option_38_Template, 2, 3, "option", 147);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(39, "div", 144)(40, "label");
     \u0275\u0275text(41, "Status");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(42, "select", 146);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_select_ngModelChange_42_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_select_ngModelChange_42_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.status, $event) || (ctx_r0.editForm.status = $event);
@@ -1125,7 +1141,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(54, "Fallback Demo URL (Legacy)");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(55, "input", 152);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_55_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_55_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.demoUrl, $event) || (ctx_r0.editForm.demoUrl = $event);
@@ -1136,7 +1152,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(58, "YouTube Video URL");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(59, "input", 153);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_59_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_59_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.youtubeUrl, $event) || (ctx_r0.editForm.youtubeUrl = $event);
@@ -1147,7 +1163,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(63, "\u{1F310} Live Demos");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(64, "button", 60);
-    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_64_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_64_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.addEditDemo());
@@ -1155,13 +1171,13 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(65, "+ Add Demo Link");
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(66, "div", 157);
-    \u0275\u0275template(67, AdminComponent_div_33_div_67_Template, 10, 4, "div", 158);
+    \u0275\u0275template(67, AdminComponent_div_34_div_67_Template, 10, 4, "div", 158);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(68, "div", 126)(69, "label");
     \u0275\u0275text(70, "Tags (comma separated)");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(71, "input", 140);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_71_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_71_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.tagsStr, $event) || (ctx_r0.editForm.tagsStr = $event);
@@ -1172,7 +1188,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(74, "Features (one per line)");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(75, "textarea", 159);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_textarea_ngModelChange_75_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_textarea_ngModelChange_75_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.featuresStr, $event) || (ctx_r0.editForm.featuresStr = $event);
@@ -1183,7 +1199,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(78, "Tech Stack (comma separated)");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(79, "input", 140);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_79_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_79_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.techStackStr, $event) || (ctx_r0.editForm.techStackStr = $event);
@@ -1193,9 +1209,9 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275elementStart(80, "div", 126)(81, "label");
     \u0275\u0275text(82, "Cover Image");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(83, AdminComponent_div_33_div_83_Template, 2, 1, "div", 160);
+    \u0275\u0275template(83, AdminComponent_div_34_div_83_Template, 2, 1, "div", 160);
     \u0275\u0275elementStart(84, "input", 161);
-    \u0275\u0275listener("change", function AdminComponent_div_33_Template_input_change_84_listener($event) {
+    \u0275\u0275listener("change", function AdminComponent_div_34_Template_input_change_84_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.onEditThumbnailSelect($event));
@@ -1204,16 +1220,16 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275elementStart(85, "div", 126)(86, "label");
     \u0275\u0275text(87, "Screenshots (Unlimited)");
     \u0275\u0275elementEnd();
-    \u0275\u0275template(88, AdminComponent_div_33_div_88_Template, 2, 1, "div", 162);
+    \u0275\u0275template(88, AdminComponent_div_34_div_88_Template, 2, 1, "div", 162);
     \u0275\u0275elementStart(89, "input", 163);
-    \u0275\u0275listener("change", function AdminComponent_div_33_Template_input_change_89_listener($event) {
+    \u0275\u0275listener("change", function AdminComponent_div_34_Template_input_change_89_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.onEditScreenshotsSelect($event));
     });
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(90, "div", 164)(91, "label", 165)(92, "input", 134);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_92_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_92_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.isFeatured, $event) || (ctx_r0.editForm.isFeatured = $event);
@@ -1223,7 +1239,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(93, " Featured ");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(94, "label", 165)(95, "input", 134);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_95_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_95_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.isBestseller, $event) || (ctx_r0.editForm.isBestseller = $event);
@@ -1233,7 +1249,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(96, " Bestseller ");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(97, "label", 165)(98, "input", 134);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_33_Template_input_ngModelChange_98_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_input_ngModelChange_98_listener($event) {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.editForm.isNew, $event) || (ctx_r0.editForm.isNew = $event);
@@ -1243,7 +1259,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(99, " New ");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(100, "div", 135)(101, "button", 166);
-    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_101_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_101_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeEditModal());
@@ -1251,7 +1267,7 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275text(102, "Cancel");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(103, "button", 137);
-    \u0275\u0275listener("click", function AdminComponent_div_33_Template_button_click_103_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_103_listener() {
       \u0275\u0275restoreView(_r16);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.saveEditProduct());
@@ -1309,17 +1325,17 @@ function AdminComponent_div_33_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", ctx_r0.isSaving() ? "\u231B Saving Assets..." : "\u{1F4BE} Save Changes", " ");
   }
 }
-function AdminComponent_div_34_Template(rf, ctx) {
+function AdminComponent_div_35_Template(rf, ctx) {
   if (rf & 1) {
     const _r24 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 121);
-    \u0275\u0275listener("click", function AdminComponent_div_34_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_35_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r24);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeRejectModal());
     });
     \u0275\u0275elementStart(1, "div", 186);
-    \u0275\u0275listener("click", function AdminComponent_div_34_Template_div_click_1_listener($event) {
+    \u0275\u0275listener("click", function AdminComponent_div_35_Template_div_click_1_listener($event) {
       \u0275\u0275restoreView(_r24);
       return \u0275\u0275resetView($event.stopPropagation());
     });
@@ -1327,7 +1343,7 @@ function AdminComponent_div_34_Template(rf, ctx) {
     \u0275\u0275text(4, "\u274C Reject Submission");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "button", 124);
-    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_5_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_35_Template_button_click_5_listener() {
       \u0275\u0275restoreView(_r24);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeRejectModal());
@@ -1343,7 +1359,7 @@ function AdminComponent_div_34_Template(rf, ctx) {
     \u0275\u0275text(14, "Reason for Rejection *");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(15, "textarea", 189);
-    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_34_Template_textarea_ngModelChange_15_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function AdminComponent_div_35_Template_textarea_ngModelChange_15_listener($event) {
       \u0275\u0275restoreView(_r24);
       const ctx_r0 = \u0275\u0275nextContext();
       \u0275\u0275twoWayBindingSet(ctx_r0.rejectionReason, $event) || (ctx_r0.rejectionReason = $event);
@@ -1351,7 +1367,7 @@ function AdminComponent_div_34_Template(rf, ctx) {
     });
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(16, "div", 135)(17, "button", 136);
-    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_17_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_35_Template_button_click_17_listener() {
       \u0275\u0275restoreView(_r24);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.closeRejectModal());
@@ -1359,7 +1375,7 @@ function AdminComponent_div_34_Template(rf, ctx) {
     \u0275\u0275text(18, "Cancel");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(19, "button", 190);
-    \u0275\u0275listener("click", function AdminComponent_div_34_Template_button_click_19_listener() {
+    \u0275\u0275listener("click", function AdminComponent_div_35_Template_button_click_19_listener() {
       \u0275\u0275restoreView(_r24);
       const ctx_r0 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r0.confirmReject());
@@ -2035,69 +2051,69 @@ var AdminComponent = class _AdminComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AdminComponent, selectors: [["app-admin"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 36, vars: 19, consts: [[1, "admin-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "hero-actions"], [1, "tab-btn", 3, "click"], ["class", "pending-badge", 4, "ngIf"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "border-color", "var(--pm-border)", "margin-right", "8px", 3, "click", "disabled"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "border-color", "#EF4444", "color", "#EF4444", "margin-right", "8px", 3, "click", "disabled"], ["routerLink", "/admin/submit", 1, "pm-btn", "pm-btn-primary"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M12 5v14M5 12h14"], [1, "pm-container", "admin-content"], ["class", "fade-in", 4, "ngIf"], ["class", "modal-overlay", 3, "click", 4, "ngIf"], [1, "pending-badge"], [1, "fade-in"], [1, "stats-grid", "stagger-children"], ["class", "stat-card", 4, "ngFor", "ngForOf"], [1, "chart-card"], [1, "chart-header"], [1, "chart-tabs"], [3, "click"], [1, "chart-body"], [1, "chart-bars"], ["class", "chart-bar", 3, "height", 4, "ngFor", "ngForOf"], ["class", "empty-chart", 4, "ngIf"], [1, "chart-labels"], [4, "ngFor", "ngForOf"], [1, "projects-card"], [1, "card-header"], [1, "header-tabs"], ["style", "padding: 40px; text-align: center; color: var(--pm-text-muted);", 4, "ngIf"], [4, "ngIf"], [1, "stat-card"], [1, "stat-card-icon"], [1, "stat-card-info"], [1, "stat-card-value"], [1, "stat-card-label"], ["class", "stat-card-change positive", 4, "ngIf"], [1, "stat-card-change", "positive"], [1, "chart-bar"], [1, "bar-tooltip"], [1, "empty-chart"], [2, "padding", "40px", "text-align", "center", "color", "var(--pm-text-muted)"], [1, "loading-spinner", 2, "margin-bottom", "12px"], ["class", "project-row", 4, "ngFor", "ngForOf"], ["class", "empty-projects", 4, "ngIf"], [1, "project-row"], [1, "project-thumb"], [1, "project-info"], [1, "project-title"], [1, "project-desc"], [1, "project-status"], [1, "status-badge"], [1, "project-price"], [1, "project-date"], [1, "project-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "routerLink"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], ["width", "14", "height", "14", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"], ["d", "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "color", "#EF4444", 3, "click"], ["d", "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"], [1, "empty-projects"], ["routerLink", "/admin/submit"], [1, "settings-card"], [1, "settings-header"], ["class", "empty-state", 4, "ngIf"], ["class", "review-item", 4, "ngFor", "ngForOf"], [1, "empty-state"], ["width", "48", "height", "48", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "1.5"], ["d", "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"], [1, "review-item"], [1, "review-item-header"], [1, "review-thumb"], [1, "review-info"], [1, "review-meta-row"], [1, "meta-tag"], ["class", "meta-tag", 4, "ngIf"], ["class", "guide-preview-mini", 4, "ngIf"], ["class", "no-guide-tag", 4, "ngIf"], [1, "review-actions-row"], [1, "pm-btn", "pm-btn-sm", 2, "background", "#10B981", "color", "white", "border", "none", 3, "click"], [1, "pm-btn", "pm-btn-sm", 2, "background", "#EF4444", "color", "white", "border", "none", 3, "click"], [1, "guide-preview-mini"], [1, "gpm-header", 3, "click"], ["class", "gpm-content", 4, "ngIf"], [1, "gpm-content"], [1, "no-guide-tag"], [1, "blog-management"], [1, "blog-actions"], [1, "pm-btn", "pm-btn-primary", 3, "click"], ["class", "blogs-list", 4, "ngIf"], [1, "blogs-list"], ["class", "blog-item", 4, "ngFor", "ngForOf"], [1, "blog-item"], [1, "blog-item-content"], [1, "blog-item-header"], [1, "pm-btn", "pm-btn-sm", "pm-btn-ghost", 3, "click"], [1, "pm-btn", "pm-btn-sm", "pm-btn-danger", 3, "click"], [1, "blog-excerpt"], [1, "blog-meta"], [1, "blog-status"], [1, "blog-date"], ["d", "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"], ["points", "14 2 14 8 20 8"], ["x1", "16", "y1", "13", "x2", "8", "y2", "13"], ["x1", "16", "y1", "17", "x2", "8", "y2", "17"], ["points", "10 9 9 9 8 9"], [2, "overflow-x", "auto"], [1, "pm-table", 2, "width", "100%", "border-collapse", "collapse", "text-align", "left"], [2, "border-bottom", "2px solid var(--pm-border-light)"], [2, "padding", "12px", "color", "var(--pm-text-muted)"], ["style", "border-bottom: 1px solid var(--pm-border-light);", 4, "ngFor", "ngForOf"], [2, "border-bottom", "1px solid var(--pm-border-light)"], [2, "padding", "12px", "white-space", "nowrap"], [2, "padding", "12px"], [2, "padding", "12px", "font-size", "0.8rem", "color", "var(--pm-text-secondary)", "max-width", "250px", "overflow", "hidden", "text-overflow", "ellipsis", "white-space", "nowrap", 3, "title"], [1, "modal-overlay", 3, "click"], [1, "modal-content", 3, "click"], [1, "modal-header"], [1, "modal-close", 3, "click"], [1, "modal-body"], [1, "form-group"], ["for", "blogTitle"], ["id", "blogTitle", "type", "text", "placeholder", "Enter blog title", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogExcerpt"], ["id", "blogExcerpt", "placeholder", "Short description (appears in listings)", "rows", "3", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogContent"], ["id", "blogContent", "placeholder", "Full blog content (supports HTML)", "rows", "10", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "modal-footer"], [1, "pm-btn", "pm-btn-ghost", 3, "click"], [1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], [1, "modal-content", 2, "max-width", "700px", 3, "click"], [1, "modal-body", 2, "max-height", "70vh", "overflow-y", "auto"], ["type", "text", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "2", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "gap", "16px"], [1, "form-group", 2, "flex", "1"], ["type", "number", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value", 4, "ngFor", "ngForOf"], ["value", "published"], ["value", "draft"], ["value", "pending"], ["value", "rejected"], ["type", "url", "placeholder", "https://...", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-section", 2, "margin", "0 0 20px 0"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0", "font-weight", "700"], [1, "demo-edit-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-edit-item", "style", "display:flex; gap:12px; align-items:flex-start; background:var(--pm-surface-muted); padding:12px; border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], ["rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], ["style", "margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", 1, "form-input", 3, "change"], ["style", "display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", 1, "form-input", 3, "change"], [2, "display", "flex", "gap", "12px", "align-items", "center", "margin-top", "8px"], [2, "display", "flex", "align-items", "center", "gap", "8px", "cursor", "pointer"], [1, "pm-btn", "pm-btn-ghost", 3, "click", "disabled"], [3, "value"], [1, "demo-edit-item", 2, "display", "flex", "gap", "12px", "align-items", "flex-start", "background", "var(--pm-surface-muted)", "padding", "12px", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-edit-thumb", 2, "width", "60px", "height", "60px", "background", "#e2e8f0", "border-radius", "8px", "display", "flex", "align-items", "center", "justify-content", "center", "position", "relative", "overflow", "hidden", "flex-shrink", "0"], ["class", "thumb-preview", "style", "position:absolute; inset:0; background-size:cover; background-position:center;", 3, "backgroundImage", 4, "ngIf"], ["type", "file", "title", "Change demo thumbnail", 2, "position", "absolute", "inset", "0", "opacity", "0", "cursor", "pointer", 3, "change"], ["style", "font-size:20px;", 4, "ngIf"], [1, "demo-edit-fields", 2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (e.g. Admin Panel)", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], [2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "24px", "cursor", "pointer", "padding", "0 4px", "line-height", "1", 3, "click"], [1, "thumb-preview", 2, "position", "absolute", "inset", "0", "background-size", "cover", "background-position", "center"], [2, "font-size", "20px"], [2, "margin-bottom", "8px"], [2, "max-width", "200px", "max-height", "120px", "border-radius", "8px", "object-fit", "cover", 3, "src"], [2, "display", "flex", "gap", "8px", "flex-wrap", "wrap", "margin-bottom", "8px"], ["style", "position:relative", 4, "ngFor", "ngForOf"], [2, "position", "relative"], [2, "width", "100px", "height", "70px", "border-radius", "6px", "object-fit", "cover", 3, "src"], [2, "position", "absolute", "top", "-6px", "right", "-6px", "width", "20px", "height", "20px", "border-radius", "50%", "background", "#EF4444", "color", "white", "border", "none", "font-size", "12px", "cursor", "pointer", "display", "flex", "align-items", "center", "justify-content", "center", 3, "click"], [1, "modal-content", 2, "max-width", "500px", 3, "click"], [2, "color", "var(--pm-text-secondary)", "margin", "0 0 16px"], ["for", "rejectReason"], ["id", "rejectReason", "placeholder", "Explain why this submission is being rejected...", "rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", 2, "background", "#EF4444", "color", "white", "border", "none", 3, "click", "disabled"]], template: function AdminComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _AdminComponent, selectors: [["app-admin"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 37, vars: 19, consts: [[1, "admin-hero"], [1, "pm-container"], [1, "hero-row"], [1, "pm-heading-lg"], [1, "pm-text-secondary"], [1, "hero-actions"], [1, "tab-btn", 3, "click"], ["class", "pending-badge", 4, "ngIf"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "border-color", "var(--pm-border)", "margin-right", "8px", 3, "click", "disabled"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "border-color", "#EF4444", "color", "#EF4444", "margin-right", "8px", 3, "click", "disabled"], ["routerLink", "/admin/submit", 1, "pm-btn", "pm-btn-primary"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M12 5v14M5 12h14"], [1, "pm-container", "admin-content"], ["class", "fade-in", 4, "ngIf"], ["class", "modal-overlay", 3, "click", 4, "ngIf"], [1, "pending-badge"], [1, "fade-in"], [1, "stats-grid", "stagger-children"], ["class", "stat-card", 4, "ngFor", "ngForOf"], [1, "chart-card"], [1, "chart-header"], [1, "chart-tabs"], [3, "click"], [1, "chart-body"], [1, "chart-bars"], ["class", "chart-bar", 3, "height", 4, "ngFor", "ngForOf"], ["class", "empty-chart", 4, "ngIf"], [1, "chart-labels"], [4, "ngFor", "ngForOf"], [1, "projects-card"], [1, "card-header"], [1, "header-tabs"], ["style", "padding: 40px; text-align: center; color: var(--pm-text-muted);", 4, "ngIf"], [4, "ngIf"], [1, "stat-card"], [1, "stat-card-icon"], [1, "stat-card-info"], [1, "stat-card-value"], [1, "stat-card-label"], ["class", "stat-card-change positive", 4, "ngIf"], [1, "stat-card-change", "positive"], [1, "chart-bar"], [1, "bar-tooltip"], [1, "empty-chart"], [2, "padding", "40px", "text-align", "center", "color", "var(--pm-text-muted)"], [1, "loading-spinner", 2, "margin-bottom", "12px"], ["class", "project-row", 4, "ngFor", "ngForOf"], ["class", "empty-projects", 4, "ngIf"], [1, "project-row"], [1, "project-thumb"], [1, "project-info"], [1, "project-title"], [1, "project-desc"], [1, "project-status"], [1, "status-badge"], [1, "project-price"], [1, "project-date"], [1, "project-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "routerLink"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 3, "click"], ["width", "14", "height", "14", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"], ["d", "M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm", 2, "color", "#EF4444", 3, "click"], ["d", "M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"], [1, "empty-projects"], ["routerLink", "/admin/submit"], [1, "settings-card"], [1, "settings-header"], ["class", "empty-state", 4, "ngIf"], ["class", "review-item", 4, "ngFor", "ngForOf"], [1, "empty-state"], ["width", "48", "height", "48", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "1.5"], ["d", "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"], [1, "review-item"], [1, "review-item-header"], [1, "review-thumb"], [1, "review-info"], [1, "review-meta-row"], [1, "meta-tag"], ["class", "meta-tag", 4, "ngIf"], ["class", "guide-preview-mini", 4, "ngIf"], ["class", "no-guide-tag", 4, "ngIf"], [1, "review-actions-row"], [1, "pm-btn", "pm-btn-sm", 2, "background", "#10B981", "color", "white", "border", "none", 3, "click"], [1, "pm-btn", "pm-btn-sm", 2, "background", "#EF4444", "color", "white", "border", "none", 3, "click"], [1, "guide-preview-mini"], [1, "gpm-header", 3, "click"], ["class", "gpm-content", 4, "ngIf"], [1, "gpm-content"], [1, "no-guide-tag"], [1, "blog-management"], [1, "blog-actions"], [1, "pm-btn", "pm-btn-primary", 3, "click"], ["class", "blogs-list", 4, "ngIf"], [1, "blogs-list"], ["class", "blog-item", 4, "ngFor", "ngForOf"], [1, "blog-item"], [1, "blog-item-content"], [1, "blog-item-header"], [1, "pm-btn", "pm-btn-sm", "pm-btn-ghost", 3, "click"], [1, "pm-btn", "pm-btn-sm", "pm-btn-danger", 3, "click"], [1, "blog-excerpt"], [1, "blog-meta"], [1, "blog-status"], [1, "blog-date"], ["d", "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"], ["points", "14 2 14 8 20 8"], ["x1", "16", "y1", "13", "x2", "8", "y2", "13"], ["x1", "16", "y1", "17", "x2", "8", "y2", "17"], ["points", "10 9 9 9 8 9"], [2, "overflow-x", "auto"], [1, "pm-table", 2, "width", "100%", "border-collapse", "collapse", "text-align", "left"], [2, "border-bottom", "2px solid var(--pm-border-light)"], [2, "padding", "12px", "color", "var(--pm-text-muted)"], ["style", "border-bottom: 1px solid var(--pm-border-light);", 4, "ngFor", "ngForOf"], [2, "border-bottom", "1px solid var(--pm-border-light)"], [2, "padding", "12px", "white-space", "nowrap"], [2, "padding", "12px"], [2, "padding", "12px", "font-size", "0.8rem", "color", "var(--pm-text-secondary)", "max-width", "250px", "overflow", "hidden", "text-overflow", "ellipsis", "white-space", "nowrap", 3, "title"], [1, "modal-overlay", 3, "click"], [1, "modal-content", 3, "click"], [1, "modal-header"], [1, "modal-close", 3, "click"], [1, "modal-body"], [1, "form-group"], ["for", "blogTitle"], ["id", "blogTitle", "type", "text", "placeholder", "Enter blog title", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogExcerpt"], ["id", "blogExcerpt", "placeholder", "Short description (appears in listings)", "rows", "3", 1, "form-input", 3, "ngModelChange", "ngModel"], ["for", "blogContent"], ["id", "blogContent", "placeholder", "Full blog content (supports HTML)", "rows", "10", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "checkbox-label"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "modal-footer"], [1, "pm-btn", "pm-btn-ghost", 3, "click"], [1, "pm-btn", "pm-btn-primary", 3, "click", "disabled"], [1, "modal-content", 2, "max-width", "700px", 3, "click"], [1, "modal-body", 2, "max-height", "70vh", "overflow-y", "auto"], ["type", "text", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "2", 1, "form-input", 3, "ngModelChange", "ngModel"], ["rows", "6", 1, "form-input", 3, "ngModelChange", "ngModel"], [2, "display", "flex", "gap", "16px"], [1, "form-group", 2, "flex", "1"], ["type", "number", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-input", 3, "ngModelChange", "ngModel"], [3, "value", 4, "ngFor", "ngForOf"], ["value", "published"], ["value", "draft"], ["value", "pending"], ["value", "rejected"], ["type", "url", "placeholder", "https://...", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "https://youtube.com/watch?v=...", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-section", 2, "margin", "0 0 20px 0"], [2, "display", "flex", "justify-content", "space-between", "align-items", "center", "margin-bottom", "12px"], [2, "margin-bottom", "0", "font-weight", "700"], [1, "demo-edit-list", 2, "display", "flex", "flex-direction", "column", "gap", "12px"], ["class", "demo-edit-item", "style", "display:flex; gap:12px; align-items:flex-start; background:var(--pm-surface-muted); padding:12px; border-radius:8px; border:1px solid var(--pm-border); position:relative;", 4, "ngFor", "ngForOf"], ["rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], ["style", "margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", 1, "form-input", 3, "change"], ["style", "display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px", 4, "ngIf"], ["type", "file", "accept", "image/*", "multiple", "", 1, "form-input", 3, "change"], [2, "display", "flex", "gap", "12px", "align-items", "center", "margin-top", "8px"], [2, "display", "flex", "align-items", "center", "gap", "8px", "cursor", "pointer"], [1, "pm-btn", "pm-btn-ghost", 3, "click", "disabled"], [3, "value"], [1, "demo-edit-item", 2, "display", "flex", "gap", "12px", "align-items", "flex-start", "background", "var(--pm-surface-muted)", "padding", "12px", "border-radius", "8px", "border", "1px solid var(--pm-border)", "position", "relative"], [1, "demo-edit-thumb", 2, "width", "60px", "height", "60px", "background", "#e2e8f0", "border-radius", "8px", "display", "flex", "align-items", "center", "justify-content", "center", "position", "relative", "overflow", "hidden", "flex-shrink", "0"], ["class", "thumb-preview", "style", "position:absolute; inset:0; background-size:cover; background-position:center;", 3, "backgroundImage", 4, "ngIf"], ["type", "file", "title", "Change demo thumbnail", 2, "position", "absolute", "inset", "0", "opacity", "0", "cursor", "pointer", 3, "change"], ["style", "font-size:20px;", 4, "ngIf"], [1, "demo-edit-fields", 2, "flex", "1", "display", "flex", "flex-direction", "column", "gap", "8px"], ["type", "text", "placeholder", "Demo Name (e.g. Admin Panel)", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], ["type", "url", "placeholder", "Demo URL", 1, "form-input", 2, "padding", "8px 12px", 3, "ngModelChange", "ngModel"], [2, "background", "none", "border", "none", "color", "#EF4444", "font-size", "24px", "cursor", "pointer", "padding", "0 4px", "line-height", "1", 3, "click"], [1, "thumb-preview", 2, "position", "absolute", "inset", "0", "background-size", "cover", "background-position", "center"], [2, "font-size", "20px"], [2, "margin-bottom", "8px"], [2, "max-width", "200px", "max-height", "120px", "border-radius", "8px", "object-fit", "cover", 3, "src"], [2, "display", "flex", "gap", "8px", "flex-wrap", "wrap", "margin-bottom", "8px"], ["style", "position:relative", 4, "ngFor", "ngForOf"], [2, "position", "relative"], [2, "width", "100px", "height", "70px", "border-radius", "6px", "object-fit", "cover", 3, "src"], [2, "position", "absolute", "top", "-6px", "right", "-6px", "width", "20px", "height", "20px", "border-radius", "50%", "background", "#EF4444", "color", "white", "border", "none", "font-size", "12px", "cursor", "pointer", "display", "flex", "align-items", "center", "justify-content", "center", 3, "click"], [1, "modal-content", 2, "max-width", "500px", 3, "click"], [2, "color", "var(--pm-text-secondary)", "margin", "0 0 16px"], ["for", "rejectReason"], ["id", "rejectReason", "placeholder", "Explain why this submission is being rejected...", "rows", "4", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", 2, "background", "#EF4444", "color", "white", "border", "none", 3, "click", "disabled"]], template: function AdminComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
-        \u0275\u0275elementStart(1, "section", 0)(2, "div", 1)(3, "div", 2)(4, "div")(5, "h1", 3);
-        \u0275\u0275text(6, "\u{1F4CA} Author Dashboard");
+        \u0275\u0275elementStart(1, "ion-content")(2, "section", 0)(3, "div", 1)(4, "div", 2)(5, "div")(6, "h1", 3);
+        \u0275\u0275text(7, "\u{1F4CA} Author Dashboard");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(7, "p", 4);
-        \u0275\u0275text(8, "Manage your projects, track sales, and monitor performance");
+        \u0275\u0275elementStart(8, "p", 4);
+        \u0275\u0275text(9, "Manage your projects, track sales, and monitor performance");
         \u0275\u0275elementEnd()();
-        \u0275\u0275elementStart(9, "div", 5)(10, "button", 6);
-        \u0275\u0275listener("click", function AdminComponent_Template_button_click_10_listener() {
+        \u0275\u0275elementStart(10, "div", 5)(11, "button", 6);
+        \u0275\u0275listener("click", function AdminComponent_Template_button_click_11_listener() {
           return ctx.activeTab = "dashboard";
         });
-        \u0275\u0275text(11, "Dashboard");
+        \u0275\u0275text(12, "Dashboard");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(12, "button", 6);
-        \u0275\u0275listener("click", function AdminComponent_Template_button_click_12_listener() {
+        \u0275\u0275elementStart(13, "button", 6);
+        \u0275\u0275listener("click", function AdminComponent_Template_button_click_13_listener() {
           return ctx.activeTab = "review";
         });
-        \u0275\u0275text(13, " Review Queue ");
-        \u0275\u0275template(14, AdminComponent_span_14_Template, 2, 1, "span", 7);
+        \u0275\u0275text(14, " Review Queue ");
+        \u0275\u0275template(15, AdminComponent_span_15_Template, 2, 1, "span", 7);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(15, "button", 6);
-        \u0275\u0275listener("click", function AdminComponent_Template_button_click_15_listener() {
+        \u0275\u0275elementStart(16, "button", 6);
+        \u0275\u0275listener("click", function AdminComponent_Template_button_click_16_listener() {
           return ctx.activeTab = "Blogs";
         });
-        \u0275\u0275text(16, "Blogs");
+        \u0275\u0275text(17, "Blogs");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(17, "button", 6);
-        \u0275\u0275listener("click", function AdminComponent_Template_button_click_17_listener() {
+        \u0275\u0275elementStart(18, "button", 6);
+        \u0275\u0275listener("click", function AdminComponent_Template_button_click_18_listener() {
           ctx.activeTab = "analytics";
           return ctx.loadAnalytics();
         });
-        \u0275\u0275text(18, "Analytics");
+        \u0275\u0275text(19, "Analytics");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(19, "button", 8);
-        \u0275\u0275listener("click", function AdminComponent_Template_button_click_19_listener() {
+        \u0275\u0275elementStart(20, "button", 8);
+        \u0275\u0275listener("click", function AdminComponent_Template_button_click_20_listener() {
           return ctx.generateSiteActivity();
         });
-        \u0275\u0275text(20);
+        \u0275\u0275text(21);
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(21, "button", 9);
-        \u0275\u0275listener("click", function AdminComponent_Template_button_click_21_listener() {
+        \u0275\u0275elementStart(22, "button", 9);
+        \u0275\u0275listener("click", function AdminComponent_Template_button_click_22_listener() {
           return ctx.resetGeneratedActivity();
         });
-        \u0275\u0275text(22, " \u{1F5D1}\uFE0F Reset Generated ");
+        \u0275\u0275text(23, " \u{1F5D1}\uFE0F Reset Generated ");
         \u0275\u0275elementEnd();
-        \u0275\u0275elementStart(23, "a", 10);
+        \u0275\u0275elementStart(24, "a", 10);
         \u0275\u0275namespaceSVG();
-        \u0275\u0275elementStart(24, "svg", 11);
-        \u0275\u0275element(25, "path", 12);
+        \u0275\u0275elementStart(25, "svg", 11);
+        \u0275\u0275element(26, "path", 12);
         \u0275\u0275elementEnd();
-        \u0275\u0275text(26, " Submit Project ");
+        \u0275\u0275text(27, " Submit Project ");
         \u0275\u0275elementEnd()()()()();
         \u0275\u0275namespaceHTML();
-        \u0275\u0275elementStart(27, "div", 13);
-        \u0275\u0275template(28, AdminComponent_div_28_Template, 35, 21, "div", 14)(29, AdminComponent_div_29_Template, 9, 2, "div", 14)(30, AdminComponent_div_30_Template, 15, 2, "div", 14)(31, AdminComponent_div_31_Template, 24, 2, "div", 14);
-        \u0275\u0275elementEnd();
-        \u0275\u0275template(32, AdminComponent_div_32_Template, 30, 7, "div", 15)(33, AdminComponent_div_33_Template, 105, 23, "div", 15)(34, AdminComponent_div_34_Template, 21, 3, "div", 15);
-        \u0275\u0275element(35, "app-footer");
+        \u0275\u0275elementStart(28, "div", 13);
+        \u0275\u0275template(29, AdminComponent_div_29_Template, 35, 21, "div", 14)(30, AdminComponent_div_30_Template, 9, 2, "div", 14)(31, AdminComponent_div_31_Template, 15, 2, "div", 14)(32, AdminComponent_div_32_Template, 24, 2, "div", 14);
+        \u0275\u0275elementEnd()();
+        \u0275\u0275template(33, AdminComponent_div_33_Template, 30, 7, "div", 15)(34, AdminComponent_div_34_Template, 105, 23, "div", 15)(35, AdminComponent_div_35_Template, 21, 3, "div", 15);
+        \u0275\u0275element(36, "app-footer");
       }
       if (rf & 2) {
-        \u0275\u0275advance(10);
+        \u0275\u0275advance(11);
         \u0275\u0275classProp("active", ctx.activeTab === "dashboard");
         \u0275\u0275advance(2);
         \u0275\u0275classProp("active", ctx.activeTab === "review");
@@ -2128,13 +2144,13 @@ var AdminComponent = class _AdminComponent {
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.showRejectModal);
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DecimalPipe, TitleCasePipe, DatePipe, RouterLink, FormsModule, NgSelectOption, \u0275NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor, NgControlStatus, NgModel, HeaderComponent, FooterComponent], styles: ["\n\n.admin-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.hero-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.admin-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.admin-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.hero-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  padding: 10px 20px;\n  border-radius: var(--pm-radius-md);\n  border: none;\n  background: transparent;\n  color: var(--pm-text-secondary);\n  font-family: inherit;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.tab-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.05);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: white;\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.admin-content[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\n  gap: 20px;\n  margin-bottom: 32px;\n}\n.stat-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.stat-card-icon[_ngcontent-%COMP%] {\n  width: 56px;\n  height: 56px;\n  border-radius: var(--pm-radius-md);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.stat-card-info[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.stat-card-value[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--pm-text-primary);\n}\n.stat-card-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n}\n.stat-card-change[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n}\n.stat-card-change.positive[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.chart-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  margin-bottom: 32px;\n}\n.chart-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.chart-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.chart-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  background: var(--pm-surface-muted);\n  padding: 4px;\n  border-radius: var(--pm-radius-sm);\n}\n.chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.chart-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: white;\n  box-shadow: var(--pm-shadow-sm);\n}\n.chart-body[_ngcontent-%COMP%] {\n  min-height: 200px;\n}\n.chart-bars[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-end;\n  gap: 8px;\n  height: 200px;\n  padding-bottom: 8px;\n}\n.chart-bar[_ngcontent-%COMP%] {\n  flex: 1;\n  background:\n    linear-gradient(\n      180deg,\n      #6366F1,\n      #A855F7);\n  border-radius: 4px 4px 0 0;\n  min-height: 4px;\n  position: relative;\n  transition: height 0.3s ease;\n}\n.bar-tooltip[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -24px;\n  left: 50%;\n  transform: translateX(-50%);\n  font-size: 0.7rem;\n  background: #1F2937;\n  color: white;\n  padding: 2px 6px;\n  border-radius: 4px;\n  white-space: nowrap;\n  opacity: 0;\n  transition: opacity 0.2s;\n}\n.chart-bar[_ngcontent-%COMP%]:hover   .bar-tooltip[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.chart-labels[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin-top: 8px;\n}\n.chart-labels[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  flex: 1;\n  text-align: center;\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.empty-chart[_ngcontent-%COMP%] {\n  height: 200px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--pm-text-muted);\n  font-size: 0.9rem;\n}\n.projects-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.card-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.header-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n}\n.header-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  transition: all 0.2s;\n}\n.header-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  color: var(--pm-text-primary);\n}\n.project-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.project-row[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.project-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n}\n.project-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.project-title[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 2px;\n}\n.project-desc[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.project-status[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.status-badge[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  font-weight: 600;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-pending[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.1);\n  color: #6366F1;\n}\n.status-rejected[_ngcontent-%COMP%] {\n  background: rgba(239, 68, 68, 0.1);\n  color: #EF4444;\n}\n.project-price[_ngcontent-%COMP%] {\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  flex-shrink: 0;\n}\n.project-date[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.project-actions[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.empty-projects[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n}\n.empty-projects[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.settings-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  padding: 32px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.settings-header[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.settings-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 1.3rem;\n}\n.settings-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n  color: var(--pm-text-muted);\n}\n.form-section[_ngcontent-%COMP%] {\n  margin: 24px 0;\n}\n.form-section[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.section-desc[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  margin-bottom: 16px;\n}\n.form-group-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  max-width: 500px;\n}\n.pm-input[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 10px 16px;\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  font-family: inherit;\n}\n.pm-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid var(--ion-color-primary-transparent);\n  border-color: var(--ion-color-primary);\n}\n.form-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  max-width: 600px;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n}\n.pm-divider[_ngcontent-%COMP%] {\n  height: 1px;\n  background: var(--pm-border-light);\n  margin: 32px 0;\n}\n.mt-16[_ngcontent-%COMP%] {\n  margin-top: 16px;\n}\n.fade-in[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_fadeIn 0.3s ease-out;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.blog-management[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.blog-actions[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.blogs-list[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.blog-item[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  padding: 20px;\n  transition: all var(--pm-transition-fast);\n}\n.blog-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.blog-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.blog-item-header[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.1rem;\n  color: var(--pm-text-primary);\n  flex: 1;\n}\n.blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin: 0;\n}\n.blog-excerpt[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  color: var(--pm-text-secondary);\n  font-size: 0.9rem;\n  line-height: 1.5;\n}\n.blog-meta[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-size: 0.8rem;\n}\n.blog-status[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n  font-weight: 600;\n  font-size: 0.75rem;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.blog-date[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 48px 24px;\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%]   svg[_ngcontent-%COMP%] {\n  margin-bottom: 16px;\n  color: var(--pm-border);\n}\n.empty-state[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  color: var(--pm-text-primary);\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.modal-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.modal-content[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  width: 100%;\n  max-width: 600px;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: var(--pm-shadow-lg);\n}\n.modal-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.modal-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.2rem;\n}\n.modal-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 1.5rem;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  padding: 0;\n  line-height: 1;\n}\n.modal-close[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-sm);\n  font-family: inherit;\n  font-size: 0.9rem;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: border-color 0.2s;\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.modal-footer[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding: 16px 24px;\n  border-top: 1px solid var(--pm-border-light);\n}\n@media (max-width: 768px) {\n  .hero-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 16px;\n  }\n  .hero-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    padding: 8px 12px;\n    font-size: 0.85rem;\n  }\n  .stats-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 12px;\n  }\n  .stat-card[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .stat-card-icon[_ngcontent-%COMP%] {\n    width: 48px;\n    height: 48px;\n    font-size: 1.25rem;\n  }\n  .chart-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .chart-tabs[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: space-between;\n  }\n  .chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    flex: 1;\n    text-align: center;\n  }\n  .project-row[_ngcontent-%COMP%] {\n    flex-wrap: wrap;\n    gap: 12px;\n    padding: 12px 0;\n  }\n  .project-thumb[_ngcontent-%COMP%] {\n    width: 40px;\n    height: 40px;\n    font-size: 1rem;\n  }\n  .project-info[_ngcontent-%COMP%] {\n    min-width: 0;\n  }\n  .project-title[_ngcontent-%COMP%] {\n    font-size: 0.9rem;\n  }\n  .project-desc[_ngcontent-%COMP%] {\n    font-size: 0.8rem;\n  }\n  .project-price[_ngcontent-%COMP%], \n   .project-date[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .form-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .form-group-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .modal-content[_ngcontent-%COMP%] {\n    max-height: 100vh;\n    border-radius: 0;\n    margin: 0;\n    width: 100%;\n  }\n  .settings-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .blog-item-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n}\n.pending-badge[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 20px;\n  height: 20px;\n  padding: 0 6px;\n  background: #EF4444;\n  color: white;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 700;\n  margin-left: 6px;\n}\n.review-item[_ngcontent-%COMP%] {\n  padding: 24px;\n  margin-bottom: 16px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-lg);\n  transition: all 0.2s;\n}\n.review-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.review-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  margin-bottom: 16px;\n}\n.review-thumb[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 60px;\n  border-radius: var(--pm-radius-sm);\n  background: var(--pm-surface-muted);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.review-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.review-info[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.review-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.review-meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.meta-tag[_ngcontent-%COMP%] {\n  padding: 3px 10px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n}\n.guide-preview-mini[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 16px;\n  overflow: hidden;\n}\n.gpm-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 16px;\n  cursor: pointer;\n  font-size: 0.85rem;\n  font-weight: 600;\n}\n.gpm-header[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.02);\n}\n.gpm-content[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin: 0;\n  font-size: 0.8rem;\n  line-height: 1.6;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n  max-height: 200px;\n  overflow-y: auto;\n  border-top: 1px solid var(--pm-border-light);\n}\n.no-guide-tag[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  background: rgba(245, 158, 11, 0.06);\n  border: 1px solid rgba(245, 158, 11, 0.15);\n  border-radius: var(--pm-radius-md);\n  font-size: 0.82rem;\n  color: #D97706;\n  margin-bottom: 16px;\n}\n.review-actions-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  justify-content: flex-end;\n}\n/*# sourceMappingURL=admin.component.css.map */"] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, SlicePipe, DecimalPipe, TitleCasePipe, DatePipe, RouterLink, FormsModule, NgSelectOption, \u0275NgSelectMultipleOption, DefaultValueAccessor, NumberValueAccessor, CheckboxControlValueAccessor, SelectControlValueAccessor, NgControlStatus, NgModel, IonContent, HeaderComponent, FooterComponent], styles: ["\n\n.admin-hero[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #F8FAFC,\n      #EEF0FF);\n  padding: 32px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.hero-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n.admin-hero[_ngcontent-%COMP%]   h1[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n}\n.admin-hero[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.hero-actions[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  padding: 10px 20px;\n  border-radius: var(--pm-radius-md);\n  border: none;\n  background: transparent;\n  color: var(--pm-text-secondary);\n  font-family: inherit;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.tab-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.05);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: white;\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.admin-content[_ngcontent-%COMP%] {\n  padding: 32px 0 64px;\n}\n.stats-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));\n  gap: 20px;\n  margin-bottom: 32px;\n}\n.stat-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.stat-card-icon[_ngcontent-%COMP%] {\n  width: 56px;\n  height: 56px;\n  border-radius: var(--pm-radius-md);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.stat-card-info[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.stat-card-value[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.5rem;\n  font-weight: 700;\n  color: var(--pm-text-primary);\n}\n.stat-card-label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n}\n.stat-card-change[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n}\n.stat-card-change.positive[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.chart-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n  margin-bottom: 32px;\n}\n.chart-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 24px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.chart-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.chart-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  background: var(--pm-surface-muted);\n  padding: 4px;\n  border-radius: var(--pm-radius-sm);\n}\n.chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.chart-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: white;\n  box-shadow: var(--pm-shadow-sm);\n}\n.chart-body[_ngcontent-%COMP%] {\n  min-height: 200px;\n}\n.chart-bars[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: flex-end;\n  gap: 8px;\n  height: 200px;\n  padding-bottom: 8px;\n}\n.chart-bar[_ngcontent-%COMP%] {\n  flex: 1;\n  background:\n    linear-gradient(\n      180deg,\n      #6366F1,\n      #A855F7);\n  border-radius: 4px 4px 0 0;\n  min-height: 4px;\n  position: relative;\n  transition: height 0.3s ease;\n}\n.bar-tooltip[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -24px;\n  left: 50%;\n  transform: translateX(-50%);\n  font-size: 0.7rem;\n  background: #1F2937;\n  color: white;\n  padding: 2px 6px;\n  border-radius: 4px;\n  white-space: nowrap;\n  opacity: 0;\n  transition: opacity 0.2s;\n}\n.chart-bar[_ngcontent-%COMP%]:hover   .bar-tooltip[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.chart-labels[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin-top: 8px;\n}\n.chart-labels[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  flex: 1;\n  text-align: center;\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.empty-chart[_ngcontent-%COMP%] {\n  height: 200px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: var(--pm-text-muted);\n  font-size: 0.9rem;\n}\n.projects-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-sm);\n}\n.card-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 20px;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n.card-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.header-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n}\n.header-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  padding: 8px 16px;\n  border: none;\n  background: transparent;\n  border-radius: var(--pm-radius-sm);\n  font-size: 0.85rem;\n  font-weight: 600;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  transition: all 0.2s;\n}\n.header-tabs[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  color: var(--pm-text-primary);\n}\n.project-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: 16px 0;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.project-row[_ngcontent-%COMP%]:last-child {\n  border-bottom: none;\n}\n.project-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  flex-shrink: 0;\n}\n.project-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.project-title[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  margin-bottom: 2px;\n}\n.project-desc[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.project-status[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.status-badge[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  font-weight: 600;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-pending[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.1);\n  color: #6366F1;\n}\n.status-rejected[_ngcontent-%COMP%] {\n  background: rgba(239, 68, 68, 0.1);\n  color: #EF4444;\n}\n.project-price[_ngcontent-%COMP%] {\n  font-weight: 600;\n  color: var(--pm-text-primary);\n  flex-shrink: 0;\n}\n.project-date[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  flex-shrink: 0;\n}\n.project-actions[_ngcontent-%COMP%] {\n  flex-shrink: 0;\n}\n.empty-projects[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n}\n.empty-projects[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--ion-color-primary);\n}\n.settings-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  padding: 32px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.settings-header[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.settings-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 1.3rem;\n}\n.settings-header[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n  color: var(--pm-text-muted);\n}\n.form-section[_ngcontent-%COMP%] {\n  margin: 24px 0;\n}\n.form-section[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.section-desc[_ngcontent-%COMP%] {\n  font-size: 0.85rem;\n  color: var(--pm-text-muted);\n  margin-bottom: 16px;\n}\n.form-group-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  max-width: 500px;\n}\n.pm-input[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 10px 16px;\n  border: 1px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  font-family: inherit;\n}\n.pm-input[_ngcontent-%COMP%]:focus {\n  outline: 2px solid var(--ion-color-primary-transparent);\n  border-color: var(--ion-color-primary);\n}\n.form-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n  max-width: 600px;\n}\n.form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n}\n.pm-divider[_ngcontent-%COMP%] {\n  height: 1px;\n  background: var(--pm-border-light);\n  margin: 32px 0;\n}\n.mt-16[_ngcontent-%COMP%] {\n  margin-top: 16px;\n}\n.fade-in[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_fadeIn 0.3s ease-out;\n}\n@keyframes _ngcontent-%COMP%_fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(10px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.blog-management[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n.blog-actions[_ngcontent-%COMP%] {\n  margin-bottom: 24px;\n}\n.blogs-list[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n.blog-item[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  padding: 20px;\n  transition: all var(--pm-transition-fast);\n}\n.blog-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.blog-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 12px;\n}\n.blog-item-header[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.1rem;\n  color: var(--pm-text-primary);\n  flex: 1;\n}\n.blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  margin: 0;\n}\n.blog-excerpt[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  color: var(--pm-text-secondary);\n  font-size: 0.9rem;\n  line-height: 1.5;\n}\n.blog-meta[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-size: 0.8rem;\n}\n.blog-status[_ngcontent-%COMP%] {\n  padding: 4px 8px;\n  border-radius: var(--pm-radius-sm);\n  font-weight: 600;\n  font-size: 0.75rem;\n}\n.status-published[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.1);\n  color: #10B981;\n}\n.status-draft[_ngcontent-%COMP%] {\n  background: rgba(245, 158, 11, 0.1);\n  color: #F59E0B;\n}\n.blog-date[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 48px 24px;\n  color: var(--pm-text-muted);\n}\n.empty-state[_ngcontent-%COMP%]   svg[_ngcontent-%COMP%] {\n  margin-bottom: 16px;\n  color: var(--pm-border);\n}\n.empty-state[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  color: var(--pm-text-primary);\n}\n.empty-state[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.modal-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 1000;\n  padding: 20px;\n}\n.modal-content[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  width: 100%;\n  max-width: 600px;\n  max-height: 90vh;\n  overflow-y: auto;\n  box-shadow: var(--pm-shadow-lg);\n}\n.modal-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 24px;\n  border-bottom: 1px solid var(--pm-border-light);\n}\n.modal-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.2rem;\n}\n.modal-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  font-size: 1.5rem;\n  cursor: pointer;\n  color: var(--pm-text-muted);\n  padding: 0;\n  line-height: 1;\n}\n.modal-close[_ngcontent-%COMP%]:hover {\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%] {\n  padding: 24px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n}\n.modal-body[_ngcontent-%COMP%]   .form-group[_ngcontent-%COMP%]   label[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n  font-weight: 600;\n  margin-bottom: 8px;\n  color: var(--pm-text-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-sm);\n  font-family: inherit;\n  font-size: 0.9rem;\n  background: var(--pm-surface);\n  color: var(--pm-text-primary);\n  outline: none;\n  transition: border-color 0.2s;\n}\n.modal-body[_ngcontent-%COMP%]   .form-input[_ngcontent-%COMP%]:focus {\n  border-color: var(--ion-color-primary);\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  cursor: pointer;\n}\n.modal-body[_ngcontent-%COMP%]   .checkbox-label[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.modal-footer[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end;\n  gap: 12px;\n  padding: 16px 24px;\n  border-top: 1px solid var(--pm-border-light);\n}\n@media (max-width: 768px) {\n  .hero-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 16px;\n  }\n  .hero-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    padding: 8px 12px;\n    font-size: 0.85rem;\n  }\n  .stats-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n    gap: 12px;\n  }\n  .stat-card[_ngcontent-%COMP%] {\n    padding: 16px;\n  }\n  .stat-card-icon[_ngcontent-%COMP%] {\n    width: 48px;\n    height: 48px;\n    font-size: 1.25rem;\n  }\n  .chart-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .chart-tabs[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: space-between;\n  }\n  .chart-tabs[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n    flex: 1;\n    text-align: center;\n  }\n  .project-row[_ngcontent-%COMP%] {\n    flex-wrap: wrap;\n    gap: 12px;\n    padding: 12px 0;\n  }\n  .project-thumb[_ngcontent-%COMP%] {\n    width: 40px;\n    height: 40px;\n    font-size: 1rem;\n  }\n  .project-info[_ngcontent-%COMP%] {\n    min-width: 0;\n  }\n  .project-title[_ngcontent-%COMP%] {\n    font-size: 0.9rem;\n  }\n  .project-desc[_ngcontent-%COMP%] {\n    font-size: 0.8rem;\n  }\n  .project-price[_ngcontent-%COMP%], \n   .project-date[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .form-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .form-group-row[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .modal-content[_ngcontent-%COMP%] {\n    max-height: 100vh;\n    border-radius: 0;\n    margin: 0;\n    width: 100%;\n  }\n  .settings-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .blog-item-header[_ngcontent-%COMP%] {\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .blog-item-header[_ngcontent-%COMP%]   .blog-actions[_ngcontent-%COMP%] {\n    width: 100%;\n    justify-content: flex-start;\n  }\n}\n.pending-badge[_ngcontent-%COMP%] {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 20px;\n  height: 20px;\n  padding: 0 6px;\n  background: #EF4444;\n  color: white;\n  border-radius: 10px;\n  font-size: 0.7rem;\n  font-weight: 700;\n  margin-left: 6px;\n}\n.review-item[_ngcontent-%COMP%] {\n  padding: 24px;\n  margin-bottom: 16px;\n  background: var(--pm-surface);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-lg);\n  transition: all 0.2s;\n}\n.review-item[_ngcontent-%COMP%]:hover {\n  border-color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.review-item-header[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  margin-bottom: 16px;\n}\n.review-thumb[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 60px;\n  border-radius: var(--pm-radius-sm);\n  background: var(--pm-surface-muted);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  flex-shrink: 0;\n}\n.review-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.review-info[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 4px;\n  font-size: 1rem;\n}\n.review-info[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  margin: 0 0 8px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.review-meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  flex-wrap: wrap;\n}\n.meta-tag[_ngcontent-%COMP%] {\n  padding: 3px 10px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.75rem;\n  color: var(--pm-text-secondary);\n  font-weight: 500;\n}\n.guide-preview-mini[_ngcontent-%COMP%] {\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 16px;\n  overflow: hidden;\n}\n.gpm-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 16px;\n  cursor: pointer;\n  font-size: 0.85rem;\n  font-weight: 600;\n}\n.gpm-header[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.02);\n}\n.gpm-content[_ngcontent-%COMP%] {\n  padding: 16px;\n  margin: 0;\n  font-size: 0.8rem;\n  line-height: 1.6;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n  max-height: 200px;\n  overflow-y: auto;\n  border-top: 1px solid var(--pm-border-light);\n}\n.no-guide-tag[_ngcontent-%COMP%] {\n  padding: 10px 16px;\n  background: rgba(245, 158, 11, 0.06);\n  border: 1px solid rgba(245, 158, 11, 0.15);\n  border-radius: var(--pm-radius-md);\n  font-size: 0.82rem;\n  color: #D97706;\n  margin-bottom: 16px;\n}\n.review-actions-row[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  justify-content: flex-end;\n}\n/*# sourceMappingURL=admin.component.css.map */"] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 1007 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(AdminComponent, { className: "AdminComponent", filePath: "src\\app\\pages\\admin\\admin.component.ts", lineNumber: 1011 });
 })();
 export {
   AdminComponent
 };
-//# sourceMappingURL=chunk-SEMUC7GX.js.map
+//# sourceMappingURL=chunk-FG3OF64B.js.map

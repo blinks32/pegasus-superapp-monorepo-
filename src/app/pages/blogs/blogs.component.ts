@@ -63,6 +63,7 @@ import { Observable } from 'rxjs';
           <a routerLink="/" class="pm-btn pm-btn-primary">Back to Home</a>
         </div>
       </div>
+    </main>
     </ion-content>
 
     <app-footer></app-footer>

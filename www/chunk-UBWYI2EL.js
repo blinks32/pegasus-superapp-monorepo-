@@ -8,19 +8,19 @@ import {
   MarketplaceService
 } from "./chunk-L3MOXFDZ.js";
 import {
-  IonContent,
-  ModalController,
   animate,
   environment,
   style,
   transition,
   trigger
-} from "./chunk-H4I5LEG4.js";
-import "./chunk-KWZAHRWA.js";
-import "./chunk-BARXMHI7.js";
+} from "./chunk-LL6IVHFO.js";
 import {
   SeoService
 } from "./chunk-NROIVCYZ.js";
+import {
+  IonContent,
+  ModalController
+} from "./chunk-7TFQUZIJ.js";
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
@@ -87,6 +87,8 @@ import {
   ɵɵtwoWayListener,
   ɵɵtwoWayProperty
 } from "./chunk-OKV2NBY4.js";
+import "./chunk-KWZAHRWA.js";
+import "./chunk-BARXMHI7.js";
 import "./chunk-BZUELC5Z.js";
 import "./chunk-NIIMY5ZY.js";
 import "./chunk-LGH3V3RI.js";
@@ -893,7 +895,7 @@ Prompt: ${build.prompt}`);
 // src/app/pages/product-detail/product-detail.component.ts
 var _c0 = (a0) => ({ category: a0 });
 var _c1 = (a0) => ({ q: a0 });
-function ProductDetailComponent_div_1_Template(rf, ctx) {
+function ProductDetailComponent_div_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 3)(1, "div", 4);
     \u0275\u0275element(2, "div", 5);
@@ -902,23 +904,23 @@ function ProductDetailComponent_div_1_Template(rf, ctx) {
     \u0275\u0275elementEnd()()();
   }
 }
-function ProductDetailComponent_div_2_div_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_1_Template(rf, ctx) {
   if (rf & 1) {
     const _r2 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 76);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_1_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_1_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = null);
     });
     \u0275\u0275elementStart(1, "div", 77);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_1_Template_div_click_1_listener($event) {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_1_Template_div_click_1_listener($event) {
       \u0275\u0275restoreView(_r2);
       return \u0275\u0275resetView($event.stopPropagation());
     });
     \u0275\u0275element(2, "img", 78);
     \u0275\u0275elementStart(3, "button", 79);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_1_Template_button_click_3_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_1_Template_button_click_3_listener() {
       \u0275\u0275restoreView(_r2);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = null);
@@ -932,7 +934,7 @@ function ProductDetailComponent_div_2_div_1_Template(rf, ctx) {
     \u0275\u0275property("src", ctx_r2.maximizedImage, \u0275\u0275sanitizeUrl);
   }
 }
-function ProductDetailComponent_div_2_div_51_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_51_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 80);
     \u0275\u0275element(1, "iframe", 81);
@@ -944,7 +946,7 @@ function ProductDetailComponent_div_2_div_51_Template(rf, ctx) {
     \u0275\u0275property("src", ctx_r2.safeYoutubeUrl, \u0275\u0275sanitizeResourceUrl);
   }
 }
-function ProductDetailComponent_div_2_ng_container_52_ng_container_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_ng_container_52_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
     \u0275\u0275elementStart(1, "span", 83);
@@ -963,11 +965,11 @@ function ProductDetailComponent_div_2_ng_container_52_ng_container_1_Template(rf
     \u0275\u0275textInterpolate(ctx_r2.product.title.split("\u2014")[0]);
   }
 }
-function ProductDetailComponent_div_2_ng_container_52_button_2_Template(rf, ctx) {
+function ProductDetailComponent_div_3_ng_container_52_button_2_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "button", 85);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_ng_container_52_button_2_Template_button_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_ng_container_52_button_2_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r4);
       const ctx_r2 = \u0275\u0275nextContext(3);
       return \u0275\u0275resetView(ctx_r2.maximizedImage = ctx_r2.getRawPreviewUrl());
@@ -978,10 +980,10 @@ function ProductDetailComponent_div_2_ng_container_52_button_2_Template(rf, ctx)
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_2_ng_container_52_Template(rf, ctx) {
+function ProductDetailComponent_div_3_ng_container_52_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, ProductDetailComponent_div_2_ng_container_52_ng_container_1_Template, 5, 2, "ng-container", 26)(2, ProductDetailComponent_div_2_ng_container_52_button_2_Template, 3, 0, "button", 82);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_ng_container_52_ng_container_1_Template, 5, 2, "ng-container", 26)(2, ProductDetailComponent_div_3_ng_container_52_button_2_Template, 3, 0, "button", 82);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -992,11 +994,11 @@ function ProductDetailComponent_div_2_ng_container_52_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.getRawPreviewUrl());
   }
 }
-function ProductDetailComponent_div_2_div_55_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_55_Template(rf, ctx) {
   if (rf & 1) {
     const _r5 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 88);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_55_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_55_Template_div_click_0_listener() {
       \u0275\u0275restoreView(_r5);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = "youtube");
@@ -1012,11 +1014,11 @@ function ProductDetailComponent_div_2_div_55_Template(rf, ctx) {
     \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === "youtube");
   }
 }
-function ProductDetailComponent_div_2_div_56_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_56_Template(rf, ctx) {
   if (rf & 1) {
     const _r6 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 28);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_56_Template_div_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_56_Template_div_click_0_listener() {
       const i_r7 = \u0275\u0275restoreView(_r6).index;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = i_r7);
@@ -1031,7 +1033,7 @@ function ProductDetailComponent_div_2_div_56_Template(rf, ctx) {
     \u0275\u0275classProp("active", ctx_r2.activePreviewIndex === i_r7);
   }
 }
-function ProductDetailComponent_div_2_div_57_ng_container_2_a_1_div_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_ng_container_2_a_1_div_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "div", 100);
   }
@@ -1040,10 +1042,10 @@ function ProductDetailComponent_div_2_div_57_ng_container_2_a_1_div_1_Template(r
     \u0275\u0275styleProp("background-image", "url(" + demo_r9.thumbnailUrl + ")");
   }
 }
-function ProductDetailComponent_div_2_div_57_ng_container_2_a_1_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_ng_container_2_a_1_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 95);
-    \u0275\u0275template(1, ProductDetailComponent_div_2_div_57_ng_container_2_a_1_div_1_Template, 1, 2, "div", 96);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_div_57_ng_container_2_a_1_div_1_Template, 1, 2, "div", 96);
     \u0275\u0275elementStart(2, "div", 97)(3, "span", 98);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
@@ -1060,10 +1062,10 @@ function ProductDetailComponent_div_2_div_57_ng_container_2_a_1_Template(rf, ctx
     \u0275\u0275textInterpolate(demo_r9.label);
   }
 }
-function ProductDetailComponent_div_2_div_57_ng_container_2_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementContainerStart(0);
-    \u0275\u0275template(1, ProductDetailComponent_div_2_div_57_ng_container_2_a_1_Template, 7, 3, "a", 94);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_div_57_ng_container_2_a_1_Template, 7, 3, "a", 94);
     \u0275\u0275elementContainerEnd();
   }
   if (rf & 2) {
@@ -1072,7 +1074,7 @@ function ProductDetailComponent_div_2_div_57_ng_container_2_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.product.liveDemos);
   }
 }
-function ProductDetailComponent_div_2_div_57_ng_template_3_a_0_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_ng_template_3_a_0_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 102);
     \u0275\u0275text(1, " \u{1F310} Live Demo ");
@@ -1083,19 +1085,19 @@ function ProductDetailComponent_div_2_div_57_ng_template_3_a_0_Template(rf, ctx)
     \u0275\u0275property("href", ctx_r2.product.demoUrl, \u0275\u0275sanitizeUrl);
   }
 }
-function ProductDetailComponent_div_2_div_57_ng_template_3_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_ng_template_3_Template(rf, ctx) {
   if (rf & 1) {
-    \u0275\u0275template(0, ProductDetailComponent_div_2_div_57_ng_template_3_a_0_Template, 2, 1, "a", 101);
+    \u0275\u0275template(0, ProductDetailComponent_div_3_div_57_ng_template_3_a_0_Template, 2, 1, "a", 101);
   }
   if (rf & 2) {
     const ctx_r2 = \u0275\u0275nextContext(3);
     \u0275\u0275property("ngIf", ctx_r2.product.demoUrl);
   }
 }
-function ProductDetailComponent_div_2_div_57_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_57_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 91)(1, "div", 92);
-    \u0275\u0275template(2, ProductDetailComponent_div_2_div_57_ng_container_2_Template, 2, 1, "ng-container", 93)(3, ProductDetailComponent_div_2_div_57_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
+    \u0275\u0275template(2, ProductDetailComponent_div_3_div_57_ng_container_2_Template, 2, 1, "ng-container", 93)(3, ProductDetailComponent_div_3_div_57_ng_template_3_Template, 1, 1, "ng-template", null, 0, \u0275\u0275templateRefExtractor);
     \u0275\u0275elementEnd()();
   }
   if (rf & 2) {
@@ -1105,7 +1107,7 @@ function ProductDetailComponent_div_2_div_57_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.product.liveDemos && ctx_r2.product.liveDemos.length > 0)("ngIfElse", singleDemo_r10);
   }
 }
-function ProductDetailComponent_div_2_div_58_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_div_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 110);
     \u0275\u0275element(1, "pre", 111);
@@ -1117,11 +1119,11 @@ function ProductDetailComponent_div_2_div_58_div_9_Template(rf, ctx) {
     \u0275\u0275property("innerHTML", ctx_r2.formattedGuide, \u0275\u0275sanitizeHtml);
   }
 }
-function ProductDetailComponent_div_2_div_58_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_58_Template(rf, ctx) {
   if (rf & 1) {
     const _r11 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 103)(1, "div", 104);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_58_Template_div_click_1_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_58_Template_div_click_1_listener() {
       \u0275\u0275restoreView(_r11);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.guideExpanded = !ctx_r2.guideExpanded);
@@ -1135,7 +1137,7 @@ function ProductDetailComponent_div_2_div_58_Template(rf, ctx) {
     \u0275\u0275elementStart(7, "span", 108);
     \u0275\u0275text(8);
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(9, ProductDetailComponent_div_2_div_58_div_9_Template, 2, 1, "div", 109);
+    \u0275\u0275template(9, ProductDetailComponent_div_3_div_58_div_9_Template, 2, 1, "div", 109);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1146,7 +1148,7 @@ function ProductDetailComponent_div_2_div_58_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.guideExpanded);
   }
 }
-function ProductDetailComponent_div_2_div_69_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_69_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 112);
     \u0275\u0275namespaceSVG();
@@ -1164,11 +1166,11 @@ function ProductDetailComponent_div_2_div_69_Template(rf, ctx) {
     \u0275\u0275textInterpolate(f_r12);
   }
 }
-function ProductDetailComponent_div_2_button_73_Template(rf, ctx) {
+function ProductDetailComponent_div_3_button_73_Template(rf, ctx) {
   if (rf & 1) {
     const _r13 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "button", 115);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_button_73_Template_button_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_button_73_Template_button_click_0_listener() {
       const tab_r14 = \u0275\u0275restoreView(_r13).$implicit;
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.activeTab = tab_r14.id);
@@ -1184,7 +1186,7 @@ function ProductDetailComponent_div_2_button_73_Template(rf, ctx) {
     \u0275\u0275textInterpolate1(" ", tab_r14.label, " ");
   }
 }
-function ProductDetailComponent_div_2_div_74_span_6_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_74_span_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 123);
     \u0275\u0275text(1);
@@ -1196,7 +1198,7 @@ function ProductDetailComponent_div_2_div_74_span_6_Template(rf, ctx) {
     \u0275\u0275textInterpolate(t_r15);
   }
 }
-function ProductDetailComponent_div_2_div_74_span_11_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_74_span_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 124);
     \u0275\u0275text(1);
@@ -1208,19 +1210,19 @@ function ProductDetailComponent_div_2_div_74_span_11_Template(rf, ctx) {
     \u0275\u0275textInterpolate(c_r16);
   }
 }
-function ProductDetailComponent_div_2_div_74_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_74_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 116)(1, "div", 117)(2, "div", 34)(3, "h3", 118);
     \u0275\u0275text(4, "Tech Stack");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 119);
-    \u0275\u0275template(6, ProductDetailComponent_div_2_div_74_span_6_Template, 2, 1, "span", 120);
+    \u0275\u0275template(6, ProductDetailComponent_div_3_div_74_span_6_Template, 2, 1, "span", 120);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(7, "div", 121)(8, "h3", 118);
     \u0275\u0275text(9, "Compatibility");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(10, "div", 119);
-    \u0275\u0275template(11, ProductDetailComponent_div_2_div_74_span_11_Template, 2, 1, "span", 122);
+    \u0275\u0275template(11, ProductDetailComponent_div_3_div_74_span_11_Template, 2, 1, "span", 122);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 121)(13, "h3", 118);
     \u0275\u0275text(14, "Documentation & Support");
@@ -1237,7 +1239,7 @@ function ProductDetailComponent_div_2_div_74_Template(rf, ctx) {
     \u0275\u0275property("ngForOf", ctx_r2.product.compatibility);
   }
 }
-function ProductDetailComponent_div_2_div_75_span_6_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_span_6_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span");
   }
@@ -1246,7 +1248,7 @@ function ProductDetailComponent_div_2_div_75_span_6_Template(rf, ctx) {
     \u0275\u0275classMap(s_r17);
   }
 }
-function ProductDetailComponent_div_2_div_75_div_11_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_div_11_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 139)(1, "span", 140);
     \u0275\u0275text(2);
@@ -1268,14 +1270,14 @@ function ProductDetailComponent_div_2_div_75_div_11_Template(rf, ctx) {
     \u0275\u0275textInterpolate(bar_r18.count);
   }
 }
-function ProductDetailComponent_div_2_div_75_div_18_span_9_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_div_18_span_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 157);
     \u0275\u0275text(1, "\u2713 Verified Purchase");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_2_div_75_div_18_span_12_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_div_18_span_12_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "span", 158);
   }
@@ -1284,7 +1286,7 @@ function ProductDetailComponent_div_2_div_75_div_18_span_12_Template(rf, ctx) {
     \u0275\u0275classMap(s_r19);
   }
 }
-function ProductDetailComponent_div_2_div_75_div_18_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_div_18_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 144)(1, "div", 145)(2, "div", 146)(3, "div", 147)(4, "div", 148);
     \u0275\u0275text(5);
@@ -1292,10 +1294,10 @@ function ProductDetailComponent_div_2_div_75_div_18_Template(rf, ctx) {
     \u0275\u0275elementStart(6, "div")(7, "strong");
     \u0275\u0275text(8);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_2_div_75_div_18_span_9_Template, 2, 0, "span", 149);
+    \u0275\u0275template(9, ProductDetailComponent_div_3_div_75_div_18_span_9_Template, 2, 0, "span", 149);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(10, "div", 150)(11, "div", 151);
-    \u0275\u0275template(12, ProductDetailComponent_div_2_div_75_div_18_span_12_Template, 1, 2, "span", 152);
+    \u0275\u0275template(12, ProductDetailComponent_div_3_div_75_div_18_span_12_Template, 1, 2, "span", 152);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(13, "span", 153);
     \u0275\u0275text(14);
@@ -1329,27 +1331,27 @@ function ProductDetailComponent_div_2_div_75_div_18_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("\u{1F44D} Helpful (", review_r20.helpful, ")");
   }
 }
-function ProductDetailComponent_div_2_div_75_div_19_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_div_19_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 159)(1, "p");
     \u0275\u0275text(2, "No reviews yet. Be the first buyer to leave a review!");
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_2_div_75_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_75_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 116)(1, "div", 125)(2, "div", 126)(3, "span", 127);
     \u0275\u0275text(4);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "div", 128);
-    \u0275\u0275template(6, ProductDetailComponent_div_2_div_75_span_6_Template, 1, 2, "span", 129);
+    \u0275\u0275template(6, ProductDetailComponent_div_3_div_75_span_6_Template, 1, 2, "span", 129);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(7, "span", 130);
     \u0275\u0275text(8);
     \u0275\u0275pipe(9, "number");
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(10, "div", 131);
-    \u0275\u0275template(11, ProductDetailComponent_div_2_div_75_div_11_Template, 7, 4, "div", 132);
+    \u0275\u0275template(11, ProductDetailComponent_div_3_div_75_div_11_Template, 7, 4, "div", 132);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(12, "div", 133);
     \u0275\u0275namespaceSVG();
@@ -1360,7 +1362,7 @@ function ProductDetailComponent_div_2_div_75_Template(rf, ctx) {
     \u0275\u0275elementStart(16, "span");
     \u0275\u0275text(17, "Only verified buyers can leave reviews after purchase.");
     \u0275\u0275elementEnd()();
-    \u0275\u0275template(18, ProductDetailComponent_div_2_div_75_div_18_Template, 21, 12, "div", 137)(19, ProductDetailComponent_div_2_div_75_div_19_Template, 3, 0, "div", 138);
+    \u0275\u0275template(18, ProductDetailComponent_div_3_div_75_div_18_Template, 21, 12, "div", 137)(19, ProductDetailComponent_div_3_div_75_div_19_Template, 3, 0, "div", 138);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1379,7 +1381,7 @@ function ProductDetailComponent_div_2_div_75_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.product.reviews.length === 0);
   }
 }
-function ProductDetailComponent_div_2_div_76_div_8_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_8_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 165)(1, "div", 146)(2, "div", 147)(3, "div", 148);
     \u0275\u0275text(4);
@@ -1410,21 +1412,21 @@ function ProductDetailComponent_div_2_div_76_div_8_Template(rf, ctx) {
     \u0275\u0275textInterpolate(c_r22.text);
   }
 }
-function ProductDetailComponent_div_2_div_76_div_9_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_div_9_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "div", 159)(1, "p");
     \u0275\u0275text(2, "No comments yet. Start the conversation!");
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_2_div_76_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_76_Template(rf, ctx) {
   if (rf & 1) {
     const _r21 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 116)(1, "div", 160)(2, "h3");
     \u0275\u0275text(3, "\u{1F4AC} Leave a Comment");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(4, "textarea", 161);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_2_div_76_Template_textarea_ngModelChange_4_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_3_div_76_Template_textarea_ngModelChange_4_listener($event) {
       \u0275\u0275restoreView(_r21);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.newCommentText, $event) || (ctx_r2.newCommentText = $event);
@@ -1432,7 +1434,7 @@ function ProductDetailComponent_div_2_div_76_Template(rf, ctx) {
     });
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(5, "button", 162);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_div_76_Template_button_click_5_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_div_76_Template_button_click_5_listener() {
       \u0275\u0275restoreView(_r21);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.submitComment());
@@ -1440,9 +1442,9 @@ function ProductDetailComponent_div_2_div_76_Template(rf, ctx) {
     \u0275\u0275text(6, " Post Comment ");
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(7, "div", 163);
-    \u0275\u0275template(8, ProductDetailComponent_div_2_div_76_div_8_Template, 13, 9, "div", 164);
+    \u0275\u0275template(8, ProductDetailComponent_div_3_div_76_div_8_Template, 13, 9, "div", 164);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(9, ProductDetailComponent_div_2_div_76_div_9_Template, 3, 0, "div", 138);
+    \u0275\u0275template(9, ProductDetailComponent_div_3_div_76_div_9_Template, 3, 0, "div", 138);
     \u0275\u0275elementEnd();
   }
   if (rf & 2) {
@@ -1457,7 +1459,7 @@ function ProductDetailComponent_div_2_div_76_Template(rf, ctx) {
     \u0275\u0275property("ngIf", ctx_r2.comments.length === 0);
   }
 }
-function ProductDetailComponent_div_2_span_82_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_82_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 166);
     \u0275\u0275text(1);
@@ -1469,7 +1471,7 @@ function ProductDetailComponent_div_2_span_82_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("$", ctx_r2.product.originalPrice, "");
   }
 }
-function ProductDetailComponent_div_2_span_83_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_83_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 167);
     \u0275\u0275text(1);
@@ -1481,11 +1483,11 @@ function ProductDetailComponent_div_2_span_83_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("-", ctx_r2.product.discountPercent, "%");
   }
 }
-function ProductDetailComponent_div_2_div_103_Template(rf, ctx) {
+function ProductDetailComponent_div_3_div_103_Template(rf, ctx) {
   if (rf & 1) {
     const _r23 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 168)(1, "label", 169)(2, "input", 170);
-    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_2_div_103_Template_input_ngModelChange_2_listener($event) {
+    \u0275\u0275twoWayListener("ngModelChange", function ProductDetailComponent_div_3_div_103_Template_input_ngModelChange_2_listener($event) {
       \u0275\u0275restoreView(_r23);
       const ctx_r2 = \u0275\u0275nextContext(2);
       \u0275\u0275twoWayBindingSet(ctx_r2.addReskin, $event) || (ctx_r2.addReskin = $event);
@@ -1507,11 +1509,11 @@ function ProductDetailComponent_div_2_div_103_Template(rf, ctx) {
     \u0275\u0275textInterpolate1("Professional rebranding (+$", ctx_r2.product.reskinPrice, ")");
   }
 }
-function ProductDetailComponent_div_2_button_106_Template(rf, ctx) {
+function ProductDetailComponent_div_3_button_106_Template(rf, ctx) {
   if (rf & 1) {
     const _r24 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "button", 171);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_button_106_Template_button_click_0_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_button_106_Template_button_click_0_listener() {
       \u0275\u0275restoreView(_r24);
       const ctx_r2 = \u0275\u0275nextContext(2);
       return \u0275\u0275resetView(ctx_r2.launchAiStudio());
@@ -1524,21 +1526,21 @@ function ProductDetailComponent_div_2_button_106_Template(rf, ctx) {
     \u0275\u0275elementEnd()();
   }
 }
-function ProductDetailComponent_div_2_a_107_Template(rf, ctx) {
+function ProductDetailComponent_div_3_a_107_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 175);
     \u0275\u0275text(1, " View Cart \u2192 ");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_2_span_144_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_144_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 176);
     \u0275\u0275text(1, "\u2713 Verified Author");
     \u0275\u0275elementEnd();
   }
 }
-function ProductDetailComponent_div_2_span_165_Template(rf, ctx) {
+function ProductDetailComponent_div_3_span_165_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "span", 177);
     \u0275\u0275text(1);
@@ -1551,7 +1553,7 @@ function ProductDetailComponent_div_2_span_165_Template(rf, ctx) {
     \u0275\u0275textInterpolate2("", ctx_r2.getBadgeIcon(b_r25), " ", ctx_r2.formatBadge(b_r25), "");
   }
 }
-function ProductDetailComponent_div_2_a_170_Template(rf, ctx) {
+function ProductDetailComponent_div_3_a_170_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275elementStart(0, "a", 178);
     \u0275\u0275text(1);
@@ -1564,7 +1566,7 @@ function ProductDetailComponent_div_2_a_170_Template(rf, ctx) {
     \u0275\u0275textInterpolate(tag_r26);
   }
 }
-function ProductDetailComponent_div_2_app_product_card_175_Template(rf, ctx) {
+function ProductDetailComponent_div_3_app_product_card_175_Template(rf, ctx) {
   if (rf & 1) {
     \u0275\u0275element(0, "app-product-card", 179);
   }
@@ -1573,11 +1575,11 @@ function ProductDetailComponent_div_2_app_product_card_175_Template(rf, ctx) {
     \u0275\u0275property("product", p_r27);
   }
 }
-function ProductDetailComponent_div_2_Template(rf, ctx) {
+function ProductDetailComponent_div_3_Template(rf, ctx) {
   if (rf & 1) {
     const _r1 = \u0275\u0275getCurrentView();
     \u0275\u0275elementStart(0, "div", 6);
-    \u0275\u0275template(1, ProductDetailComponent_div_2_div_1_Template, 5, 1, "div", 7);
+    \u0275\u0275template(1, ProductDetailComponent_div_3_div_1_Template, 5, 1, "div", 7);
     \u0275\u0275elementStart(2, "nav", 8)(3, "a", 9);
     \u0275\u0275text(4, "Home");
     \u0275\u0275elementEnd();
@@ -1633,20 +1635,20 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275pipe(46, "date");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(47, "div", 21)(48, "div", 22)(49, "div", 23)(50, "div", 24);
-    \u0275\u0275template(51, ProductDetailComponent_div_2_div_51_Template, 2, 1, "div", 25)(52, ProductDetailComponent_div_2_ng_container_52_Template, 3, 2, "ng-container", 26);
+    \u0275\u0275template(51, ProductDetailComponent_div_3_div_51_Template, 2, 1, "div", 25)(52, ProductDetailComponent_div_3_ng_container_52_Template, 3, 2, "ng-container", 26);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(53, "div", 27)(54, "div", 28);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_Template_div_click_54_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_div_click_54_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.activePreviewIndex = -1);
     });
     \u0275\u0275elementEnd();
-    \u0275\u0275template(55, ProductDetailComponent_div_2_div_55_Template, 3, 8, "div", 29)(56, ProductDetailComponent_div_2_div_56_Template, 1, 8, "div", 30);
+    \u0275\u0275template(55, ProductDetailComponent_div_3_div_55_Template, 3, 8, "div", 29)(56, ProductDetailComponent_div_3_div_56_Template, 1, 8, "div", 30);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(57, ProductDetailComponent_div_2_div_57_Template, 5, 2, "div", 31);
+    \u0275\u0275template(57, ProductDetailComponent_div_3_div_57_Template, 5, 2, "div", 31);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(58, ProductDetailComponent_div_2_div_58_Template, 10, 2, "div", 32);
+    \u0275\u0275template(58, ProductDetailComponent_div_3_div_58_Template, 10, 2, "div", 32);
     \u0275\u0275elementStart(59, "div", 33)(60, "div", 34)(61, "h2", 35);
     \u0275\u0275text(62, "Overview");
     \u0275\u0275elementEnd();
@@ -1657,20 +1659,20 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275text(67, "Key Features");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(68, "div", 37);
-    \u0275\u0275template(69, ProductDetailComponent_div_2_div_69_Template, 5, 1, "div", 38);
+    \u0275\u0275template(69, ProductDetailComponent_div_3_div_69_Template, 5, 1, "div", 38);
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(70, "div", 39)(71, "div", 40)(72, "div", 41);
-    \u0275\u0275template(73, ProductDetailComponent_div_2_button_73_Template, 2, 3, "button", 42);
+    \u0275\u0275template(73, ProductDetailComponent_div_3_button_73_Template, 2, 3, "button", 42);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(74, ProductDetailComponent_div_2_div_74_Template, 17, 2, "div", 43)(75, ProductDetailComponent_div_2_div_75_Template, 20, 8, "div", 43)(76, ProductDetailComponent_div_2_div_76_Template, 10, 4, "div", 43);
+    \u0275\u0275template(74, ProductDetailComponent_div_3_div_74_Template, 17, 2, "div", 43)(75, ProductDetailComponent_div_3_div_75_Template, 20, 8, "div", 43)(76, ProductDetailComponent_div_3_div_76_Template, 10, 4, "div", 43);
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(77, "aside", 44)(78, "div", 45)(79, "div", 46)(80, "span", 47);
     \u0275\u0275text(81);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(82, ProductDetailComponent_div_2_span_82_Template, 2, 1, "span", 48)(83, ProductDetailComponent_div_2_span_83_Template, 2, 1, "span", 49);
+    \u0275\u0275template(82, ProductDetailComponent_div_3_span_82_Template, 2, 1, "span", 48)(83, ProductDetailComponent_div_3_span_83_Template, 2, 1, "span", 49);
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(84, "div", 50)(85, "label", 51);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_Template_label_click_85_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_label_click_85_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "regular");
@@ -1686,7 +1688,7 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275text(93);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(94, "label", 51);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_Template_label_click_94_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_label_click_94_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.selectedLicense = "extended");
@@ -1701,16 +1703,16 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275elementStart(101, "span", 53);
     \u0275\u0275text(102);
     \u0275\u0275elementEnd()()();
-    \u0275\u0275template(103, ProductDetailComponent_div_2_div_103_Template, 8, 2, "div", 55);
+    \u0275\u0275template(103, ProductDetailComponent_div_3_div_103_Template, 8, 2, "div", 55);
     \u0275\u0275elementStart(104, "button", 56);
-    \u0275\u0275listener("click", function ProductDetailComponent_div_2_Template_button_click_104_listener() {
+    \u0275\u0275listener("click", function ProductDetailComponent_div_3_Template_button_click_104_listener() {
       \u0275\u0275restoreView(_r1);
       const ctx_r2 = \u0275\u0275nextContext();
       return \u0275\u0275resetView(ctx_r2.addToCart());
     });
     \u0275\u0275text(105);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(106, ProductDetailComponent_div_2_button_106_Template, 6, 0, "button", 57)(107, ProductDetailComponent_div_2_a_107_Template, 2, 0, "a", 58);
+    \u0275\u0275template(106, ProductDetailComponent_div_3_button_106_Template, 6, 0, "button", 57)(107, ProductDetailComponent_div_3_a_107_Template, 2, 0, "a", 58);
     \u0275\u0275elementStart(108, "div", 59)(109, "div", 60)(110, "span");
     \u0275\u0275text(111, "\u{1F4B0} Sales");
     \u0275\u0275elementEnd();
@@ -1750,7 +1752,7 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275elementStart(141, "div")(142, "strong");
     \u0275\u0275text(143);
     \u0275\u0275elementEnd();
-    \u0275\u0275template(144, ProductDetailComponent_div_2_span_144_Template, 2, 0, "span", 64);
+    \u0275\u0275template(144, ProductDetailComponent_div_3_span_144_Template, 2, 0, "span", 64);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(145, "p", 65);
     \u0275\u0275text(146);
@@ -1775,19 +1777,19 @@ function ProductDetailComponent_div_2_Template(rf, ctx) {
     \u0275\u0275text(163, "Badges");
     \u0275\u0275elementEnd()()();
     \u0275\u0275elementStart(164, "div", 67);
-    \u0275\u0275template(165, ProductDetailComponent_div_2_span_165_Template, 2, 2, "span", 68);
+    \u0275\u0275template(165, ProductDetailComponent_div_3_span_165_Template, 2, 2, "span", 68);
     \u0275\u0275elementEnd()();
     \u0275\u0275elementStart(166, "div", 69)(167, "h4");
     \u0275\u0275text(168, "Tags");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(169, "div", 70);
-    \u0275\u0275template(170, ProductDetailComponent_div_2_a_170_Template, 2, 4, "a", 71);
+    \u0275\u0275template(170, ProductDetailComponent_div_3_a_170_Template, 2, 4, "a", 71);
     \u0275\u0275elementEnd()()()();
     \u0275\u0275elementStart(171, "section", 72)(172, "h2", 73);
     \u0275\u0275text(173, "Related Products");
     \u0275\u0275elementEnd();
     \u0275\u0275elementStart(174, "div", 74);
-    \u0275\u0275template(175, ProductDetailComponent_div_2_app_product_card_175_Template, 1, 1, "app-product-card", 75);
+    \u0275\u0275template(175, ProductDetailComponent_div_3_app_product_card_175_Template, 1, 1, "app-product-card", 75);
     \u0275\u0275elementEnd()()();
   }
   if (rf & 2) {
@@ -2117,25 +2119,27 @@ var ProductDetailComponent = class _ProductDetailComponent {
     };
   }
   static {
-    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 4, vars: 2, consts: [["singleDemo", ""], ["class", "loading-overlay", 4, "ngIf"], ["class", "pm-container page-enter", 4, "ngIf"], [1, "loading-overlay"], [1, "loader-content"], [1, "premium-spinner"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], ["style", "width:100%; height:100%; border-radius: inherit; overflow:hidden;", 4, "ngIf"], [4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", "style", "position: relative; display: flex; align-items: center; justify-content: center; background-color: #000;", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngIf"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["class", "pm-btn pm-btn-lg ai-studio-trigger", "style", "width:100%; margin-top: 12px; position: relative; overflow: hidden; border: none; font-weight: 700; letter-spacing: 0.5px;", 3, "click", 4, "ngIf"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [2, "width", "100%", "height", "100%", "border-radius", "inherit", "overflow", "hidden"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "thumb-item", 2, "position", "relative", "display", "flex", "align-items", "center", "justify-content", "center", "background-color", "#000", 3, "click"], ["width", "28", "height", "28", "viewBox", "0 0 24 24", "fill", "white", 2, "filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.5))", "pointer-events", "none"], ["d", "M8 5v14l11-7z"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-lg", "ai-studio-trigger", 2, "width", "100%", "margin-top", "12px", "position", "relative", "overflow", "hidden", "border", "none", "font-weight", "700", "letter-spacing", "0.5px", 3, "click"], [1, "ai-glow"], [2, "position", "relative", "z-index", "1", "display", "flex", "align-items", "center", "justify-content", "center", "gap", "10px"], [1, "ai-sparkle"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
+    this.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({ type: _ProductDetailComponent, selectors: [["app-product-detail"]], standalone: true, features: [\u0275\u0275StandaloneFeature], decls: 5, vars: 2, consts: [["singleDemo", ""], ["class", "loading-overlay", 4, "ngIf"], ["class", "pm-container page-enter", 4, "ngIf"], [1, "loading-overlay"], [1, "loader-content"], [1, "premium-spinner"], [1, "pm-container", "page-enter"], ["class", "lightbox-overlay", 3, "click", 4, "ngIf"], [1, "breadcrumb"], ["routerLink", "/"], ["routerLink", "/browse"], ["routerLink", "/browse", 3, "queryParams"], [1, "current"], [1, "stats-strip", "shadow-premium"], [1, "stat-pill"], [1, "pill-label"], [1, "pill-rating"], [1, "stars"], [1, "rating-val"], [1, "stat-divider"], [1, "pill-value"], [1, "detail-layout"], [1, "detail-main"], [1, "preview-card"], [1, "preview-image"], ["style", "width:100%; height:100%; border-radius: inherit; overflow:hidden;", 4, "ngIf"], [4, "ngIf"], [1, "preview-thumbnails", "pm-gallery-strip"], [1, "thumb-item", 3, "click"], ["class", "thumb-item", "style", "position: relative; display: flex; align-items: center; justify-content: center; background-color: #000;", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngIf"], ["class", "thumb-item", 3, "active", "backgroundImage", "backgroundSize", "backgroundPosition", "click", 4, "ngFor", "ngForOf"], ["class", "demo-hub", 4, "ngIf"], ["class", "deploy-guide-card shadow-premium", 4, "ngIf"], [1, "main-content-card", "shadow-premium"], [1, "content-section"], [1, "section-title"], [1, "section-text"], [1, "features-grid"], ["class", "feature-item", 4, "ngFor", "ngForOf"], [1, "tabs-layout"], [1, "tabs-main"], [1, "detail-tabs"], ["class", "tab-btn", 3, "active", "click", 4, "ngFor", "ngForOf"], ["class", "tab-content", 4, "ngIf"], [1, "detail-sidebar"], [1, "purchase-card"], [1, "price-section"], [1, "pm-price", 2, "font-size", "2rem"], ["class", "pm-price-original", 4, "ngIf"], ["class", "pm-price-discount", 4, "ngIf"], [1, "license-select"], [1, "license-option", 3, "click"], ["type", "radio", "name", "license", "value", "regular", 3, "checked"], [1, "license-price"], ["type", "radio", "name", "license", "value", "extended", 3, "checked"], ["class", "reskin-option", 4, "ngIf"], [1, "pm-btn", "pm-btn-success", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", 3, "click"], ["class", "pm-btn pm-btn-lg ai-studio-trigger", "style", "width:100%; margin-top: 12px; position: relative; overflow: hidden; border: none; font-weight: 700; letter-spacing: 0.5px;", 3, "click", 4, "ngIf"], ["routerLink", "/cart", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width:100%; margin-top: 8px; text-align: center", 4, "ngIf"], [1, "purchase-meta"], [1, "meta-row"], [1, "author-card"], [1, "author-header"], [1, "author-av"], ["class", "author-verified", 4, "ngIf"], [1, "author-bio"], [1, "author-stats"], [1, "author-badges"], ["class", "a-badge", 4, "ngFor", "ngForOf"], [1, "tags-card"], [1, "tags-wrap"], ["routerLink", "/browse", "class", "tag-link", 3, "queryParams", 4, "ngFor", "ngForOf"], [1, "pm-section"], [1, "pm-heading-lg", 2, "margin-bottom", "24px"], [1, "related-grid"], [3, "product", 4, "ngFor", "ngForOf"], [1, "lightbox-overlay", 3, "click"], [1, "lightbox-content", 3, "click"], [3, "src"], [1, "lightbox-close", 3, "click"], [2, "width", "100%", "height", "100%", "border-radius", "inherit", "overflow", "hidden"], ["width", "100%", "height", "100%", "frameborder", "0", "allowfullscreen", "", 3, "src"], ["class", "maximize-btn", 3, "click", 4, "ngIf"], [1, "preview-icon"], [1, "preview-title"], [1, "maximize-btn", 3, "click"], ["width", "24", "height", "24", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["d", "M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"], [1, "thumb-item", 2, "position", "relative", "display", "flex", "align-items", "center", "justify-content", "center", "background-color", "#000", 3, "click"], ["width", "28", "height", "28", "viewBox", "0 0 24 24", "fill", "white", 2, "filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.5))", "pointer-events", "none"], ["d", "M8 5v14l11-7z"], [1, "demo-hub"], [1, "demo-links-grid"], [4, "ngIf", "ngIfElse"], ["target", "_blank", "class", "demo-link-card", 3, "href", 4, "ngFor", "ngForOf"], ["target", "_blank", 1, "demo-link-card", 3, "href"], ["class", "demo-thumb", 3, "backgroundImage", 4, "ngIf"], [1, "demo-info"], [1, "demo-label"], [1, "demo-action"], [1, "demo-thumb"], ["target", "_blank", "class", "pm-btn pm-btn-outline pm-btn-lg", "style", "width: 100%; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; border-color: rgba(99,102,241,0.2);", 3, "href", 4, "ngIf"], ["target", "_blank", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "text-align", "center", "display", "flex", "justify-content", "center", "align-items", "center", "gap", "8px", "border-color", "rgba(99,102,241,0.2)", 3, "href"], [1, "deploy-guide-card", "shadow-premium"], [1, "dg-header", 3, "click"], [1, "dg-title"], [1, "dg-icon"], [1, "section-title", 2, "margin", "0"], [1, "dg-toggle"], ["class", "dg-body", 4, "ngIf"], [1, "dg-body"], [1, "dg-content", 3, "innerHTML"], [1, "feature-item"], ["width", "20", "height", "20", "viewBox", "0 0 24 24", "fill", "none", "stroke", "#6366F1", "stroke-width", "2.5"], ["points", "20 6 9 17 4 12"], [1, "tab-btn", 3, "click"], [1, "tab-content"], [1, "desc-card"], [1, "section-subtitle"], [1, "tags-row"], ["class", "tech-tag", 4, "ngFor", "ngForOf"], [1, "content-section", 2, "margin-top", "32px"], ["class", "compat-tag", 4, "ngFor", "ngForOf"], [1, "tech-tag"], [1, "compat-tag"], [1, "reviews-summary"], [1, "rating-big"], [1, "rating-number"], [1, "rating-stars"], [3, "class", 4, "ngFor", "ngForOf"], [1, "rating-total"], [1, "rating-bars"], ["class", "bar-row", 4, "ngFor", "ngForOf"], [1, "purchase-notice"], ["width", "16", "height", "16", "viewBox", "0 0 24 24", "fill", "none", "stroke", "currentColor", "stroke-width", "2"], ["cx", "12", "cy", "12", "r", "10"], ["d", "M12 16v-4M12 8h.01"], ["class", "review-list", 4, "ngFor", "ngForOf"], ["class", "empty-reviews", 4, "ngIf"], [1, "bar-row"], [1, "bar-label"], [1, "bar-track"], [1, "bar-fill"], [1, "bar-count"], [1, "review-list"], [1, "review-card"], [1, "review-header"], [1, "review-user"], [1, "review-avatar"], ["class", "verified", 4, "ngIf"], [1, "review-meta"], [1, "review-stars"], ["style", "font-size:12px", 3, "class", 4, "ngFor", "ngForOf"], [1, "review-date"], [1, "review-comment"], [1, "review-actions"], [1, "pm-btn", "pm-btn-ghost", "pm-btn-sm"], [1, "verified"], [2, "font-size", "12px"], [1, "empty-reviews"], [1, "write-review"], ["placeholder", "Ask a question or share your thoughts...", "rows", "3", 1, "filter-input", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-primary", "pm-btn-sm", 3, "click", "disabled"], [1, "comments-list"], ["class", "comment-card", 4, "ngFor", "ngForOf"], [1, "comment-card"], [1, "pm-price-original"], [1, "pm-price-discount"], [1, "reskin-option"], [1, "reskin-check"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "pm-btn", "pm-btn-lg", "ai-studio-trigger", 2, "width", "100%", "margin-top", "12px", "position", "relative", "overflow", "hidden", "border", "none", "font-weight", "700", "letter-spacing", "0.5px", 3, "click"], [1, "ai-glow"], [2, "position", "relative", "z-index", "1", "display", "flex", "align-items", "center", "justify-content", "center", "gap", "10px"], [1, "ai-sparkle"], ["routerLink", "/cart", 1, "pm-btn", "pm-btn-outline", "pm-btn-lg", 2, "width", "100%", "margin-top", "8px", "text-align", "center"], [1, "author-verified"], [1, "a-badge"], ["routerLink", "/browse", 1, "tag-link", 3, "queryParams"], [3, "product"]], template: function ProductDetailComponent_Template(rf, ctx) {
       if (rf & 1) {
         \u0275\u0275element(0, "app-header");
-        \u0275\u0275template(1, ProductDetailComponent_div_1_Template, 5, 0, "div", 1)(2, ProductDetailComponent_div_2_Template, 176, 90, "div", 2);
-        \u0275\u0275element(3, "app-footer");
+        \u0275\u0275elementStart(1, "ion-content");
+        \u0275\u0275template(2, ProductDetailComponent_div_2_Template, 5, 0, "div", 1)(3, ProductDetailComponent_div_3_Template, 176, 90, "div", 2);
+        \u0275\u0275elementEnd();
+        \u0275\u0275element(4, "app-footer");
       }
       if (rf & 2) {
-        \u0275\u0275advance();
+        \u0275\u0275advance(2);
         \u0275\u0275property("ngIf", ctx.isLoading());
         \u0275\u0275advance();
         \u0275\u0275property("ngIf", ctx.product && !ctx.isLoading());
       }
-    }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterLink, FormsModule, DefaultValueAccessor, CheckboxControlValueAccessor, NgControlStatus, NgModel, HeaderComponent, FooterComponent, ProductCardComponent], styles: ['\n\n.page-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_pageEnter 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_pageEnter {\n  from {\n    opacity: 0;\n    transform: translateY(16px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.breadcrumb[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 20px 0;\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  flex-wrap: wrap;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.breadcrumb[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  font-weight: 500;\n}\n.detail-layout[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding-bottom: 32px;\n}\n.detail-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.detail-sidebar[_ngcontent-%COMP%] {\n  width: 360px;\n  flex-shrink: 0;\n}\n.stats-strip[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  padding: 20px 32px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.stat-pill[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.pill-label[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n.pill-value[_ngcontent-%COMP%] {\n  font-size: 1.15rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n}\n.pill-rating[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pill-rating[_ngcontent-%COMP%]   .stars[_ngcontent-%COMP%] {\n  color: #F59E0B;\n  font-size: 1rem;\n}\n.pill-rating[_ngcontent-%COMP%]   .rating-val[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.15rem;\n}\n.stat-divider[_ngcontent-%COMP%] {\n  width: 1px;\n  height: 32px;\n  background: var(--pm-border-light);\n  margin: 0 24px;\n}\n.main-content-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 40px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.content-section[_ngcontent-%COMP%] {\n  margin-bottom: 40px;\n}\n.content-section[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 0;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 900;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.section-subtitle[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n}\n.section-text[_ngcontent-%COMP%] {\n  font-size: 1.05rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n}\n.tabs-layout[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  display: flex;\n  gap: 0;\n  align-items: flex-start;\n}\n.tabs-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.preview-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 24px;\n}\n.preview-image[_ngcontent-%COMP%] {\n  height: 360px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  position: relative;\n}\n.maximize-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  background: rgba(0, 0, 0, 0.5);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background var(--pm-transition-fast);\n  backdrop-filter: blur(4px);\n}\n.maximize-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.lightbox-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.9);\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.lightbox-content[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 90vw;\n  max-height: 90vh;\n}\n.lightbox-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 100%;\n  max-height: 90vh;\n  object-fit: contain;\n  border-radius: 8px;\n}\n.lightbox-close[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -40px;\n  right: 0px;\n  background: none;\n  border: none;\n  color: white;\n  font-size: 2rem;\n  cursor: pointer;\n}\n.video-container[_ngcontent-%COMP%] {\n  position: relative;\n  padding-bottom: 56.25%;\n  height: 0;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-sm);\n}\n.video-container[_ngcontent-%COMP%]   iframe[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.preview-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));\n}\n.preview-title[_ngcontent-%COMP%] {\n  color: white;\n  font-size: 1.1rem;\n  font-weight: 600;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 6px 20px;\n  border-radius: var(--pm-radius-full);\n  backdrop-filter: blur(4px);\n}\n.preview-thumbnails[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  padding: 12px;\n}\n.thumb-item[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  cursor: pointer;\n  border: 2px solid transparent;\n  transition: all var(--pm-transition-fast);\n}\n.thumb-item.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n}\n.thumb-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.8;\n}\n.pm-gallery-strip[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  padding: 16px;\n  overflow-x: auto;\n  scrollbar-width: thin;\n  scrollbar-color: var(--pm-border) transparent;\n  scroll-behavior: smooth;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: var(--pm-border);\n  border-radius: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n  flex: 0 0 80px;\n  height: 60px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-hub[_ngcontent-%COMP%] {\n  padding: 0 16px 16px;\n}\n.demo-links-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.demo-link-card[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px;\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  text-decoration: none;\n  transition: all 0.2s;\n}\n.demo-link-card[_ngcontent-%COMP%]:hover {\n  background: white;\n  border-color: var(--ion-color-primary);\n  transform: translateY(-2px);\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  background-size: cover;\n  background-position: center;\n  flex-shrink: 0;\n}\n.demo-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.demo-label[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 700;\n  font-size: 0.85rem;\n  color: var(--pm-text-primary);\n}\n.demo-action[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--ion-color-primary);\n  font-weight: 500;\n}\n.detail-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  margin-bottom: 24px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-md);\n  padding: 4px;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 12px 16px;\n  border: none;\n  background: transparent;\n  font-family: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.desc-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  margin: 24px 0 12px;\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  margin-top: 0;\n}\n.desc-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n}\n.features-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 10px;\n}\n.feature-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.tags-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tech-tag[_ngcontent-%COMP%], \n.compat-tag[_ngcontent-%COMP%] {\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  font-weight: 500;\n}\n.tech-tag[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.08);\n  color: #6366F1;\n}\n.compat-tag[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.08);\n  color: #059669;\n}\n.reviews-summary[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding: 24px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n}\n.rating-big[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 16px 32px;\n}\n.rating-number[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  display: block;\n}\n.rating-stars[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  color: #F59E0B;\n  margin: 4px 0;\n  display: flex;\n  gap: 2px;\n  justify-content: center;\n}\n.rating-total[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.rating-bars[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  justify-content: center;\n}\n.bar-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.bar-label[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 24px;\n}\n.bar-track[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 8px;\n  background: var(--pm-surface-muted);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.bar-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: #F59E0B;\n  border-radius: 4px;\n  transition: width 0.5s ease;\n}\n.bar-count[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 32px;\n  text-align: right;\n}\n.write-review[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.write-review[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\ntextarea.filter-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n}\n.purchase-notice[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  background: rgba(99, 102, 241, 0.06);\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 20px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.empty-reviews[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n}\n.comment-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 10px;\n}\n.review-user[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.review-avatar[_ngcontent-%COMP%] {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 0.8rem;\n}\n.review-user[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n}\n.verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n  font-weight: 500;\n}\n.review-meta[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.review-stars[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1px;\n  justify-content: flex-end;\n}\n.review-date[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.review-comment[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n  margin: 0 0 8px;\n}\n.purchase-card[_ngcontent-%COMP%], \n.author-card[_ngcontent-%COMP%], \n.tags-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 16px;\n}\n.price-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  margin-bottom: 16px;\n  flex-wrap: wrap;\n}\n.license-select[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.license-option[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-option.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-option[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-option[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.license-option[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-option[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.license-price[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.reskin-option[_ngcontent-%COMP%] {\n  margin-bottom: 4px;\n}\n.reskin-check[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  background:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.04),\n      rgba(168, 85, 247, 0.06));\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n}\n.reskin-check[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.reskin-check[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.reskin-check[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.pm-btn.added[_ngcontent-%COMP%] {\n  background: #10B981;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}\n.purchase-meta[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid var(--pm-border-light);\n}\n.meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  padding: 7px 0;\n  font-size: 0.8rem;\n}\n.meta-row[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.meta-row[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n}\n.author-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.author-av[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.author-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.9rem;\n}\n.author-verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n}\n.author-bio[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n  margin: 0 0 16px;\n}\n.author-stats[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  padding: 12px 0;\n  border-top: 1px solid var(--pm-border-light);\n  border-bottom: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.author-stats[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  text-align: center;\n  flex: 1;\n}\n.author-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.author-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.author-badges[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.a-badge[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.7rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.tags-card[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  font-size: 0.9rem;\n}\n.tags-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tag-link[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.tag-link[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.08);\n  color: var(--ion-color-primary);\n}\n.related-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 24px;\n}\n@media (max-width: 1024px) {\n  .detail-layout[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .detail-sidebar[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media (max-width: 768px) {\n  .features-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .reviews-summary[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .stats-strip[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    padding: 16px;\n  }\n  .stat-divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .stat-pill[_ngcontent-%COMP%] {\n    text-align: center;\n  }\n  .preview-image[_ngcontent-%COMP%] {\n    height: 240px;\n  }\n  .main-content-card[_ngcontent-%COMP%] {\n    padding: 24px;\n  }\n  .section-title[_ngcontent-%COMP%] {\n    font-size: 1.3rem;\n  }\n  .detail-tabs[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    flex-wrap: nowrap;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    white-space: nowrap;\n    min-width: max-content;\n    padding: 10px 14px;\n    font-size: 0.8rem;\n  }\n  .breadcrumb[_ngcontent-%COMP%] {\n    font-size: 0.75rem;\n    padding: 12px 0;\n  }\n  .desc-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .review-card[_ngcontent-%COMP%], \n   .comment-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .purchase-card[_ngcontent-%COMP%], \n   .author-card[_ngcontent-%COMP%], \n   .tags-card[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n    flex: 0 0 64px;\n    height: 48px;\n  }\n  .demo-links-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.deploy-guide-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  overflow: hidden;\n}\n.dg-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 32px;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.dg-header[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.02);\n}\n.dg-title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.dg-icon[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n}\n.dg-toggle[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.dg-body[_ngcontent-%COMP%] {\n  border-top: 1px solid var(--pm-border-light);\n  padding: 24px 32px;\n  max-height: 500px;\n  overflow-y: auto;\n}\n.dg-content[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 0.88rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n}\n.ai-studio-trigger[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #EC4899);\n  color: white !important;\n  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.ai-studio-trigger[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px) scale(1.02);\n  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);\n}\n.ai-glow[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  width: 200%;\n  height: 200%;\n  background:\n    radial-gradient(\n      circle,\n      rgba(255, 255, 255, 0.2) 0%,\n      transparent 70%);\n  animation: _ngcontent-%COMP%_ais-glow-rotate 4s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-glow-rotate {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ai-studio-workspace[_ngcontent-%COMP%] {\n  position: fixed;\n  inset: 0;\n  z-index: 10000;\n  display: flex;\n  justify-content: flex-end;\n  visibility: hidden;\n  transition: visibility 0s 0.4s;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%] {\n  visibility: visible;\n  transition: visibility 0s 0s;\n}\n.ais-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.6);\n  backdrop-filter: blur(4px);\n  opacity: 0;\n  transition: opacity 0.4s ease;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-overlay[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-panel[_ngcontent-%COMP%] {\n  position: relative;\n  width: 100%;\n  max-width: 600px;\n  height: 100%;\n  background: #09090B;\n  color: white;\n  transform: translateX(100%);\n  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  border-left: 1px solid rgba(255, 255, 255, 0.1);\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-panel[_ngcontent-%COMP%] {\n  transform: translateX(0);\n}\n.ais-glow-top[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -100px;\n  right: -100px;\n  width: 400px;\n  height: 400px;\n  background: rgba(168, 85, 247, 0.15);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-glow-bottom[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -100px;\n  left: -100px;\n  width: 300px;\n  height: 300px;\n  background: rgba(59, 130, 246, 0.1);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: 32px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.05);\n  background: rgba(9, 9, 11, 0.5);\n  backdrop-filter: blur(10px);\n  z-index: 10;\n}\n.ais-title-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.ais-icon-box[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);\n}\n.ais-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: white;\n  letter-spacing: -0.5px;\n}\n.ais-subtitle[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #71717A;\n  letter-spacing: 1.5px;\n}\n.ais-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-size: 2rem;\n  cursor: pointer;\n  transition: color 0.2s;\n}\n.ais-close[_ngcontent-%COMP%]:hover {\n  color: white;\n}\n.ais-content[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: 40px 32px;\n  z-index: 5;\n}\n.ais-state-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_ais-fade-up 0.5s ease-out;\n}\n@keyframes _ngcontent-%COMP%_ais-fade-up {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.ais-heading[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 800;\n  margin-bottom: 12px;\n  color: white;\n}\n.ais-text[_ngcontent-%COMP%] {\n  color: #A1A1AA;\n  font-size: 1rem;\n  line-height: 1.6;\n  margin-bottom: 32px;\n}\n.ais-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 160px;\n  background: #18181B;\n  border: 1px solid #27272A;\n  border-radius: 16px;\n  padding: 20px;\n  color: white;\n  font-family: inherit;\n  font-size: 1rem;\n  resize: none;\n  transition: all 0.3s;\n}\n.ais-textarea[_ngcontent-%COMP%]:focus {\n  outline: none;\n  border-color: #A855F7;\n  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);\n}\n.ais-input-group[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: 32px;\n}\n.ais-input-meta[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 16px;\n  right: 16px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.ais-status-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: #A855F7;\n  animation: _ngcontent-%COMP%_ais-pulse 2s infinite;\n}\n.ais-status-label[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #52525B;\n  font-family: monospace;\n}\n@keyframes _ngcontent-%COMP%_ais-pulse {\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.ais-schema-view[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.ais-schema-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.ais-schema-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 11px;\n  font-weight: 700;\n  color: #52525B;\n  letter-spacing: 0.5px;\n}\n.ais-schema-tag[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.05);\n  padding: 2px 8px;\n  border-radius: 4px;\n}\n.ais-code[_ngcontent-%COMP%] {\n  background: #18181B;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n  border-radius: 12px;\n  padding: 20px;\n  color: #3B82F6;\n  font-family: monospace;\n  font-size: 0.85rem;\n  overflow-x: auto;\n  margin: 0;\n}\n.ais-btn-build[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 20px;\n  border-radius: 16px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  color: white;\n  font-weight: 800;\n  font-size: 1.1rem;\n  border: none;\n  cursor: pointer;\n  transition: all 0.3s;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);\n}\n.ais-btn-build[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);\n}\n.ais-btn-build[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-pipeline-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 48px;\n}\n.ais-loader-ring[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 64px;\n  border: 4px solid rgba(168, 85, 247, 0.1);\n  border-top-color: #A855F7;\n  border-radius: 50%;\n  margin: 0 auto 24px;\n  animation: _ngcontent-%COMP%_ais-spin 1s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 32px;\n  max-width: 320px;\n  margin: 0 auto 48px;\n  position: relative;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 24px;\n  top: 10px;\n  bottom: 10px;\n  width: 1px;\n  background: #27272A;\n}\n.ais-step[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 24px;\n  opacity: 0.4;\n  transition: all 0.4s;\n}\n.ais-step.active[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step.done[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step-icon[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: #18181B;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  z-index: 2;\n  border: 1px solid #27272A;\n}\n.ais-step.active[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #A855F7;\n  color: white;\n  border-color: transparent;\n  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);\n}\n.ais-step.done[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #10B981;\n  color: white;\n  border-color: transparent;\n  font-size: 1rem;\n}\n.ais-step-info[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.1rem;\n  margin-bottom: 2px;\n}\n.ais-step-info[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 20px;\n  background: rgba(255, 255, 255, 0.03);\n  border-radius: 12px;\n  font-size: 0.85rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: white;\n  font-weight: 700;\n}\n.ais-success[_ngcontent-%COMP%] {\n  text-align: center;\n  padding-top: 20px;\n}\n.ais-success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  border-radius: 24px;\n  background: rgba(16, 185, 129, 0.1);\n  border: 1px solid rgba(16, 185, 129, 0.2);\n  color: #10B981;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 2.5rem;\n  margin: 0 auto 32px;\n  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);\n}\n.ais-actions[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-bottom: 32px;\n}\n.ais-btn-download[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: white;\n  color: black;\n  font-weight: 800;\n  font-size: 1.1rem;\n  text-decoration: none;\n  display: block;\n  transition: all 0.2s;\n}\n.ais-btn-download[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px);\n  background: #F4F4F5;\n}\n.ais-btn-docs[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: #18181B;\n  color: white;\n  font-weight: 700;\n  border: 1px solid #27272A;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.ais-btn-docs[_ngcontent-%COMP%]:hover {\n  background: #27272A;\n}\n.ais-btn-reset[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-weight: 600;\n  font-size: 0.9rem;\n  cursor: pointer;\n  text-decoration: underline;\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: 32px;\n  border-top: 1px solid rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.ais-gpu-status[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #3F3F46;\n  font-family: monospace;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.ais-gpu-dot[_ngcontent-%COMP%] {\n  width: 4px;\n  height: 4px;\n  border-radius: 50%;\n  background: #10B981;\n  box-shadow: 0 0 6px #10B981;\n}\n.ais-brand[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #27272A;\n  letter-spacing: 1px;\n}\n/*# sourceMappingURL=product-detail.component.css.map */'] });
+    }, dependencies: [CommonModule, NgForOf, NgIf, DecimalPipe, DatePipe, RouterLink, FormsModule, DefaultValueAccessor, CheckboxControlValueAccessor, NgControlStatus, NgModel, IonContent, HeaderComponent, FooterComponent, ProductCardComponent], styles: ['\n\n.page-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_pageEnter 0.4s ease-out;\n}\n@keyframes _ngcontent-%COMP%_pageEnter {\n  from {\n    opacity: 0;\n    transform: translateY(16px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.breadcrumb[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 20px 0;\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n  flex-wrap: wrap;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n}\n.breadcrumb[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: var(--ion-color-primary);\n}\n.breadcrumb[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n  font-weight: 500;\n}\n.detail-layout[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding-bottom: 32px;\n}\n.detail-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.detail-sidebar[_ngcontent-%COMP%] {\n  width: 360px;\n  flex-shrink: 0;\n}\n.stats-strip[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-md);\n  padding: 20px 32px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.stat-pill[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.pill-label[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n.pill-value[_ngcontent-%COMP%] {\n  font-size: 1.15rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n}\n.pill-rating[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.pill-rating[_ngcontent-%COMP%]   .stars[_ngcontent-%COMP%] {\n  color: #F59E0B;\n  font-size: 1rem;\n}\n.pill-rating[_ngcontent-%COMP%]   .rating-val[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1.15rem;\n}\n.stat-divider[_ngcontent-%COMP%] {\n  width: 1px;\n  height: 32px;\n  background: var(--pm-border-light);\n  margin: 0 24px;\n}\n.main-content-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 40px;\n  margin-bottom: 24px;\n  border: 1px solid var(--pm-border-light);\n}\n.content-section[_ngcontent-%COMP%] {\n  margin-bottom: 40px;\n}\n.content-section[_ngcontent-%COMP%]:last-child {\n  margin-bottom: 0;\n}\n.section-title[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 900;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n  letter-spacing: -0.02em;\n}\n.section-subtitle[_ngcontent-%COMP%] {\n  font-size: 1.25rem;\n  font-weight: 800;\n  margin-bottom: 16px;\n  color: var(--pm-text-primary);\n}\n.section-text[_ngcontent-%COMP%] {\n  font-size: 1.05rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n}\n.tabs-layout[_ngcontent-%COMP%] {\n  margin-top: 40px;\n  display: flex;\n  gap: 0;\n  align-items: flex-start;\n}\n.tabs-main[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.preview-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 24px;\n}\n.preview-image[_ngcontent-%COMP%] {\n  height: 360px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  position: relative;\n}\n.maximize-btn[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 16px;\n  right: 16px;\n  background: rgba(0, 0, 0, 0.5);\n  border: none;\n  border-radius: 8px;\n  color: white;\n  padding: 8px;\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: background var(--pm-transition-fast);\n  backdrop-filter: blur(4px);\n}\n.maximize-btn[_ngcontent-%COMP%]:hover {\n  background: rgba(0, 0, 0, 0.8);\n}\n.lightbox-overlay[_ngcontent-%COMP%] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.9);\n  z-index: 9999;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.lightbox-content[_ngcontent-%COMP%] {\n  position: relative;\n  max-width: 90vw;\n  max-height: 90vh;\n}\n.lightbox-content[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n  max-width: 100%;\n  max-height: 90vh;\n  object-fit: contain;\n  border-radius: 8px;\n}\n.lightbox-close[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -40px;\n  right: 0px;\n  background: none;\n  border: none;\n  color: white;\n  font-size: 2rem;\n  cursor: pointer;\n}\n.video-container[_ngcontent-%COMP%] {\n  position: relative;\n  padding-bottom: 56.25%;\n  height: 0;\n  border-radius: var(--pm-radius-lg);\n  overflow: hidden;\n  box-shadow: var(--pm-shadow-sm);\n}\n.video-container[_ngcontent-%COMP%]   iframe[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.preview-icon[_ngcontent-%COMP%] {\n  font-size: 4rem;\n  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));\n}\n.preview-title[_ngcontent-%COMP%] {\n  color: white;\n  font-size: 1.1rem;\n  font-weight: 600;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 6px 20px;\n  border-radius: var(--pm-radius-full);\n  backdrop-filter: blur(4px);\n}\n.preview-thumbnails[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 8px;\n  padding: 12px;\n}\n.thumb-item[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  cursor: pointer;\n  border: 2px solid transparent;\n  transition: all var(--pm-transition-fast);\n}\n.thumb-item.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n}\n.thumb-item[_ngcontent-%COMP%]:hover {\n  opacity: 0.8;\n}\n.pm-gallery-strip[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 12px;\n  padding: 16px;\n  overflow-x: auto;\n  scrollbar-width: thin;\n  scrollbar-color: var(--pm-border) transparent;\n  scroll-behavior: smooth;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar {\n  height: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  background: var(--pm-border);\n  border-radius: 4px;\n}\n.pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n  flex: 0 0 80px;\n  height: 60px;\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-hub[_ngcontent-%COMP%] {\n  padding: 0 16px 16px;\n}\n.demo-links-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 12px;\n}\n.demo-link-card[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px;\n  background: var(--pm-surface-muted);\n  border: 1px solid var(--pm-border-light);\n  border-radius: var(--pm-radius-md);\n  text-decoration: none;\n  transition: all 0.2s;\n}\n.demo-link-card[_ngcontent-%COMP%]:hover {\n  background: white;\n  border-color: var(--ion-color-primary);\n  transform: translateY(-2px);\n  box-shadow: var(--pm-shadow-sm);\n}\n.demo-thumb[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: var(--pm-radius-sm);\n  background-size: cover;\n  background-position: center;\n  flex-shrink: 0;\n}\n.demo-info[_ngcontent-%COMP%] {\n  flex: 1;\n  min-width: 0;\n}\n.demo-label[_ngcontent-%COMP%] {\n  display: block;\n  font-weight: 700;\n  font-size: 0.85rem;\n  color: var(--pm-text-primary);\n}\n.demo-action[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--ion-color-primary);\n  font-weight: 500;\n}\n.detail-tabs[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 4px;\n  margin-bottom: 24px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-md);\n  padding: 4px;\n}\n.tab-btn[_ngcontent-%COMP%] {\n  flex: 1;\n  padding: 12px 16px;\n  border: none;\n  background: transparent;\n  font-family: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--pm-text-secondary);\n  cursor: pointer;\n  border-radius: var(--pm-radius-sm);\n  transition: all var(--pm-transition-fast);\n}\n.tab-btn.active[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  color: var(--ion-color-primary);\n  box-shadow: var(--pm-shadow-sm);\n}\n.desc-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 32px;\n  border: 1px solid var(--pm-border-light);\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%] {\n  font-size: 1.2rem;\n  margin: 24px 0 12px;\n}\n.desc-card[_ngcontent-%COMP%]   h2[_ngcontent-%COMP%]:first-child {\n  margin-top: 0;\n}\n.desc-card[_ngcontent-%COMP%]   p[_ngcontent-%COMP%] {\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n}\n.features-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 10px;\n}\n.feature-item[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  padding: 8px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-sm);\n}\n.tags-row[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tech-tag[_ngcontent-%COMP%], \n.compat-tag[_ngcontent-%COMP%] {\n  padding: 6px 14px;\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  font-weight: 500;\n}\n.tech-tag[_ngcontent-%COMP%] {\n  background: rgba(99, 102, 241, 0.08);\n  color: #6366F1;\n}\n.compat-tag[_ngcontent-%COMP%] {\n  background: rgba(16, 185, 129, 0.08);\n  color: #059669;\n}\n.reviews-summary[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 32px;\n  padding: 24px;\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n}\n.rating-big[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 16px 32px;\n}\n.rating-number[_ngcontent-%COMP%] {\n  font-size: 3rem;\n  font-weight: 800;\n  color: var(--pm-text-primary);\n  display: block;\n}\n.rating-stars[_ngcontent-%COMP%] {\n  font-size: 1.1rem;\n  color: #F59E0B;\n  margin: 4px 0;\n  display: flex;\n  gap: 2px;\n  justify-content: center;\n}\n.rating-total[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-muted);\n}\n.rating-bars[_ngcontent-%COMP%] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  justify-content: center;\n}\n.bar-row[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.bar-label[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 24px;\n}\n.bar-track[_ngcontent-%COMP%] {\n  flex: 1;\n  height: 8px;\n  background: var(--pm-surface-muted);\n  border-radius: 4px;\n  overflow: hidden;\n}\n.bar-fill[_ngcontent-%COMP%] {\n  height: 100%;\n  background: #F59E0B;\n  border-radius: 4px;\n  transition: width 0.5s ease;\n}\n.bar-count[_ngcontent-%COMP%] {\n  font-size: 0.78rem;\n  color: var(--pm-text-muted);\n  width: 32px;\n  text-align: right;\n}\n.write-review[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n.write-review[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1rem;\n}\ntextarea.filter-input[_ngcontent-%COMP%] {\n  resize: vertical;\n  min-height: 80px;\n}\n.purchase-notice[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  padding: 14px 20px;\n  background: rgba(99, 102, 241, 0.06);\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  margin-bottom: 20px;\n  font-size: 0.85rem;\n  color: var(--pm-text-secondary);\n}\n.empty-reviews[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 40px 20px;\n  color: var(--pm-text-muted);\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n}\n.comment-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  padding: 20px;\n  border-radius: var(--pm-radius-md);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.review-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  margin-bottom: 10px;\n}\n.review-user[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n.review-avatar[_ngcontent-%COMP%] {\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 0.8rem;\n}\n.review-user[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.875rem;\n}\n.verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n  font-weight: 500;\n}\n.review-meta[_ngcontent-%COMP%] {\n  text-align: right;\n}\n.review-stars[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 1px;\n  justify-content: flex-end;\n}\n.review-date[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.review-comment[_ngcontent-%COMP%] {\n  font-size: 0.875rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.6;\n  margin: 0 0 8px;\n}\n.purchase-card[_ngcontent-%COMP%], \n.author-card[_ngcontent-%COMP%], \n.tags-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  padding: 24px;\n  border: 1px solid var(--pm-border-light);\n  box-shadow: var(--pm-shadow-card);\n  margin-bottom: 16px;\n}\n.price-section[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  margin-bottom: 16px;\n  flex-wrap: wrap;\n}\n.license-select[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  margin-bottom: 12px;\n}\n.license-option[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  border: 2px solid var(--pm-border);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n  transition: all var(--pm-transition-fast);\n}\n.license-option.active[_ngcontent-%COMP%] {\n  border-color: var(--ion-color-primary);\n  background: rgba(99, 102, 241, 0.03);\n}\n.license-option[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.license-option[_ngcontent-%COMP%]   div[_ngcontent-%COMP%] {\n  flex: 1;\n}\n.license-option[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.license-option[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.license-price[_ngcontent-%COMP%] {\n  font-weight: 800;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.reskin-option[_ngcontent-%COMP%] {\n  margin-bottom: 4px;\n}\n.reskin-check[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 12px 16px;\n  background:\n    linear-gradient(\n      135deg,\n      rgba(99, 102, 241, 0.04),\n      rgba(168, 85, 247, 0.06));\n  border: 1px solid rgba(99, 102, 241, 0.15);\n  border-radius: var(--pm-radius-md);\n  cursor: pointer;\n}\n.reskin-check[_ngcontent-%COMP%]   input[_ngcontent-%COMP%] {\n  accent-color: var(--ion-color-primary);\n}\n.reskin-check[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.85rem;\n}\n.reskin-check[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.75rem;\n  color: var(--pm-text-muted);\n}\n.pm-btn.added[_ngcontent-%COMP%] {\n  background: #10B981;\n  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);\n}\n.purchase-meta[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  padding-top: 20px;\n  border-top: 1px solid var(--pm-border-light);\n}\n.meta-row[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  padding: 7px 0;\n  font-size: 0.8rem;\n}\n.meta-row[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: var(--pm-text-muted);\n}\n.meta-row[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  color: var(--pm-text-primary);\n}\n.author-header[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  margin-bottom: 12px;\n}\n.author-av[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.author-header[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 0.9rem;\n}\n.author-verified[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: #10B981;\n}\n.author-bio[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: var(--pm-text-secondary);\n  line-height: 1.5;\n  margin: 0 0 16px;\n}\n.author-stats[_ngcontent-%COMP%] {\n  display: flex;\n  gap: 16px;\n  padding: 12px 0;\n  border-top: 1px solid var(--pm-border-light);\n  border-bottom: 1px solid var(--pm-border-light);\n  margin-bottom: 12px;\n}\n.author-stats[_ngcontent-%COMP%]    > div[_ngcontent-%COMP%] {\n  text-align: center;\n  flex: 1;\n}\n.author-stats[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1rem;\n  color: var(--pm-text-primary);\n}\n.author-stats[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.7rem;\n  color: var(--pm-text-muted);\n}\n.author-badges[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.a-badge[_ngcontent-%COMP%] {\n  padding: 4px 10px;\n  background: rgba(99, 102, 241, 0.08);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.7rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.tags-card[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n  margin: 0 0 12px;\n  font-size: 0.9rem;\n}\n.tags-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 6px;\n}\n.tag-link[_ngcontent-%COMP%] {\n  padding: 4px 12px;\n  background: var(--pm-surface-muted);\n  border-radius: var(--pm-radius-full);\n  font-size: 0.78rem;\n  color: var(--pm-text-secondary);\n  text-decoration: none;\n  transition: all var(--pm-transition-fast);\n}\n.tag-link[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.08);\n  color: var(--ion-color-primary);\n}\n.related-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 24px;\n}\n@media (max-width: 1024px) {\n  .detail-layout[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .detail-sidebar[_ngcontent-%COMP%] {\n    width: 100%;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n@media (max-width: 768px) {\n  .features-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .reviews-summary[_ngcontent-%COMP%] {\n    flex-direction: column;\n  }\n  .related-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n  .stats-strip[_ngcontent-%COMP%] {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 12px;\n    padding: 16px;\n  }\n  .stat-divider[_ngcontent-%COMP%] {\n    display: none;\n  }\n  .stat-pill[_ngcontent-%COMP%] {\n    text-align: center;\n  }\n  .preview-image[_ngcontent-%COMP%] {\n    height: 240px;\n  }\n  .main-content-card[_ngcontent-%COMP%] {\n    padding: 24px;\n  }\n  .section-title[_ngcontent-%COMP%] {\n    font-size: 1.3rem;\n  }\n  .detail-tabs[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    flex-wrap: nowrap;\n  }\n  .tab-btn[_ngcontent-%COMP%] {\n    white-space: nowrap;\n    min-width: max-content;\n    padding: 10px 14px;\n    font-size: 0.8rem;\n  }\n  .breadcrumb[_ngcontent-%COMP%] {\n    font-size: 0.75rem;\n    padding: 12px 0;\n  }\n  .desc-card[_ngcontent-%COMP%] {\n    padding: 20px;\n  }\n  .review-card[_ngcontent-%COMP%], \n   .comment-card[_ngcontent-%COMP%] {\n    padding: 14px;\n  }\n  .purchase-card[_ngcontent-%COMP%], \n   .author-card[_ngcontent-%COMP%], \n   .tags-card[_ngcontent-%COMP%] {\n    padding: 18px;\n  }\n  .pm-gallery-strip[_ngcontent-%COMP%]   .thumb-item[_ngcontent-%COMP%] {\n    flex: 0 0 64px;\n    height: 48px;\n  }\n  .demo-links-grid[_ngcontent-%COMP%] {\n    grid-template-columns: 1fr;\n  }\n}\n.deploy-guide-card[_ngcontent-%COMP%] {\n  background: var(--pm-surface);\n  border-radius: var(--pm-radius-lg);\n  border: 1px solid var(--pm-border-light);\n  margin-bottom: 24px;\n  overflow: hidden;\n}\n.dg-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 20px 32px;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.dg-header[_ngcontent-%COMP%]:hover {\n  background: rgba(99, 102, 241, 0.02);\n}\n.dg-title[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.dg-icon[_ngcontent-%COMP%] {\n  font-size: 1.5rem;\n}\n.dg-toggle[_ngcontent-%COMP%] {\n  font-size: 0.82rem;\n  font-weight: 600;\n  color: var(--ion-color-primary);\n}\n.dg-body[_ngcontent-%COMP%] {\n  border-top: 1px solid var(--pm-border-light);\n  padding: 24px 32px;\n  max-height: 500px;\n  overflow-y: auto;\n}\n.dg-content[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 0.88rem;\n  line-height: 1.8;\n  color: var(--pm-text-secondary);\n  white-space: pre-wrap;\n  font-family: inherit;\n}\n.ai-studio-trigger[_ngcontent-%COMP%] {\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #EC4899);\n  color: white !important;\n  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\n}\n.ai-studio-trigger[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px) scale(1.02);\n  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);\n}\n.ai-glow[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -50%;\n  left: -50%;\n  width: 200%;\n  height: 200%;\n  background:\n    radial-gradient(\n      circle,\n      rgba(255, 255, 255, 0.2) 0%,\n      transparent 70%);\n  animation: _ngcontent-%COMP%_ais-glow-rotate 4s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-glow-rotate {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ai-studio-workspace[_ngcontent-%COMP%] {\n  position: fixed;\n  inset: 0;\n  z-index: 10000;\n  display: flex;\n  justify-content: flex-end;\n  visibility: hidden;\n  transition: visibility 0s 0.4s;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%] {\n  visibility: visible;\n  transition: visibility 0s 0s;\n}\n.ais-overlay[_ngcontent-%COMP%] {\n  position: absolute;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.6);\n  backdrop-filter: blur(4px);\n  opacity: 0;\n  transition: opacity 0.4s ease;\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-overlay[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-panel[_ngcontent-%COMP%] {\n  position: relative;\n  width: 100%;\n  max-width: 600px;\n  height: 100%;\n  background: #09090B;\n  color: white;\n  transform: translateX(100%);\n  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  border-left: 1px solid rgba(255, 255, 255, 0.1);\n}\n.ai-studio-workspace.active[_ngcontent-%COMP%]   .ais-panel[_ngcontent-%COMP%] {\n  transform: translateX(0);\n}\n.ais-glow-top[_ngcontent-%COMP%] {\n  position: absolute;\n  top: -100px;\n  right: -100px;\n  width: 400px;\n  height: 400px;\n  background: rgba(168, 85, 247, 0.15);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-glow-bottom[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: -100px;\n  left: -100px;\n  width: 300px;\n  height: 300px;\n  background: rgba(59, 130, 246, 0.1);\n  border-radius: 50%;\n  filter: blur(80px);\n  pointer-events: none;\n}\n.ais-header[_ngcontent-%COMP%] {\n  padding: 32px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.05);\n  background: rgba(9, 9, 11, 0.5);\n  backdrop-filter: blur(10px);\n  z-index: 10;\n}\n.ais-title-wrap[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n.ais-icon-box[_ngcontent-%COMP%] {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.5rem;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);\n}\n.ais-header[_ngcontent-%COMP%]   h3[_ngcontent-%COMP%] {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 800;\n  color: white;\n  letter-spacing: -0.5px;\n}\n.ais-subtitle[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #71717A;\n  letter-spacing: 1.5px;\n}\n.ais-close[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-size: 2rem;\n  cursor: pointer;\n  transition: color 0.2s;\n}\n.ais-close[_ngcontent-%COMP%]:hover {\n  color: white;\n}\n.ais-content[_ngcontent-%COMP%] {\n  flex: 1;\n  overflow-y: auto;\n  padding: 40px 32px;\n  z-index: 5;\n}\n.ais-state-enter[_ngcontent-%COMP%] {\n  animation: _ngcontent-%COMP%_ais-fade-up 0.5s ease-out;\n}\n@keyframes _ngcontent-%COMP%_ais-fade-up {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n.ais-heading[_ngcontent-%COMP%] {\n  font-size: 1.75rem;\n  font-weight: 800;\n  margin-bottom: 12px;\n  color: white;\n}\n.ais-text[_ngcontent-%COMP%] {\n  color: #A1A1AA;\n  font-size: 1rem;\n  line-height: 1.6;\n  margin-bottom: 32px;\n}\n.ais-textarea[_ngcontent-%COMP%] {\n  width: 100%;\n  min-height: 160px;\n  background: #18181B;\n  border: 1px solid #27272A;\n  border-radius: 16px;\n  padding: 20px;\n  color: white;\n  font-family: inherit;\n  font-size: 1rem;\n  resize: none;\n  transition: all 0.3s;\n}\n.ais-textarea[_ngcontent-%COMP%]:focus {\n  outline: none;\n  border-color: #A855F7;\n  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.1);\n}\n.ais-input-group[_ngcontent-%COMP%] {\n  position: relative;\n  margin-bottom: 32px;\n}\n.ais-input-meta[_ngcontent-%COMP%] {\n  position: absolute;\n  bottom: 16px;\n  right: 16px;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n.ais-status-dot[_ngcontent-%COMP%] {\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: #A855F7;\n  animation: _ngcontent-%COMP%_ais-pulse 2s infinite;\n}\n.ais-status-label[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #52525B;\n  font-family: monospace;\n}\n@keyframes _ngcontent-%COMP%_ais-pulse {\n  0% {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0.5;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.ais-schema-view[_ngcontent-%COMP%] {\n  margin-bottom: 32px;\n}\n.ais-schema-header[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n}\n.ais-schema-header[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 11px;\n  font-weight: 700;\n  color: #52525B;\n  letter-spacing: 0.5px;\n}\n.ais-schema-tag[_ngcontent-%COMP%] {\n  background: rgba(255, 255, 255, 0.05);\n  padding: 2px 8px;\n  border-radius: 4px;\n}\n.ais-code[_ngcontent-%COMP%] {\n  background: #18181B;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n  border-radius: 12px;\n  padding: 20px;\n  color: #3B82F6;\n  font-family: monospace;\n  font-size: 0.85rem;\n  overflow-x: auto;\n  margin: 0;\n}\n.ais-btn-build[_ngcontent-%COMP%] {\n  width: 100%;\n  padding: 20px;\n  border-radius: 16px;\n  background:\n    linear-gradient(\n      135deg,\n      #A855F7,\n      #3B82F6);\n  color: white;\n  font-weight: 800;\n  font-size: 1.1rem;\n  border: none;\n  cursor: pointer;\n  transition: all 0.3s;\n  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);\n}\n.ais-btn-build[_ngcontent-%COMP%]:hover:not(:disabled) {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);\n}\n.ais-btn-build[_ngcontent-%COMP%]:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n.ais-pipeline-header[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 48px;\n}\n.ais-loader-ring[_ngcontent-%COMP%] {\n  width: 64px;\n  height: 64px;\n  border: 4px solid rgba(168, 85, 247, 0.1);\n  border-top-color: #A855F7;\n  border-radius: 50%;\n  margin: 0 auto 24px;\n  animation: _ngcontent-%COMP%_ais-spin 1s linear infinite;\n}\n@keyframes _ngcontent-%COMP%_ais-spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.ais-stepper[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 32px;\n  max-width: 320px;\n  margin: 0 auto 48px;\n  position: relative;\n}\n.ais-stepper[_ngcontent-%COMP%]::before {\n  content: "";\n  position: absolute;\n  left: 24px;\n  top: 10px;\n  bottom: 10px;\n  width: 1px;\n  background: #27272A;\n}\n.ais-step[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  gap: 24px;\n  opacity: 0.4;\n  transition: all 0.4s;\n}\n.ais-step.active[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step.done[_ngcontent-%COMP%] {\n  opacity: 1;\n}\n.ais-step-icon[_ngcontent-%COMP%] {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: #18181B;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.25rem;\n  z-index: 2;\n  border: 1px solid #27272A;\n}\n.ais-step.active[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #A855F7;\n  color: white;\n  border-color: transparent;\n  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);\n}\n.ais-step.done[_ngcontent-%COMP%]   .ais-step-icon[_ngcontent-%COMP%] {\n  background: #10B981;\n  color: white;\n  border-color: transparent;\n  font-size: 1rem;\n}\n.ais-step-info[_ngcontent-%COMP%]   strong[_ngcontent-%COMP%] {\n  display: block;\n  font-size: 1.1rem;\n  margin-bottom: 2px;\n}\n.ais-step-info[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  font-size: 0.8rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%] {\n  text-align: center;\n  padding: 20px;\n  background: rgba(255, 255, 255, 0.03);\n  border-radius: 12px;\n  font-size: 0.85rem;\n  color: #71717A;\n}\n.ais-estimate[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n  color: white;\n  font-weight: 700;\n}\n.ais-success[_ngcontent-%COMP%] {\n  text-align: center;\n  padding-top: 20px;\n}\n.ais-success-icon[_ngcontent-%COMP%] {\n  width: 80px;\n  height: 80px;\n  border-radius: 24px;\n  background: rgba(16, 185, 129, 0.1);\n  border: 1px solid rgba(16, 185, 129, 0.2);\n  color: #10B981;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 2.5rem;\n  margin: 0 auto 32px;\n  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);\n}\n.ais-actions[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  margin-bottom: 32px;\n}\n.ais-btn-download[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: white;\n  color: black;\n  font-weight: 800;\n  font-size: 1.1rem;\n  text-decoration: none;\n  display: block;\n  transition: all 0.2s;\n}\n.ais-btn-download[_ngcontent-%COMP%]:hover {\n  transform: translateY(-2px);\n  background: #F4F4F5;\n}\n.ais-btn-docs[_ngcontent-%COMP%] {\n  padding: 20px;\n  border-radius: 16px;\n  background: #18181B;\n  color: white;\n  font-weight: 700;\n  border: 1px solid #27272A;\n  cursor: pointer;\n  transition: background 0.2s;\n}\n.ais-btn-docs[_ngcontent-%COMP%]:hover {\n  background: #27272A;\n}\n.ais-btn-reset[_ngcontent-%COMP%] {\n  background: none;\n  border: none;\n  color: #71717A;\n  font-weight: 600;\n  font-size: 0.9rem;\n  cursor: pointer;\n  text-decoration: underline;\n}\n.ais-footer[_ngcontent-%COMP%] {\n  padding: 32px;\n  border-top: 1px solid rgba(255, 255, 255, 0.05);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.ais-gpu-status[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #3F3F46;\n  font-family: monospace;\n  display: flex;\n  align-items: center;\n  gap: 6px;\n}\n.ais-gpu-dot[_ngcontent-%COMP%] {\n  width: 4px;\n  height: 4px;\n  border-radius: 50%;\n  background: #10B981;\n  box-shadow: 0 0 6px #10B981;\n}\n.ais-brand[_ngcontent-%COMP%] {\n  font-size: 10px;\n  font-weight: 700;\n  color: #27272A;\n  letter-spacing: 1px;\n}\n/*# sourceMappingURL=product-detail.component.css.map */'] });
   }
 };
 (() => {
-  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 1167 });
+  (typeof ngDevMode === "undefined" || ngDevMode) && \u0275setClassDebugInfo(ProductDetailComponent, { className: "ProductDetailComponent", filePath: "src\\app\\pages\\product-detail\\product-detail.component.ts", lineNumber: 1171 });
 })();
 export {
   ProductDetailComponent
 };
-//# sourceMappingURL=chunk-DWVYCQMN.js.map
+//# sourceMappingURL=chunk-UBWYI2EL.js.map

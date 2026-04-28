@@ -121,7 +121,7 @@ import { AuthService } from '../../services/auth.service';
           </div>
         </div>
       </div>
-    </div>
+    </ion-content>
 
     <app-footer></app-footer>
   `,

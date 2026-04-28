@@ -421,6 +421,7 @@ import { ModalController } from '@ionic/angular/standalone';
           <app-product-card *ngFor="let p of relatedProducts" [product]="p"></app-product-card>
         </div>
       </section>
+    </div>
     </ion-content>
 
     <app-footer></app-footer>
