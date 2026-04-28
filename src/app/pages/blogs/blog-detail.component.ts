@@ -5,11 +5,12 @@ import { IonContent } from '@ionic/angular/standalone';
 import { Firestore, doc, getDoc } from '@angular/fire/firestore';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { FirestoreDatePipe } from '../../pipes/firestore-date.pipe';
 
 @Component({
   selector: 'app-blog-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent, FirestoreDatePipe],
   template: `
     <app-header></app-header>
 
@@ -41,7 +42,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
         <article *ngIf="blog()" class="blog-content shadow-premium">
           <header class="blog-header">
             <div class="blog-meta">
-              <span>Published on {{ blog().createdAt?.toDate() | date:'longDate' }}</span>
+              <span>Published on {{ blog().createdAt | fsDate | date:'longDate' }}</span>
               <span class="meta-separator">•</span>
               <span>By {{ blog().author || 'selljustcode team' }}</span>
             </div>

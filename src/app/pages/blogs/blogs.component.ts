@@ -7,10 +7,12 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { Observable } from 'rxjs';
 
+import { FirestoreDatePipe } from '../../pipes/firestore-date.pipe';
+
 @Component({
   selector: 'app-blogs',
   standalone: true,
-  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, IonContent, HeaderComponent, FooterComponent, FirestoreDatePipe],
   template: `
     <app-header></app-header>
 
@@ -41,7 +43,7 @@ import { Observable } from 'rxjs';
           <article class="blog-card" *ngFor="let blog of blogs()">
             <div class="blog-card-content">
               <div class="blog-meta">
-                <span class="blog-date">{{ blog.createdAt?.toDate() | date:'mediumDate' }}</span>
+                <span class="blog-date">{{ blog.createdAt | fsDate | date:'mediumDate' }}</span>
               </div>
               <h2 class="blog-title">
                 <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
