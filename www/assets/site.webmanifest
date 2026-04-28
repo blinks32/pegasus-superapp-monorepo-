@@ -1,0 +1,19 @@
+{
+  "name": "selljustcode",
+  "short_name": "selljustcode",
+  "icons": [
+    {
+      "src": "/assets/icon/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icon/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#6366F1",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
